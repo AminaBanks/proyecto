@@ -1,99 +1,42 @@
-a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:27:"KissIT Image Thumbnailer BS";s:4:"link";s:38:"http://addons.oscommerce.com/info/9206";s:11:"description";s:2091:"KissIT Image Thumbnailer BS<br />
+a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:20:"Product Delete Delay";s:4:"link";s:38:"http://addons.oscommerce.com/info/9177";s:11:"description";s:561:"Bug fix for instruction 2f<br />
 <br />
-Updated version for OsC2.3.4 Bootstrap<br />
+The line that reads:<br />
 <br />
-Based on:<br />
-KissIT Image Thumbnailer by FWR-Media<br />
-http://addons.oscommerce.com/info/8492<br />
+						tep_db_query(&quot;insert into &quot; . TABLE_PRODUCTS_TO_CATEGORIES . &quot; (&quot; . (int)$key . &quot;, 0)&quot;); // move product to top category<br />
 <br />
-New features:<br />
-1. Optional configuration setting &ldquo;KissIT Disable image upsize&rdquo; which will avoid that images wich are smaller than the required thumbnail will be upsampled and show unsharp. White background will be added to reach the thumbnail size and the smaller image will be centered.<br />
-2. All main configuration settings are moved to Admin : Configuration : Images.<br />
-3. Modified tep_image function in includes/functions/html_output and Image_Helper class has been updated for 2.3.4 Bootstrap.<br />
-5. Database install and uninstall file added.<br />
-4. Rewritten and improved documentation.<br />
+SHOULD actually read:<br />
+<br />
+						tep_db_query(&quot;insert into &quot; . TABLE_PRODUCTS_TO_CATEGORIES . &quot; VALUES (&quot; . (int)$key . &quot;, 0)&quot;); // move product to top category<br />
 <br />
 <br />
-Original Description<br />
+Corrected install instructions attached but the correction above is the only change that was made.";s:7:"pubDate";s:31:"Tue, 03 Feb 2015 20:41:35 +0100";}i:1;a:4:{s:5:"title";s:18:"Easy Upload Module";s:4:"link";s:38:"http://addons.oscommerce.com/info/9207";s:11:"description";s:138:"New package with some rectifcations<br />
 <br />
-Compatibility:<br />
-PHP 5.2/5.3/5.4 ( PHP 4 or ancient versions of PHP5 will NOT work )<br />
+More information on :<br />
+http://forums.oscommerce.com/topic/399804-easy-upload-module/";s:7:"pubDate";s:31:"Tue, 03 Feb 2015 05:08:50 +0100";}i:2;a:4:{s:5:"title";s:10:"Get 1 Free";s:4:"link";s:38:"http://addons.oscommerce.com/info/4990";s:11:"description";s:503:"Get 1 Free v1.6BS<br />
 <br />
-osCommerce 2.3.4 BS+<br />
+BOOTSTRAP VERSION!<br />
 <br />
-Main Benefits:<br />
-Images should never be resized by the browser/html/javascript as this is EXTREMELY slow. Supplying the browser with correctly scaled images will speed up the loading of image rich osCommerce shops dramatically.<br />
+Various Bugs fixed and some code improvements. <br />
 <br />
-Being a KISS ( Keep It Simple Stupid ) contribution this installs extremely quickly and with minimal core file changes.<br />
+This version is &quot;not&quot; for the normal osC 2.3.4!<br />
+For the normal osC 2.3.4 version download the v1.6<br />
 <br />
-KissIT thumbnails any and all osCommerce images where the image dimensions are not equal to the image output dimensions.<br />
+All credits to Kymation for making this Addon in the first place.<br />
+And a special thanks to Roaddoctor for help testing and improving this Addon.<br />
+Support Topic: http://forums.oscommerce.com/topic/255288-get-1-free/<br />
 <br />
-PHP image manipulation functions are very heavy on resources, KissIT is optimised to only use such functions when thumbs are first created, after which no such functions are used again. Ensuring that KissIT provides the best possible performance.<br />
+FULL PACKAGE!";s:7:"pubDate";s:31:"Mon, 02 Feb 2015 16:19:26 +0100";}i:3;a:4:{s:5:"title";s:34:"Products Purchased with Date Range";s:4:"link";s:38:"http://addons.oscommerce.com/info/2568";s:11:"description";s:882:"If the added Payment Method logic creates problems for you, simply comment out lines 158-161 in the admin/stats_products_purchased.php file. This won't remove the &quot;Sort by payment method&quot; checkbox but it will render it useless.<br />
 <br />
-Please note: KissMT will only deal with images where the correct osCommerce wrapper function is used ( tep_image() ) and where numeric width and height are passed into the wrapper.<br />
+Please note that version 4.3 and 4.4 both assume you are doing a fresh install. Any comments in the documentation with regards to updating from a previous version do not apply. If you have a previous version, you need to replace both your admin/stats_products_purchased.php file and your admin/includes/languages/english/stats_products_purchased.php file. If you have made any custom changes to this program, you will need to make them in the new files.<br />
 <br />
-Support thread: http://forums.oscommerce.com/topic/388022-kissit-image-thumnailer/<br />
+This is a complete package for English language. However, please read the text for the previous version for complete details on changes that have been made in v4.4.";s:7:"pubDate";s:31:"Mon, 02 Feb 2015 07:11:21 +0100";}i:4;a:4:{s:5:"title";s:37:"OPI: Another OsC Product Image Module";s:4:"link";s:38:"http://addons.oscommerce.com/info/8139";s:11:"description";s:574:"New Feature: <br />
+ ------------<br />
+ - New mode &quot;prop&quot;, resizing like auto, keep required thumbnail size and proportion by adding white background.<br />
+ - New configuration constant (OPI_DISABLE_UPSIZE) If original image is smaller than required thumbnail, white background will be added to reach requested size and image will be centered.<br />
+ - Added store configuration support for developer: (includes/local/configure.php').<br />
+ - Instructions and file for OsC 2.3.4 added<br />
+ - 2.3.4 BS tested<br />
 <br />
-Full Package";s:7:"pubDate";s:31:"Sun, 01 Feb 2015 16:34:35 +0100";}i:1;a:4:{s:5:"title";s:12:"Scroll boxes";s:4:"link";s:38:"http://addons.oscommerce.com/info/8065";s:11:"description";s:2846:"ScrollBox v1.3 (bootstrap and non-bootstrap)<br />
+Full Package<br />
 <br />
-------------------------------------------------------------------------------<br />
-------------------------------------------------------------------------------<br />
-<br />
-Bootstrap version:<br />
-<br />
-This new bootstrap package uses bootstrap carousel for scrolling/fading effects, with a number of options to enable/disable other various features such as swipe.<br />
-Scrolling is now horizontal not vertical to be consistent with swipe left/right direction.<br />
-<br />
-Options include:<br />
--Display Mode: Static or Scrolling (In &quot;static&quot; mode, all scroll/swipe/navigation functions are disabled)<br />
--Scrolling Method: Scroll of Fade<br />
--Disable Auto Scroll: True/False (Swipe and navigation indicators will operate, if enabled)<br />
--Disable Swiping: True/False (Navigation indicators will still operate, if enabled)<br />
--Scroller Height: (When Scrolling is activated, if height is set too small it will automatically be adjusted to fit the largest scrolling item)<br />
--Scrolling Pause Time: (in secs)<br />
--Description Length: (Displays part of products description)<br />
--Display &quot;View&quot; details Button: True/False<br />
--Display Navigation Buttons: True/False (in destkop view)<br />
--Display Swipe Indicators: True/False (in smaller/medium/mobile device view)<br />
-<br />
-NOTE: These boxes will not over-write the standard (static) boxes, so optionally the original std boxes can still be used.<br />
-<br />
-Tested in osCommerce version 2.3.4 Gold/Bootstrap.<br />
-<br />
-Only 1 file to modify (minor addition to file); &quot;cataloguser.css&quot;<br />
-<br />
-(De Dokta's previous JS for BS version can still be used if you prefer vertical scrolling and without swipe and some other features listed above)<br />
-<br />
-------------------------------------------------------------------------------<br />
-<br />
-Normal/Non-Bootstrap version:<br />
-<br />
-This new non-bootstrap package removes the marquee scroller (and the big gap it created) and replaces it with jQuery scrollbox.<br />
-Updated code so that these boxes will not over-write the standard (static) boxes, so optionally the original std boxes can still be used.<br />
-<br />
-Tested in osCommerce versions 2.3.1 to 2.3.4 std versions.<br />
-<br />
-Only 1 file to modify (minor addition to file); &quot;catalogincludestemplate_top.php&quot;<br />
-<br />
-------------------------------------------------------------------------------<br />
-------------------------------------------------------------------------------<br />
-<br />
-Full package (for both non-bootstrap and bootstrap)<br />
-2 separate folders with instructions. (please use the correct one)<br />
-<br />
-Support thread:<br />
-http://forums.oscommerce.com/topic/399585-old-addon-do-not-fit-with-osc234bs/page-2";s:7:"pubDate";s:31:"Sun, 01 Feb 2015 11:31:56 +0100";}i:2;a:4:{s:5:"title";s:10:"Get 1 Free";s:4:"link";s:38:"http://addons.oscommerce.com/info/4990";s:11:"description";s:323:"Bugfix inside the admin/get_1_free.php file.<br />
- <br />
-Expire Date was not showing when editing product.<br />
-Line 85 was a duplicate and has been removed.<br />
-<br />
-Thanks to Roaddoctor for pointing them out.<br />
-If you have this already installed just replace the get_1_free.php file.<br />
-<br />
-FULL PACKAGE!";s:7:"pubDate";s:31:"Sun, 01 Feb 2015 07:31:51 +0100";}i:3;a:4:{s:5:"title";s:39:"Cancelllation Form for 2.3.4 and BS2334";s:4:"link";s:38:"http://addons.oscommerce.com/info/9136";s:11:"description";s:109:"Withdrawal form adapted for bootstrap-gold.<br />
-<br />
-Widerrufsformular angepasst f&uuml;r Bootstrap-Gold.";s:7:"pubDate";s:31:"Sat, 31 Jan 2015 14:50:32 +0100";}i:4;a:4:{s:5:"title";s:43:"Dark Background Oscommerce 2.3.3.4 Template";s:4:"link";s:38:"http://addons.oscommerce.com/info/8990";s:11:"description";s:111:"What's changed in V1.1?<br />
-<br />
-- Product listing text color change.<br />
-<br />
-This is the full package";s:7:"pubDate";s:31:"Sat, 31 Jan 2015 04:56:59 +0100";}}s:11:"items_count";i:5;}
+Full package";s:7:"pubDate";s:31:"Sun, 01 Feb 2015 16:47:11 +0100";}}s:11:"items_count";i:5;}

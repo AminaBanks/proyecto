@@ -16,7 +16,7 @@
 ?>
 
 <div class="modular-header" style="margin-left:100px; margin-right:100px;"> <!-- revisar-->
-  <div id="storeLogo" class="col-sm-2" style="margin-top:4%;">
+  <div id="storeLogo" class="col-sm-2" style="margin-top:4%; border: solid:1px;">
   <?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.png', STORE_NAME) . '</a>'; ?>
   <!--<a href="http://www.template.me.uk/2334bs3/index.php"><img src="images/store_logo.png" alt="osCommerce" title="osCommerce" class="img-responsive" height="50" width="200"></a></div>-->
   </div>
@@ -53,30 +53,20 @@
             
         });
     </script>		
-			<div id="sliderA" class="slider">
+			<div id="sliderA" class="slider" style="margin-top:2px;">
 				<img src="slider/images/image1.jpg" alt=""/>
 				<img src="slider/images/image2.jpg" alt=""/>
 				<img src="slider/images/image3.jpg" alt=""/>
 				<img src="slider/images/image4.jpg" alt=""/>
 				<img src="slider/images/image5.jpg" alt=""/>
-			
-
+			</div>
 </div>
-</div>
-<div class="col-sm-12" style= "height:50px;"> 
+	<div class="col-sm-12"> 
 
-  <ol class="searchbox-margin col-sm-6" style="margin-top:10px; margin-left:-15px;">
+		<!--<ol class="searchbox-margin col-sm-6" style="margin-top:10px; margin-left:-15px;">-->
   
-  <a <?php echo 'href="' . tep_href_link(FILENAME_DEFAULT) . '"'; ?> itemprop="url"><span itemprop="title"><?php echo  $breadcrumb->trail('&raquo;'); ?></span></a>
-</ol>
-    <div class="searchbox-margin"> 
-		<form name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
-	<div class="input-group">
-	<input name="keywords" required="" placeholder="Search" class="form-control" type="text"><span class="input-group-btn">
-	<button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
-	 </div>
-  </form>
-</div>
+		<!--<a --><?php //echo 'href="' . tep_href_link(FILENAME_DEFAULT) . '"'; ?> <!--itemprop="url"><span itemprop="title">--><?php echo  $breadcrumb->trail('&raquo;'); ?><!--</span></a>-->
+		<!--</ol> -->   
 </div>
 </div>
 
@@ -96,6 +86,7 @@
     <?php echo htmlspecialchars(stripslashes(urldecode($HTTP_GET_VARS['error_message']))); ?>
   </div>
 </div>
+	
 <?php
   }
 
@@ -104,7 +95,7 @@
 <div class="clearfix"></div>
 <div class="col-xs-12">
   <div class="alert alert-info">
-    <a href="#" class="close glyphicon glyphicon-remove" data-dismiss="alert"></a>
+    <a href="#" class="close glyphicon glyphicon-remove" data-dismiss="alert"></a>-->
     <?php echo htmlspecialchars(stripslashes(urldecode($HTTP_GET_VARS['info_message']))); ?>
   </div>
 </div>

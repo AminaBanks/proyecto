@@ -45,8 +45,8 @@
         **********************************************************/
         defaults: {
 			
-            width: 800,
-            height: 230,
+            width: 790,
+            height: 150,
             autoSize: true,
             touchNav: true,
             mouseNav: true,
@@ -134,9 +134,9 @@
             }
 
             // Add pager navigation
-            if (base.config.pagerNav)
+             if (base.config.pagerNav)
             {
-                base.$elem.append();
+                base.$elem.append("<ul class='" + base.config.pagerClass + "'>");
                 // Loop through each slide
                 $children.each(function () {
                     $("<li />").appendTo($("." + base.config.pagerClass, base.$elem))
@@ -149,6 +149,9 @@
                         });
                 });
             }
+            
+            
+            
 
             // Add data-attribute captions
             $children.each(function () {

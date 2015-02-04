@@ -58,22 +58,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
+      </button>     
+      
     </div>
     <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
           <li><a class="store-brand" <?php echo 'href="' . tep_href_link(FILENAME_DEFAULT) . '"'; ?>><i class="glyphicon glyphicon-home"></i><span class="hidden-sm"> &nbsp&nbsp<?php echo   HEADER_TITLE_HOME?></span></a></li> <!-- FALTA SABER EL NOMBRE DE HOME EN LA TABLA-->
-          	  
-		 </ul>		 
-        <ul class="nav navbar-nav navbar-right">
-        
-        <!--Mettre les icones des reseaux sociaux-->
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.png"/></a>
-        <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://www.fundacioproide.org/index.php?option=com_content&view=article&id=155&Itemid=111"><img src="images/social_bookmarks/"/></a>-->
-        
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-flag"></i><span class="hidden-sm"> <?php echo HEADER_LANG?></span> <span class="caret"></span></a>
+          	
+          	<!--el codigo de los idiomas -->          
+         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-flag"></i><span class="hidden-sm"> <?php echo HEADER_LANG?></span> <span class="caret"></span></a>
               <ul class="dropdown-menu">			   
                 <li class="text-center text-muted bg-primary"><abbr title="Selected Language"><?PHP echo HEADER_L; ?></abbr> <?php  echo $language ;?>
                 <li class="divider"></li>
@@ -81,10 +75,31 @@
 				<li><a href="http://localhost/osCommerce234/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
 				<li><a href="http://localhost/osCommerce234/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
 				<li><a href="http://localhost/osCommerce234/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>				
-			 </ul>
+			</ul>
+		</li> 
+		<li>
+			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_ACCOUNT, '', 'SSL').'"';?>><i class="glyphicon glyphicon-user"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo HEADER_TITLE_MY_ACCOUNT?></span></a></li>
+		</li>   
+		<li class="nav navbar-text"><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp <?php echo HEADER_TITLE_NAME_PRODUCTS?> </span> </li>  	  
+		 </ul>
+		 		 
+        <ul class="nav navbar-nav navbar-right">        
+        <!--Mettre les icones des reseaux sociaux qui foncionne maintenant apres avoir quitter les class="dropdown-toggle" data-toggle="dropdown"-->
+        <li class="nav navbar-nav navbar-collapse" style="margin-top:2%;"> <!--sytle="margin-top:5%;"-->
+			<form name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
+				<div class="input-group">
+					<input name="keywords" required="" placeholder="cercar per nom de producte" class="form-control" type="text"><span class="input-group-btn">
+					<button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
+				</div>
+			</form>
 		</li>
-          
-          <li class="nav navbar-text"><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp <?php echo HEADER_TITLE_NAME_PRODUCTS?> </span> </li>        </ul>
+		
+        <li><a href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a></li>
+        <li><a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.png"/></a></li>
+        <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://www.fundacioproide.org/index.php?option=com_content&view=article&id=155&Itemid=111"><img src="images/social_bookmarks/"/></a>-->
+               
+               
+       </ul>
       </div>
     </div>
   </div>
