@@ -83,23 +83,24 @@
 		<li class="nav navbar-text"><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp <?php echo HEADER_TITLE_NAME_PRODUCTS?> </span> </li>  	  
 		 </ul>
 		 		 
-        <ul class="nav navbar-nav navbar-right">        
-        <!--Mettre les icones des reseaux sociaux qui foncionne maintenant apres avoir quitter les class="dropdown-toggle" data-toggle="dropdown"-->
-        <li class="nav navbar-nav navbar-collapse" style="margin-top:2%;"> <!--sytle="margin-top:5%;"-->
-			<form name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
-				<div class="input-group">
-					<input name="keywords" required="" placeholder="cercar per nom de producte" class="form-control" type="text"><span class="input-group-btn">
-					<button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
-				</div>
-			</form>
-		</li>
-		
-        <li><a href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a></li>
-        <li><a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.png"/></a></li>
-        <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://www.fundacioproide.org/index.php?option=com_content&view=article&id=155&Itemid=111"><img src="images/social_bookmarks/"/></a>-->
-               
-               
-       </ul>
+        <ul> 
+ <li class="nav navbar-text navbar-right"><img src="images/social_bookmarks/facebook.png" href="http://www.facebook.com/fundacioproide"/></li>
+ <li class="nav navbar-text  navbar-right"><img src="images/social_bookmarks/youtube.png"href="https://www.youtube.com/user/CanalProide"/></li>
+ <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
+   <form  name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
+    <div class="input-group">
+     <input name="keywords"   placeholder="Search" class="form-control" type="text"><span class="input-group-btn">
+     <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
+    </div>
+   </form>
+ </li>
+  
+              
+        
+      </ul>
+        
+        
+        
       </div>
     </div>
   </div>
