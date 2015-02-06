@@ -261,6 +261,8 @@ define('TEXT_NO_NEW_PRODUCTS', 'Actualmente no hay productos.');
 // grid/list
 define('TEXT_SORT_BY', 'ordenar Per');
 
+define('SMALL_IMAGE_BUTTON_BUY', 'Compra');
+
 define('TEXT_UNKNOWN_TAX_RATE', 'Tasa de impuesto desconocido');
 
 define('TEXT_REQUIRED', '<span class="errorText">Obligatorio</span>');

@@ -264,6 +264,8 @@ define('PREVNEXT_BUTTON_LAST', 'FINAL&gt;&gt;');
 // grid/list
 define('TEXT_SORT_BY', 'Ordenar por ');
 
+define('SMALL_IMAGE_BUTTON_BUY', 'Compra');
+
 define('IMAGE_BUTTON_ADD_ADDRESS', 'Afegeix l\'adre&ccedil;a');
 define('IMAGE_BUTTON_ADDRESS_BOOK', 'Adreces');
 define('IMAGE_BUTTON_BACK', 'Endarrera');

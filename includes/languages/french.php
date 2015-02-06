@@ -260,6 +260,8 @@ define('TEXT_REQUIRED', '<span class="errorText">Requis</span>');
 // grid/list
 define('TEXT_SORT_BY', 'Trier Par');
 
+define('SMALL_IMAGE_BUTTON_BUY', 'Acheter');
+
 define('ERROR_TEP_MAIL', '<font face="Verdana, Arial" size="2" color="#ff0000"><strong><small>ERREUR :</small> Impossible d\'envoyer l\'email par le serveur SMTP spécifié. Vérifiez le fichier PHP.INI et corrigez le nom du serveur SMTP si nécessaire.</strong></font>');
 
 define('TEXT_CCVAL_ERROR_INVALID_DATE', 'La date d\'expiration entrée pour cette carte de crédit n\'est pas valide. Veuillez vérifier la date et réessayez.');
