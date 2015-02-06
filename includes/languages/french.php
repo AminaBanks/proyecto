@@ -249,7 +249,16 @@ define('TEXT_NO_NEW_PRODUCTS', 'Il n\'y a pour le moment aucun produit.');
 
 define('TEXT_UNKNOWN_TAX_RATE', 'Taux de taxation inconnu.');
 
+// category views
+define('TEXT_VIEW', 'Vue: ');
+define('TEXT_VIEW_LIST', ' Liste');
+define('TEXT_VIEW_GRID', ' Grille');
+
+
 define('TEXT_REQUIRED', '<span class="errorText">Requis</span>');
+
+// grid/list
+define('TEXT_SORT_BY', 'Trier Par');
 
 define('ERROR_TEP_MAIL', '<font face="Verdana, Arial" size="2" color="#ff0000"><strong><small>ERREUR :</small> Impossible d\'envoyer l\'email par le serveur SMTP spécifié. Vérifiez le fichier PHP.INI et corrigez le nom du serveur SMTP si nécessaire.</strong></font>');
 

@@ -248,12 +248,21 @@ define('PREVNEXT_TITLE_PREVIOUS_PAGE', 'Anterior');
 define('PREVNEXT_TITLE_NEXT_PAGE', 'Seg&uuml;ent');
 define('PREVNEXT_TITLE_LAST_PAGE', 'Final');
 define('PREVNEXT_TITLE_PAGE_NO', 'P&agrave;gina %d');
+
+define('TEXT_VIEW', 'Vista: ');
+define('TEXT_VIEW_LIST', ' Llista');
+define('TEXT_VIEW_GRID', ' Quadrícula');
+
 define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', '%d p&agrave;gines anteriors');
 define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', '%d p&agrave;gines seg&uuml;ents');
 define('PREVNEXT_BUTTON_FIRST', '&lt;&lt;INICI');
 define('PREVNEXT_BUTTON_PREV', '[&lt;&lt;&nbsp;Anterior]');
 define('PREVNEXT_BUTTON_NEXT', '[Seg&uuml;ent&nbsp;&gt;&gt;]');
 define('PREVNEXT_BUTTON_LAST', 'FINAL&gt;&gt;');
+
+
+// grid/list
+define('TEXT_SORT_BY', 'Ordenar por ');
 
 define('IMAGE_BUTTON_ADD_ADDRESS', 'Afegeix l\'adre&ccedil;a');
 define('IMAGE_BUTTON_ADDRESS_BOOK', 'Adreces');

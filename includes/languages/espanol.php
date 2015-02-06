@@ -250,7 +250,16 @@ define('TEXT_REVIEW_RATING', 'Valoraci&oacute;n: %s [%s]');
 define('TEXT_REVIEW_DATE_ADDED', 'Fecha de Alta: %s');
 define('TEXT_NO_REVIEWS', 'En este momento no hay ning&uacute;n comentario.');
 
+// category views
+define('TEXT_VIEW', 'Vista: ');
+define('TEXT_VIEW_LIST', ' Lista');
+define('TEXT_VIEW_GRID', 'Cuadricula');
+
+
 define('TEXT_NO_NEW_PRODUCTS', 'Actualmente no hay productos.');
+
+// grid/list
+define('TEXT_SORT_BY', 'ordenar Per');
 
 define('TEXT_UNKNOWN_TAX_RATE', 'Tasa de impuesto desconocido');
 

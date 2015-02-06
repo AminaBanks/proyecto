@@ -59,6 +59,10 @@
 				<img src="slider/images/image3.jpg" alt=""/>
 				<img src="slider/images/image4.jpg" alt=""/>
 				<img src="slider/images/image5.jpg" alt=""/>
+				<img src="slider/images/image6.jpg" alt=""/>
+				<img src="slider/images/image1_7.jpg" alt=""/>
+				<img src="slider/images/image1_8.jpg" alt=""/>
+				
 			</div>
 </div>
 	<div class="col-sm-12"> 
