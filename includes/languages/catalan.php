@@ -335,4 +335,14 @@ define('TEXT_CCVAL_ERROR_INVALID_NUMBER', 'El n&uacute;mero de la targeta de cr&
 define('TEXT_CCVAL_ERROR_UNKNOWN_CARD', 'Els quatre primers d&iacute;gits de la vostra targeta s&oacute;n: %s<br>Si aquest n&uacute;mero &eacute;s correcte, no acceptem aquest tipus de targetes.<br>En cas de ser incorrecte, torneu a intentar-ho, si us plau.');
 
 define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . STORE_NAME . '</a><br>E-Botiga gr&agrave;cies a <a href="http://www.oscommerce.com" target="_blank">osCommerce</a>');
+
+/*Creation del MENU Y SU TRADUCCION */
+define ('M_CATEGORY','CATEGORIA');
+define ('M_MANUFACTURER','FABRICANTS');
+define ('M_CONTACT','CONTACTE');
+define ('MODULE_BOXES_INFORMATION_BOX_CONTACT','Contacte');
+define ('MODULE_BOXES_INFORMATION_BOX_CONDITIONS','Condicions');
+define ('MODULE_BOXES_INFORMATION_BOX_PRIVACY', 'Privacitat');
+
+
 ?>

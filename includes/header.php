@@ -16,7 +16,7 @@
 ?>
 
 <div class="modular-header" > <!-- revisar-->
-  <div id="storeLogo" class="col-sm-2" style="margin-top:4%; border: solid:1px;">
+  <div id="storeLogo" class="col-sm-2 col-xs-4" style="margin-top:4%; border: solid:1px;">
   <?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.png', STORE_NAME) . '</a>'; ?>
   <!--<a href="http://www.template.me.uk/2334bs3/index.php"><img src="images/store_logo.png" alt="osCommerce" title="osCommerce" class="img-responsive" height="50" width="200"></a></div>-->
   </div>

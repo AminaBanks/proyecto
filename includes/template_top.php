@@ -92,7 +92,7 @@
  <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
    <form  name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
     <div class="input-group">
-     <input name="keywords"   placeholder="Search" class="form-control" type="text"><span class="input-group-btn">
+     <input name="keywords"   placeholder="buscar pel nom del producte" class="form-control" type="text"><span class="input-group-btn">
      <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
     </div>
    </form>
