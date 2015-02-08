@@ -15,7 +15,7 @@
   }
 ?>
 
-<div class="modular-header" style="margin-left:100px; margin-right:100px;"> <!-- revisar-->
+<div class="modular-header" > <!-- revisar-->
   <div id="storeLogo" class="col-sm-2" style="margin-top:4%; border: solid:1px;">
   <?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.png', STORE_NAME) . '</a>'; ?>
   <!--<a href="http://www.template.me.uk/2334bs3/index.php"><img src="images/store_logo.png" alt="osCommerce" title="osCommerce" class="img-responsive" height="50" width="200"></a></div>-->
@@ -76,9 +76,9 @@
 
 
 
-<div class="clearfix" style="margin-left:100px; margin-right:100px;"></div>
+<div class="clearfix"></div>
 
-<div class="body-sans-header clearfix" style="margin-left:100px; margin-right:100px;">
+<div class="body-sans-header clearfix">
 
 <?php
   if (isset($HTTP_GET_VARS['error_message']) && tep_not_null($HTTP_GET_VARS['error_message'])) {
