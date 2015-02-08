@@ -166,6 +166,15 @@ define('ENTRY_PASSWORD_NEW_ERROR', 'Your new Password must contain a minimum of 
 define('ENTRY_PASSWORD_NEW_ERROR_NOT_MATCHING', 'The Password Confirmation must match your new Password.');
 define('PASSWORD_HIDDEN', '--HIDDEN--');
 
+/*CREATION DE LA PARTE DEL MENU EN INGLES */
+//memu
+define ('M_CATEGORY','CATEGORY');
+define ('M_MANUFACTURER','MANUFACTURER');
+define ('M_CONTACT','CONTACT');
+define ('MODULE_BOXES_INFORMATION_BOX_CONTACT','Contact');
+define ('MODULE_BOXES_INFORMATION_BOX_CONDITIONS','Conditions');
+define ('MODULE_BOXES_INFORMATION_BOX_PRIVACY', 'Privacy');
+
 // constants for use in tep_prev_next_display function
 define('TEXT_RESULT_PAGE', 'Result Pages:');
 define('TEXT_DISPLAY_NUMBER_OF_PRODUCTS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> products)');

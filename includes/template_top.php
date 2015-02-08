@@ -96,14 +96,9 @@
      <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
     </div>
    </form>
- </li>
-  
-              
+ </li>        
         
-      </ul>
-        
-        
-        
+      </ul>        
       </div>
     </div>
   </div>
