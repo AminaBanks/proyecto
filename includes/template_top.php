@@ -80,7 +80,10 @@
 		<li>
 			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_ACCOUNT, '', 'SSL').'"';?>><i class="glyphicon glyphicon-user"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo HEADER_TITLE_MY_ACCOUNT?></span></a></li>
 		</li>   
-		<li class="nav navbar-text"><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp <?php echo HEADER_TITLE_NAME_PRODUCTS?> </span> </li>  	  
+		<li>
+			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL').'"';?>><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp<?php echo HEADER_TITLE_NAME_PRODUCTS?> </span></a> 
+		</li>  	  
+		
 		 </ul>
 		 		 
         <ul> 
