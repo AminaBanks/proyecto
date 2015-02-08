@@ -62,7 +62,7 @@ define('HEADER_TITLE_TOP', 'Accueil');
 define('HEADER_TITLE_CATALOG', 'Catalogue');
 define('HEADER_TITLE_LOGOFF', 'Déconnexion');
 define('HEADER_TITLE_LOGIN', 'Connexion');
-define('HEADER_TITLE_HOME', 'Maison');
+define('HEADER_TITLE_HOME', 'Accueil');
 define ('HEADER_TITLE_NAME_PRODUCTS', 'Products');
 define('HEADER_L','L:');
 define('HEADER_LANG','Langue');
