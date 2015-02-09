@@ -10,7 +10,7 @@
   Released under the GNU General Public License
 */
 
-define('TEXT_MAIN', 'Aquesta &eacute;s la configuraci&oacute; per defecte d\'osCommerce, els productes mostrats aqu&iacute; s&oacute;n &uacute;nicament de demostraci&oacute;, <b>qualsevol compra realitzada no ser&agrave; entregada al client, ni se li cobrar&agrave;</b>. Qualsevol informaci&oacute; que veieu sobre aquests productes ha de ser tractada com a fict&iacute;cia.<br><br>Si voleu descarregar la soluci&oacute; que fa possible aquesta botiga virtual, o si voleu contribuir al projecte de osCommerce, si us plau visiteu <a href="http://www.oscommerce.com" target="_blank"><u>la web de suport de osCommerce</u></a>. Aquesta botiga corre sota la versi&oacute; <font color="#f0000"><b>' . PROJECT_VERSION . '</b></font>.<br><br>Aquest text es pot canviar editant el seg&uuml;ent fitxer, un per cada idioma: [cam&iacute;&nbsp;al&nbsp;cat&agrave;leg]/includes/languages/[language]/default.php.<br><br>Podeu editar-lo manualment, o mitjan&ccedil;ant l\'Eina d\'Administraci&oacute; amb la opci&oacute; Idiomes->[idioma]->Definir, o utilitzant Eines->Administrador de Fitxers.');
+define('TEXT_MAIN', '');
 define('TABLE_HEADING_NEW_PRODUCTS', 'Nous Productes a %s');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Properament');
 define('TABLE_HEADING_DATE_EXPECTED', 'Llan&ccedil;ament');
@@ -34,7 +34,7 @@ if ( ($category_depth == 'products') || (isset($HTTP_GET_VARS['manufacturers_id'
   define('TEXT_ALL_CATEGORIES', 'Totes');
   define('TEXT_ALL_MANUFACTURERS', 'Tots');
 } elseif ($category_depth == 'top') {
-  define('HEADING_TITLE', 'Qu&egrave; hi ha de nou per aqu&iacute;?');
+  define('HEADING_TITLE', 'Benvingut a la p&#x000E0;gina Web de comer&#x000E7; electr&#x000F2;nic Solidaritat de Proide');
 } elseif ($category_depth == 'nested') {
   define('HEADING_TITLE', 'Categories');
 }
