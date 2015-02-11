@@ -66,10 +66,10 @@ define('HEADER_TITLE_HOME', 'Accueil');
 define ('HEADER_TITLE_NAME_PRODUCTS', 'Products');
 define('HEADER_L','L:');
 define('HEADER_LANG','Langue');
-define ('LANGUAGE_1','Català (ca)');
-define ('LANGUAGE_2','Español (es)');
+define ('LANGUAGE_1','Catal&#x000E0; (ca)');
+define ('LANGUAGE_2','Espa&#x000F1;ol (es)');
 define ('LANGUAGE_3','English (en)');
-define ('LANGUAGE_4','Français (fr)');
+define ('LANGUAGE_4','Fran&#x000E7;ais (fr)');
 
 // footer text in includes/footer.php
 define('FOOTER_TEXT_REQUESTS_SINCE', 'requêtes depuis le');
@@ -278,5 +278,14 @@ define ('MODULE_BOXES_INFORMATION_BOX_CONTACT','Contacte');
 define ('MODULE_BOXES_INFORMATION_BOX_CONDITIONS','Conditions');
 define ('MODULE_BOXES_INFORMATION_BOX_PRIVACY', 'Privacité');
 
+
+define('FORM_REQUIRED_INFORMATION', '<span class="glyphicon glyphicon-asterisk inputRequirement"></span> Required information');
+define('FORM_REQUIRED_INPUT', '<span><span class="glyphicon glyphicon-asterisk form-control-feedback inputRequirement"></span></span>');
+
+//ELIMINER UN PRODUIT KON NE VEUT PLUS ACHETER:
+define ('PRODUCT_SUBSCRIBED', '% s a été ajouté à votre liste de notification');
+define ('PRODUCT_UNSUBSCRIBED', '% s a été retiré de la liste des notifications');
+define ('PRODUCT_ADDED', '% s a été ajouté à votre panier');
+define ('PRODUCT_REMOVED', '% s a été retiré de votre panier');
 
 ?>

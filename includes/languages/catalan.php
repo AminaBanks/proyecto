@@ -16,7 +16,7 @@
 // on RedHat try 'ca_ES'
 // on FreeBSD try 'ca_ES.ISO_8859-1'
 // on Windows try 'ca', or 'Catalan'
-@setlocale(LC_TIME, 'ca_ES.ISO_8859-1');
+@setlocale(LC_TIME, 'ca_ES.UTF-8');
 
 define('DATE_FORMAT_SHORT', '%d/%m/%Y');  // this is used for strftime()
 define('DATE_FORMAT_LONG', '%A %d %B, %Y'); // this is used for strftime()
@@ -42,7 +42,7 @@ define('LANGUAGE_CURRENCY', 'EUR');
 define('HTML_PARAMS','dir="LTR" lang="ca"');
 
 // charset for web pages and emails
-define('CHARSET', 'iso-8859-1');
+define('CHARSET', 'UTF-8');
 
 // page title
 define('TITLE', STORE_NAME);
@@ -60,10 +60,10 @@ define('HEADER_TITLE_HOME', 'Casa');
 define ('HEADER_TITLE_NAME_PRODUCTS', 'Productes');
 define('HEADER_L','I:');
 define('HEADER_LANG','Idioma');
-define ('LANGUAGE_1','Català (ca)');
-define ('LANGUAGE_2','Español (es)');
+define ('LANGUAGE_1','Catal&#x000E0; (ca)');
+define ('LANGUAGE_2','Espa&#x000F1;ol (es)');
 define ('LANGUAGE_3','English (en)');
-define ('LANGUAGE_4','Français (fr)');
+define ('LANGUAGE_4','Fran&#x000E7;ais (fr)');
 
 
 // footer text in includes/footer.php
@@ -343,6 +343,16 @@ define ('M_CONTACT','CONTACTE');
 define ('MODULE_BOXES_INFORMATION_BOX_CONTACT','Contacte');
 define ('MODULE_BOXES_INFORMATION_BOX_CONDITIONS','Condicions');
 define ('MODULE_BOXES_INFORMATION_BOX_PRIVACY', 'Privacitat');
+
+define('FORM_REQUIRED_INFORMATION', '<span class="glyphicon glyphicon-asterisk inputRequirement"></span> Required information');
+define('FORM_REQUIRED_INPUT', '<span><span class="glyphicon glyphicon-asterisk form-control-feedback inputRequirement"></span></span>');
+
+
+//BORRAR CESTA Y AÑADIR CESTA
+define ('PRODUCT_SUBSCRIBED', '% s ha estat afegit a la seva llista de notificacions');
+define ('PRODUCT_UNSUBSCRIBED', "% s s'ha eliminat de la seva llista de notificacions");
+define ('PRODUCT_ADDED', '% s ha estat afegit a la cistella');
+define ('PRODUCT_REMOVED', "% s s'ha eliminat del seu carro ");
 
 
 ?>

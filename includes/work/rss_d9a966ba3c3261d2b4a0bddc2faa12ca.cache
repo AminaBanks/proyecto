@@ -1,4 +1,4 @@
-a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:45:"Purchase without account for 2.3.4 and BS2334";s:4:"link";s:38:"http://addons.oscommerce.com/info/9142";s:11:"description";s:396:"Some (cosmetic) changes to adapt the addon to bootstrap-gold.<br />
+a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:20:"Golden Zone Shipping";s:4:"link";s:38:"http://addons.oscommerce.com/info/9285";s:11:"description";s:153:"Shipping Module - Like Zones but with the ability us states or countries, excluded certain states within a country or charge a state at a different rate.";s:7:"pubDate";s:31:"Mon, 09 Feb 2015 15:53:35 +0100";}i:1;a:4:{s:5:"title";s:45:"Purchase without account for 2.3.4 and BS2334";s:4:"link";s:38:"http://addons.oscommerce.com/info/9142";s:11:"description";s:396:"Some (cosmetic) changes to adapt the addon to bootstrap-gold.<br />
 <br />
 NOTE: For standard Oscommerce 2.3.4 the previous package can be used.<br />
 <br />
@@ -6,7 +6,7 @@ NOTE: For standard Oscommerce 2.3.4 the previous package can be used.<br />
 <br />
 Einige (kosmetische) &Auml;nderungen, um das Addon an Bootstrap-Gold anzupassen.<br />
 <br />
-Hinweis: F&uuml;r Standard-Oscommerce 2.3.4 kann das vorherige Package weiter verwendet werden.";s:7:"pubDate";s:31:"Sun, 08 Feb 2015 14:08:28 +0100";}i:1;a:4:{s:5:"title";s:22:"Baskets shown in Admin";s:4:"link";s:38:"http://addons.oscommerce.com/info/9208";s:11:"description";s:149:"A short piece of code which, when added to admin/customers.php, will display the items in the customers basket when clicked on in admin/customers.php";s:7:"pubDate";s:31:"Sun, 08 Feb 2015 08:49:12 +0100";}i:2;a:4:{s:5:"title";s:8:"Wishlist";s:4:"link";s:38:"http://addons.oscommerce.com/info/8665";s:11:"description";s:366:"ONLY FOR BOOTSTRAP VERSION!<br />
+Hinweis: F&uuml;r Standard-Oscommerce 2.3.4 kann das vorherige Package weiter verwendet werden.";s:7:"pubDate";s:31:"Sun, 08 Feb 2015 14:08:28 +0100";}i:2;a:4:{s:5:"title";s:22:"Baskets shown in Admin";s:4:"link";s:38:"http://addons.oscommerce.com/info/9208";s:11:"description";s:149:"A short piece of code which, when added to admin/customers.php, will display the items in the customers basket when clicked on in admin/customers.php";s:7:"pubDate";s:31:"Sun, 08 Feb 2015 08:49:12 +0100";}i:3;a:4:{s:5:"title";s:8:"Wishlist";s:4:"link";s:38:"http://addons.oscommerce.com/info/8665";s:11:"description";s:366:"ONLY FOR BOOTSTRAP VERSION!<br />
 <br />
 This version is &quot;NOT&quot; for the normal osC 2.3.4 version!<br />
 For the normal osC 2.3.4 download the wdepot version from 29 Nov 2014 below.<br />
@@ -15,19 +15,8 @@ All credits to the previous coders.<br />
 <br />
 Support Topic: http://forums.oscommerce.com/topic/400033-wish-list-for-osc-234-bs-gold/<br />
 <br />
-FULL PACKAGE!";s:7:"pubDate";s:31:"Sat, 07 Feb 2015 04:24:55 +0100";}i:3;a:4:{s:5:"title";s:39:"Cancelllation Form for 2.3.4 and BS2334";s:4:"link";s:38:"http://addons.oscommerce.com/info/9136";s:11:"description";s:374:"In the products list from the pulldown now also all product options are listed<br />
+FULL PACKAGE!";s:7:"pubDate";s:31:"Sat, 07 Feb 2015 04:24:55 +0100";}i:4;a:4:{s:5:"title";s:39:"Cancelllation Form for 2.3.4 and BS2334";s:4:"link";s:38:"http://addons.oscommerce.com/info/9136";s:11:"description";s:374:"In the products list from the pulldown now also all product options are listed<br />
 Bug removed which occurred when editing the products list.<br />
 <br />
 In der Artikelliste, die per Pulldown aufgerufen werden kann, sind nun nicht nur die Artikel einer Bestellung, sondern auch die gew&auml;hlten Optionen aufgelistet.<br />
-Bug beim Bearbeiten der Artikelliste entfernt.";s:7:"pubDate";s:31:"Fri, 06 Feb 2015 15:45:49 +0100";}i:4;a:4:{s:5:"title";s:20:"Product Delete Delay";s:4:"link";s:38:"http://addons.oscommerce.com/info/9177";s:11:"description";s:561:"Bug fix for instruction 2f<br />
-<br />
-The line that reads:<br />
-<br />
-						tep_db_query(&quot;insert into &quot; . TABLE_PRODUCTS_TO_CATEGORIES . &quot; (&quot; . (int)$key . &quot;, 0)&quot;); // move product to top category<br />
-<br />
-SHOULD actually read:<br />
-<br />
-						tep_db_query(&quot;insert into &quot; . TABLE_PRODUCTS_TO_CATEGORIES . &quot; VALUES (&quot; . (int)$key . &quot;, 0)&quot;); // move product to top category<br />
-<br />
-<br />
-Corrected install instructions attached but the correction above is the only change that was made.";s:7:"pubDate";s:31:"Tue, 03 Feb 2015 20:41:35 +0100";}}s:11:"items_count";i:5;}
+Bug beim Bearbeiten der Artikelliste entfernt.";s:7:"pubDate";s:31:"Fri, 06 Feb 2015 15:45:49 +0100";}}s:11:"items_count";i:5;}

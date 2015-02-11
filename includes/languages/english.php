@@ -62,10 +62,10 @@ define('HEADER_TITLE_HOME', 'Home');
 define ('HEADER_TITLE_NAME_PRODUCTS', 'Items');
 define('HEADER_L','L:');
 define('HEADER_LANG','Languages');
-define ('LANGUAGE_1','Català (ca)');
-define ('LANGUAGE_2','Español (es)');
+define ('LANGUAGE_1','Catal&#x000E0; (ca)');
+define ('LANGUAGE_2','Espa&#x000F1;ol (es)');
 define ('LANGUAGE_3','English (en)');
-define ('LANGUAGE_4','Français (fr)');
+define ('LANGUAGE_4','Fran&#x000E7;ais (fr)');
 
 // text for gender
 define('MALE', 'M<span class="hidden-xs">ale</span>');

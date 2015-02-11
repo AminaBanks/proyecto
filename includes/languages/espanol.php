@@ -70,10 +70,10 @@ define('HEADER_TITLE_HOME', 'Casa');
 define ('HEADER_TITLE_NAME_PRODUCTS', 'Productos');
 define('HEADER_L','I:');
 define('HEADER_LANG','Idioma');
-define ('LANGUAGE_1','Català (ca)');
-define ('LANGUAGE_2','Español (es)');
+define ('LANGUAGE_1','Catal&#x000E0; (ca)');
+define ('LANGUAGE_2','Espa&#x000F1;ol (es)');
 define ('LANGUAGE_3','English (en)');
-define ('LANGUAGE_4','Français (fr)');
+define ('LANGUAGE_4','Fran&#x000E7;ais (fr)');
 
 
 // footer text in includes/footer.php
@@ -281,4 +281,16 @@ define ('M_CONTACT','CONTACTO');
 define ('MODULE_BOXES_INFORMATION_BOX_CONTACT','Contacto');
 define ('MODULE_BOXES_INFORMATION_BOX_CONDITIONS','Conditiones');
 define ('MODULE_BOXES_INFORMATION_BOX_PRIVACY', 'Privacidad');
+
+define('FORM_REQUIRED_INFORMATION', '<span class="glyphicon glyphicon-asterisk inputRequirement"></span> Required information');
+define('FORM_REQUIRED_INPUT', '<span><span class="glyphicon glyphicon-asterisk form-control-feedback inputRequirement"></span></span>');
+
+
+//BORRAR CESTA Y AÑADIR CESTA
+define ('PRODUCT_SUBSCRIBED', '% s ha sido añadido a su lista de notificaciones');
+define ('PRODUCT_UNSUBSCRIBED', '% s se ha eliminado de su lista de notificaciones');
+define ('PRODUCT_ADDED', '% s ha sido añadido a su carrito');
+define ('PRODUCT_REMOVED', '% s se ha eliminado de su carro');
+
+
 ?>

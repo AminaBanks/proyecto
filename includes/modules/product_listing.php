@@ -56,7 +56,7 @@
 		          $lc_show_model = true;
               break;
               case 'PRODUCT_LIST_NAME':
-              $lc_text = TABLE_HEADING_PRODUCTS;
+              $lc_text = utf8_decode(TABLE_HEADING_PRODUCTS);
               break;
               case 'PRODUCT_LIST_MANUFACTURER':
               $lc_text = TABLE_HEADING_MANUFACTURER;

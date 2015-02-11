@@ -10,7 +10,7 @@
   Released under the GNU General Public License
 */
 
-define('TEXT_MAIN', '');
+define('TEXT_MAIN', 'Et donem la benvinguda a la p&#x000E0;gina web de comer&#x000E7; Solidaritat Proide per ajudar contra la pobresa als pa&#x000EF;sos del tercer m&#x000F3;n, sin&#x000F3; tamb&#x000E9; a Espanya');
 define('TABLE_HEADING_NEW_PRODUCTS', 'Nous Productes a %s');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Properament');
 define('TABLE_HEADING_DATE_EXPECTED', 'Llan&ccedil;ament');
@@ -34,7 +34,7 @@ if ( ($category_depth == 'products') || (isset($HTTP_GET_VARS['manufacturers_id'
   define('TEXT_ALL_CATEGORIES', 'Totes');
   define('TEXT_ALL_MANUFACTURERS', 'Tots');
 } elseif ($category_depth == 'top') {
-  define('HEADING_TITLE', 'Benvingut a la p&#x000E0;gina Web de comer&#x000E7; electr&#x000F2;nic Solidaritat de Proide');
+  define('HEADING_TITLE', 'Qu&egrave; hi ha de nou per aqu&iacute;?');
 } elseif ($category_depth == 'nested') {
   define('HEADING_TITLE', 'Categories');
 }
