@@ -1,4 +1,39 @@
-a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:44:"Admin side horizontal no javascript css menu";s:4:"link";s:38:"http://addons.oscommerce.com/info/8830";s:11:"description";s:478:"Changes in version 1.00<br />
+a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:21:"Header Tags SEO V 3.0";s:4:"link";s:38:"http://addons.oscommerce.com/info/5851";s:11:"description";s:3001:"- Added an option to control how the canonical tag is handled when muliple id's are in the url.<br />
+- Added an option to allow turning off the google +1 code.<br />
+- Added an option to control how the see more link is used on the product listing page.<br />
+- Added code to the includes/header_tags.php file to properly handle the products_new page - found by Gary (burt).<br />
+- Added css class to control the color of the see more link.<br />
+- Added css class to control the text in the page top line.<br />
+- Added css class to control the title in the tag cloud box.<br />
+- Added css class to control the styling of the tag cloud box.<br />
+- Added files with changes for 2.3.4 BS.<br />
+- Added code to strip quotes from title - found by member queenzukie.<br />
+- Added meta tags explanation to the popup instruction in Page Control.<br />
+- Added error checking on Page Control load to check if the meta canonical tag is enabled, which it should be.<br />
+- Changed the OG home page tag to use the canonical version of the url.<br />
+- Changed the socialbookmarks code to include the image in the url, where applicable.<br />
+- Changed the path code for the social images in admin to find them for non-standard configure files.<br />
+- Changed code on shop side to strip html from the title and tags, if present.<br />
+- Changed the product listing code so that it uses the css class correctly.<br />
+- Changed code in popup files in Page Control to stop slashes from displaying.<br />
+- Changed code in the column box to handle the new see more option - found by Dave (Roaddoctor).<br />
+- Changed limits for the title and description counter to coincide with googles new limits.<br />
+- Changed the code in the includes/header_tags.php file to prevent keywords from being populated.<br />
+- Changed code on the products new page to handle canonical tag differently.<br />
+- Changed the keywords section in admin to use a different pagination display.<br />
+- Changed the keywords section in admin to allow the sorting options to work correctly.<br />
+- Changed the keywords code on the shop side so it checks the products model and description (if set).<br />
+- Changed the keywords code on the shop side so it filters out one character searches and html code.<br />
+- Fixed code in the test routing that would report missing table fields under certain condition.<br />
+- Fixed code in product_reviews_info.php (different mistakes for both versions).<br />
+- Fixed coding and instruction mistakes - found by Dave (Roaddoctor).<br />
+- Fixed the problem with fill tags not working on some sites with changed languages.<br />
+- Moved some css and javascript out of the language files to make the code HTML5 compatible.<br />
+- Removed extra code in product_info.php for sub text for 2.3 file.<br />
+- Removed instructions for installation into shops using BTS or STS.<br />
+<br />
+The support thread for Header Tags SEO is at<br />
+ http://forums.oscommerce.com/index.php?showtopic=298099";s:7:"pubDate";s:31:"Sun, 22 Feb 2015 19:24:20 +0100";}i:1;a:4:{s:5:"title";s:44:"Admin side horizontal no javascript css menu";s:4:"link";s:38:"http://addons.oscommerce.com/info/8830";s:11:"description";s:478:"Changes in version 1.00<br />
 <br />
 Changes in file - column_left_to_cssmenu.php:<br />
 <br />
@@ -8,11 +43,11 @@ Changes in file - column_left_to_cssmenu.php:<br />
 Changes in functionality:<br />
 <br />
  1. added installation file &quot;install_horisontal_css_menu_configkey.php&quot; add configuration key<br />
- in the configuration table. This allows you to switch between left-side menu and top horizontal css menu, from the administration panel";s:7:"pubDate";s:31:"Sat, 21 Feb 2015 22:16:56 +0100";}i:1;a:4:{s:5:"title";s:8:"MVS V1.0";s:4:"link";s:38:"http://addons.oscommerce.com/info/4129";s:11:"description";s:174:"Updated for use with osCommerce 2.3.4<br />
+ in the configuration table. This allows you to switch between left-side menu and top horizontal css menu, from the administration panel";s:7:"pubDate";s:31:"Sat, 21 Feb 2015 22:16:56 +0100";}i:2;a:4:{s:5:"title";s:8:"MVS V1.0";s:4:"link";s:38:"http://addons.oscommerce.com/info/4129";s:11:"description";s:174:"Updated for use with osCommerce 2.3.4<br />
 <br />
 All bug reports please use:<br />
 <br />
-http://http://forums.oscommerce.com/topic/101973-multi-vendor-shipping-new-thread/";s:7:"pubDate";s:31:"Sat, 21 Feb 2015 21:45:29 +0100";}i:2;a:4:{s:5:"title";s:14:"Indonesia_lang";s:4:"link";s:38:"http://addons.oscommerce.com/info/9287";s:11:"description";s:4:"Indo";s:7:"pubDate";s:31:"Wed, 18 Feb 2015 19:01:34 +0100";}i:3;a:4:{s:5:"title";s:50:"jQuery/Ajax Advanced Statistics for osCommerce 2.3";s:4:"link";s:38:"http://addons.oscommerce.com/info/9286";s:11:"description";s:2183:"Having used a modified version of the Monthly Sales &amp; Tax Report Add-On for a couple of years I figured that it was time to make a more modern sales reporting Add-On.<br />
+http://http://forums.oscommerce.com/topic/101973-multi-vendor-shipping-new-thread/";s:7:"pubDate";s:31:"Sat, 21 Feb 2015 21:45:29 +0100";}i:3;a:4:{s:5:"title";s:14:"Indonesia_lang";s:4:"link";s:38:"http://addons.oscommerce.com/info/9287";s:11:"description";s:4:"Indo";s:7:"pubDate";s:31:"Wed, 18 Feb 2015 19:01:34 +0100";}i:4;a:4:{s:5:"title";s:50:"jQuery/Ajax Advanced Statistics for osCommerce 2.3";s:4:"link";s:38:"http://addons.oscommerce.com/info/9286";s:11:"description";s:2183:"Having used a modified version of the Monthly Sales &amp; Tax Report Add-On for a couple of years I figured that it was time to make a more modern sales reporting Add-On.<br />
 <br />
 Unlike Monthly Sales &amp; Tax Report which calculate sales out of every product in table orders_products this Add-On will query the database and calculate sales based on each orders_total class which greatly increases query time. Example: with a database of 30 000 example orders, this Add-On will finish in just 1.5 seconds.<br />
 <br />
@@ -52,4 +87,4 @@ Features for Revision 1<br />
  ☞ Screenshots included in package! ☜<br />
 <br />
 <br />
-Forum Support Thread: http://forums.oscommerce.com/topic/401423-jqueryajax-advanced-statistics-for-oscommerce-23/";s:7:"pubDate";s:31:"Tue, 17 Feb 2015 21:13:55 +0100";}i:4;a:4:{s:5:"title";s:15:"Discount Groups";s:4:"link";s:38:"http://addons.oscommerce.com/info/1288";s:11:"description";s:16:"Discount package";s:7:"pubDate";s:31:"Sun, 15 Feb 2015 04:31:20 +0100";}}s:11:"items_count";i:5;}
+Forum Support Thread: http://forums.oscommerce.com/topic/401423-jqueryajax-advanced-statistics-for-oscommerce-23/";s:7:"pubDate";s:31:"Tue, 17 Feb 2015 21:13:55 +0100";}}s:11:"items_count";i:5;}
