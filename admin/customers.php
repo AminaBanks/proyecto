@@ -1,16 +1,34 @@
 <?php
 /*
-  $Id$
+  $Id: customers.php,v 1.82 2003/06/30 13:54:14 dgw_ Exp $
 
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
 
-  Copyright (c) 2013 osCommerce
+  Copyright (c) 2003 osCommerce
 
   Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
+
+//#CHAVEIRO6# Step order/customer begin
+////
+// This function makes a new password from a plaintext password. 
+  function tep_encrypt_password($plain) {
+    $password = '';
+
+    for ($i=0; $i<10; $i++) {
+      $password .= tep_rand();
+    }
+
+    $salt = substr(md5($password), 0, 2);
+
+    $password = md5($salt . $plain) . ':' . $salt;
+
+    return $password;
+  }
+//#CHAVEIRO6# Step order/customer end
 
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');
 
@@ -20,6 +38,7 @@
   if (tep_not_null($action)) {
     switch ($action) {
       case 'update':
+      case 'insert':
         $customers_id = tep_db_prepare_input($HTTP_GET_VARS['cID']);
         $customers_firstname = tep_db_prepare_input($HTTP_POST_VARS['customers_firstname']);
         $customers_lastname = tep_db_prepare_input($HTTP_POST_VARS['customers_lastname']);
@@ -57,7 +76,7 @@
         }
 
         if (ACCOUNT_DOB == 'true') {
-          if ((strlen($customers_dob) >= ENTRY_DOB_MIN_LENGTH) && ((is_numeric(tep_date_raw($customers_dob)) && @checkdate(substr(tep_date_raw($customers_dob), 4, 2), substr(tep_date_raw($customers_dob), 6, 2), substr(tep_date_raw($customers_dob), 0, 4))) || empty($customers_dob))) {
+          if (checkdate(substr(tep_date_raw($customers_dob), 4, 2), substr(tep_date_raw($customers_dob), 6, 2), substr(tep_date_raw($customers_dob), 0, 4))) {
             $entry_date_of_birth_error = false;
           } else {
             $error = true;
@@ -126,7 +145,7 @@
                 $entry_state_error = true;
               }
             } else {
-              if (strlen($entry_state) < ENTRY_STATE_MIN_LENGTH) {
+              if ($entry_state == false) {
                 $error = true;
                 $entry_state_error = true;
               }
@@ -156,12 +175,45 @@
                                 'customers_email_address' => $customers_email_address,
                                 'customers_telephone' => $customers_telephone,
                                 'customers_fax' => $customers_fax,
-                                'customers_newsletter' => $customers_newsletter);
+								'customers_newsletter' => $customers_newsletter);
 
-        if (ACCOUNT_GENDER == 'true') $sql_data_array['customers_gender'] = $customers_gender;
+		if (ACCOUNT_GENDER == 'true') $sql_data_array['customers_gender'] = $customers_gender;
         if (ACCOUNT_DOB == 'true') $sql_data_array['customers_dob'] = tep_date_raw($customers_dob);
 
-        tep_db_perform(TABLE_CUSTOMERS, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "'");
+//#CHAVEIRO6# Step order/customer begin
+			if ($action == 'insert') {
+				//      RAMDOMIZING SCRIPT BY PATRIC VEVERKA
+				$t1 = date("mdy"); 
+				srand ((float) microtime() * 10000000); 
+//				$input = array ("A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z"); 
+				$input = array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"); 
+				$rand_keys = array_rand ($input, 3); 
+				$l1 = $input[$rand_keys[0]];
+				$r1 = rand(0,9); 
+				$l2 = $input[$rand_keys[1]];
+				$l3 = $input[$rand_keys[2]]; 
+				$r2 = rand(0,9); 
+				$password = "gt".$l1.$r1.$l2.$l3.$r2; 
+				//    End of Randomizing Script
+				$sql_data_array['customers_password'] = tep_encrypt_password($password);
+
+				tep_db_perform(TABLE_CUSTOMERS, $sql_data_array);
+
+				$customer_id = tep_db_insert_id();
+
+				$sql_data_array = array('customers_id' => $customer_id,
+                              'entry_firstname' => $customers_firstname,
+                              'entry_lastname' => $customers_lastname,
+                              'entry_street_address' => $entry_street_address,
+                              'entry_postcode' => $entry_postcode,
+                              'entry_city' => $entry_city,
+							  'entry_gender' => $customers_gender,
+                              'entry_country_id' => $entry_country_id);
+			}
+			else {
+//#CHAVEIRO6# Step order/customer end
+
+		tep_db_perform(TABLE_CUSTOMERS, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "'");
 
         tep_db_query("update " . TABLE_CUSTOMERS_INFO . " set customers_info_date_account_last_modified = now() where customers_info_id = '" . (int)$customers_id . "'");
 
@@ -173,6 +225,10 @@
                                 'entry_postcode' => $entry_postcode,
                                 'entry_city' => $entry_city,
                                 'entry_country_id' => $entry_country_id);
+
+//#CHAVEIRO6# Step order/customer begin
+			}
+//#CHAVEIRO6# Step order/customer end
 
         if (ACCOUNT_COMPANY == 'true') $sql_data_array['entry_company'] = $entry_company;
         if (ACCOUNT_SUBURB == 'true') $sql_data_array['entry_suburb'] = $entry_suburb;
@@ -187,9 +243,40 @@
           }
         }
 
-        tep_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "' and address_book_id = '" . (int)$default_address_id . "'");
+//#CHAVEIRO6# Step order/customer begin
+			if ($action == 'insert') {
+			     tep_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array);
+			    $address_id = tep_db_insert_id();
+			    tep_db_query("update " . TABLE_CUSTOMERS . " set customers_default_address_id = '" . (int)$address_id . "' where customers_id = '" . (int)$customer_id . "'");
+			    tep_db_query("insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id, customers_info_number_of_logons, customers_info_date_account_created) values ('" . (int)$customer_id . "', '0', now())");
+
+				// build the message content
+				$name = $customers_firstname . " " . $customers_lastname;
+				if (ACCOUNT_GENDER == 'true') {
+					 if ($HTTP_POST_VARS['customers_gender'] == 'm') {
+					   $email_text = sprintf(EMAIL_GREET_MR, $customers_lastname);
+					 } else {
+					   $email_text = sprintf(EMAIL_GREET_MS, $customers_lastname);
+					 }
+				} else {
+					$email_text = sprintf(EMAIL_GREET_NONE, $customers_firstname);
+				}
+				
+				$email_text .= EMAIL_WELCOME . sprintf(EMAIL_PASS, $password) . EMAIL_TEXT . EMAIL_CONTACT . EMAIL_WARNING;
+				tep_mail($name, $customers_email_address, EMAIL_SUBJECT, nl2br($email_text), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
+		
+			  tep_redirect(tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $customer_id));			
+			}
+			else {
+//#CHAVEIRO6# Step order/customer end
+
+		tep_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "' and address_book_id = '" . (int)$default_address_id . "'");
 
         tep_redirect(tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $customers_id));
+
+//#CHAVEIRO6# Step order/customer begin
+			}
+//#CHAVEIRO6# Step order/customer end
 
         } else if ($error == true) {
           $cInfo = new objectInfo($HTTP_POST_VARS);
@@ -220,18 +307,47 @@
 
         tep_redirect(tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action'))));
         break;
+
+//#CHAVEIRO6# Step order/customer begin
+      case 'new':
+		  $customers_newsletter = 1;
+		  $entry_country_id = STORE_COUNTRY;
+//#CHAVEIRO6# Step order/customer end
+
       default:
+
+//#CHAVEIRO6# Step order/customer begin
+	  if ($action != 'new') {
+//#CHAVEIRO6# Step order/customer end
+
+
         $customers_query = tep_db_query("select c.customers_id, c.customers_gender, c.customers_firstname, c.customers_lastname, c.customers_dob, c.customers_email_address, a.entry_company, a.entry_street_address, a.entry_suburb, a.entry_postcode, a.entry_city, a.entry_state, a.entry_zone_id, a.entry_country_id, c.customers_telephone, c.customers_fax, c.customers_newsletter, c.customers_default_address_id from " . TABLE_CUSTOMERS . " c left join " . TABLE_ADDRESS_BOOK . " a on c.customers_default_address_id = a.address_book_id where a.customers_id = c.customers_id and c.customers_id = '" . (int)$HTTP_GET_VARS['cID'] . "'");
+
+
         $customers = tep_db_fetch_array($customers_query);
         $cInfo = new objectInfo($customers);
+
+//#CHAVEIRO6# Step order/customer begin
+	  }
+//#CHAVEIRO6# Step order/customer end
     }
   }
-
-  require(DIR_WS_INCLUDES . 'template_top.php');
-
-  if ($action == 'edit' || $action == 'update') {
 ?>
-<script type="text/javascript"><!--
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html <?php echo HTML_PARAMS; ?>>
+<head>
+<!--<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
+<title><?php echo TITLE; ?></title>
+<link rel="stylesheet" type="text/css" href="includes/stylesheet.css">-->
+<script language="javascript" src="includes/general.js"></script>
+<?php
+  if ($action == 'edit' || $action == 'update'
+//#CHAVEIRO6# Step order/customer begin
+  || $action == 'new' || $action == 'insert'
+//#CHAVEIRO6# Step order/customer end
+) {
+?>
+<script language="javascript"><!--
 
 function check_form() {
   var error = 0;
@@ -255,39 +371,39 @@ function check_form() {
   }
 <?php } ?>
 
-  if (customers_firstname.length < <?php echo ENTRY_FIRST_NAME_MIN_LENGTH; ?>) {
+  if (customers_firstname == "" || customers_firstname.length < <?php echo ENTRY_FIRST_NAME_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_FIRST_NAME; ?>";
     error = 1;
   }
 
-  if (customers_lastname.length < <?php echo ENTRY_LAST_NAME_MIN_LENGTH; ?>) {
+  if (customers_lastname == "" || customers_lastname.length < <?php echo ENTRY_LAST_NAME_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_LAST_NAME; ?>";
     error = 1;
   }
 
 <?php if (ACCOUNT_DOB == 'true') { ?>
-  if (customers_dob.length < <?php echo ENTRY_DOB_MIN_LENGTH; ?>) {
+  if (customers_dob == "" || customers_dob.length < <?php echo ENTRY_DOB_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_DOB; ?>";
     error = 1;
   }
 <?php } ?>
 
-  if (customers_email_address.length < <?php echo ENTRY_EMAIL_ADDRESS_MIN_LENGTH; ?>) {
+  if (customers_email_address == "" || customers_email_address.length < <?php echo ENTRY_EMAIL_ADDRESS_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_EMAIL_ADDRESS; ?>";
     error = 1;
   }
 
-  if (entry_street_address.length < <?php echo ENTRY_STREET_ADDRESS_MIN_LENGTH; ?>) {
+  if (entry_street_address == "" || entry_street_address.length < <?php echo ENTRY_STREET_ADDRESS_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_ADDRESS; ?>";
     error = 1;
   }
 
-  if (entry_postcode.length < <?php echo ENTRY_POSTCODE_MIN_LENGTH; ?>) {
+  if (entry_postcode == "" || entry_postcode.length < <?php echo ENTRY_POSTCODE_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_POST_CODE; ?>";
     error = 1;
   }
 
-  if (entry_city.length < <?php echo ENTRY_CITY_MIN_LENGTH; ?>) {
+  if (entry_city == "" || entry_city.length < <?php echo ENTRY_CITY_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_CITY; ?>";
     error = 1;
   }
@@ -296,7 +412,7 @@ function check_form() {
   if (ACCOUNT_STATE == 'true') {
 ?>
   if (document.customers.elements['entry_state'].type != "hidden") {
-    if (document.customers.entry_state.value.length < <?php echo ENTRY_STATE_MIN_LENGTH; ?>) {
+    if (document.customers.entry_state.value == '' || document.customers.entry_state.value.length < <?php echo ENTRY_STATE_MIN_LENGTH; ?> ) {
        error_message = error_message + "<?php echo JS_STATE; ?>";
        error = 1;
     }
@@ -312,7 +428,7 @@ function check_form() {
     }
   }
 
-  if (customers_telephone.length < <?php echo ENTRY_TELEPHONE_MIN_LENGTH; ?>) {
+  if (customers_telephone == "" || customers_telephone.length < <?php echo ENTRY_TELEPHONE_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_TELEPHONE; ?>";
     error = 1;
   }
@@ -328,17 +444,46 @@ function check_form() {
 <?php
   }
 ?>
+</head>
+<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" bgcolor="#FFFFFF" onload="SetFocus();">
+<!-- header //-->
+<?php //require(DIR_WS_INCLUDES . 'header.php'); 
+  require(DIR_WS_INCLUDES . 'template_top.php'); ?>
+<!-- header_eof //-->
 
-    <table border="0" width="100%" cellspacing="0" cellpadding="2">
+<!-- body //-->
+<table border="0" width="100%" cellspacing="2" cellpadding="2">
+  <tr>
+    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="1" cellpadding="1" class="columnLeft">
+<!-- left_navigation //-->
+<?php// require(DIR_WS_INCLUDES . 'column_left.php'); ?>
+<!-- left_navigation_eof //-->
+    </table></td>
+<!-- body_text //-->
+    <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
 <?php
-  if ($action == 'edit' || $action == 'update') {
+  if ($action == 'edit' || $action == 'update' 
+//#CHAVEIRO6# Step order/customer begin
+  || $action == 'new' || $action == 'insert'
+//#CHAVEIRO6# Step order/customer end
+  ) {
     $newsletter_array = array(array('id' => '1', 'text' => ENTRY_NEWSLETTER_YES),
                               array('id' => '0', 'text' => ENTRY_NEWSLETTER_NO));
 ?>
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
+            <td class="pageHeading"><?php 
+//#CHAVEIRO6# Step order/customer begin
+			 if ($action == 'new' || $action == 'insert') {
+				 echo HEADING_TITLE_ADD; } 
+			 else {
+//#CHAVEIRO6# Step order/customer end	
+				echo HEADING_TITLE;
+//#CHAVEIRO6# Step order/customer begin
+			}
+//#CHAVEIRO6# Step order/customer end	
+?></td>
             <td class="pageHeading" align="right"><?php echo tep_draw_separator('pixel_trans.gif', HEADING_IMAGE_WIDTH, HEADING_IMAGE_HEIGHT); ?></td>
           </tr>
         </table></td>
@@ -346,7 +491,11 @@ function check_form() {
       <tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>
-      <tr><?php echo tep_draw_form('customers', FILENAME_CUSTOMERS, tep_get_all_get_params(array('action')) . 'action=update', 'post', 'onsubmit="return check_form();"') . tep_draw_hidden_field('default_address_id', $cInfo->customers_default_address_id); ?>
+      <tr><?php echo tep_draw_form('customers', FILENAME_CUSTOMERS, tep_get_all_get_params(array('action')) . 
+//#CHAVEIRO6# Step order/customer begin
+(($action == 'new' || $action == 'insert') ? 'action=insert' : 'action=update')
+//#CHAVEIRO6# Step order/customer end
+, 'post', 'onSubmit="return check_form();"') . tep_draw_hidden_field('default_address_id', $cInfo->customers_default_address_id); ?>
         <td class="formAreaTitle"><?php echo CATEGORY_PERSONAL; ?></td>
       </tr>
       <tr>
@@ -362,7 +511,7 @@ function check_form() {
       if ($entry_gender_error == true) {
         echo tep_draw_radio_field('customers_gender', 'm', false, $cInfo->customers_gender) . '&nbsp;&nbsp;' . MALE . '&nbsp;&nbsp;' . tep_draw_radio_field('customers_gender', 'f', false, $cInfo->customers_gender) . '&nbsp;&nbsp;' . FEMALE . '&nbsp;' . ENTRY_GENDER_ERROR;
       } else {
-        echo ($cInfo->customers_gender == 'm') ? MALE : FEMALE;
+        echo ($cInfo->customers_gender == 'm') ? tep_draw_radio_field('customers_gender', 'm', true, $cInfo->customers_gender) . '&nbsp;&nbsp;' . MALE :  tep_draw_radio_field('customers_gender', 'f', true, $cInfo->customers_gender) . '&nbsp;&nbsp;' . FEMALE;
         echo tep_draw_hidden_field('customers_gender');
       }
     } else {
@@ -409,19 +558,18 @@ function check_form() {
           <tr>
             <td class="main"><?php echo ENTRY_DATE_OF_BIRTH; ?></td>
             <td class="main">
+
 <?php
     if ($error == true) {
       if ($entry_date_of_birth_error == true) {
-        echo tep_draw_input_field('customers_dob', tep_date_short($cInfo->customers_dob), 'maxlength="10"') . '&nbsp;' . ENTRY_DATE_OF_BIRTH_ERROR;
+        echo tep_draw_input_field('customers_dob', tep_date_short($cInfo->customers_dob), 'maxlength="10"') . '&nbsp;' . ENTRY_DATE_OF_BIRTH_ERROR ;
       } else {
         echo $cInfo->customers_dob . tep_draw_hidden_field('customers_dob');
       }
     } else {
-      echo tep_draw_input_field('customers_dob', tep_date_short($cInfo->customers_dob), 'maxlength="10" id="customers_dob"', true);
+      echo tep_draw_input_field('customers_dob', tep_date_short($cInfo->customers_dob), 'maxlength="10"', true) . '&nbsp;' . ENTRY_DATE_OF_BIRTH_ERROR;
     }
-?>
-              <script type="text/javascript">$('#customers_dob').datepicker({dateFormat: '<?php echo JQUERY_DATEPICKER_FORMAT; ?>', changeMonth: true, changeYear: true, yearRange: '-100:+0'});</script>
-            </td>
+?></td>
           </tr>
 <?php
     }
@@ -444,7 +592,6 @@ function check_form() {
     echo tep_draw_input_field('customers_email_address', $cInfo->customers_email_address, 'maxlength="96"', true);
   }
 ?></td>
-          </tr>
         </table></td>
       </tr>
 <?php
@@ -463,7 +610,11 @@ function check_form() {
             <td class="main">
 <?php
     if ($error == true) {
-      echo $cInfo->entry_company . tep_draw_hidden_field('entry_company');
+      if ($entry_company_error == true) {
+        echo tep_draw_input_field('entry_company', $cInfo->entry_company, 'maxlength="32"') . '&nbsp;' . ENTRY_COMPANY_ERROR;
+      } else {
+        echo $cInfo->entry_company . tep_draw_hidden_field('entry_company');
+      }
     } else {
       echo tep_draw_input_field('entry_company', $cInfo->entry_company, 'maxlength="32"');
     }
@@ -505,7 +656,11 @@ function check_form() {
             <td class="main">
 <?php
     if ($error == true) {
-      echo $cInfo->entry_suburb . tep_draw_hidden_field('entry_suburb');
+      if ($entry_suburb_error == true) {
+        echo tep_draw_input_field('suburb', $cInfo->entry_suburb, 'maxlength="32"') . '&nbsp;' . ENTRY_SUBURB_ERROR;
+      } else {
+        echo $cInfo->entry_suburb . tep_draw_hidden_field('entry_suburb');
+      }
     } else {
       echo tep_draw_input_field('entry_suburb', $cInfo->entry_suburb, 'maxlength="32"');
     }
@@ -568,7 +723,7 @@ function check_form() {
         echo $entry_state . tep_draw_hidden_field('entry_zone_id') . tep_draw_hidden_field('entry_state');
       }
     } else {
-      echo tep_draw_input_field('entry_state', tep_get_zone_name($cInfo->entry_country_id, $cInfo->entry_zone_id, $cInfo->entry_state));
+      echo tep_draw_input_field('entry_state', tep_get_zone_name($cInfo->entry_country_id, $cInfo->entry_zone_id, $cInfo->entry_state),"",true);
     }
 
 ?></td>
@@ -659,7 +814,21 @@ function check_form() {
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>
       <tr>
-        <td align="right" class="smallText"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('action')))); ?></td>
+        <td align="right" class="main">
+
+<!--//#CHAVEIRO6# Step order/customer begin !-->
+		<?php 
+			if($action == 'new' || $action == 'insert') { echo tep_image_submit('button_insert.gif', IMAGE_INSERT) . ' <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('action'))) .'">' . tep_image_button('button_cancel.gif', IMAGE_CANCEL) . '</a>'; } 
+		else { ?>
+<!--//#CHAVEIRO6# Step order/customer end !-->
+
+		<?php echo tep_image_submit('button_update.gif', IMAGE_UPDATE) . ' <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('action'))) .'">' . tep_image_button('button_cancel.gif', IMAGE_CANCEL) . '</a>'; ?>
+
+<!--//#CHAVEIRO6# Step order/customer begin !-->
+		<?php }	?>
+<!--//#CHAVEIRO6# Step order/customer end !-->
+
+		</td>
       </tr></form>
 <?php
   } else {
@@ -670,7 +839,7 @@ function check_form() {
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
             <td class="pageHeading" align="right"><?php echo tep_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></td>
             <td class="smallText" align="right"><?php echo HEADING_TITLE_SEARCH . ' ' . tep_draw_input_field('search'); ?></td>
-          <?php echo tep_hide_session_id(); ?></form></tr>
+          </form></tr>
         </table></td>
       </tr>
       <tr>
@@ -733,7 +902,7 @@ function check_form() {
     if (isset($HTTP_GET_VARS['search']) && tep_not_null($HTTP_GET_VARS['search'])) {
 ?>
                   <tr>
-                    <td class="smallText" align="right" colspan="2"><?php echo tep_draw_button(IMAGE_RESET, 'arrowrefresh-1-w', tep_href_link(FILENAME_CUSTOMERS)); ?></td>
+                    <td align="right" colspan="2"><?php echo '<a href="' . tep_href_link(FILENAME_CUSTOMERS) . '">' . tep_image_button('button_reset.gif', IMAGE_RESET) . '</a>'; ?></td>
                   </tr>
 <?php
     }
@@ -747,24 +916,27 @@ function check_form() {
 
   switch ($action) {
     case 'confirm':
-      $heading[] = array('text' => '<strong>' . TEXT_INFO_HEADING_DELETE_CUSTOMER . '</strong>');
+      $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_CUSTOMER . '</b>');
 
       $contents = array('form' => tep_draw_form('customers', FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=deleteconfirm'));
-      $contents[] = array('text' => TEXT_DELETE_INTRO . '<br /><br /><strong>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</strong>');
-      if (isset($cInfo->number_of_reviews) && ($cInfo->number_of_reviews) > 0) $contents[] = array('text' => '<br />' . tep_draw_checkbox_field('delete_reviews', 'on', true) . ' ' . sprintf(TEXT_DELETE_REVIEWS, $cInfo->number_of_reviews));
-      $contents[] = array('align' => 'center', 'text' => '<br />' . tep_draw_button(IMAGE_DELETE, 'trash', null, 'primary') . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id)));
+      $contents[] = array('text' => TEXT_DELETE_INTRO . '<br><br><b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
+      if (isset($cInfo->number_of_reviews) && ($cInfo->number_of_reviews) > 0) $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('delete_reviews', 'on', true) . ' ' . sprintf(TEXT_DELETE_REVIEWS, $cInfo->number_of_reviews));
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_DELETE) . ' <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id) . '">' . tep_image_button('button_cancel.gif', IMAGE_CANCEL) . '</a>');
       break;
     default:
       if (isset($cInfo) && is_object($cInfo)) {
-        $heading[] = array('text' => '<strong>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</strong>');
+        $heading[] = array('text' => '<b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => tep_draw_button(IMAGE_EDIT, 'document', tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit')) . tep_draw_button(IMAGE_DELETE, 'trash', tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=confirm')) . tep_draw_button(IMAGE_ORDERS, 'cart', tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id)) . tep_draw_button(IMAGE_EMAIL, 'mail-closed', tep_href_link(FILENAME_MAIL, 'customer=' . $cInfo->customers_email_address)));
-        $contents[] = array('text' => '<br />' . TEXT_DATE_ACCOUNT_CREATED . ' ' . tep_date_short($cInfo->date_account_created));
-        $contents[] = array('text' => '<br />' . TEXT_DATE_ACCOUNT_LAST_MODIFIED . ' ' . tep_date_short($cInfo->date_account_last_modified));
-        $contents[] = array('text' => '<br />' . TEXT_INFO_DATE_LAST_LOGON . ' '  . tep_date_short($cInfo->date_last_logon));
-        $contents[] = array('text' => '<br />' . TEXT_INFO_NUMBER_OF_LOGONS . ' ' . $cInfo->number_of_logons);
-        $contents[] = array('text' => '<br />' . TEXT_INFO_COUNTRY . ' ' . $cInfo->countries_name);
-        $contents[] = array('text' => '<br />' . TEXT_INFO_NUMBER_OF_REVIEWS . ' ' . $cInfo->number_of_reviews);
+//#CHAVEIRO6# Step order/customer begin	
+//		$contents[] = array('align' => 'center', 'text' => '<a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . tep_image_button('button_edit.gif', IMAGE_EDIT) . '</a> <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=confirm') . '">' . tep_image_button('button_delete.gif', IMAGE_DELETE) . '</a> <a href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' . tep_image_button('button_orders.gif', IMAGE_ORDERS) . '</a> <a href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . tep_image_button('button_email.gif', IMAGE_EMAIL) . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'action=new') . '">' . tep_image_button('button_insert.gif', IMAGE_INSERT) . '</a> <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . tep_image_button('button_edit.gif', IMAGE_EDIT) . '</a> <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=confirm') . '">' . tep_image_button('button_delete.gif', IMAGE_DELETE) . '</a> <a href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' . tep_image_button('button_orders.gif', IMAGE_ORDERS) . '</a> <a href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . tep_image_button('button_email.gif', IMAGE_EMAIL) . '</a>');
+//#CHAVEIRO6# Step order/customer end 
+        $contents[] = array('text' => '<br>' . TEXT_DATE_ACCOUNT_CREATED . ' ' . tep_date_short($cInfo->date_account_created));
+        $contents[] = array('text' => '<br>' . TEXT_DATE_ACCOUNT_LAST_MODIFIED . ' ' . tep_date_short($cInfo->date_account_last_modified));
+        $contents[] = array('text' => '<br>' . TEXT_INFO_DATE_LAST_LOGON . ' '  . tep_date_short($cInfo->date_last_logon));
+        $contents[] = array('text' => '<br>' . TEXT_INFO_NUMBER_OF_LOGONS . ' ' . $cInfo->number_of_logons);
+        $contents[] = array('text' => '<br>' . TEXT_INFO_COUNTRY . ' ' . $cInfo->countries_name);
+        $contents[] = array('text' => '<br>' . TEXT_INFO_NUMBER_OF_REVIEWS . ' ' . $cInfo->number_of_reviews);
       }
       break;
   }
@@ -784,9 +956,16 @@ function check_form() {
 <?php
   }
 ?>
-    </table>
+    </table></td>
+<!-- body_text_eof //-->
+  </tr>
+</table>
+<!-- body_eof //-->
 
-<?php
-  require(DIR_WS_INCLUDES . 'template_bottom.php');
-  require(DIR_WS_INCLUDES . 'application_bottom.php');
-?>
+<!-- footer //-->
+<?php //require(DIR_WS_INCLUDES . 'footer.php'); ?>
+<!-- footer_eof //-->
+<br>
+</body>
+</html>
+<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
