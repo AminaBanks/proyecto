@@ -272,6 +272,7 @@ define('IMAGE_BUTTON_BACK', 'Endarrera');
 define('IMAGE_BUTTON_BUY_NOW', 'Compra Ara');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Canvia l\'adre&ccedil;a');
 define('IMAGE_BUTTON_CHECKOUT', 'Realitza la comanda');
+define('REVIEWS_TEXT_AVERAGE', 'Average rating based on <span itemprop="count">%s</span> review(s) %s');
 define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirma la comanda');
 define('IMAGE_BUTTON_CONTINUE', 'Continua');
 define('IMAGE_BUTTON_CONTINUE_SHOPPING', 'Continua comprant');
