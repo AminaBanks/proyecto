@@ -17,7 +17,7 @@
 <footer"> <!--style="margin-left:110px; margin-right:110px;-->
 
   <div class="footer" >
- <div class="footer" style="text-align: center; background-color:#b71c1c; border-color:#b71c1c; padding:10px; color:#FFF; font-size:12px; height:40px;">
+ <div class="footer" style="text-align: center; background-color:#b71c1c; border-color:#b71c1c; padding:10px; color:#FFF; font-size:12px;">
  Fundaci&#x000F3; PROIDE. Sant Joan de La Salle, 42 08022 Barcelona. Tel&#x000E8;fon 932.377.180. Fax 932.373.630. proide@fundacioproide.org
  </div>
   <div class="container-fluid">

@@ -39,10 +39,10 @@
   <h2><?php echo PRIMARY_ADDRESS_TITLE; ?></h2>
 
   <div class="contentText row">
-    <div class="col-sm-8">
+   <!-- <div class="col-sm-8">
       <div class="alert alert-warning"><?php echo PRIMARY_ADDRESS_DESCRIPTION; ?></div>
-    </div>
-    <div class="col-sm-4">
+    </div>-->
+    <div class="col-sm-12">
       <div class="panel panel-primary">
         <div class="panel-heading"><?php echo PRIMARY_ADDRESS_TITLE; ?></div>
 

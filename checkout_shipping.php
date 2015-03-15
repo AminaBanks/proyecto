@@ -178,7 +178,7 @@
   <h2><?php echo TABLE_HEADING_SHIPPING_ADDRESS; ?></h2>
 
   <div class="contentText row">
-    <div class="col-sm-8">
+    <!--div class="col-sm-8">
       <div class="alert alert-warning">
         <?php echo TEXT_CHOOSE_SHIPPING_DESTINATION; ?>
         <div class="clearfix"></div>
@@ -187,12 +187,14 @@
         </div>
         <div class="clearfix"></div>
       </div>
-    </div>
-    <div class="col-sm-4">
+    </div-->
+    <div class="col-sm-12">
       <div class="panel panel-primary">
         <div class="panel-heading"><?php echo TITLE_SHIPPING_ADDRESS; ?></div>
         <div class="panel-body">
-          <?php echo tep_address_label($customer_id, $sendto, true, ' ', '<br />'); ?>
+          <?php echo ("La compra realizada tendra que irla a buscar a PROIDE");
+		  tep_address_label($customer_id, $sendto, true, ' ', '<br />'); 
+		  ?>
         </div>
       </div>
     </div>
@@ -324,7 +326,7 @@
 
   <hr>
 
-  <div class="contentText">
+  <!--div class="contentText">
     <div class="form-group">
       <label for="inputComments" class="control-label col-xs-4"><?php echo TABLE_HEADING_COMMENTS; ?></label>
       <div class="col-xs-8">
@@ -333,7 +335,7 @@
         ?>
       </div>
     </div>
-  </div>
+  </div-->
 
   <div class="buttonSet">
     <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
