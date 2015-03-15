@@ -87,8 +87,12 @@
 		 </ul>
 		 		 
         <ul> 
- <li class="nav navbar-text navbar-right"><img src="images/social_bookmarks/facebook.png" href="http://www.facebook.com/fundacioproide"/></li>
- <li class="nav navbar-text  navbar-right"><img src="images/social_bookmarks/youtube.png"href="https://www.youtube.com/user/CanalProide"/></li>
+ <li class="nav navbar-text navbar-right">
+	<a href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a>
+ </li>
+ <li class="nav navbar-text  navbar-right">
+	<a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.png"/></a>
+ </li>
  <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
    <form  name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
     <div class="input-group">
