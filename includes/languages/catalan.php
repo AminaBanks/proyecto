@@ -56,7 +56,7 @@ define('HEADER_TITLE_TOP', 'Inici');
 define('HEADER_TITLE_CATALOG', 'Cat&agrave;leg');
 define('HEADER_TITLE_LOGOFF', 'Surt');
 define('HEADER_TITLE_LOGIN', 'Entra');
-define('HEADER_TITLE_HOME', 'Casa');
+define('HEADER_TITLE_HOME', 'Home');
 define ('HEADER_TITLE_NAME_PRODUCTS', 'Productes');
 define('HEADER_L','I:');
 define('HEADER_LANG','Idioma');
@@ -106,7 +106,7 @@ define('BOX_HEADING_SHOPPING_CART', 'Compres');
 define('BOX_SHOPPING_CART_EMPTY', '0 productes');
 
 // order_history box text in includes/boxes/order_history.php
-define('BOX_HEADING_CUSTOMER_ORDERS', 'Les meves comanes');
+define('BOX_HEADING_CUSTOMER_ORDERS', 'Les meves comandes');
 
 // best_sellers box text in includes/boxes/best_sellers.php
 define('BOX_HEADING_BESTSELLERS', 'Els M&eacute;s Venuts');
@@ -147,10 +147,10 @@ define('CHECKOUT_BAR_FINISHED', 'finalitzat!');
 
 // pull down default text
 define('PULL_DOWN_DEFAULT', 'Seleccioneu');
-define('TYPE_BELOW', 'Escriviu a Sota');
+define('TYPE_BELOW', 'Escriviu a sota');
 
 // javascript messages
-define('JS_ERROR', 'Hi ha errors al vostre formulari!\nSi us plau, feu les seg&uuml;ents correcions:\n\n');
+define('JS_ERROR', 'Hi ha errors al vostre formulari!\nSi us plau, feu les seg&uuml;ents correccions:\n\n');
 
 define('JS_REVIEW_TEXT', '* El vostre \'Comentari\' ha de tenir almenys ' . REVIEW_TEXT_MIN_LENGTH . ' lletres.\n');
 define('JS_REVIEW_RATING', '* Heu d\'avaluar el producte sobre el que opineu.\n');
@@ -236,7 +236,7 @@ define('PASSWORD_HIDDEN', '--OCULT--');
 define('FORM_REQUIRED_INFORMATION', '* Camp Obligatori');
 
 // constants for use in tep_prev_next_display function
-define('TEXT_RESULT_PAGE', 'Pˆgines de resultats:');
+define('TEXT_RESULT_PAGE', 'P&agrave;gines de resultats:');
 define('TEXT_DISPLAY_NUMBER_OF_PRODUCTS', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> productes)');
 define('TEXT_DISPLAY_NUMBER_OF_ORDERS', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> comandes)');
 define('TEXT_DISPLAY_NUMBER_OF_REVIEWS', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> comentaris)');
@@ -262,17 +262,17 @@ define('PREVNEXT_BUTTON_LAST', 'FINAL&gt;&gt;');
 
 
 // grid/list
-define('TEXT_SORT_BY', 'Ordenar por ');
+define('TEXT_SORT_BY', 'Ordenar per ');
 
 define('SMALL_IMAGE_BUTTON_BUY', 'Compra');
 
 define('IMAGE_BUTTON_ADD_ADDRESS', 'Afegeix l\'adre&ccedil;a');
 define('IMAGE_BUTTON_ADDRESS_BOOK', 'Adreces');
-define('IMAGE_BUTTON_BACK', 'Endarrera');
+define('IMAGE_BUTTON_BACK', 'Enrere');
 define('IMAGE_BUTTON_BUY_NOW', 'Compra Ara');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Canvia l\'adre&ccedil;a');
 define('IMAGE_BUTTON_CHECKOUT', 'Realitza la comanda');
-define('REVIEWS_TEXT_AVERAGE', 'Average rating based on <span itemprop="count">%s</span> review(s) %s');
+define('REVIEWS_TEXT_AVERAGE', 'Mitjana de la classificaci&#x000F3;  <span itemprop="count">%s</span> opini&#x000F3; (s) %s');
 define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirma la comanda');
 define('IMAGE_BUTTON_CONTINUE', 'Continua');
 define('IMAGE_BUTTON_CONTINUE_SHOPPING', 'Continua comprant');

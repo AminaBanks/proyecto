@@ -10,7 +10,7 @@
   Released under the GNU General Public License
 */
 
-define('TEXT_MAIN', 'Et donem la benvinguda a la p&#x000E0;gina web de comer&#x000E7; Solidaritat Proide per ajudar contra la pobresa als pa&#x000EF;sos del tercer m&#x000F3;n, sin&#x000F3; tamb&#x000E9; a Espanya');
+define('TEXT_MAIN', 'Et donem la benvinguda a la p&#x000E0;gina web de Comer&#x000E7; Solidari de PROIDE per ajudar-nos a fer posible la nostra tasca de cooperaci&#x000F3; al desenvolupament');
 define('TABLE_HEADING_NEW_PRODUCTS', 'Nous Productes a %s');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Properament');
 define('TABLE_HEADING_DATE_EXPECTED', 'Llan&ccedil;ament');

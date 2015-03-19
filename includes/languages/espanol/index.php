@@ -9,13 +9,14 @@
 
   Released under the GNU General Public License
 */
-
-define('TEXT_MAIN', '<center> <h1> <b>NUEVA TIENDA ONLINE!</b></h1></center>
-');
+/*Cambar la linea 13 a 15 despues de la reunion con el cliente*/
+//define('TEXT_MAIN', '<center> <h1> <b>NUEVA TIENDA ONLINE!</b></h1></center>
+//');
+define('TEXT_MAIN', '<h1>Te damos la bienvenida a la página web de Comercio Solidario de PROIDE para ayudarnos a hacer posible nuestra labor de cooperación al desarrollo</h1>');
 define('TABLE_HEADING_NEW_PRODUCTS', 'Nuevos Productos para %s');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Productos en espera');
 define('TABLE_HEADING_DATE_EXPECTED', 'Fecha prevista para');
-define('HEADING_TITLE', 'Bienvenido a ' . STORE_NAME);
+define('HEADING_TITLE', 'Bienvenido a ' /*. STORE_NAME*/);
 define('TABLE_HEADING_IMAGE', '');
 define('TABLE_HEADING_MODEL', 'Modelo');
 define('TABLE_HEADING_PRODUCTS', 'Nombre del Producto');

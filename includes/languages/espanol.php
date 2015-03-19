@@ -272,7 +272,7 @@ define('ERROR_TEP_MAIL', '<font face="Verdana, Arial" size="2" color="#ff0000"><
 define('TEXT_CCVAL_ERROR_INVALID_DATE', 'La fecha de caducidad de la tarjeta de cr&eacute;dito no es v&aacute;lida. Por favor, compruebe la fecha y vuelva a intentarlo.');
 define('TEXT_CCVAL_ERROR_INVALID_NUMBER', 'El n&uacute;mero de tarjeta de cr&eacute;dito no es v&aacute;lida. Por favor, compruebe el n&uacute;mero y vuelva a intentarlo.');
 define('TEXT_CCVAL_ERROR_UNKNOWN_CARD', 'Los primeros cuatro d&iacute;gitos del n&uacute;mero de introducir son: %s. Si ese n&uacute;mero es correcto, no aceptamos este tipo de tarjetas de cr&eacute;dito. Si es incorrecto, por favor, int&eacute;ntelo de nuevo.');
-define('REVIEWS_TEXT_AVERAGE', 'Average rating based on <span itemprop="count">%s</span> review(s) %s');
+define('REVIEWS_TEXT_AVERAGE', 'Media de la clasificaci&#x000F3;n <span itemprop="count">%s</span> opinion (s) %s');
 define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . STORE_NAME . '</a><br />Powered by <a href="http://www.oscommerce.com" target="_blank">osCommerce</a>');
 
 /*MENU */
