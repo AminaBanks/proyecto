@@ -16,7 +16,8 @@ define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Properament');
 define('TABLE_HEADING_DATE_EXPECTED', 'Llan&ccedil;ament');
 
 if ( ($category_depth == 'products') || (isset($HTTP_GET_VARS['manufacturers_id'])) ) {
-  define('HEADING_TITLE', 'A veure què tenim aquí');
+  //define('HEADING_TITLE', 'A veure què tenim aquí');
+  //define('HEADING_TITLE', 'Benvingut/da!');
   define('TABLE_HEADING_IMAGE', '');
   define('TABLE_HEADING_MODEL', 'Model');
   define('TABLE_HEADING_PRODUCTS', 'Productes');
@@ -34,7 +35,7 @@ if ( ($category_depth == 'products') || (isset($HTTP_GET_VARS['manufacturers_id'
   define('TEXT_ALL_CATEGORIES', 'Totes');
   define('TEXT_ALL_MANUFACTURERS', 'Tots');
 } elseif ($category_depth == 'top') {
-  define('HEADING_TITLE', 'Qu&egrave; hi ha de nou per aqu&iacute;?');
+  define('HEADING_TITLE', 'Benvingut/da !');
 } elseif ($category_depth == 'nested') {
   define('HEADING_TITLE', 'Categories');
 }

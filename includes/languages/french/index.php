@@ -10,11 +10,11 @@
   Released under the GNU General Public License
 */
 
-define('TEXT_MAIN', '');
-define('TABLE_HEADING_NEW_PRODUCTS', 'Nouveaux produits pour %s.');
+define('TEXT_MAIN', 'Nous te donnos la bienvenue sur le site de la Solidarité commerce PROIDE nous aider à faire notre travail possible la coopération au développement');
+define('TABLE_HEADING_NEW_PRODUCTS', 'Un example des produits que nous avons.');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Prochains produits.');
 define('TABLE_HEADING_DATE_EXPECTED', 'Date prévue');
-define('HEADING_TITLE', 'Bienvenue chez ' . STORE_NAME);
+define('HEADING_TITLE', 'Bienvenue !' /*. STORE_NAME*/);
 define('TABLE_HEADING_IMAGE', '');
 define('TABLE_HEADING_MODEL', 'Modèle');
 define('TABLE_HEADING_PRODUCTS', 'Nom du produit ');
