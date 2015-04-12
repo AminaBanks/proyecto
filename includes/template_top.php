@@ -27,7 +27,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1"/>
  <link href="./images/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-<title><?php echo tep_output_string_protected($oscTemplate->getTitle()); ?></title>
+<title><?php echo "Fundaci&#x000F3; PROIDE -Fundaci&#x000F3;"/*tep_output_string_protected($oscTemplate->getTitle());*/ ?></title>
 <base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
 
 <link href="ext/bootstrap/css/bootstrap.min.css" rel="stylesheet">
