@@ -45,8 +45,8 @@
         **********************************************************/
         defaults: {
 			
-            width: 700,
-            height: 150,
+            width: 690,
+            height: 100,
             autoSize: true,
             touchNav: true,
             mouseNav: true,

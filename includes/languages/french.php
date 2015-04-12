@@ -198,7 +198,7 @@ define('PREVNEXT_BUTTON_LAST', 'DERNIÈRE&gt;&gt;');
 define('IMAGE_BUTTON_ADD_ADDRESS', 'Ajouter adresse');
 define('IMAGE_BUTTON_ADDRESS_BOOK', 'Carnet d\'adresses');
 define('IMAGE_BUTTON_BACK', 'Retour');
-define('IMAGE_BUTTON_BUY_NOW', 'Acheter maintenant');
+define('IMAGE_BUTTON_BUY_NOW', 'Acheter');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Changez l\'adresse');
 define('IMAGE_BUTTON_CHECKOUT', 'Commander');
 define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirmer la commande');

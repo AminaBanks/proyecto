@@ -13,5 +13,6 @@
 define('NAVBAR_TITLE', 'Confidencialitat');
 define('HEADING_TITLE', 'Confidencialitat');
 
-define('TEXT_INFORMATION', 'Poseu aqu&iacute; informaci&oacute; sobre el tractament de les dades.');
+define('TEXT_INFORMATION', 'PROIDE es posar&#x000E0; en contacte amb tu per confirmar la validesa de les dades. Les dades facilitades estan protegides d&#x02019;acord la LOPD, per la qual cosa PROIDE es compromet a no cedir-les a tercers.
+');
 ?>

@@ -16,7 +16,7 @@ define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Properament');
 define('TABLE_HEADING_DATE_EXPECTED', 'Llan&ccedil;ament');
 
 if ( ($category_depth == 'products') || (isset($HTTP_GET_VARS['manufacturers_id'])) ) {
-  //define('HEADING_TITLE', 'A veure què tenim aquí');
+   define('HEADING_TITLE', 'A veure què tenim aquí');
   //define('HEADING_TITLE', 'Benvingut/da!');
   define('TABLE_HEADING_IMAGE', '');
   define('TABLE_HEADING_MODEL', 'Model');

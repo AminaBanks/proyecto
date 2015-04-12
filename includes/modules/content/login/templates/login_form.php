@@ -1,9 +1,12 @@
+<!--<div class="login-form <?php //echo (MODULE_CONTENT_LOGIN_FORM_CONTENT_WIDTH == 'Half') ? 'col-sm-6' : 'col-sm-12'; ?>">
+esta linea permite quitar nuevo cliente es reemplazar clo-sm-6 a col-sm-12-->
 <div class="login-form <?php echo (MODULE_CONTENT_LOGIN_FORM_CONTENT_WIDTH == 'Half') ? 'col-sm-6' : 'col-sm-12'; ?>">
   <div class="panel panel-success">
     <div class="panel-body">
       <h2><?php echo MODULE_CONTENT_LOGIN_HEADING_RETURNING_CUSTOMER; ?></h2>
 
-      <p class="alert alert-success"><?php echo MODULE_CONTENT_LOGIN_TEXT_RETURNING_CUSTOMER; ?></p>
+      <!--<p class="alert alert-success"><?php //echo MODULE_CONTENT_LOGIN_TEXT_RETURNING_CUSTOMER; ?></p>-->
+       <!--<p class="alert alert-success"><?php //echo MODULE_CONTENT_LOGIN_TEXT_RETURNING_CUSTOMER; ?></p> esta linea nos permite de quitar return a new customer for get login-->
 
       <?php echo tep_draw_form('login', tep_href_link(FILENAME_LOGIN, 'action=process', 'SSL'), 'post', '', true); ?>
 

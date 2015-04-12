@@ -16,9 +16,15 @@
 ?>
 
 <div class="modular-header" > <!-- revisar-->
-  <div id="storeLogo" class="col-sm-2 col-xs-4" style="margin-top:4%; border: solid:1px;">
-  <?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.png', STORE_NAME) . '</a>'; ?>
-  <!--<a href="http://www.template.me.uk/2334bs3/index.php"><img src="images/store_logo.png" alt="osCommerce" title="osCommerce" class="img-responsive" height="50" width="200"></a></div>-->
+  <!--<div id="storeLogo" class="col-sm-2 col-xs-4" style="margin-top:4%; border: solid:1px;"> reemplazar esta a esta linea de abajo
+  <div id="storeLogo" class="col-sm-2 img-responsive">  -->
+  <div class="logo_responsive" > 
+	<img src="images/store_logo.png">
+
+  </div> 
+  <div id="storeLogo" class="col-sm-2 img-responsive1"> 
+  <?php //echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.png', STORE_NAME) . '</a>'; ?>
+		<img src="images/store_logo.png">	<!--<a href="http://www.template.me.uk/2334bs3/index.php"><img src="images/store_logo.png" alt="osCommerce" title="osCommerce" class="img-responsive" height="50" width="200"></a></div>-->
   </div>
 
 <div class="col-sm-10">
@@ -55,13 +61,14 @@
     </script>		
 			<div id="sliderA" class="slider" style="margin-top:2px;">
 				<img src="slider/images/image1.jpg" alt=""/>
-				<img src="slider/images/image2.jpg" alt=""/>
-				<img src="slider/images/image3.jpg" alt=""/>
-				<img src="slider/images/image4.jpg" alt=""/>
-				<img src="slider/images/image5.jpg" alt=""/>
-				<img src="slider/images/image6.jpg" alt=""/>
-				<img src="slider/images/image1_7.jpg" alt=""/>
-				<img src="slider/images/image1_8.jpg" alt=""/>				
+				<img src="slider/images/image2.jpg" alt=""/>				
+				<img src="slider/images/image4.jpg" alt=""/>				
+				<img src="slider/images/image1_8.jpg" alt=""/>	
+				<img src="slider/images/group1.jpg" alt=""/>
+				<img src="slider/images/groupe2.jpg" alt=""/>
+				<img src="slider/images/group3.jpg" alt=""/>	
+				<img src="slider/images/group4.jpg" alt=""/>
+				<img src="slider/images/group5.jpg" alt=""/>			
 			</div>
 </div>
 	<!--EL SCRIP DEL MENU ************************************************************************-->
@@ -114,6 +121,7 @@ var adjustMenu = function() {
  }
 }
 </script>	
+
 	<!--HASTA AQUI-->
 	<div class="col-sm-12"> 
 		<!--MENU LATERAL EMPIEZA AQUI -->
@@ -170,11 +178,11 @@ var adjustMenu = function() {
 			
 			</li>
 			 <li><a href="#"><?php echo M_CONTACT; ?></a>
-			 <ul >
-     
-      <li><a href="<?php echo tep_href_link('privacy.php'); ?>"><?php echo MODULE_BOXES_INFORMATION_BOX_PRIVACY; ?></a></li>
+			 <ul >    
+      
       <li><a href="<?php echo tep_href_link('conditions.php'); ?>"><?php echo MODULE_BOXES_INFORMATION_BOX_CONDITIONS; ?></a></li>
       <li><a href="<?php echo tep_href_link('contact_us.php'); ?>"><?php echo MODULE_BOXES_INFORMATION_BOX_CONTACT; ?></a></li>
+	  <li><a href="<?php echo tep_href_link('privacy.php'); ?>"><?php echo MODULE_BOXES_INFORMATION_BOX_PRIVACY; ?></a></li>
     </ul>
 			</li>
 		</ul>

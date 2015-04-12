@@ -13,6 +13,7 @@
 define('NAVBAR_TITLE', 'Confidencialidad');
 define('HEADING_TITLE', 'Confidencialidad');
 
-define('TEXT_INFORMATION', 'Introduzca sus condiciones de uso aquí!
+define('TEXT_INFORMATION', 'PROIDE se pondr&#x000E1; en contacto contigo para confirmar la validez de los datos.
+Los datos facilitados están protegidos de acuerdo la LOPD, por lo que PROIDE se compromete a no cederlos a terceros.
 ');
 ?>

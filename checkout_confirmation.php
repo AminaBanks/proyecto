@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-
+	header('Content-Type: text/html; charset=utf-8');
   require('includes/application_top.php');
 
 // if the customer is not logged on, redirect them to the login page
@@ -172,7 +172,7 @@
         <div class="panel panel-info">
           <div class="panel-heading"><?php echo '<strong>' . HEADING_DELIVERY_ADDRESS . '</strong>' /* tep_draw_button(TEXT_EDIT, 'glyphicon glyphicon-edit', tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS, '', 'SSL'), NULL, NULL, 'pull-right btn-info btn-xs' ); */?></div>
           <div class="panel-body">
-            <?php echo tep_address_format($order->delivery['format_id'], $order->delivery, 1, ' ', '<br />'); ?>
+            <?php echo 'Fundació PROIDE. Sant Joan de La Salle, 42 08022 Barcelona. Telèfon 932.377.180. Fax 932.373.630'//tep_address_format($order->delivery['format_id'], $order->delivery, 1, ' ', '<br />'); ?>
           </div>
         </div>
       </div>
@@ -183,7 +183,7 @@
       <div class="panel panel-warning">
         <div class="panel-heading"><?php echo '<strong>' . HEADING_BILLING_ADDRESS . '</strong>' /*. tep_draw_button(TEXT_EDIT, 'glyphicon glyphicon-edit', tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL'), NULL, NULL, 'pull-right btn-info btn-xs' ); */?></div>
         <div class="panel-body">
-          <?php echo ("La compra realizada tendra que irla a buscar a PROIDE");
+          <?php echo //("La compra realitzada tendra que irla a buscar a PROIDE");
 		  tep_address_format($order->billing['format_id'], $order->billing, 1, ' ', '<br />'); ?>
         </div>
       </div>

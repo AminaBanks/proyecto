@@ -203,7 +203,7 @@ define('PREVNEXT_BUTTON_LAST', 'FINAL&gt;&gt;');
 define('IMAGE_BUTTON_ADD_ADDRESS', 'Adicionar Direcci&oacute;n');
 define('IMAGE_BUTTON_ADDRESS_BOOK', 'Libreta de direcciones');
 define('IMAGE_BUTTON_BACK', 'Atr&aacute;s');
-define('IMAGE_BUTTON_BUY_NOW', 'Comprar Ahora');
+define('IMAGE_BUTTON_BUY_NOW', 'Comprar');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Cambiar Direcci&oacute;n');
 define('IMAGE_BUTTON_CHECKOUT', 'Realizar Pedido');
 define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirmar Pedido');
@@ -259,7 +259,7 @@ define('TEXT_VIEW_GRID', 'Cuadricula');
 define('TEXT_NO_NEW_PRODUCTS', 'Actualmente no hay productos.');
 
 // grid/list
-define('TEXT_SORT_BY', 'ordenar Per');
+define('TEXT_SORT_BY', 'ordenar Por');
 
 define('SMALL_IMAGE_BUTTON_BUY', 'Compra');
 
@@ -277,7 +277,7 @@ define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . tep_
 
 /*MENU */
 define ('M_CATEGORY','CATEGORIA');
-define ('M_MANUFACTURER','FABRICANTES');
+define ('M_MANUFACTURER','PAISES');
 define ('M_CONTACT','CONTACTO');
 define ('MODULE_BOXES_INFORMATION_BOX_CONTACT','Contacto');
 define ('MODULE_BOXES_INFORMATION_BOX_CONDITIONS','Conditiones');

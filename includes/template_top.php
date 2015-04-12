@@ -25,7 +25,8 @@
 <head>
 <meta charset="<?php echo CHARSET; ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <link href="./images/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 <title><?php echo tep_output_string_protected($oscTemplate->getTitle()); ?></title>
 <base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
 
@@ -65,21 +66,22 @@
       <div class="container-fluid">
         <ul class="nav navbar-nav">
           <li><a class="store-brand" <?php echo 'href="' . tep_href_link(FILENAME_DEFAULT) . '"'; ?>><i class="glyphicon glyphicon-home"></i><span class="hidden-sm"> &nbsp&nbsp<?php echo   HEADER_TITLE_HOME?></span></a></li> <!-- FALTA SABER EL NOMBRE DE HOME EN LA TABLA-->
-          	
+          <li>
+			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_ACCOUNT, '', 'SSL').'"';?>><i class="glyphicon glyphicon-user"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo HEADER_TITLE_MY_ACCOUNT?></span></a></li>
+		</li> 
           	<!--el codigo de los idiomas -->          
          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-flag"></i><span class="hidden-sm"> <?php echo HEADER_LANG?></span> <span class="caret"></span></a>
               <ul class="dropdown-menu">			   
                 <li class="text-center text-muted bg-primary"><abbr title="Selected Language"><?PHP echo HEADER_L; ?></abbr> <?php  echo $language ;?>
                 <li class="divider"></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>				
+								
+				<li><a href="http://artesania.fundacioproide.org/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
+				<li><a href="http://artesania.fundacioproide.org/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
+				<li><a href="http://artesania.fundacioproide.org/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
+				<li><a href="http://artesania.fundacioproide.org/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
 			</ul>
 		</li> 
-		<li>
-			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_ACCOUNT, '', 'SSL').'"';?>><i class="glyphicon glyphicon-user"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo HEADER_TITLE_MY_ACCOUNT?></span></a></li>
-		</li>   
+		  
 		<li>
 			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL').'"';?>><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp<?php echo HEADER_TITLE_NAME_PRODUCTS?> </span></a> 
 		</li>  	  
@@ -90,17 +92,17 @@
  <li class="nav navbar-text navbar-right">
 	<a href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a>
  </li>
- <li class="nav navbar-text  navbar-right">
+ <li class="nav navbar-text navbar-right">
 	<a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.png"/></a>
  </li>
  <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
-   <form  name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
+   <form  name="quick_find" <?php //echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
     <div class="input-group">
      <input name="keywords"   placeholder="buscar pel nom del producte" class="form-control" type="text"><span class="input-group-btn">
      <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
     </div>
    </form>
- </li>        
+ </li>      
         
       </ul>        
       </div>

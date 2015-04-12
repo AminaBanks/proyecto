@@ -16,6 +16,8 @@
 // on RedHat try 'ca_ES'
 // on FreeBSD try 'ca_ES.ISO_8859-1'
 // on Windows try 'ca', or 'Catalan'
+header('Content-Type: text/html; charset=utf-8');
+
 @setlocale(LC_TIME, 'ca_ES.UTF-8');
 
 define('DATE_FORMAT_SHORT', '%d/%m/%Y');  // this is used for strftime()
@@ -251,7 +253,7 @@ define('PREVNEXT_TITLE_PAGE_NO', 'P&agrave;gina %d');
 
 define('TEXT_VIEW', 'Vista: ');
 define('TEXT_VIEW_LIST', ' Llista');
-define('TEXT_VIEW_GRID', ' Quadrícula');
+define('TEXT_VIEW_GRID', ' Quadr&#x000ED;cula');
 
 define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', '%d p&agrave;gines anteriors');
 define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', '%d p&agrave;gines seg&uuml;ents');
@@ -269,7 +271,7 @@ define('SMALL_IMAGE_BUTTON_BUY', 'Compra');
 define('IMAGE_BUTTON_ADD_ADDRESS', 'Afegeix l\'adre&ccedil;a');
 define('IMAGE_BUTTON_ADDRESS_BOOK', 'Adreces');
 define('IMAGE_BUTTON_BACK', 'Enrere');
-define('IMAGE_BUTTON_BUY_NOW', 'Compra Ara');
+define('IMAGE_BUTTON_BUY_NOW', 'Compra');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Canvia l\'adre&ccedil;a');
 define('IMAGE_BUTTON_CHECKOUT', 'Realitza la comanda');
 define('REVIEWS_TEXT_AVERAGE', 'Mitjana de la classificaci&#x000F3;  <span itemprop="count">%s</span> opini&#x000F3; (s) %s');
@@ -339,7 +341,8 @@ define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . tep_
 
 /*Creation del MENU Y SU TRADUCCION */
 define ('M_CATEGORY','CATEGORIA');
-define ('M_MANUFACTURER','FABRICANTS');
+//define ('M_MANUFACTURER','FABRICANT'); ***********************Cambiar de Fabricantes a paisosa esta linea
+define ('M_MANUFACTURER','PA&#x000CF;SOS');
 define ('M_CONTACT','CONTACTE');
 define ('MODULE_BOXES_INFORMATION_BOX_CONTACT','Contacte');
 define ('MODULE_BOXES_INFORMATION_BOX_CONDITIONS','Condicions');

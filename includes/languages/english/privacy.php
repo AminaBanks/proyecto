@@ -13,5 +13,6 @@
 define('NAVBAR_TITLE', 'Privacy Notice');
 define('HEADING_TITLE', 'Privacy Notice');
 
-define('TEXT_INFORMATION', 'Put here your Privacy Notice information.');
+define('TEXT_INFORMATION', 'PROIDE will contact you to confirm the validity of the data.
+The data provided are protected according the Act, so PROIDE undertakes not to transfer them to third parties.');
 ?>
