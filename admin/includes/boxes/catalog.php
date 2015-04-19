@@ -27,7 +27,7 @@
         'code' => FILENAME_MANUFACTURERS,
         'title' => BOX_CATALOG_MANUFACTURERS,
         'link' => tep_href_link(FILENAME_MANUFACTURERS)
-      ),
+      )/*,
       array(
         'code' => FILENAME_REVIEWS,
         'title' => BOX_CATALOG_REVIEWS,
@@ -42,7 +42,7 @@
         'code' => FILENAME_PRODUCTS_EXPECTED,
         'title' => BOX_CATALOG_PRODUCTS_EXPECTED,
         'link' => tep_href_link(FILENAME_PRODUCTS_EXPECTED)
-      )
+      )*/
     )
   );
 ?>
