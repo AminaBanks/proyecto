@@ -1,27 +1,27 @@
 <?php
 /*
-  $Id: login.php 1739 2007-12-20 00:52:16Z hpdl $
+  $Id$
 
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
 
-  Copyright (c) 2003 osCommerce
+  Copyright (c) 2007 osCommerce
 
   Released under the GNU General Public License
 */
 
-define('NAVBAR_TITLE', 'Entra');
-define('HEADING_TITLE', 'Benvinguts, entreu la informaci&oacute; del vostre compte si us plau');
+define('HEADING_TITLE', 'Administrator Login');
 
-define('HEADING_NEW_CUSTOMER', 'Client nou');
-define('TEXT_NEW_CUSTOMER', 'S�c un client nou.');
-define('TEXT_NEW_CUSTOMER_INTRODUCTION', 'Creant un nou compte a ' . STORE_NAME . ' podreu comprar m&eacute;s r&agrave;pidament, estar al dia de l\'estat de la vostra comanda, i veure les comandes antigues.');
+define ('TEXT_USERNAME', 'Nom d&#39usuari:');
+define ('TEXT_PASSWORD', 'Contrasenya:');
 
-define('HEADING_RETURNING_CUSTOMER', 'Ja s�c client');
-define('TEXT_RETURNING_CUSTOMER', 'He comprat altres vegades.');
+define ('TEXT_CREATE_FIRST_ADMINISTRATOR', 'No hi ha administradors en la taula de base de dades Si us plau ompli la següent informació per crear el primer administrador (A inici de sessió manual continua sent necessària després d&#39aquest pas) ..');
 
-define('TEXT_PASSWORD_FORGOTTEN', 'Heu oblidat la vostra contrasenya? Cliqueu aqu� i us l\'enviarem.');
+define ('ERROR_INVALID_ADMINISTRATOR', 'Error: No vàlid intent administrador d&#39inici de sessió.');
 
-define('TEXT_LOGIN_ERROR', '<font color="#ff0000"><b>ERROR:</b></font> L\'\'adre&ccedil;a electr&ograve;nica\' i/o la \'contrasenya\' no figuren a la nostra base de dades');
-define('TEXT_VISITORS_CART', '<font color="#ff0000"><b>NOTA:</b></font> El contingut de la vostra &quot;cistella de visitant&quot; s\'afegir&agrave; a la vostra &quot;cistella de membre&quot; quan hi entreu. <a href="javascript:session_win();">[M&eacute;s informaci&oacute;]</a>');
+define ('BUTTON_LOGIN', 'Entrar');
+define ('BUTTON_CREATE_ADMINISTRATOR', 'Crea administrador');
+
+define ('ERROR_ACTION_RECORDER', '. Error: S&#39ha arribat al nombre màxim d&#39intents de connexió Torna-ho a intentar en% s minuts.');
+
 ?>

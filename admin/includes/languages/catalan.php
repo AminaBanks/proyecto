@@ -1,27 +1,29 @@
 <?php
 /*
-  $Id: catalan.php 1743 2007-12-20 18:02:36Z hpdl $
+  $Id$
 
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
 
-  Copyright (c) 2007 osCommerce
+  Copyright (c) 2014 osCommerce
 
   Released under the GNU General Public License
 */
 
-// look in your $PATH_LOCALE/locale directory for available locales
-// or type locale -a on the server.
-// Examples:
-// on RedHat try 'ca_ES'
-// on FreeBSD try 'ca_ES.ISO_8859-1'
-// on Windows try 'ca', or 'Catalan'
-@setlocale(LC_TIME, 'ca_ES.ISO_8859-1');
+// look in your $PATH_LOCALE/locale directory for available locales..
+// on RedHat6.0 I used 'en_US'
+// on FreeBSD 4.0 I use 'en_US.ISO_8859-1'
+// this may not work under win32 environments..
 
-define('DATE_FORMAT_SHORT', '%d/%m/%Y');  // this is used for strftime()
+setlocale(LC_ALL, array('en_US.UTF-8', 'en_US.UTF8', 'enu_usa'));
+
+define('DATE_FORMAT_SHORT', '%m/%d/%Y');  // this is used for strftime()
 define('DATE_FORMAT_LONG', '%A %d %B, %Y'); // this is used for strftime()
-define('DATE_FORMAT', 'd/m/Y');  // this is used for date()
+define('DATE_FORMAT', 'm/d/Y'); // this is used for date()
+define('PHP_DATE_TIME_FORMAT', 'm/d/Y H:i:s'); // this is used for date()
 define('DATE_TIME_FORMAT', DATE_FORMAT_SHORT . ' %H:%M:%S');
+define('JQUERY_DATEPICKER_I18N_CODE', ''); // leave empty for en_US; see http://jqueryui.com/demos/datepicker/#localization
+define('JQUERY_DATEPICKER_FORMAT', 'mm/dd/yy'); // see http://docs.jquery.com/UI/Datepicker/formatDate
 
 ////
 // Return date in raw format
@@ -29,290 +31,439 @@ define('DATE_TIME_FORMAT', DATE_FORMAT_SHORT . ' %H:%M:%S');
 // raw date is in format YYYYMMDD, or DDMMYYYY
 function tep_date_raw($date, $reverse = false) {
   if ($reverse) {
-    return substr($date, 0, 2) . substr($date, 3, 2) . substr($date, 6, 4);
+    return substr($date, 3, 2) . substr($date, 0, 2) . substr($date, 6, 4);
   } else {
-    return substr($date, 6, 4) . substr($date, 3, 2) . substr($date, 0, 2);
+    return substr($date, 6, 4) . substr($date, 0, 2) . substr($date, 3, 2);
   }
 }
 
-// if USE_DEFAULT_LANGUAGE_CURRENCY is true, use the following currency, instead of the applications default currency (used when changing language)
-define('LANGUAGE_CURRENCY', 'EUR');
 
 // Global entries for the <html> tag
 define('HTML_PARAMS','dir="LTR" lang="ca"');
 
 // charset for web pages and emails
-define('CHARSET', 'iso-8859-1');
+define('CHARSET', 'utf-8');
 
 // page title
-define('TITLE', STORE_NAME);
-
+define('TITLE', 'Eina d&#39;administraci&#243; d&#39;osCommerce');
+define ('TEXT_MANUFACTURERS_IMAGE', 'Imatge');
+define ('TABLE_HEADING_CATEGORIES_PRODUCTS','Categories');
+define ('TABLE_HEADING_STATUS', 'Estat');
+define('TEXT_EDIT_CATEGORIES_NAME','Nom');
+define('TEXT_SPECIALS_SPECIAL_PRICE ','Descompte');
+define('TABLE_HEADING_DATE_EXPECTED', 'Data d\'espera');
 // header text in includes/header.php
-define('HEADER_TITLE_CREATE_ACCOUNT', 'Crea un Compte');
-define('HEADER_TITLE_MY_ACCOUNT', 'El meu compte');
-define('HEADER_TITLE_CART_CONTENTS', 'Veure la Cistella');
-define('HEADER_TITLE_CHECKOUT', 'Realitza la Comanda');
-define('HEADER_TITLE_TOP', 'Inici');
-define('HEADER_TITLE_CATALOG', 'Cat&agrave;leg');
-define('HEADER_TITLE_LOGOFF', 'Surt');
-define('HEADER_TITLE_LOGIN', 'Entra');
-
-// footer text in includes/footer.php
-define('FOOTER_TEXT_REQUESTS_SINCE', 'peticions des de');
+define('HEADER_TITLE_TOP', 'Administraci&#243;');
+define('HEADER_TITLE_SUPPORT_SITE', 'Suport web');
+define('HEADER_TITLE_ONLINE_CATALOG', 'Cat&#243;leg en L&#237;nia');
+define('HEADER_TITLE_ADMINISTRATION', 'Administraci&#243;');
+define('BOX_TOOLS_BACKUP','Backup');
+define('BOX_TOOLS_MAIL','Correu electronic');
+define('BOX_TOOLS_SERVER_INFO', 'Server');
 
 // text for gender
 define('MALE', 'Home');
 define('FEMALE', 'Dona');
-define('MALE_ADDRESS', 'Sr.');
-define('FEMALE_ADDRESS', 'Sra.');
 
 // text for date of birth example
-define('DOB_FORMAT_STRING', 'dd/mm/aaaa');
+define('DOB_FORMAT_STRING', 'mm/dd/yyyy');
 
-// categories box text in includes/boxes/categories.php
-define('BOX_HEADING_CATEGORIES', 'Categories');
+// configuration box text in includes/boxes/configuration.php
+define('BOX_HEADING_CONFIGURATION', 'Configuraci&#243;');
+define('BOX_CONFIGURATION_MYSTORE', 'Botiga');
+define('BOX_CONFIGURATION_LOGGING', 'Usuari');
+define('BOX_CONFIGURATION_CACHE', 'Cach&#233;');
+define('BOX_CONFIGURATION_ADMINISTRATORS', 'Administradors');
+define('BOX_CONFIGURATION_STORE_LOGO', 'Logo Botiga');
 
-// manufacturers box text in includes/boxes/manufacturers.php
-define('BOX_HEADING_MANUFACTURERS', 'Fabricants');
+// modules box text in includes/boxes/modules.php
+define('BOX_HEADING_MODULES', 'Moduls');
 
-// whats_new box text in includes/boxes/whats_new.php
-define('BOX_HEADING_WHATS_NEW', 'Novetats');
+// categories box text in includes/boxes/catalog.php
+define('BOX_HEADING_CATALOG', 'Catal&#232;g');
+define('BOX_CATALOG_CATEGORIES_PRODUCTS', 'Categories/Productes');
+define('BOX_CATALOG_CATEGORIES_PRODUCTS_ATTRIBUTES', ' Atributs des Productes');
+define('BOX_CATALOG_MANUFACTURERS', '	Fabricants');
+define('BOX_CATALOG_REVIEWS', 'Commentaris');
+define('BOX_CATALOG_SPECIALS', 'Especials');
+define('BOX_CATALOG_PRODUCTS_EXPECTED', 'Productes Esperava');
 
-// quick_find box text in includes/boxes/quick_find.php
-define('BOX_HEADING_SEARCH', 'Cerca R&agrave;pida');
-define('BOX_SEARCH_TEXT', 'Utilitzeu paraules clau per trobar el producte que busqueu.');
-define('BOX_SEARCH_ADVANCED_SEARCH', 'Cerca Avan&ccedil;ada');
+// customers box text in includes/boxes/customers.php
+define('BOX_HEADING_CUSTOMERS', 'Clients');
+define('BOX_CUSTOMERS_CUSTOMERS', 'Clients');
 
-// specials box text in includes/boxes/specials.php
-define('BOX_HEADING_SPECIALS', 'Ofertes');
+// orders box text in includes/boxes/orders.php
+define('BOX_HEADING_ORDERS', 'Comandes');
+define('BOX_ORDERS_ORDERS', 'Comandes');
 
-// reviews box text in includes/boxes/reviews.php
-define('BOX_HEADING_REVIEWS', 'Comentaris');
-define('BOX_REVIEWS_WRITE_REVIEW', 'Escriviu un comentari per aquest producte');
-define('BOX_REVIEWS_NO_REVIEWS', 'En aquest moment, no hi ha cap comentari');
-define('BOX_REVIEWS_TEXT_OF_5_STARS', '%s de 5 Estrelles!');
+// taxes box text in includes/boxes/taxes.php
+define('BOX_HEADING_LOCATION_AND_TAXES', 'Zones / Impostos');
+define('BOX_TAXES_COUNTRIES', 'Pa&#239;sos');
+define('BOX_TAXES_ZONES', 'Zones');
+define('BOX_TAXES_GEO_ZONES', 'Zones tribut&#243;ries');
+define('BOX_TAXES_TAX_CLASSES', 'Classes d&#39;impostos');
+define('BOX_TAXES_TAX_RATES', 'Taxes  d&#39;impostos');
 
-// shopping_cart box text in includes/boxes/shopping_cart.php
-define('BOX_HEADING_SHOPPING_CART', 'Compres');
-define('BOX_SHOPPING_CART_EMPTY', '0 productes');
+// reports box text in includes/boxes/reports.php
+define('BOX_HEADING_REPORTS', 'Informes');
+define('BOX_REPORTS_PRODUCTS_VIEWED', 'Productes vists');
+define('BOX_REPORTS_PRODUCTS_PURCHASED', 'Productes adquirits');
+define('BOX_REPORTS_ORDERS_TOTAL', 'Clients commenda total');
 
-// order_history box text in includes/boxes/order_history.php
-define('BOX_HEADING_CUSTOMER_ORDERS', 'Les meves comanes');
+// tools text in includes/boxes/tools.php
+define ('BOX_HEADING_TOOLS', 'Eines');
+define ('BOX_TOOLS_ACTION_RECORDER', 'Gravadora d&#39;accions');
+define ('BOX_TOOLS_BACKUP ','Base de dades  còpia de seguretat');
+define ('BOX_TOOLS_BANNER_MANAGER', 'Administrador de Banner');
+define ('BOX_TOOLS_CACHE', 'Control de memòria cau');
+define ('BOX_TOOLS_DEFINE_LANGUAGE', 'Definir Idiomes');
+define ('BOX_TOOLS_MAIL '," enviar consulta");
+define ('BOX_TOOLS_NEWSLETTER_MANAGER', 'Butllet&#237; Administrador');
+define ('BOX_TOOLS_SEC_DIR_PERMISSIONS', 'Directori de Seguretat de permisos');
+define ('BOX_TOOLS_SERVER_INFO ',' Servidor d&#39;Informaci&#243;');
+define ('BOX_TOOLS_VERSION_CHECK', 'Version Checker');
+define ('BOX_TOOLS_WHOS_ONLINE', 'Qui \' s en línia ');
 
-// best_sellers box text in includes/boxes/best_sellers.php
-define('BOX_HEADING_BESTSELLERS', 'Els M&eacute;s Venuts');
-define('BOX_HEADING_BESTSELLERS_IN', 'Els M&eacute;s Venuts a <br>&nbsp;&nbsp;');
+// localizaion box text in includes/boxes/localization.php
+define ('BOX_HEADING_LOCALIZATION', 'Localitzaci&#243;');
+define ('BOX_LOCALIZATION_CURRENCIES ',' Monedes');
+define ('BOX_LOCALIZATION_LANGUAGES', 'Idiomes');
+define ('BOX_LOCALIZATION_ORDERS_STATUS', 'de la seva comanda');
 
-// notifications box text in includes/boxes/products_notifications.php
-define('BOX_HEADING_NOTIFICATIONS', 'Notificacions');
-define('BOX_NOTIFICATIONS_NOTIFY', 'Notifiqueu-me canvis a <b>%s</b>');
-define('BOX_NOTIFICATIONS_NOTIFY_REMOVE', 'No em notifiqueu canvis a <b>%s</b>');
-
-// manufacturer box text
-define('BOX_HEADING_MANUFACTURER_INFO', 'Fabricant');
-define('BOX_MANUFACTURER_INFO_HOMEPAGE', 'P&agrave;gina de %s');
-define('BOX_MANUFACTURER_INFO_OTHER_PRODUCTS', 'Altres productes');
-
-// languages box text in includes/boxes/languages.php
-define('BOX_HEADING_LANGUAGES', 'Idiomes');
-
-// currencies box text in includes/boxes/currencies.php
-define('BOX_HEADING_CURRENCIES', 'Monedes');
-
-// information box text in includes/boxes/information.php
-define('BOX_HEADING_INFORMATION', 'Informaci&oacute;');
-define('BOX_INFORMATION_PRIVACY', 'Confidencialitat');
-define('BOX_INFORMATION_CONDITIONS', 'Condicions d\'&uacute;s');
-define('BOX_INFORMATION_SHIPPING', 'Enviaments/Devolucions');
-define('BOX_INFORMATION_CONTACT', 'Contacteu-nos');
-
-// tell a friend box text in includes/boxes/tell_a_friend.php
-define('BOX_HEADING_TELL_A_FRIEND', 'Digueu-li a un Amic');
-define('BOX_TELL_A_FRIEND_TEXT', 'Envieu aquesta p&agrave;gina a un amic amb un comentari.');
-
-// checkout procedure text
-define('CHECKOUT_BAR_DELIVERY', 'entrega');
-define('CHECKOUT_BAR_PAYMENT', 'pagament');
-define('CHECKOUT_BAR_CONFIRMATION', 'confirmaci&oacute;');
-define('CHECKOUT_BAR_FINISHED', 'finalitzat!');
-
-// pull down default text
-define('PULL_DOWN_DEFAULT', 'Seleccioneu');
-define('TYPE_BELOW', 'Escriviu a Sota');
 
 // javascript messages
-define('JS_ERROR', 'Hi ha errors al vostre formulari!\nSi us plau, feu les seg&uuml;ents correcions:\n\n');
+define ('JS_ERROR', 'Els errors s&#39;han produït durant el procés de la seva formulari \ nSi us plau, feu les següents correccions: \ n \ n ');
 
-define('JS_REVIEW_TEXT', '* El vostre \'Comentari\' ha de tenir almenys ' . REVIEW_TEXT_MIN_LENGTH . ' lletres.\n');
-define('JS_REVIEW_RATING', '* Heu d\'avaluar el producte sobre el que opineu.\n');
+define ('JS_OPTIONS_VALUE_PRICE', '* El nou atribut producte necessita un valor preu \ n');
+define ('JS_OPTIONS_VALUE_PRICE_PREFIX', '* El nou atribut producte necessita un preu prefix \ n');
 
-define('JS_ERROR_NO_PAYMENT_MODULE_SELECTED', '* Si us plau, seleccioneu un m&egrave;tode de pagament per la vostra comanda.\n');
+define ('JS_PRODUCTS_NAME', '* El nou producte necessita un nom \ n ');
+define ('JS_PRODUCTS_DESCRIPTION', '* El nou producte necessita una descripció \ n');
+define ('JS_PRODUCTS_PRICE', '* El nou producte necessita un valor preu \ n');
+define ('JS_PRODUCTS_WEIGHT', '* El nou producte necessita un valor de pes \ n');
+define ('JS_PRODUCTS_QUANTITY', '* El nou producte necessita un valor de quantitat \ n');
+define ('JS_PRODUCTS_MODEL', '* El nou producte necessita un valor model \ n');
+define ('JS_PRODUCTS_IMAGE', '* El nou producte necessita un valor d&#39;imatge \ n');
 
-define('JS_ERROR_SUBMITTED', 'Ja heu enviat el formulari. Premeu Accepta i espereu a que acabi el proc&eacute;s.');
+define ('JS_SPECIALS_PRODUCTS_PRICE', '* Un nou preu d&#39;aquest producte s&#39;ha d&#39;establir \ n');
 
-define('ERROR_NO_PAYMENT_MODULE_SELECTED', 'Si us plau, seleccioneu un m&egrave;tode de pagament per la vostra comanda.');
+define ('JS_GENDER', '* El \' Sexe \'valor ha de ser elegit. \ n ');
+define ('JS_FIRST_NAME', '* El \' Nom \'entrada ha de tenir almenys' . ENTRY_FIRST_NAME_MIN_LENGTH . ' caràcters \ n');
+define ('JS_LAST_NAME', '* El \' Last Name \'entrada ha de tenir almenys' .ENTRY_LAST_NAME_MIN_LENGTH .' caràcters \ n');
+define ('JS_DOB', '* El \' Data de Naixement \'entrada ha d&#39;estar en el format :. xx / xx / xxxx (mes / dia / any) \ n ');
+define ('JS_EMAIL_ADDRESS', '* L&#39; \' Adreça E-Mail \'entrada ha de tenir almenys '.ENTRY_EMAIL_ADDRESS_MIN_LENGTH .' caràcters \ n');
+define ('JS_ADDRESS', '* La \' Direcció \'entrada ha de tenir almenys' .ENTRY_STREET_ADDRESS_MIN_LENGTH . 'caràcters \ n');
+define ('JS_POST_CODE', '* El \' Codi Postal \'entrada ha de tenir almenys' .ENTRY_POSTCODE_MIN_LENGTH .'caràcters \ n' );
+define ('JS_CITY', '* El \' City \'entrada ha de tenir almenys' .ENTRY_CITY_MIN_LENGTH . 'caràcters \ n');
+define ('JS_STATE', '* El \' Estat \'entrada s&#39;ha de seleccionar. \ n ');
+define ('JS_STATE_SELECT', '- Seleccioneu sobre de -');
+define ('JS_ZONE', '* El \' Estat \'d&#39;entrada s&#39;ha de seleccionar de la llista per a aquest país.');
+define ('JS_COUNTRY', '* El \' Country \'valor ha de ser elegit. \ n ');
+define ('JS_TELEPHONE', '* El \' Número de telèfon \'entrada ha de tenir almenys' .ENTRY_TELEPHONE_MIN_LENGTH .' caràcters\n' );
+define ('JS_PASSWORD', '* El \' Password \'amd \' \'Confirmació entrades han de coincidir amd tenir almenys' .ENTRY_PASSWORD_MIN_LENGTH.' caràcters \ n');
 
-define('CATEGORY_COMPANY', 'Empresa');
-define('CATEGORY_PERSONAL', 'Personal');
-define('CATEGORY_ADDRESS', 'Adre&ccedil;a');
-define('CATEGORY_CONTACT', 'Contacte');
-define('CATEGORY_OPTIONS', 'Opcions');
-define('CATEGORY_PASSWORD', 'Contrasenya');
+define ('JS_ORDER_DOES_NOT_EXIST', 'Número d&#39;ordre% s no existeix!');
 
-define('ENTRY_COMPANY', 'Empresa:');
-define('ENTRY_COMPANY_ERROR', '');
-define('ENTRY_COMPANY_TEXT', '');
-define('ENTRY_GENDER', 'Sexe:');
-define('ENTRY_GENDER_ERROR', 'Si us plau, seleccioneu una opci&oacute;.');
-define('ENTRY_GENDER_TEXT', '*');
-define('ENTRY_FIRST_NAME', 'Nom:');
-define('ENTRY_FIRST_NAME_ERROR', 'El vostre nom ha de tenir almenys ' . ENTRY_FIRST_NAME_MIN_LENGTH . ' lletres.');
-define('ENTRY_FIRST_NAME_TEXT', '*');
-define('ENTRY_LAST_NAME', 'Cognoms:');
-define('ENTRY_LAST_NAME_ERROR', 'Els vostres cognoms han de tenir almenys ' . ENTRY_LAST_NAME_MIN_LENGTH . ' lletres.');
-define('ENTRY_LAST_NAME_TEXT', '*');
-define('ENTRY_DATE_OF_BIRTH', 'Data de naixement:');
-define('ENTRY_DATE_OF_BIRTH_ERROR', 'La vostra data de naixement ha de ser en aquest format: DD/MM/AAAA (p.ex. 21/05/1970)');
-define('ENTRY_DATE_OF_BIRTH_TEXT', '* (p.ex. 21/05/1970)');
-define('ENTRY_EMAIL_ADDRESS', 'E-Mail:');
-define('ENTRY_EMAIL_ADDRESS_ERROR', 'La vostra adre&ccedil;a d\'E-Mail ha de tenir almenys ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' lletres.');
-define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', 'La vostra adre&ccedil;a d\'E-Mail no sembla v&agrave;lida - si us plau, feu els canvis necessaris.');
-define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'La vostra adre&ccedil;a d\'E-Mail ja figura a la nostra base de dades de clients - podeu entrar a la vostra compta amb aquesta adre&ccedil; o crear un compte nou amb una adre&ccedil;a diferent.');
-define('ENTRY_EMAIL_ADDRESS_TEXT', '*');
-define('ENTRY_STREET_ADDRESS', 'Adre&ccedil;a:');
-define('ENTRY_STREET_ADDRESS_ERROR', 'La vostra adre&ccedil;a ha de tenir almenys ' . ENTRY_STREET_ADDRESS_MIN_LENGTH . ' lletres.');
-define('ENTRY_STREET_ADDRESS_TEXT', '*');
-define('ENTRY_SUBURB', 'Barri');
-define('ENTRY_SUBURB_ERROR', '');
-define('ENTRY_SUBURB_TEXT', '');
-define('ENTRY_POST_CODE', 'Codi postal:');
-define('ENTRY_POST_CODE_ERROR', '&nbsp;<small><font color="#FF0000">m�nim ' . ENTRY_POSTCODE_MIN_LENGTH . ' lletres</font></small>');
-define('ENTRY_POST_CODE_TEXT', '&nbsp;<small><font color="#5b4026">obligatori</font></small>');
-define('ENTRY_CITY', 'Poblaci&oacute;:');
-define('ENTRY_CITY_ERROR', '&nbsp;<small><font color="#FF0000">m&iacute;nim ' . ENTRY_CITY_MIN_LENGTH . ' lletres</font></small>');
-define('ENTRY_CITY_TEXT', '&nbsp;<small><font color="#5b4026">obligatori</font></small>');
-define('ENTRY_STATE', 'Prov&iacute;ncia:');
-define('ENTRY_STATE_ERROR', '&nbsp;<small><font color="#FF0000">obligatori</font></small>');
-define('ENTRY_STATE_ERROR_SELECT', 'Si us plau, seleccioneu de la llista desplegable.');
-define('ENTRY_STATE_TEXT', '&nbsp;<small><font color="#5b4026">obligatori</font></small>');
-define('ENTRY_COUNTRY', 'Pa&iacute;s:');
-define('ENTRY_COUNTRY_ERROR', '');
-define('ENTRY_COUNTRY_TEXT', '&nbsp;<small><font color="#5b4026">obligatori</font></small>');
-define('ENTRY_TELEPHONE_NUMBER', 'Tel&egrave;fon:');
-define('ENTRY_TELEPHONE_NUMBER_ERROR', '&nbsp;<small><font color="#FF0000">m&iacute;nim ' . ENTRY_TELEPHONE_MIN_LENGTH . ' lletres</font></small>');
-define('ENTRY_TELEPHONE_NUMBER_TEXT', '&nbsp;<small><font color="#5b4026">obligatori</font></small>');
-define('ENTRY_FAX_NUMBER', 'Fax:');
-define('ENTRY_FAX_NUMBER_ERROR', '');
-define('ENTRY_FAX_NUMBER_TEXT', '');
-define('ENTRY_NEWSLETTER', 'Butllet&iacute; de not&iacute;cies:');
-define('ENTRY_NEWSLETTER_TEXT', '');
-define('ENTRY_NEWSLETTER_YES', 'em vull subscriure');
-define('ENTRY_NEWSLETTER_NO', 'no vull subscriure\'m');
-define('ENTRY_NEWSLETTER_ERROR', '');
-define('ENTRY_PASSWORD', 'Contrasenya:');
-define('ENTRY_PASSWORD_ERROR', 'La vostra contrasenya ha de tenir almenys ' . ENTRY_PASSWORD_MIN_LENGTH . ' lletres.');
-define('ENTRY_PASSWORD_ERROR_NOT_MATCHING', 'La confirmaci&oacute; de la contrasenya ha de ser igual que la contrasenya.');
-define('ENTRY_PASSWORD_TEXT', '*');
-define('ENTRY_PASSWORD_CONFIRMATION', 'Confirmeu la contrasenya:');
-define('ENTRY_PASSWORD_CONFIRMATION_TEXT', '*');
-define('ENTRY_PASSWORD_CURRENT', 'Contrasenya Actual:');
-define('ENTRY_PASSWORD_CURRENT_TEXT', '*');
-define('ENTRY_PASSWORD_CURRENT_ERROR', 'La vostra contrasenya ha de tenir almenys ' . ENTRY_PASSWORD_MIN_LENGTH . ' lletres.');
-define('ENTRY_PASSWORD_NEW', 'Contrasenya nova:');
-define('ENTRY_PASSWORD_NEW_TEXT', '*');
-define('ENTRY_PASSWORD_NEW_ERROR', 'La vostra contrasenya ha de tenir almenys ' . ENTRY_PASSWORD_MIN_LENGTH . ' lletres.');
-define('ENTRY_PASSWORD_NEW_ERROR_NOT_MATCHING', 'La confirmaci&oacute; de la contrasenya ha de ser igual que la contrasenya.');
-define('PASSWORD_HIDDEN', '--OCULT--');
+define ('CATEGORY_PERSONAL', 'Personal');
+define ('CATEGORY_ADDRESS', 'Adreça');
+define ('CATEGORY_CONTACT', 'Contacte');
+define ('CATEGORY_COMPANY', 'Companyia');
+define ('CATEGORY_OPTIONS', 'Opcions');
 
-define('FORM_REQUIRED_INFORMATION', '* Camp Obligatori');
+define ('ENTRY_GENDER', 'Gènere:');
+define ('ENTRY_GENDER_ERROR', '& nbsp; <span class = "textoError"> requerida </ span>');
+define ('ENTRY_FIRST_NAME', 'Nom:');
+define ('ENTRY_FIRST_NAME_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_FIRST_NAME_MIN_LENGTH.' caràcters </ span>');
+define ('ENTRY_LAST_NAME ',' Cognom:');
+define ('ENTRY_LAST_NAME_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_LAST_NAME_MIN_LENGTH.  ' caràcters </ span>');
+define ('ENTRY_DATE_OF_BIRTH ',' Data de Naixement:');
+define ('ENTRY_DATE_OF_BIRTH_ERROR', '&nbsp; <span class = "textoError"> (per exemple, 1970.05.21) </ span>.');
+define ('ENTRY_EMAIL_ADDRESS', 'Adreça E-Mail:');
+define ('ENTRY_EMAIL_ADDRESS_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_EMAIL_ADDRESS_MIN_LENGTH .'caràcters </ span>');
+define ('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', '&nbsp; <span class = "textoError"> L&#39;adreça de correu electrònic doesn\'t sembla vàlid </ span> ');
+define ('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', '&nbsp; <span class = "textoError"> Aquesta adreça de correu electrònic ja existeix </ span>');
+define ('ENTRY_COMPANY', 'Nom d&#39;empresa:');
+define ('ENTRY_STREET_ADDRESS','Direcció:');
+define ('ENTRY_STREET_ADDRESS_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_STREET_ADDRESS_MIN_LENGTH .'caràcters </ span>');
+define ('ENTRY_SUBURB ','localitat:');
+define ('ENTRY_POST_CODE', 'Codi postal:');
+define ('ENTRY_POST_CODE_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_POSTCODE_MIN_LENGTH.' caràcters </ span>');
+define ('ENTRY_CITY', 'Ciutat:');
+define ('ENTRY_CITY_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_CITY_MIN_LENGTH.'caràcters </ span>');
+define ('ENTRY_STATE', 'Estat:');
+define ('ENTRY_STATE_ERROR', '&nbsp; <span class ="textoError"> requerida </ span>');
+define ('ENTRY_COUNTRY', 'Country:');
+define ('ENTRY_COUNTRY_ERROR', 'Ha de seleccionar un país dels Països del menú desplegable.');
+define ('ENTRY_TELEPHONE_NUMBER', 'Número de telèfon:');
+define ('ENTRY_TELEPHONE_NUMBER_ERROR' , '&nbsp; <span class = "textoError"> min' .ENTRY_TELEPHONE_MIN_LENGTH.' caràcters </ span>');
+define ('ENTRY_FAX_NUMBER', 'Nombre de fax:');
+define ('ENTRY_NEWSLETTER', 'Butlletí:');
+define ('ENTRY_NEWSLETTER_YES ',' Subscrit ');
+define ('ENTRY_NEWSLETTER_NO', 'no subscriure');
+
+// images
+
+define('TITLE', 'osCommerce Online Merchant Administration Tool'); 
+// header text in includes/header.php define('HEADER_TITLE_TOP', 'Administration'); define('HEADER_TITLE_SUPPORT_SITE', 'Support Site'); define('HEADER_TITLE_ONLINE_CATALOG', 'Online Catalog'); define('HEADER_TITLE_ADMINISTRATION', 'Administration'); // text for gender define('MALE', 'Male'); define('FEMALE', 'Female'); // text for date of birth example define('DOB_FORMAT_STRING', 'mm/dd/yyyy'); // configuration box text in includes/boxes/configuration.php define('BOX_HEADING_CONFIGURATION', 'Configuration'); define('BOX_CONFIGURATION_MYSTORE', 'My Store'); define('BOX_CONFIGURATION_LOGGING', 'Logging'); define('BOX_CONFIGURATION_CACHE', 'Cache'); define('BOX_CONFIGURATION_ADMINISTRATORS', 'Administrators'); define('BOX_CONFIGURATION_STORE_LOGO', 'Store Logo'); // modules box text in includes/boxes/modules.php define('BOX_HEADING_MODULES', 'Modules'); // categories box text in includes/boxes/catalog.php define('BOX_HEADING_CATALOG', 'Catalog'); define('BOX_CATALOG_CATEGORIES_PRODUCTS', 'Categories/Products'); define('BOX CATALOG CATEGORIES PRODUCTS ATTRIBUTES', 'Products Attributes'); define('BOX_CATALOG_MANUFACTURERS', 'Manufacturers'); define('BOX_CATALOG_REVIEWS', 'Reviews'); define('BOX_CATALOG_SPECIALS', 'Specials'); define('BOX_CATALOG_PRODUCTS_EXPECTED', 'Products Expected'); // customers box text in includes/boxes/customers.php define('BOX_HEADING_CUSTOMERS', 'Customers'); define('BOX_CUSTOMERS_CUSTOMERS', 'Customers'); // orders box text in includes/boxes/orders.php define('BOX_HEADING_ORDERS', 'Orders'); define('BOX_ORDERS_ORDERS', 'Orders'); // taxes box text in includes/boxes/taxes.php define('BOX_HEADING_LOCATION_AND_TAXES', 'Locations / Taxes'); define('BOX_TAXES_COUNTRIES', 'Countries'); define('BOX_TAXES_ZONES', 'Zones'); define('BOX_TAXES_GEO_ZONES', 'Tax Zones'); define('BOX_TAXES_TAX_CLASSES', 'Tax Classes'); define('BOX_TAXES_TAX_RATES', 'Tax Rates'); // reports box text in includes/boxes/reports.php define('BOX_HEADING_REPORTS', 'Reports'); define('BOX_REPORTS_PRODUCTS_VIEWED', 'Products Viewed'); define('BOX_REPORTS_PRODUCTS_PURCHASED', 'Products Purchased'); define('BOX_REPORTS_ORDERS_TOTAL', 'Customer Orders-Total'); // tools text in includes/boxes/tools.php define('BOX_HEADING_TOOLS', 'Tools'); define('BOX_TOOLS_ACTION_RECORDER', 'Action Recorder'); define('BOX_TOOLS_BACKUP', 'Database Backup'); define('BOX_TOOLS_BANNER_MANAGER', 'Banner Manager'); define('BOX_TOOLS_CACHE', 'Cache Control'); define('BOX_TOOLS_DEFINE_LANGUAGE', 'Define Languages'); define('BOX_TOOLS_MAIL', 'Send Email'); define('BOX_TOOLS_NEWSLETTER_MANAGER', 'Newsletter Manager'); define('BOX_TOOLS_SEC_DIR_PERMISSIONS', 'Security Directory Permissions'); define('BOX_TOOLS_SERVER_INFO', 'Server Info'); define('BOX_TOOLS_VERSION_CHECK', 'Version Checker'); define('BOX_TOOLS_WHOS_ONLINE', 'Who\'s Online'); // localizaion box text in includes/boxes/localization.php define('BOX_HEADING_LOCALIZATION', 'Localization'); define('BOX_LOCALIZATION_CURRENCIES', 'Currencies'); define('BOX_LOCALIZATION_LANGUAGES', 'Languages'); define('BOX_LOCALIZATION_ORDERS_STATUS', 'Orders Status'); // javascript messages define('JS_ERROR', 'Errors have occured during the process of your form!\nPlease make the following corrections:\n\n'); define('JS_OPTIONS_VALUE_PRICE', '* The new product atribute needs a price value\n'); define('JS_OPTIONS_VALUE_PRICE_PREFIX', '* The new product atribute needs a price prefix\n'); define('JS_PRODUCTS_NAME', '* The new product needs a name\n'); define('JS_PRODUCTS_DESCRIPTION', '* The new product needs a description\n'); define('JS_PRODUCTS_PRICE', '* The new product needs a price value\n'); define('JS_PRODUCTS_WEIGHT', '* The new product needs a weight value\n'); define('JS_PRODUCTS_QUANTITY', '* The new product needs a quantity value\n'); define('JS_PRODUCTS_MODEL', '* The new product needs a model value\n'); define('JS_PRODUCTS_IMAGE', '* The new product needs an image value\n'); define('JS_SPECIALS_PRODUCTS_PRICE', '* A new price for this product needs to be set\n'); define('JS_GENDER', '* The \'Gender\' value must be chosen.\n'); define('JS_FIRST_NAME', '* The \'First Name\' entry must have at least ' . ENTRY_FIRST_NAME_MIN_LENGTH . ' characters.\n'); define('JS_LAST_NAME', '* The \'Last Name\' entry must have at least ' . ENTRY_LAST_NAME_MIN_LENGTH . ' characters.\n'); define('JS_DOB', '* The \'Date of Birth\' entry must be in the format: xx/xx/xxxx (month/date/year).\n'); define('JS_EMAIL_ADDRESS', '* The \'E-Mail Address\' entry must have at least ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' characters.\n'); define('JS_ADDRESS', '* The \'Street Address\' entry must have at least ' . ENTRY_STREET_ADDRESS_MIN_LENGTH . ' characters.\n'); define('JS_POST_CODE', '* The \'Post Code\' entry must have at least ' . ENTRY_POSTCODE_MIN_LENGTH . ' characters.\n'); define('JS_CITY', '* The \'City\' entry must have at least ' . ENTRY_CITY_MIN_LENGTH . ' characters.\n'); define('JS_STATE', '* The \'State\' entry is must be selected.\n'); define('JS_STATE_SELECT', '-- Select Above --'); define('JS_ZONE', '* The \'State\' entry must be selected from the list for this country.'); define('JS_COUNTRY', '* The \'Country\' value must be chosen.\n'); define('JS_TELEPHONE', '* The \'Telephone Number\' entry must have at least ' . ENTRY_TELEPHONE_MIN_LENGTH . ' characters.\n'); define('JS_PASSWORD', '* The \'Password\' amd \'Confirmation\' entries must match amd have at least ' . ENTRY_PASSWORD_MIN_LENGTH . ' characters.\n'); define('JS_ORDER_DOES_NOT_EXIST', 'Order Number %s does not exist!'); define('CATEGORY_PERSONAL', 'Personal'); define('CATEGORY_ADDRESS', 'Address'); define('CATEGORY_CONTACT', 'Contact'); define('CATEGORY_COMPANY', 'Company'); define('CATEGORY_OPTIONS', 'Options'); define('ENTRY_GENDER', 'Gender:'); define('ENTRY_GENDER_ERROR', '&nbsp;<span class="errorText">required</span>'); define('ENTRY_FIRST_NAME', 'First Name:'); define('ENTRY_FIRST_NAME_ERROR', '&nbsp;<span class="errorText">min ' . ENTRY_FIRST_NAME_MIN_LENGTH . ' chars</span>'); define('ENTRY_LAST_NAME', 'Last Name:'); define('ENTRY_LAST_NAME_ERROR', '&nbsp;<span class="errorText">min ' . ENTRY_LAST_NAME_MIN_LENGTH . ' chars</span>'); define('ENTRY_DATE_OF_BIRTH', 'Date of Birth:'); define('ENTRY_DATE_OF_BIRTH_ERROR', '&nbsp;<span class="errorText">(eg. 05/21/1970)</span>'); define('ENTRY_EMAIL_ADDRESS', 'E-Mail Address:'); define('ENTRY_EMAIL_ADDRESS_ERROR', '&nbsp;<span class="errorText">min ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' chars</span>'); define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', '&nbsp;<span class="errorText">The email address doesn\'t appear to be valid!</span>'); define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', '&nbsp;<span class="errorText">This email address already exists!</span>'); define('ENTRY_COMPANY', 'Company name:'); define('ENTRY_STREET_ADDRESS', 'Street Address:'); define('ENTRY_STREET_ADDRESS_ERROR', '&nbsp;<span class="errorText">min ' . ENTRY_STREET_ADDRESS_MIN_LENGTH . ' chars</span>'); define('ENTRY_SUBURB', 'Suburb:'); define('ENTRY_POST_CODE', 'Post Code:'); define('ENTRY_POST_CODE_ERROR', '&nbsp;<span class="errorText">min ' . ENTRY_POSTCODE_MIN_LENGTH . ' chars</span>'); define('ENTRY_CITY', 'City:'); define('ENTRY_CITY_ERROR', '&nbsp;<span class="errorText">min ' . ENTRY_CITY_MIN_LENGTH . ' chars</span>'); define('ENTRY_STATE', 'State:'); define('ENTRY_STATE_ERROR', '&nbsp;<span class="errorText">required</span>'); define('ENTRY_COUNTRY', 'Country:'); define('ENTRY_COUNTRY_ERROR', 'You must select a country from the Countries pull down menu.'); define('ENTRY_TELEPHONE_NUMBER', 'Telephone Number:'); define('ENTRY_TELEPHONE_NUMBER_ERROR', '&nbsp;<span class="errorText">min ' . ENTRY_TELEPHONE_MIN_LENGTH . ' chars</span>'); define('ENTRY_FAX_NUMBER', 'Fax Number:'); define('ENTRY_NEWSLETTER', 'Newsletter:'); define('ENTRY_NEWSLETTER_YES', 'Subscribed'); define('ENTRY_NEWSLETTER_NO', 'Unsubscribed'); // images define('IMAGE_ANI_SEND_EMAIL', 'Sending E-Mail'); define('IMAGE_BACK', 'Back'); define('IMAGE_BACKUP', 'Backup'); define('IMAGE_CANCEL', 'Cancel'); define('IMAGE_CONFIRM', 'Confirm'); define('IMAGE_COPY', 'Copy'); define('IMAGE_COPY_TO', 'Copy To'); define('IMAGE_DETAILS', 'Details'); define('IMAGE_DELETE', 'Delete'); define('IMAGE_EDIT', 'Edit'); define('IMAGE_EMAIL', 'Email'); define('IMAGE_EXPORT', 'Export'); define('IMAGE_ICON_STATUS_GREEN', 'Active'); define('IMAGE_ICON_STATUS_GREEN_LIGHT', 'Set Active'); define('IMAGE_ICON_STATUS_RED', 'Inactive'); define('IMAGE_ICON_STATUS_RED_LIGHT', 'Set Inactive'); define('IMAGE_ICON_INFO', 'Info'); define('IMAGE_INSERT', 'Insert'); define('IMAGE_LOCK', 'Lock'); define('IMAGE_MODULE_INSTALL', 'Install Module'); define('IMAGE_MODULE_REMOVE', 'Remove Module'); define('IMAGE_MOVE', 'Move'); define('IMAGE_NEW_BANNER', 'New Banner'); define('IMAGE_NEW_CATEGORY', 'New Category'); define('IMAGE_NEW_COUNTRY', 'New Country'); define('IMAGE_NEW_CURRENCY', 'New Currency'); define('IMAGE_NEW_FILE', 'New File'); define('IMAGE_NEW_FOLDER', 'New Folder'); define('IMAGE_NEW_LANGUAGE', 'New Language'); define('IMAGE_NEW_NEWSLETTER', 'New Newsletter'); define('IMAGE_NEW_PRODUCT', 'New Product'); define('IMAGE_NEW_TAX_CLASS', 'New Tax Class'); define('IMAGE_NEW_TAX_RATE', 'New Tax Rate'); define('IMAGE_NEW_TAX_ZONE', 'New Tax Zone'); define('IMAGE_NEW_ZONE', 'New Zone'); define('IMAGE_ORDERS', 'Orders'); define('IMAGE_ORDERS_INVOICE', 'Invoice'); define('IMAGE_ORDERS_PACKINGSLIP', 'Packing Slip'); define('IMAGE_PREVIEW', 'Preview'); define('IMAGE_RESTORE', 'Restore'); define('IMAGE_RESET', 'Reset'); define('IMAGE_SAVE', 'Save'); define('IMAGE_SEARCH', 'Search'); define('IMAGE_SELECT', 'Select'); define('IMAGE_SEND', 'Send'); define('IMAGE_SEND_EMAIL', 'Send Email'); define('IMAGE_UNLOCK', 'Unlock'); define('IMAGE_UPDATE', 'Update'); define('IMAGE_UPDATE_CURRENCIES', 'Update Exchange Rate'); define('IMAGE_UPLOAD', 'Upload'); define('ICON_CROSS', 'False'); define('ICON_CURRENT_FOLDER', 'Current Folder'); define('ICON_DELETE', 'Delete'); define('ICON_ERROR', 'Error'); define('ICON_FILE', 'File'); define('ICON_FILE_DOWNLOAD', 'Download'); define('ICON_FOLDER', 'Folder'); define('ICON_LOCKED', 'Locked'); define('ICON_PREVIOUS_LEVEL', 'Previous Level'); define('ICON_PREVIEW', 'Preview'); define('ICON_STATISTICS', 'Statistics'); define('ICON_SUCCESS', 'Success'); define('ICON_TICK', 'True'); define('ICON_UNLOCKED', 'Unlocked'); define('ICON_WARNING', 'Warning'); // constants for use in tep_prev_next_display function define('TEXT_RESULT_PAGE', 'Page %s of %d'); define('TEXT_DISPLAY_NUMBER_OF_BANNERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> banners)'); define('TEXT_DISPLAY_NUMBER_OF_COUNTRIES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> countries)'); define('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> customers)'); define('TEXT_DISPLAY_NUMBER_OF_CURRENCIES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> currencies)'); define('TEXT_DISPLAY_NUMBER_OF_ENTRIES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> entries)'); define('TEXT_DISPLAY_NUMBER_OF_LANGUAGES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> languages)'); define('TEXT_DISPLAY_NUMBER_OF_MANUFACTURERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> manufacturers)'); define('TEXT_DISPLAY_NUMBER_OF_NEWSLETTERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> newsletters)'); define('TEXT_DISPLAY_NUMBER_OF_ORDERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> orders)'); define('TEXT_DISPLAY_NUMBER_OF_ORDERS_STATUS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> orders status)'); define('TEXT_DISPLAY_NUMBER_OF_PRODUCTS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> products)'); define('TEXT_DISPLAY_NUMBER_OF_PRODUCTS_EXPECTED', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> products expected)'); define('TEXT_DISPLAY_NUMBER_OF_REVIEWS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> product reviews)'); define('TEXT_DISPLAY_NUMBER_OF_SPECIALS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> products on special)'); define('TEXT_DISPLAY_NUMBER_OF_TAX_CLASSES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> tax classes)'); define('TEXT_DISPLAY_NUMBER_OF_TAX_ZONES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> tax zones)'); define('TEXT_DISPLAY_NUMBER_OF_TAX_RATES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> tax rates)'); define('TEXT_DISPLAY_NUMBER_OF_ZONES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> zones)'); define('PREVNEXT_BUTTON_PREV', '&lt;&lt;'); define('PREVNEXT_BUTTON_NEXT', '&gt;&gt;'); define('TEXT_DEFAULT', 'default'); define('TEXT_SET_DEFAULT', 'Set as default'); define('TEXT_FIELD_REQUIRED', '&nbsp;<span class="fieldRequired">* Required</span>'); define('TEXT_CACHE_CATEGORIES', 'Categories Box'); define('TEXT_CACHE_MANUFACTURERS', 'Manufacturers Box'); define('TEXT_CACHE_ALSO_PURCHASED', 'Also Purchased Module'); define('TEXT_NONE', '--none--'); define('TEXT_TOP', 'Top'); define('ERROR_DESTINATION_DOES_NOT_EXIST', 'Error: Destination does not exist.'); define('ERROR_DESTINATION_NOT_WRITEABLE', 'Error: Destination not writeable.'); define('ERROR_FILE_NOT_SAVED', 'Error: File upload not saved.'); define('ERROR_FILETYPE_NOT_ALLOWED', 'Error: File upload type not allowed.'); define('SUCCESS_FILE_SAVED_SUCCESSFULLY', 'Success: File upload saved successfully.'); define('WARNING_NO_FILE_UPLOADED', 'Warning: No file uploaded.'); // bootstrap helper define('MODULE_CONTENT_BOOTSTRAP_ROW_DESCRIPTION', '<p>Content Width can be 12 or less per column per row.</p><p>12/12 = 100% width, 6/12 = 50% width, 4/12 = 33% width.</p><p>Total of all columns in any one row must equal 12 (eg: 3 boxes of 4 columns each, 1 box of 12 columns and so on).</p>');
+define ('TÍTOL', 'Eina d&#39;administració d&#39;osCommerce,');
+
+// Text de capçalera en includes / header.php
+define ('HEADER_TITLE_TOP', 'Administració');
+define ('HEADER_TITLE_SUPPORT_SITE', 'Suport del lloc');
+define ('HEADER_TITLE_ONLINE_CATALOG ',' Catàleg en Línia');
+define ('HEADER_TITLE_ADMINISTRATION', 'Administració');
+
+// Text de gènere
+define ('MALE', 'Home');
+define ('FEMELLE', 'Dona');
+
+// Text per a la data de naixement exemple
+define ('DOB_FORMAT_STRING ','dd / mm / aaaa');
+
+// Configuració de text quadre en includes / caixes / configuration.php
+define ('BOX_HEADING_CONFIGURATION', 'Configuració');
+define ('BOX_CONFIGURATION_MYSTORE ',' El meu Botiga ');
+define ('BOX_CONFIGURATION_LOGGING', 'Registre');
+define ('BOX_CONFIGURATION_CACHE', 'Caché');
+define ('BOX_CONFIGURATION_ADMINISTRATORS', 'Administradors');
+define ('BOX_CONFIGURATION_STORE_LOGO', 'Logo Store');
+
+// Mòduls quadre de text a includes / caixes / modules.php
+define ('BOX_HEADING_MODULES', 'Mòduls');
+
+// Categories quadre de text a includes / caixes / catalog.php
+define ('BOX_HEADING_CATALOG', 'Catàleg');
+define ('BOX_CATALOG_CATEGORIES_PRODUCTS '," Categories / Productes ");
+define ('BOX_CATALOG_CATEGORIES_PRODUCTS_ATTRIBUTES', 'Productes Atributs');
+define ('BOX_CATALOG_MANUFACTURERS', 'Constructors');
+define ('BOX_CATALOG_REVIEWS', 'Comentaris');
+define ('BOX_CATALOG_SPECIALS', 'especials');
+define ('BOX_CATALOG_PRODUCTS_EXPECTED', 'Productes esperava');
+
+// Text quadre de clients en includes / caixes / clientes.php
+define ('BOX_HEADING_CUSTOMERS', 'Clients');
+define ('BOX_CUSTOMERS_CUSTOMERS', 'Clients');
+
+// Ordres quadre de text a includes / caixes / orders.php
+define ('BOX_HEADING_ORDERS ',' Ordres ');
+define ('BOX_ORDERS_ORDERS ',' Ordres ');
+
+// Impostos text quadre en includes / caixes / taxes.php
+
+define ('BOX_HEADING_LOCATION_AND_TAXES',' Zones / Impostos');
+define ('BOX_TAXES_COUNTRIES', 'Països');
+define ('BOX_TAXES_ZONES','zones');
+define ('BOX_TAXES_GEO_ZONES ',' Zones tributàries');
+define ('BOX_TAXES_TAX_CLASSES ',' Classes d&#39;impostos ');
+define ('BOX_TAXES_TAX_RATES', 'taxes d&#39;impostos ');
+
+// Informes quadre de text a includes / caixes / reports.php
+define ('BOX_HEADING_REPORTS', 'Informes');
+define ('BOX_REPORTS_PRODUCTS_VIEWED', 'Productes vists');
+define ('BOX_REPORTS_PRODUCTS_PURCHASED', 'productes adquirits');
+define ('BOX_REPORTS_ORDERS_TOTAL', 'Clients Ordres-Total ');
+
+// Eines de text en includes / caixes / tools.php
+define ('BOX_HEADING_TOOLS', 'Eines');
+define ('BOX_TOOLS_ACTION_RECORDER', 'Gravadora d&#39;accions');
+define ('BOX_TOOLS_BACKUP ',' Base de dades de còpia de seguretat');
+define ('BOX_TOOLS_BANNER_MANAGER', 'Administrador de Banner');
+define ('BOX_TOOLS_CACHE', 'Control de memòria cau');
+define ('BOX_TOOLS_DEFINE_LANGUAGE', 'Definir Idiomes');
+define ('BOX_TOOLS_MAIL ',' enviar consulta');
+define ('BOX_TOOLS_NEWSLETTER_MANAGER', 'Butlletí Administrador');
+define ('BOX_TOOLS_SEC_DIR_PERMISSIONS', 'Directori de Seguretat de permisos');
+define ('BOX_TOOLS_SERVER_INFO ',' Servidor d&#39;Informació');
+define ('BOX_TOOLS_VERSION_CHECK', 'Version Checker');
+define ('BOX_TOOLS_WHOS_ONLINE', 'Qui \' s en línia ');
+
+// Text quadre localizaion en includes / caixes / localization.php
+define ('BOX_HEADING_LOCALIZATION', 'Localització');
+define ('BOX_LOCALIZATION_CURRENCIES ',' Monedes');
+define ('BOX_LOCALIZATION_LANGUAGES', 'Idiomes');
+define ('BOX_LOCALIZATION_ORDERS_STATUS', 'de la seva comanda');
+
+// Missatges javascript
+define ('JS_ERROR', 'Els errors s&#39;han produït durant el procés de la seva formulari \ nSi us plau, feu les següents correccions: \ n \ n ');
+
+define ('JS_OPTIONS_VALUE_PRICE', '* El nou atribut producte necessita un valor preu \ n');
+define ('JS_OPTIONS_VALUE_PRICE_PREFIX', '* El nou atribut producte necessita un preu prefix \ n');
+
+define ('JS_PRODUCTS_NAME', '* El nou producte necessita un nom \ n ');
+define ('JS_PRODUCTS_DESCRIPTION', '* El nou producte necessita una descripció \ n');
+define ('JS_PRODUCTS_PRICE', '* El nou producte necessita un valor preu \ n');
+define ('JS_PRODUCTS_WEIGHT', '* El nou producte necessita un valor de pes \ n');
+define ('JS_PRODUCTS_QUANTITY', '* El nou producte necessita un valor de quantitat \ n');
+define ('JS_PRODUCTS_MODEL', '* El nou producte necessita un valor model \ n');
+define ('JS_PRODUCTS_IMAGE', '* El nou producte necessita un valor d&#39;imatge \ n');
+
+define ('JS_SPECIALS_PRODUCTS_PRICE', ' *Un nou preu d&#39;aquest producte s&#39;ha d&#39;establir \ n');
+
+define ('JS_GENDER', '* El \' Sexe \'valor ha de ser elegit. \ n ');
+define ('JS_FIRST_NAME', '* El \' Nom \'entrada ha de tenir almenys' .ENTRY_FIRST_NAME_MIN_LENGTH.' caràcters \ n');
+define ('JS_LAST_NAME', '* El \' Last Name \'entrada ha de tenir almenys' .ENTRY_LAST_NAME_MIN_LENGTH.' caràcters \ n' );
+define ('JS_DOB', '* El \' Data de Naixement \ entrada ha d&#39;estar en el format :. xx / xx / xxxx (mes / dia / any) \ n ');
+define ('JS_EMAIL_ADDRESS', '* El \' Adreça E-Mail \'entrada ha de tenir almenys' .ENTRY_EMAIL_ADDRESS_MIN_LENGTH.' caràcters \ n');
+define ('JS_ADDRESS', '* El \' Direcció \'entrada ha de tenir almenys' .ENTRY_STREET_ADDRESS_MIN_LENGTH.' caràcters \ n');
+define ('JS_POST_CODE', '* El \' Codi Postal \'entrada ha de tenir almenys' .ENTRY_POSTCODE_MIN_LENGTH .'caràcters \ n');
+define ('JS_CITY', '* El \' City \'entrada ha de tenir almenys' .ENTRY_CITY_MIN_LENGTH.' caràcters \ n.' );
+define ('JS_STATE', '* El \' Estat \'entrada s&#39;ha de seleccionar. \ n ');
+define ('JS_STATE_SELECT', '- Seleccioneu sobre de -');
+define ('JS_ZONE', '* El \' Estat \'d&#39;entrada s&#39;ha de seleccionar de la llista per a aquest país.');
+define ('JS_COUNTRY', '* El \' Country \'valor ha de ser elegit. \ n ');
+define ('JS_TELEPHONE', '* El \' Número de telèfon \'entrada ha de tenir almenys' .ENTRY_TELEPHONE_MIN_LENGTH.' caràcters \ n' );
+define ('JS_PASSWORD', '* El \' Password \'amd \' \'Confirmació entrades han de coincidir amd tenir almenys' .ENTRY_PASSWORD_MIN_LENGTH.' caràcters \ n');
+
+define ('JS_ORDER_DOES_NOT_EXIST', 'Número d&#39;&#39;ordre% s no existeix!');
+
+define ('CATEGORY_PERSONAL', 'Personal');
+define ('CATEGORY_ADDRESS', 'Adreça');
+define ('CATEGORY_CONTACT', 'Contacte');
+define ('CATEGORY_COMPANY', 'Companyia');
+define ('CATEGORY_OPTIONS', 'Opcions');
+
+define ('ENTRY_GENDER', 'Gènere:');
+define ('ENTRY_GENDER_ERROR', '&nbsp; <span class = "textoError"> requerida </ span>');
+define ('ENTRY_FIRST_NAME', 'Nom:');
+define ('ENTRY_FIRST_NAME_ERROR' , '&nbsp; <span class = "textoError"> min' .ENTRY_FIRST_NAME_MIN_LENGTH .' caràcters </span>');
+define ('ENTRY_LAST_NAME','Cognom:');
+define ('ENTRY_LAST_NAME_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_LAST_NAME_MIN_LENGTH .'caràcters </ span>');
+define ('ENTRY_DATE_OF_BIRTH ',' Data de Naixement:');
+define ('ENTRY_DATE_OF_BIRTH_ERROR', '& nbsp; <span class = "textoError"> (per exemple, 1970.05.21) </ span>.');
+define ('ENTRY_EMAIL_ADDRESS', 'Adreça E-Mail:');
+define ('ENTRY_EMAIL_ADDRESS_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_EMAIL_ADDRESS_MIN_LENGTH.' caràcters </span>');
+define ('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', '&nbsp; <span class = "textoError"> L&#39;adreça de correu electrònic doesn \' t sembla vàlid </ span> ');
+define ('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', '& nbsp; <span class = "textoError"> Aquesta adreça de correu electrònic ja existeix </ span>');
+define ('ENTRY_COMPANY', 'Nom d&#39;empresa:');
+define ('ENTRY_STREET_ADDRESS', 'Direcció:');
+define ('ENTRY_STREET_ADDRESS_ERROR' , ' & nbsp; <span class = "textoError"> min' .ENTRY_STREET_ADDRESS_MIN_LENGTH .'caràcters </ span>');
+define ('ENTRY_SUBURB ',' localitat:');
+define ('ENTRY_POST_CODE', 'Codi postal:');
+define ('ENTRY_POST_CODE_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_POSTCODE_MIN_LENGTH.' caràcters </ span>');
+define ('ENTRY_CITY', 'Ciutat:');
+define ('ENTRY_CITY_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_CITY_MIN_LENGTH .'caràcters </ span>');
+define ('ENTRY_STATE', 'Estat:');
+define ('ENTRY_STATE_ERROR', '& nbsp; <span class = "textoError"> requerida </ span>');
+define ('ENTRY_COUNTRY', 'Country:');
+define ('ENTRY_COUNTRY_ERROR', 'Ha de seleccionar un país dels Països del menú desplegable.');
+define ('ENTRY_TELEPHONE_NUMBER', 'Número de telèfon:');
+define ('ENTRY_TELEPHONE_NUMBER_ERROR' , ' &nbsp; <span class = "textoError"> min' .ENTRY_TELEPHONE_MIN_LENGTH.' caràcters </ span>');
+define ('ENTRY_FAX_NUMBER', 'Nombre de fax:');
+define ('ENTRY_NEWSLETTER', 'Butlletí:');
+define ('ENTRY_NEWSLETTER_YES ',' Subscrit ');
+define ('ENTRY_NEWSLETTER_NO', 'no subscriure');
+
+// Imatges
+define ('IMAGE_ANI_SEND_EMAIL ',' Enviament de correu electrònic');
+define ('IMAGE_BACK', 'Volver');
+define ('IMAGE_BACKUP '," còpia de seguretat ");
+define ('IMAGE_CANCEL', 'Cancel·la');
+define ('IMAGE_CONFIRM', 'Confirmar');
+define ('IMAGE_COPY', 'Copy');
+define ('IMAGE_COPY_TO', 'Copia a');
+define ('image_details', 'Detalls');
+define ('IMAGE_DELETE', 'Eliminar');
+define ('IMAGE_EDIT', 'Edita');
+define ('IMAGE_EMAIL', 'Correu electrònic');
+define ('IMAGE_EXPORT', 'exportar ');
+define ('IMAGE_ICON_STATUS_GREEN', 'Activa');
+define ('IMAGE_ICON_STATUS_GREEN_LIGHT', 'Set Activa');
+define ('IMAGE_ICON_STATUS_RED', 'Inactiu');
+define ('IMAGE_ICON_STATUS_RED_LIGHT', 'Set Inactiu');
+define ('IMAGE_ICON_INFO', 'Informació');
+define ('IMAGE_INSERT', 'Insereix');
+define ('IMAGE_LOCK', 'Lock');
+define ('IMAGE_MODULE_INSTALL', 'Instal·lar mòdul');
+define ('IMAGE_MODULE_REMOVE', 'Eliminar Mòdul');
+define ('IMAGE_MOVE', 'Move');
+define ('IMAGE_NEW_BANNER', 'Nou Banner');
+define ('IMAGE_NEW_CATEGORY', 'Nova categoria');
+define ('IMAGE_NEW_COUNTRY '," Nou País ");
+define ('IMAGE_NEW_CURRENCY', 'Nova moneda');
+define ('IMAGE_NEW_FILE', 'New File');
+define ('IMAGE_NEW_FOLDER', 'Nova carpeta');
+define ('IMAGE_NEW_LANGUAGE '," nou llenguatge ");
+define ('IMAGE_NEW_NEWSLETTER', 'Nova informació');
+define ('IMAGE_NEW_PRODUCT', 'Nou producte');
+define ('IMAGE_NEW_TAX_CLASS '," Nova Classe d&#237;Impost ");
+define ('IMAGE_NEW_TAX_RATE', 'nou tipus impositiu');
+define ('IMAGE_NEW_TAX_ZONE', 'Nova Zona Tributària');
+define ('IMAGE_NEW_ZONE', 'Nova Zona ');
+define ('IMAGE_ORDERS ',' Ordres ');
+define ('IMAGE_ORDERS_INVOICE', 'Factura');
+define ('IMAGE_ORDERS_PACKINGSLIP ',' llista de presència');
+define ('IMAGE_PREVIEW', 'Vista prèvia');
+define ('IMAGE_RESTORE', 'Restaura');
+define ('IMAGE_RESET', 'reset');
+define ('IMAGE_SAVE', 'Save');
+define ('IMAGE_SEARCH', 'Cerca');
+define ('IMAGE_SELECT', 'Selecciona');
+define ('IMAGE_SEND', 'Enviar');
+define ('IMAGE_SEND_EMAIL ',' enviar consulta ');
+define ('IMAGE_UNLOCK', 'Desbloqueja');
+define ('IMAGE_UPDATE',  'l&#39;actualització');
+define ('IMAGE_UPDATE_CURRENCIES ','Actualització dels Tipus de Canvi');
+define ('IMAGE_UPLOAD', 'Pujar');
+
+define ('ICON_CROSS', 'False');
+define ('ICON_CURRENT_FOLDER ',' Carpeta actual');
+define ('ICON_DELETE', 'Eliminar');
+define ('ICON_ERROR', 'Error');
+define ('icon_file', 'Arxiu');
+define ('ICON_FILE_DOWNLOAD', 'Descarregar');
+define ('ICON_FOLDER', 'Carpeta');
+define ('ICON_LOCKED', 'Locked');
+define ('ICON_PREVIOUS_LEVEL', 'Nivell Anterior');
+define ('ICON_PREVIEW', 'Vista prèvia');
+define ('ICON_STATISTICS', 'Estadístiques');
+define ('ICON_SUCCESS', 'Èxit');
+define ('ICON_TICK', 'True');
+define ('ICON_UNLOCKED', 'desbloquejat');
+define ('ICON_WARNING', 'Notes');
+
 
 // constants for use in tep_prev_next_display function
-define('TEXT_RESULT_PAGE', 'P�gines de resultats:');
-define('TEXT_DISPLAY_NUMBER_OF_PRODUCTS', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> productes)');
-define('TEXT_DISPLAY_NUMBER_OF_ORDERS', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> comandes)');
-define('TEXT_DISPLAY_NUMBER_OF_REVIEWS', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> comentaris)');
-define('TEXT_DISPLAY_NUMBER_OF_PRODUCTS_NEW', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> productes nous)');
-define('TEXT_DISPLAY_NUMBER_OF_SPECIALS', 'Veient del <b>%d</b> al <b>%d</b> (de <b>%d</b> ofertes)');
+define ('TEXT_RESULT_PAGE', 'Pàgina% s de% d');
+define ('TEXT_DISPLAY_NUMBER_OF_BANNERS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> banderes)');
+define ('TEXT_DISPLAY_NUMBER_OF_COUNTRIES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> països)');
+define ('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> els clients)');
+define ('TEXT_DISPLAY_NUMBER_OF_CURRENCIES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> monedes)');
+define ('TEXT_DISPLAY_NUMBER_OF_ENTRIES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> entrades)');
+define ('TEXT_DISPLAY_NUMBER_OF_LANGUAGES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> idiomes)');
+define ('TEXT_DISPLAY_NUMBER_OF_MANUFACTURERS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> fabricants)');
+define ('TEXT_DISPLAY_NUMBER_OF_NEWSLETTERS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> butlletins)');
+define ('TEXT_DISPLAY_NUMBER_OF_ORDERS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> ordres)');
+define ('TEXT_DISPLAY_NUMBER_OF_ORDERS_STATUS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> ordres d&#237;estat)');
+define ('TEXT_DISPLAY_NUMBER_OF_PRODUCTS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> productes)');
+define ('TEXT_DISPLAY_NUMBER_OF_PRODUCTS_EXPECTED', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> productes espera)');
+define ('TEXT_DISPLAY_NUMBER_OF_REVIEWS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> comentari)');
+define ('TEXT_DISPLAY_NUMBER_OF_SPECIALS', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> productes especialment)');
+define ('TEXT_DISPLAY_NUMBER_OF_TAX_CLASSES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> classes d&#237;impostos)');
+define ('TEXT_DISPLAY_NUMBER_OF_TAX_ZONES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> zones fiscals)');
+define ('TEXT_DISPLAY_NUMBER_OF_TAX_RATES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> les taxes d&#237;impostos)');
+define ('TEXT_DISPLAY_NUMBER_OF_ZONES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> zones)');
 
-define('PREVNEXT_TITLE_FIRST_PAGE', 'Comen&ccedil;ament');
-define('PREVNEXT_TITLE_PREVIOUS_PAGE', 'Anterior');
-define('PREVNEXT_TITLE_NEXT_PAGE', 'Seg&uuml;ent');
-define('PREVNEXT_TITLE_LAST_PAGE', 'Final');
-define('PREVNEXT_TITLE_PAGE_NO', 'P&agrave;gina %d');
-define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', '%d p&agrave;gines anteriors');
-define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', '%d p&agrave;gines seg&uuml;ents');
-define('PREVNEXT_BUTTON_FIRST', '&lt;&lt;INICI');
-define('PREVNEXT_BUTTON_PREV', '[&lt;&lt;&nbsp;Anterior]');
-define('PREVNEXT_BUTTON_NEXT', '[Seg&uuml;ent&nbsp;&gt;&gt;]');
-define('PREVNEXT_BUTTON_LAST', 'FINAL&gt;&gt;');
+define ('PREVNEXT_BUTTON_PREV', '& lt; & lt;');
+define ('PREVNEXT_BUTTON_NEXT', '& gt; & gt;');
 
-define('IMAGE_BUTTON_ADD_ADDRESS', 'Afegeix l\'adre&ccedil;a');
-define('IMAGE_BUTTON_ADDRESS_BOOK', 'Adreces');
-define('IMAGE_BUTTON_BACK', 'Endarrera');
-define('IMAGE_BUTTON_BUY_NOW', 'Compra Ara');
-define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Canvia l\'adre&ccedil;a');
-define('IMAGE_BUTTON_CHECKOUT', 'Realitza la comanda');
-define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirma la comanda');
-define('IMAGE_BUTTON_CONTINUE', 'Continua');
-define('IMAGE_BUTTON_CONTINUE_SHOPPING', 'Continua comprant');
-define('IMAGE_BUTTON_DELETE', 'Suprimeix');
-define('IMAGE_BUTTON_EDIT_ACCOUNT', 'Edita el compte');
-define('IMAGE_BUTTON_HISTORY', 'Historial de comandes');
-define('IMAGE_BUTTON_LOGIN', 'Signa');
-define('IMAGE_BUTTON_IN_CART', 'Afegeix a la cistella');
-define('IMAGE_BUTTON_NOTIFICATIONS', 'Avisos');
-define('IMAGE_BUTTON_QUICK_FIND', 'Cerca r&agrave;pida');
-define('IMAGE_BUTTON_REMOVE_NOTIFICATIONS', 'Suprimeix els avisos');
-define('IMAGE_BUTTON_REVIEWS', 'Comentaris');
-define('IMAGE_BUTTON_SEARCH', 'Cerca');
-define('IMAGE_BUTTON_SHIPPING_OPTIONS', 'Opcions d\'enviament');
-define('IMAGE_BUTTON_TELL_A_FRIEND', 'Digueu-li a un amic/ga');
-define('IMAGE_BUTTON_UPDATE', 'Actualitza');
-define('IMAGE_BUTTON_UPDATE_CART', 'Actualiza la cistella');
-define('IMAGE_BUTTON_WRITE_REVIEW', 'Escriviu un comentari');
+define ('TEXT_DEFAULT', 'default');
+define ('TEXT_SET_DEFAULT ',' Establir com a predeterminat ');
+define ('TEXT_FIELD_REQUIRED', '& nbsp; <span class ="fieldRequired"> * Requerit </ span>');
 
-define('SMALL_IMAGE_BUTTON_DELETE', 'Elimina');
-define('SMALL_IMAGE_BUTTON_EDIT', 'Modifica');
-define('SMALL_IMAGE_BUTTON_VIEW', 'Visualitza');
+define ('TEXT_CACHE_CATEGORIES', 'Categories Box');
+define ('TEXT_CACHE_MANUFACTURERS', 'Els fabricants Box');
+define ('TEXT_CACHE_ALSO_PURCHASED', 'També han Comprat Mòdul');
 
-define('ICON_ARROW_RIGHT', 'm&eacute;s');
-define('ICON_CART', 'A la Cistella');
-define('ICON_ERROR', 'Error');
-define('ICON_SUCCESS', 'Correcte');
-define('ICON_WARNING', 'Advert&egrave;ncia');
+define ('TEXT_NONE', '--Ninguno--');
+define ('TEXT_TOP', 'Top');
 
-define('TEXT_GREETING_PERSONAL', 'Hola <span class="greetUser">%s</span>? &iquest;T\'agradaria veure quins <a href="%s"><u>nous productes</u></a> hi ha?');
-define('TEXT_GREETING_PERSONAL_RELOGON', '<small>Si no ets el/la %s, si us plau <a href="%s"><u>entra aqu&iacute;</u></a> i introdueix les teves dades.</small>');
-define('TEXT_GREETING_GUEST', 'Benvingut/da <span class="greetUser">visitant!</span> &iquest;T\'agradaria <a href="%s"><u>entrar al teu compte</u></a> o prefereixes <a href="%s"><u>crear un compte nou</u></a>?');
+define ('ERROR_DESTINATION_DOES_NOT_EXIST', 'Error: Destinació no existeix.');
+define ('ERROR_DESTINATION_NOT_WRITEABLE', 'Error: La destinació no pot escriure.');
+define ('ERROR_FILE_NOT_SAVED', 'Error: Càrrega de fitxers no desats.');
+define ('ERROR_FILETYPE_NOT_ALLOWED', 'Error: File upload tipus no permès.');
+define ('SUCCESS_FILE_SAVED_SUCCESSFULLY ',' Èxit: Carrega guardat correctament.');
+define ('WARNING_NO_FILE_UPLOADED', 'Avís: No hi ha fitxer enviat.');
 
-define('TEXT_SORT_PRODUCTS', 'Ordena els productes ');
-define('TEXT_DESCENDINGLY', 'Descendentment');
-define('TEXT_ASCENDINGLY', 'Ascendentment');
-define('TEXT_BY', ' per ');
+// bootstrap helper
+define ('MODULE_CONTENT_BOOTSTRAP_ROW_DESCRIPTION', '<p> Ample contingut pot ser de 12 o menys per la columna per fila. </ p> <p> 12/12 = 100% d&#39;ample, ample 6.12 = 50%, 4/12 = 33 . width% </ p> <p> Total de totes les columnes en qualsevol fila ha de ser igual a 12 (per exemple: 3 caixes de 4 columnes cadascuna, 1 caixa de 12 columnes i així successivament). </ p> ');
 
-define('TEXT_REVIEW_BY', 'de %s');
-define('TEXT_REVIEW_WORD_COUNT', '%s paraules');
-define('TEXT_REVIEW_RATING', 'Avaluaci&oacute;: %s [%s]');
-define('TEXT_REVIEW_DATE_ADDED', 'Data d\'alta: %s');
-define('TEXT_NO_REVIEWS', 'En aquest moment no hi ha cap comentari.');
-
-define('TEXT_NO_NEW_PRODUCTS', 'Ara mateix no hi ha novetats.');
-
-define('TEXT_UNKNOWN_TAX_RATE', 'Impost desconegut');
-
-define('TEXT_REQUIRED', '<span class="errorText">Obligatori</span>');
-
-define('ERROR_TEP_MAIL', '<font face="Verdana, Arial" size="2" color="#ff0000"><b><small>TEP ERROR:</small> No he pogut enviar el missatge amb el servidor SMTP especificat. Configureu el vostre servidor SMTP a la secci&oacute; adequada del fitxer php.ini.</b></font>');
-define('WARNING_INSTALL_DIRECTORY_EXISTS', 'Atenci&oacute;! el directori d\'instal�laci&oacute; ja existeix a: ' . dirname($HTTP_SERVER_VARS['SCRIPT_FILENAME']) . '/install. Si us plau, esborreu aquest directori per raons de seguretat.');
-define('WARNING_CONFIG_FILE_WRITEABLE', 'Atenci&oacute;! s&oacute;c capa&ccedil; d\'escriure al fitxer de configuraci&oacute;: ' . dirname($HTTP_SERVER_VARS['SCRIPT_FILENAME']) . '/includes/configure.php. Aix&ograve; &eacute;s un risc potencial de seguretat - si us plau, poseu els permisos d\'usuari adequats en aquest fitxer.');
-define('WARNING_SESSION_DIRECTORY_NON_EXISTENT', 'Atenci&oacute;! el directori de les sessions no existeix: ' . tep_session_save_path() . '. Les sessions no funcionaran fins que es crei aquest directori!');
-define('WARNING_SESSION_DIRECTORY_NOT_WRITEABLE', 'Atenci&oacute;! No s&oacute;c capa� d\'escriure al directori de les sessions: ' . tep_session_save_path() . '. Les sessions no funcionaran fins que s\'estableixin els permisos d\'usuari adequats.');
-define('WARNING_SESSION_AUTO_START', 'Atenci&oacute;! session.auto_start est&agrave; activat - si us plau desactiveu aquesta caracter&iacute;stica de PHP al fitxer php.ini i reinicieu el servidor web.');
-define('WARNING_DOWNLOAD_DIRECTORY_NON_EXISTENT', 'Advert&egrave;ncia: El directori per productes descarregables no existeix: ' . DIR_FS_DOWNLOAD . '. Els productes descarregables no funcionaran fins que no es corregeixi aquest error.');
-
-define('TEXT_CCVAL_ERROR_INVALID_DATE', 'La data de caducitat de la targeta de cr&egrave;dit &eacute;s incorrecta.<br>Comproveu la data i torneu a intentar-ho, si us plau.');
-define('TEXT_CCVAL_ERROR_INVALID_NUMBER', 'El n&uacute;mero de la targeta de cr&egrave;dit &eacute;s incorrecte.<br>Comproveu el n&uacute;mero i torneu a intentar-ho, si us plau.');
-define('TEXT_CCVAL_ERROR_UNKNOWN_CARD', 'Els quatre primers d&iacute;gits de la vostra targeta s&oacute;n: %s<br>Si aquest n&uacute;mero &eacute;s correcte, no acceptem aquest tipus de targetes.<br>En cas de ser incorrecte, torneu a intentar-ho, si us plau.');
-
-define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . STORE_NAME . '</a><br>E-Botiga gr&agrave;cies a <a href="http://www.oscommerce.com" target="_blank">osCommerce</a>');
-?>

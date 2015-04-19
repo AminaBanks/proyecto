@@ -56,6 +56,9 @@ define('FEMALE', 'Mujer');
 
 // text for date of birth example
 define('DOB_FORMAT_STRING', 'dd/mm/aaaa');
+define('BOX_HEADING_ORDERS', 'pedidos');
+define('MODULES_ADMIN_MENU_MODULES_CONTENT', 'Contenido');
+define('BOX_ORDERS_ORDERS', 'Pedidos');
 
 // configuration box text in includes/boxes/configuration.php
 define('BOX_HEADING_CONFIGURATION', 'Configuraci&oacute;n');
