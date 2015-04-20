@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-
+	header('Content-Type: text/html; charset=utf-8');
   $oscTemplate->buildBlocks();
 
   if (!$oscTemplate->hasBlocks('boxes_column_left')) {
@@ -27,7 +27,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1"/>
  <link href="./images/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-<title><?php echo "Fundaci&#x000F3; PROIDE -Fundaci&#x000F3;"/*tep_output_string_protected($oscTemplate->getTitle());*/ ?></title>
+<title><?php echo "Fundació PROIDE -Comerç Solidari"/*tep_output_string_protected($oscTemplate->getTitle());*/ ?></title>
 <base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
 
 <link href="ext/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -75,10 +75,10 @@
                 <li class="text-center text-muted bg-primary"><abbr title="Selected Language"><?PHP echo HEADER_L; ?></abbr> <?php  echo $language ;?>
                 <li class="divider"></li>
 								
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
+				<li><a href="http://localhost/osCommerce234/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
 			</ul>
 		</li> 
 		  

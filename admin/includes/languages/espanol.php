@@ -14,6 +14,7 @@
 // on RedHat6.0 I used 'es_ES'
 // on FreeBSD 4.0 I use 'es_ES.ISO_8859-1'
 // this may not work under win32 environments..
+header('Content-Type: text/html; charset=utf-8');
 setlocale(LC_TIME, 'es_ES.utf-8');
 define('DATE_FORMAT_SHORT', '%d/%m/%Y');  // this is used for strftime()
 define('DATE_FORMAT_LONG', '%A %d %B, %Y'); // this is used for strftime()
