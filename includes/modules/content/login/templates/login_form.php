@@ -1,5 +1,5 @@
 <!--<div class="login-form <?php //echo (MODULE_CONTENT_LOGIN_FORM_CONTENT_WIDTH == 'Half') ? 'col-sm-6' : 'col-sm-12'; ?>">
-esta linea permite quitar nuevo cliente es reemplazar clo-sm-6 a col-sm-12-->
+cette ligne permet quiter le nouveau client pour remplacer clo-sm-6 a col-sm-12-->
 <div class="login-form <?php echo (MODULE_CONTENT_LOGIN_FORM_CONTENT_WIDTH == 'Half') ? 'col-sm-6' : 'col-sm-12'; ?>">
   <div class="panel panel-success">
     <div class="panel-body">

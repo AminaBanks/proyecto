@@ -28,14 +28,16 @@
 /*.navbar{position:relative;max-height:50px;margin-bottom:20px;border:1px solid transparent; font-size:16px;} de min-height:50 a max-height: 50
 */
 body, nav, ul, li, a  {margin: 0; padding: 0;}
+/*font family changement des styles de texts avec l'informatique de la ONG*/
 @font-face { font-family: 'Calibri Light'; src: url('./calibri_light.eot'); src: url('./calibri_light.eot?#iefix') format('embedded-opentype'), url('./calibri_light.svg#Calibri Light') format('svg'), url('./calibri_light.woff')  format('woff'), url('./calibri_light.ttf') format('truetype'); font-weight: normal; font-style: normal;}
-
+/*Le contenu de la page avec sa taille des ecritures*/
 body {font-family: "Calibri light";font-size: 14px;}
 
 a {text-decoration: none;}
 .containermenu{
   margin-top:0.5%;
 }
+/*La barre d'en Haut*/
 .toggleMenu {
     display:  none;
     background: #B71C1C;
@@ -44,6 +46,7 @@ a {text-decoration: none;}
     width:100%;
     padding-left:50%;
 }
+/*Le menu du barre*/
 .navmenu {
     list-style: none;
      *zoom: 1;
@@ -104,6 +107,7 @@ a {text-decoration: none;}
     border-top: 1px solid #FFC107;
 }
 
+/*La Partie des dispositif si c'est une tablette*/
 @media screen and (max-width: 768px) {
     .active {
         display: block;
@@ -147,7 +151,7 @@ añadir margin-top:-20px
 
 
 /* Historical osCommerce ---------------------------------------------------- */
-
+/*Les styles des boutons*/
 .buttonSet {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -203,13 +207,13 @@ ul.shoppingCartList li.newItemInCart, ul.shoppingCartList li.newItemInCart A {
   display: inline;
 }
 
-/* for the product page rework ---------------------------------------------- */
+/* Pour la page du produit retravailler ---------------------------------------------- */
 
 .page-header h1 del {
   font-size: 0.5em;
 }
 
-/* for the listings module rework ------------------------------------------- */
+/* Pour lister les modules retravailler ------------------------------------------- */
 
 .productHolder {
   border: 1px solid #eee;
@@ -253,7 +257,7 @@ p.lead del {
 }
 
 /* Responsive Images  ------------------------------------------------------- */
-/* the inbuilt bootstrap responsive images class breaks the text-center class */
+/* l'intégré bootstrap classe images sensibles rompt la classe text-centre */
 
 #bodyContent .img-responsive, #columnLeft .img-responsive, #columnRight .img-responsive {
   margin-left: auto;
@@ -415,7 +419,7 @@ p.lead del {
     }
 }
 
-/* Footer ------------------------------------------------------------------- */
+/* Footer qu'il soit responsive------------------------------------------------------------------- */
 .footer {
   background: #eee;
   border-top: 2px solid #ddd;
@@ -452,7 +456,7 @@ p.lead del {
   border-left: 1px solid #ddd;
 }
 
-/* Account History Info ----------------------------------------------------- */
+/* Compte d'histoire d'info ----------------------------------------------------- */
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
@@ -582,7 +586,7 @@ p.lead del {
   font-size: 1em;
 }
 
-/* Nav Bars ----------------------------------------------------------------- */
+/* Nav Bars la barre des langues etc----------------------------------------------------------------- */
 
 .navbar-no-corners {
   border-radius: 0 !important;
@@ -605,15 +609,15 @@ p.lead del {
 	padding-right:2%;
 }
 
-/* user.css ----------------------------------------------------------------- */
+
 
 /* ************************************************* *************************
- * para la compatibilidad con el mobil*/
+ * pour la compatibilité avec les smartphones avec toutes les tailles*/
  
 @media (max-width: 767px)  {.slider{display:none!important} } 
  @media (max-width: 767px)  {.well{display:none!important} } 
  @media (max-width: 767px)  {.well-sm{display:none!important} }
- /* CODIGO PARA HACER QUE EL LOGO SEA RESPONSIVE DENTRO DE UN MOVIL *********************************************************************************/
+ /* Faire que le logo de la ONG soit responsive *********************************************************************************/
  .img-responsive1>img{display:block;max-width:100%;height:auto}
 .logo_responsive>img{position:relative; margin-left:30%;width: 100px; height: 100px}
  @media (max-width:500px) {.page-header>h1{font-size:20px}}

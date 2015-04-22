@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2010 osCommerce
-
-  Released under the GNU General Public License
-*/
 
   require('includes/application_top.php');
 
@@ -326,3 +317,4 @@
   require(DIR_WS_INCLUDES . 'template_bottom.php');
   require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>
+/*Pour chercher un produit avec la recherche avancer quand tu cherche un produit et que tu ne retrouve pas dans la partie du avanced_search.php*/

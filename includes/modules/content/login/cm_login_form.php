@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2014 osCommerce
-
-  Released under the GNU General Public License
-*/
 
   class cm_login_form {
     var $code;
@@ -40,21 +31,21 @@
         $email_address = tep_db_prepare_input($HTTP_POST_VARS['email_address']);
         $password = tep_db_prepare_input($HTTP_POST_VARS['password']);
 
-// Check if email exists
+// verifier le email si ça exists
         $customer_query = tep_db_query("select customers_id, customers_password from " . TABLE_CUSTOMERS . " where customers_email_address = '" . tep_db_input($email_address) . "' limit 1");
         if (!tep_db_num_rows($customer_query)) {
           $error = true;
         } else {
           $customer = tep_db_fetch_array($customer_query);
 
-// Check that password is good
+// Verifier le password si c'est bon
           if (!tep_validate_password($password, $customer['customers_password'])) {
             $error = true;
           } else {
-// set $login_customer_id globally and perform post login code in catalog/login.php
+// ensemble $ login CUSTOMER_ID et si c'est mondial et effectuer le code postal de connexion dans catalog / login.php
             $login_customer_id = (int)$customer['customers_id'];
 
-// migrate old hashed password to new phpass password
+// migrer ancien mot de passe haché à nouveau mot de passe phpass
             if (tep_password_type($customer['customers_password']) != 'phpass') {
               tep_db_query("update " . TABLE_CUSTOMERS . " set customers_password = '" . tep_encrypt_password($password) . "' where customers_id = '" . (int)$login_customer_id . "'");
             }

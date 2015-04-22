@@ -1,14 +1,6 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2010 osCommerce
-
-  Released under the GNU General Public License
-*/
+/*Historique des clients pour le garder a la base des données*/
 
   require('includes/application_top.php');
 

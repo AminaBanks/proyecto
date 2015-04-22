@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2010 osCommerce
-
-  Released under the GNU General Public License
-*/
 
   require('includes/application_top.php');
 
@@ -62,9 +53,9 @@
       }
     }
   }
-
+/*Introduire la partie des commandes que je dois verifier et regler*/	
   require(DIR_WS_CLASSES . 'order.php');
-  $order = new order;
+  $order = new order; 
 
   if (!tep_session_is_registered('comments')) tep_session_register('comments');
   if (isset($HTTP_POST_VARS['comments']) && tep_not_null($HTTP_POST_VARS['comments'])) {
