@@ -1,4 +1,4 @@
-a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:45:"Multiple Sales Per Product for osCommerce 2.3";s:4:"link";s:38:"http://addons.oscommerce.com/info/8593";s:11:"description";s:1505:"Recently we discovered that the multi-nested select queries that I used when I created this contribution were causing some really bad slow downs on our web site. Our site has over 14,000 products (over 11,000 active) and between this and other contributions some search queries were slogging through millions of rows! With this revision the number of rows examined drops to match the total number of products. This contribution now uses a couple of user defined MySQL functions to quickly load the proper sale price and expiration date in those queries (primarily index.php and advanced search) where the sale price needs to be loaded with the query and not at a later time as is done on the product information page.<br />
+a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:26:"CardConnect Payment Module";s:4:"link";s:38:"http://addons.oscommerce.com/info/9200";s:11:"description";s:63:"- Updated to support eWallet functions for returning customers.";s:7:"pubDate";s:31:"Wed, 22 Apr 2015 20:30:37 +0200";}i:1;a:4:{s:5:"title";s:26:"Category Description v1.00";s:4:"link";s:38:"http://addons.oscommerce.com/info/2343";s:11:"description";s:79:"Changed index.php so that this now works with boot strap version of osCommerce.";s:7:"pubDate";s:31:"Sun, 19 Apr 2015 20:10:17 +0200";}i:2;a:4:{s:5:"title";s:45:"Multiple Sales Per Product for osCommerce 2.3";s:4:"link";s:38:"http://addons.oscommerce.com/info/8593";s:11:"description";s:1505:"Recently we discovered that the multi-nested select queries that I used when I created this contribution were causing some really bad slow downs on our web site. Our site has over 14,000 products (over 11,000 active) and between this and other contributions some search queries were slogging through millions of rows! With this revision the number of rows examined drops to match the total number of products. This contribution now uses a couple of user defined MySQL functions to quickly load the proper sale price and expiration date in those queries (primarily index.php and advanced search) where the sale price needs to be loaded with the query and not at a later time as is done on the product information page.<br />
 <br />
 For those who have already installed this contribution it is highly recommended that you update to this version so you can avoid the slowdowns that we experienced. No changes have been made to the included PHP files. To update you only need to make the changes as noted below. The following instruction changes have been made:<br />
 <br />
@@ -8,7 +8,7 @@ Instruction 0 is added and required for all other changed instructions. Make sur
 <br />
 The following instructions have changed: 13a, 14, 15 (all parts), 16b and 18.<br />
 <br />
-The complete contribution is attached with the new install instructions.";s:7:"pubDate";s:31:"Sun, 19 Apr 2015 00:05:50 +0200";}i:1;a:4:{s:5:"title";s:8:"Wishlist";s:4:"link";s:38:"http://addons.oscommerce.com/info/8665";s:11:"description";s:608:"ONLY FOR BOOTSTRAP VERSION!<br />
+The complete contribution is attached with the new install instructions.";s:7:"pubDate";s:31:"Sun, 19 Apr 2015 00:05:50 +0200";}i:3;a:4:{s:5:"title";s:8:"Wishlist";s:4:"link";s:38:"http://addons.oscommerce.com/info/8665";s:11:"description";s:608:"ONLY FOR BOOTSTRAP VERSION!<br />
 <br />
 UPDATE:<br />
 Updated SQL files.<br />
@@ -23,51 +23,8 @@ All credits to the previous coders.<br />
 <br />
 Support Topic: http://forums.oscommerce.com/topic/400033-wish-list-for-osc-234-bs-gold/<br />
 <br />
-FULL PACKAGE!";s:7:"pubDate";s:31:"Thu, 16 Apr 2015 09:14:50 +0200";}i:2;a:4:{s:5:"title";s:43:"Dark Background Oscommerce 2.3.3.4 Template";s:4:"link";s:38:"http://addons.oscommerce.com/info/8990";s:11:"description";s:108:"What's changed in V1.2?<br />
+FULL PACKAGE!";s:7:"pubDate";s:31:"Thu, 16 Apr 2015 09:14:50 +0200";}i:4;a:4:{s:5:"title";s:43:"Dark Background Oscommerce 2.3.3.4 Template";s:4:"link";s:38:"http://addons.oscommerce.com/info/8990";s:11:"description";s:108:"What's changed in V1.2?<br />
 <br />
  - Misc. checkout color changes.<br />
 <br />
- This is the full package";s:7:"pubDate";s:31:"Thu, 16 Apr 2015 08:32:54 +0200";}i:3;a:4:{s:5:"title";s:34:"iOSC Mobile Version for OSC 2.3.3.";s:4:"link";s:38:"http://addons.oscommerce.com/info/8629";s:11:"description";s:335:"Mobile OSC 7.5.8r1 - mobile version for OSCommerce 2.3.0. to 2.3.4. and OSCommerce 2.2rc2a<br />
-<br />
-- Typo fix in Install 2.2 and 2.3 and Update 7.5.8 to 7.5.8r1 docs<br />
-<br />
- change in catalog/index.php said &quot;replace with&quot; and should be &quot;add below&quot;.<br />
-Thanks to @marcochiana<br />
-<br />
- Full Package";s:7:"pubDate";s:31:"Wed, 15 Apr 2015 10:11:54 +0200";}i:4;a:4:{s:5:"title";s:57:"Ship200 Multi Carrier Shipping Software - OneByOne Plugin";s:4:"link";s:38:"http://addons.oscommerce.com/info/9306";s:11:"description";s:1963:"Ship200 is Multi Carrier (Fedex, UPS, USPS) Shipping Software which allows you to print shipping labels in bulk or individually and integrate process of creating labels directly into you OScommerce.<br />
-<br />
-This addon will integrate all shipping carriers: UPS, Fedex, USPS (Stamps.com and Endicia.com) into your backed/admin. No more trying to keep up with each integration separately. <br />
-Plus you will get best discounts on shipping postage.<br />
-<br />
-With Ship200.com customers tend to safe time in shipping department by as much as 80% to 90%. Process of shipping becomes seamless, stressless and super easy.<br />
-<br />
-Ship200 is a cloud based software, and do not require any installation, and can be used immediately on any computer, table or even phone.<br />
-<br />
-Product Features:<br />
-1. This Plugin adds &quot;Create Shipping Label&quot; and &quot;Make Return Label&quot; to order detail page. <br />
-2. When you will click on those buttons, Ship200 window will pop up, with all shipping realated information (shipping name, address, weight, email, etc) already filled it, all that is left to do it to select the carrier (UPS, Fedex or USPS, can be automotive as well) and click Print.<br />
-<br />
-<br />
-Ship200.com is subscription based software that starts with $24.99 per month. <br />
-In order to use this feature, customer will need to register an account with Ship200.com<br />
-Try Ship200 for 30 Days Free Trial, that don't requre the credit card information.<br />
-Ship200.com works as well with other major selling channels:<br />
-Amazon <br />
-eBay, <br />
-Magento, <br />
-Zencart, <br />
-osCommerce, <br />
-SunShop, <br />
-OpenCart, <br />
-Prestashop, <br />
-WooComerce, <br />
-XCart, <br />
-Bigcommerce, <br />
-Shopify, <br />
-Volusion, <br />
-3dCart, <br />
-and can be integrated easily into any custom shopping cart.<br />
-<br />
-Demo: http://www.ship200.com/option1_script.html<br />
-<br />
-Visit Us at www.Ship200.com";s:7:"pubDate";s:31:"Fri, 10 Apr 2015 22:55:44 +0200";}}s:11:"items_count";i:5;}
+ This is the full package";s:7:"pubDate";s:31:"Thu, 16 Apr 2015 08:32:54 +0200";}}s:11:"items_count";i:5;}

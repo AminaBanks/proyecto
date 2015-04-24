@@ -790,16 +790,34 @@ function check_form() {
       <tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>
-      <tr>
-        <td class="formAreaTitle"><?php echo CATEGORY_OPTIONS; ?></td>
+	  <tr><!-- -DESDE AQUI LA LINEA 793 HASTA LA LINEA 808 AÑADIR EL CAMPO DE LA CONTRASENA DE LOS USUARIOS-->
+        <td class="formArea">
+  <table border="0" cellspacing="2" cellpadding="2">
+          <tr>
+            <td class="main"><?php echo PASSWORD; ?></td>
+            <td class="main">
+	<?php
+	  if ($error == true) {
+		if ($entry_telephone_error == true) {
+		 echo tep_draw_input_field('customers_telephone', $cInfo->customers_telephone, 'maxlength="32"') . '&nbsp;' . ENTRY_TELEPHONE_NUMBER_ERROR;
+		} else {
+		  echo $cInfo->customers_telephone . tep_draw_hidden_field('customers_telephone');
+		}
+	  } else {
+		echo tep_draw_input_field('Password', $cInfo->customers_password, 'maxlength="32"', true);
+	  }
+	?></td>
+      </tr>
+      <!--<tr>	  
+        <td class="formAreaTitle"><?php //echo CATEGORY_OPTIONS; ?></td>
       </tr>
       <tr>
         <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
           <tr>
-            <td class="main"><?php echo ENTRY_NEWSLETTER; ?></td>
+            <td class="main"><?php //echo ENTRY_NEWSLETTER //DE MOMENTO LO DEJO PERO LO QUITARÉ NEWSLETTER PORQUE NO LO NECESITO; ?></td>
             <td class="main">
 <?php
-  if ($processed == true) {
+  /*if ($processed == true) {
     if ($cInfo->customers_newsletter == '1') {
       echo ENTRY_NEWSLETTER_YES;
     } else {
@@ -808,9 +826,9 @@ function check_form() {
     echo tep_draw_hidden_field('customers_newsletter');
   } else {
     echo tep_draw_pull_down_menu('customers_newsletter', $newsletter_array, (($cInfo->customers_newsletter == '1') ? '1' : '0'));
-  }
+  }*/
 ?></td>
-          </tr>
+          </tr>-->
         </table></td>
       </tr>
       <tr>
