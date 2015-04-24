@@ -9,7 +9,10 @@
 
   Released under the GNU General Public License
 */
-
+	/*EN ESTE FICHERO VOY A INSERTAR LA PARTE DEL CORREO CUANDO LOS SOCIOS HACEN LOS PEDIDOS QUE SE LLEGA UN MAIL A PROIDE PARA DECIR QUE EL MAIL LOS SOCIOS HAN HECHO EL PEDIDO 
+	EJEMPLO DE HE VISTO EN INTERNET NO (que una vez realizado el pedido se envía un correo a PROYDE para informarle que hay un nuevo pedido).
+	AQUI SALE SI EL PEDIDO SE HA PODIDO REALIZAR CON EXITO 
+	*/
   require('includes/application_top.php');
 
 // if the customer is not logged on, redirect them to the shopping cart page
@@ -34,7 +37,7 @@
     tep_redirect(tep_href_link(FILENAME_DEFAULT));
   }
 
-  require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SUCCESS);
+  require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SUCCESS);//AÑADIR EL FICHERO DE LOS IDIOMAS
 
   $breadcrumb->add(NAVBAR_TITLE_1);
   $breadcrumb->add(NAVBAR_TITLE_2);
@@ -42,7 +45,7 @@
   require(DIR_WS_INCLUDES . 'template_top.php');
 ?>
 
-<div class="page-header">
+<div class="page-header"><!-- LA PARTE DE PAGE-FOOTER-->
   <h1><?php echo HEADING_TITLE; ?></h1>
 </div>
 
@@ -63,4 +66,5 @@
 <?php
   require(DIR_WS_INCLUDES . 'template_bottom.php');
   require(DIR_WS_INCLUDES . 'application_bottom.php');
+  require ('mail_confirmation.php'); //AQUI INSERTO LA PARTE DE LA CONFIRMACION DEL MAIL QUE SE TIENE QUE LLEGAR A LA HELENA. UNA VEZ HECHO ESTO ELLA RECIBIRA UN MAIL 
 ?>

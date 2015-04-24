@@ -808,7 +808,7 @@ function check_form() {
 	  }
 	?></td>
       </tr>
-      <!--<tr>	  
+      <!--<tr>	  DE MOMENTO LO DEJO PERO LO QUITARÉ NEWSLETTER PORQUE NO LO NECESITO; 
         <td class="formAreaTitle"><?php //echo CATEGORY_OPTIONS; ?></td>
       </tr>
       <tr>
