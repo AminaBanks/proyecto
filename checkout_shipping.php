@@ -192,7 +192,7 @@
       <div class="panel panel-primary">
         <div class="panel-heading"><?php echo TITLE_SHIPPING_ADDRESS; ?></div>
         <div class="panel-body">
-          <?php echo ("La compra realitzada haura de anar-la a buscar a PROIDE ");
+          <?php echo MODE_SHIPPING; //("La compra realitzada haura de anar-la a buscar a PROIDE ");
 		  tep_address_label($customer_id, $sendto, true, ' ', '<br />'); 
 		  ?>
         </div>

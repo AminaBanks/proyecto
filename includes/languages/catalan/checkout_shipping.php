@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id: checkout_shipping.php 1739 2007-12-20 00:52:16Z hpdl $
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2002 osCommerce
-
-  Released under the GNU General Public License
-*/
+header("Content-type: text/html; charset=utf-8");
 
 define('NAVBAR_TITLE_1', 'Realitza la comanda');
 define('NAVBAR_TITLE_2', 'Forma d\'enviament');
@@ -24,6 +15,7 @@ define('TEXT_CHOOSE_SHIPPING_METHOD', 'Seleccioneu la forma d\'enviament d\'aque
 define('TITLE_PLEASE_SELECT', 'Seleccioneu');
 define('TEXT_ENTER_SHIPPING_INFORMATION', 'Actualment, aquesta &eacute;s la &uacute;nica forma d\'enviament disponible per aquesta comanda.');
 
+define('MODE_SHIPPING', 'La compra realitzada haura de anar-la a buscar a PROIDE');
 define('TABLE_HEADING_COMMENTS', 'Afegiu Comentaris Sobre la Vostra Comanda');
 
 define('TITLE_CONTINUE_CHECKOUT_PROCEDURE', 'Continua amb el Proc&eacute;s de Compra');

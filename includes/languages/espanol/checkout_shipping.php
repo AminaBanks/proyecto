@@ -1,23 +1,18 @@
 <?php
-/*
-  $Id$
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2013 osCommerce
-
-  Released under the GNU General Public License
-*/
+header("Content-type: text/html; charset=utf-8");
 
 define('NAVBAR_TITLE_1', 'Realizar Pedido');
 define('NAVBAR_TITLE_2', 'Forma de Envío');
 
 define('HEADING_TITLE', 'Información de la Entrega');
 
+
 define('TABLE_HEADING_SHIPPING_ADDRESS', 'Dirección de Entrega');
 define('TEXT_CHOOSE_SHIPPING_DESTINATION', 'Escoja una dirección de su libreta para la entrega de los productos de este pedido.');
 define('TITLE_SHIPPING_ADDRESS', 'Dirección de Entrega:');
+define('MODE_SHIPPING', 'La compra realizada deberá ir a buscar en PROIDE'); //MODO DE LA RECUPERACION DEL PEDIDO.
+
+
 
 define('TABLE_HEADING_SHIPPING_METHOD', 'Forma de Envío');
 define('TEXT_CHOOSE_SHIPPING_METHOD', 'Seleccione la forma de envío preferida para la entrega de este pedido.');

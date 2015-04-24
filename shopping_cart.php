@@ -1,15 +1,6 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2010 osCommerce
-
-  Released under the GNU General Public License
-*/
-
+/*OUT_OF_STOCK_CAN_CHECKOUT ES LA FRASE A CAMBIAR SI QUEREMOS CAMBIAR LA CANTIDAD EN EL STOCK*/
   require("includes/application_top.php");
 
   if ($cart->count_contents() > 0) {
@@ -118,7 +109,8 @@
       if (STOCK_ALLOW_CHECKOUT == 'true') {
 ?>
 
-    <div class="alert alert-warning"><?php echo OUT_OF_STOCK_CAN_CHECKOUT; ?></div>
+    <div class="alert alert-warning"><?php echo OUT_OF_STOCK_CAN_CHECKOUT; ?></div><!-- EN ESTA LINEA ES LA FRASE QUE SALE CUANDO LA CANTIDAD INTRODUCIDO ES SUPERIOR A LA
+							CANTIDAD EN EL STOCK OUT_OF_STOCK_CAN_CHECKOUT CAMBIAR EN LOS IDIOMAS QUE QUEREMOS -->
 
 <?php
       } else {

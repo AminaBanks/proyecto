@@ -4,7 +4,7 @@
 require_once 'PHPMailerAutoload.php';/*fichero de la configuration de las version de php */
 require_once 'class.phpmailer.php'; /*fichero de la configuration de las version de php */
 require_once 'class.smtp.php'; /*fichero de la configuration de las version de php */
-header("Content-type: text/html; charset=utf-8");
+
 /* CONFIGURATION */
 $crendentials = array(
     'email'     => 'aminebangoura@yahoo.fr',    //Your GMail adress Or yahoo, or cat
@@ -25,7 +25,7 @@ $smtp = array(
 /* TO, SUBJECT, CONTENT */
 $to         = 'aminebangoura@yahoo.fr'; //EL MAIL DE LA PERSONA RESPONSABLE DE GESTIONAR LOS PEDIDOS
 $subject    = 'Mail informativo: Nova Compra de Soci !!!'; //EL CONTENIDO DE LA INFORMACION 
-$content    = 'Anar a l´administrador per veure la nova compra.'; //CAMBIAR ESTAS LINEAS PARA EL CONTENIDO DEL MAIL 
+$content    = 'Anar a l&#x02018;administrador per veure la nova compra.'; //CAMBIAR ESTAS LINEAS PARA EL CONTENIDO DEL MAIL 
 
 
 

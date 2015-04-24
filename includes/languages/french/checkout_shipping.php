@@ -1,14 +1,6 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2014 osCommerce
-
-  Released under the GNU General Public License
-*/
+header("Content-type: text/html; charset=utf-8");
 
 define('NAVBAR_TITLE_1', 'Commande');
 define('NAVBAR_TITLE_2', 'Mode de livraison');
@@ -18,6 +10,8 @@ define('HEADING_TITLE', 'Informations de livraison.');
 define('TABLE_HEADING_SHIPPING_ADDRESS', 'Adresse de livraison');
 define('TEXT_CHOOSE_SHIPPING_DESTINATION', 'Veuillez choisir dans votre carnet d\'adresses, l\'adresse où vous souhaitez que les articles soient livrés.');
 define('TITLE_SHIPPING_ADDRESS', 'Adresse de livraison :');
+define('MODE_SHIPPING', 'Achat doit être recuperer au siège de PROIDE'); //Mode de la recuperation de la commande.
+
 
 define('TABLE_HEADING_SHIPPING_METHOD', 'Mode de livraison');
 define('TEXT_CHOOSE_SHIPPING_METHOD', 'Veuillez choisir le mode de livraison préféré à utiliser pour cette commande.');

@@ -1,23 +1,17 @@
 <?php
-/*
-  $Id$
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2003 osCommerce
-
-  Released under the GNU General Public License
-
-  mail.php - a class to assist in building mime-HTML eMails
-
-  The original class was made by Richard Heyes <richard@phpguru.org>
-  and can be found here: http://www.phpguru.org
-
-  Renamed and Modified by Jan Wildeboer for osCommerce
-*/
-
+header("Content-type: text/html; charset=utf-8");
+	/*************** la classe email */
   class email {
+  /*@ html son los attributos el codigo de html*/
+  /*@ text la description, los texto , */
+  /*@output la variable de salida,*/
+  /*@ image_types atributos de los tipos de imagenes*/
+  /*@html_text los texto de html */
+  /*@ html_images las imagens de tipos htmls */
+  /*@ building atributo de edificio.*/
+  /*@ attachments  atributo archivos adjuntos*/
+  /*@ headers atributo de cabecera */
+  
     var $html;
     var $text;
     var $output;
@@ -28,6 +22,7 @@
     var $attachments;
     var $headers;
 
+	/*funcion del constructor  */
     function email($headers = '') {
       if ($headers == '') $headers = array();
 
@@ -45,7 +40,7 @@
  * to find other mime-image/file types, add the
  * extension and content type here.
  */
-
+	/*CREATION DE ARRAY I'IMAGE*/
       $this->image_types = array('gif' => 'image/gif',
                                  'jpg' => 'image/jpeg',
                                  'jpeg' => 'image/jpeg',
@@ -55,7 +50,7 @@
                                  'tif' => 'image/tiff',
                                  'tiff' => 'image/tiff',
                                  'swf' => 'application/x-shockwave-flash');
-
+	/*DECOFICICACION DE LOS TEXTO EN HTML */
       $this->build_params['html_encoding'] = 'quoted-printable';
       $this->build_params['text_encoding'] = '7bit';
       $this->build_params['html_charset'] = constant('CHARSET');
@@ -65,11 +60,11 @@
 /**
  * Make sure the MIME version header is first.
  */
-
+	/*COGER LA VERSION*/
       $this->headers[] = 'MIME-Version: 1.0';
 
       reset($headers);
-      while (list(,$value) = each($headers)) {
+      while (list(,$value) = each($headers)) { //LISTAR CADA CABECERA
         if (tep_not_null($value)) {
           $this->headers[] = $value;
         }
@@ -83,15 +78,15 @@
  * argument of the the functions
  * add_html_image() or add_attachment().
  */
-
+	/*FUNCION PARA COGER EL FICHERO*/
     function get_file($filename) {
       $return = '';
 
       if ($fp = fopen($filename, 'rb')) {
-        while (!feof($fp)) {
-          $return .= fread($fp, 1024);
+        while (!feof($fp)) {//ABRIR EL FICHERO 
+          $return .= fread($fp, 1024);/*COGER LOS BYTES */
         }
-        fclose($fp);
+        fclose($fp);//CERRARLO
 
         return $return;
       } else {
@@ -110,31 +105,31 @@
  *
  * Function contributed by Dan Allen
  */
-
+	/*FUNCION PARA COGER LA DIRECCION DE LAS IMAGENES */
     function find_html_images($images_dir) {
-// Build the list of image extensions
+//COGER LA LISTA DE LAS EXTENSIONES DE LAS IMAGENES 
       while (list($key, ) = each($this->image_types)) {
         $extensions[] = $key;
       }
 
-      preg_match_all('/"([^"]+\.(' . implode('|', $extensions).'))"/Ui', $this->html, $images);
+      preg_match_all('/"([^"]+\.(' . implode('|', $extensions).'))"/Ui', $this->html, $images);//LOS TIPOS D'EXTENSION
 
-      for ($i=0; $i<count($images[1]); $i++) {
-        if (file_exists($images_dir . $images[1][$i])) {
-          $html_images[] = $images[1][$i];
-          $this->html = str_replace($images[1][$i], basename($images[1][$i]), $this->html);
+      for ($i=0; $i<count($images[1]); $i++) {//FUNCION PARA CONTAR CUANTAS IMAGENES
+        if (file_exists($images_dir . $images[1][$i])) { //COMPROBAR QUE EL FICHERO EXISTE
+          $html_images[] = $images[1][$i]; /*QUITAR SI HAY COSAS RARAS*/
+          $this->html = str_replace($images[1][$i], basename($images[1][$i]), $this->html);//REEMPLAZARLAS
         }
       }
 
       if (tep_not_null($html_images)) {
 // If duplicate images are embedded, they may show up as attachments, so remove them.
-        $html_images = array_unique($html_images);
-        sort($html_images);
+        $html_images = array_unique($html_images);//AÑADIR EL html_images AL ARRAY DE IMAGENES.
+        sort($html_images);//ORDERLAS
 
-        for ($i=0; $i<count($html_images); $i++) {
+        for ($i=0; $i<count($html_images); $i++) {//CUANTAS IMAGENES ESTAN
           if ($image = $this->get_file($images_dir . $html_images[$i])) {
-            $content_type = $this->image_types[substr($html_images[$i], strrpos($html_images[$i], '.') + 1)];
-            $this->add_html_image($image, basename($html_images[$i]), $content_type);
+            $content_type = $this->image_types[substr($html_images[$i], strrpos($html_images[$i], '.') + 1)];//TIPO DE IMAGENES
+            $this->add_html_image($image, basename($html_images[$i]), $content_type);//AÑADIR LA IMAGEN, EL html_images Y LOS TIPOS DE CONTENIDO($content_type) .
           }
         }
       }

@@ -1,14 +1,4 @@
 <?php
-/*
-  $Id$
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2012 osCommerce
-
-  Released under the GNU General Public License
-*/
 
   require('includes/application_top.php');
 
@@ -84,20 +74,22 @@
 <div class="contentContainer">
   <div class="contentText">
     <div class="alert alert-info"><?php echo TEXT_MAIN; ?></div>
-
-    <div class="form-group has-feedback">
-      <label for="inputEmail" class="control-label col-xs-3"><?php echo ENTRY_EMAIL_ADDRESS; ?></label>
+	<!-- --------------------------------------------------------------------
+	DE LA LINEA 91 HASTA LA LINEA 98 LA COMENTO PORQUE NO LA NECESITO 	
+	-->
+    <!--<div class="form-group has-feedback">
+      <label for="inputEmail" class="control-label col-xs-3"><?php //echo ENTRY_EMAIL_ADDRESS; ?></label>
       <div class="col-xs-9">
-        <?php echo tep_draw_input_field('email_address', NULL, 'required aria-required="true" autofocus="autofocus" id="inputEmail" placeholder="' . ENTRY_EMAIL_ADDRESS . '"'); ?>
-        <?php echo FORM_REQUIRED_INPUT; ?>
+        <?php //echo tep_draw_input_field('email_address', NULL, 'required aria-required="true" autofocus="autofocus" id="inputEmail" placeholder="' . ENTRY_EMAIL_ADDRESS . '"'); ?>
+        <?php //echo FORM_REQUIRED_INPUT; ?>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <div class="buttonSet row">
     <div class="col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_BACK, 'glyphicon glyphicon-chevron-left', tep_href_link(FILENAME_LOGIN, '', 'SSL')); ?></div>
-    <div class="col-xs-6 text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
-  </div>
+    <!--<div class="col-xs-6 text-right"><?php //echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
+ --> </div>
 </div>
 
 </form>

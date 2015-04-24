@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id$
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2002 osCommerce
-
-  Released under the GNU General Public License
-*/
+header("Content-type: text/html; charset=utf-8");
 
 define('NAVBAR_TITLE_1', 'Checkout');
 define('NAVBAR_TITLE_2', 'Shipping Method');
@@ -18,6 +9,7 @@ define('HEADING_TITLE', 'Delivery Information');
 define('TABLE_HEADING_SHIPPING_ADDRESS', 'Shipping Address');
 define('TEXT_CHOOSE_SHIPPING_DESTINATION', 'Please choose from your address book where you would like the items to be delivered to.');
 define('TITLE_SHIPPING_ADDRESS', 'Shipping Address:');
+define('MODE_SHIPPING', 'The purchase must be made to look for it PROIDE');
 
 define('TABLE_HEADING_SHIPPING_METHOD', 'Shipping Method');
 define('TEXT_CHOOSE_SHIPPING_METHOD', 'Please select the preferred shipping method to use on this order.');

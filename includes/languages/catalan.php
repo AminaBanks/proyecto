@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id: catalan.php 1743 2007-12-20 18:02:36Z hpdl $
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2007 osCommerce
-
-  Released under the GNU General Public License
-*/
 
 // look in your $PATH_LOCALE/locale directory for available locales
 // or type locale -a on the server.
