@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2010 osCommerce
-
-  Released under the GNU General Public License
-*/
 
 ////
 // This function validates a plain text password with a
@@ -20,7 +11,8 @@
       }
 
       if (!class_exists('PasswordHash')) {
-        include(DIR_WS_CLASSES . 'passwordhash.php');
+        include(DIR_WS_CLASSES . 'passwordhash.php');//ESTE FICHERO ESTA DENTRO DE CLASS osCommerce/admin/includes/classes/passwordhash.php es un fichero que 
+													//osCommerce utiliza para la incryptacion de las cuentas de los usuarios.			
       }
 
       $hasher = new PasswordHash(10, true);

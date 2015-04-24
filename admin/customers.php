@@ -1,33 +1,33 @@
 <?php
-/*
-  $Id: customers.php,v 1.82 2003/06/30 13:54:14 dgw_ Exp $
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2003 osCommerce
-
-  Released under the GNU General Public License
-*/
-
+	/*INSERTAR EL FICHERO APPLICATION_TOP.PHP PARA PODER USAR SUS METODOS*/
   require('includes/application_top.php');
 
 //#CHAVEIRO6# Step order/customer begin
 ////
-// This function makes a new password from a plaintext password. 
+// This function makes a new password from a plaintext password. /*esta funcion NO FUNCIONA POR ESO HE COMENTADO DE MOMENTO */
   function tep_encrypt_password($plain) {
-    $password = '';
+    /*$password = '';
 
     for ($i=0; $i<10; $i++) {
       $password .= tep_rand();
     }
-
     $salt = substr(md5($password), 0, 2);
-
     $password = md5($salt . $plain) . ':' . $salt;
-
-    return $password;
+    return $password;*/
+	/*EN ESTA LINEA LO DIGAMOS QUE LA CLASSE PasswordHash EXISTE ENTONCES QUE ME INCLUDE SU FICHERO DENTRO ESTE FICHERO Y TAMBIEN */
+	if (!class_exists('PasswordHash')) {
+      include(DIR_WS_CLASSES . 'passwordhash.php');//ESTE FICHERO ESTA DENTRO DE CLASS osCommerce/admin/includes/classes/passwordhash.php es un fichero que 
+													//osCommerce utiliza para la incryptacion de las cuentas de los usuarios.
+    }
+	/*HACER UNA INSTANCIA DE LA CLASE ES DECIR INICIAR LA CLASE CON SUS 2 PARAMETROS UN BOOLEAN Y UN INTEGEGER*/
+    $hasher = new PasswordHash(10, true);
+	/*RETURNAMOS EL $hasher*/
+    return $hasher->HashPassword($plain);
+ 
   }
+	
+  
 //#CHAVEIRO6# Step order/customer end
 
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');
@@ -39,7 +39,7 @@
     switch ($action) {
       case 'update':
       case 'insert':
-        $customers_id = tep_db_prepare_input($HTTP_GET_VARS['cID']);
+        $customers_id = tep_db_prepare_input($HTTP_GET_VARS['cID']);/*EN LA TABLA DE CUSTOMERS COGEMOS EL ID, NOMBRE, APPLEIDOS, ADDRESSS, TELEFONO, SU FAX ETC--- POUR LA INCRIPACION(SEGURIDAD)*/
         $customers_firstname = tep_db_prepare_input($HTTP_POST_VARS['customers_firstname']);
         $customers_lastname = tep_db_prepare_input($HTTP_POST_VARS['customers_lastname']);
         $customers_email_address = tep_db_prepare_input($HTTP_POST_VARS['customers_email_address']);
@@ -183,7 +183,9 @@
 //#CHAVEIRO6# Step order/customer begin
 			if ($action == 'insert') {
 				//      RAMDOMIZING SCRIPT BY PATRIC VEVERKA
-				$t1 = date("mdy"); 
+				/*$t1 = date("mdy"); /*****************************************************
+****************** COMENTO LA LINEA DE 186 HASTA 196 PORQUE SE ESCRIBIA LA CONTRASENA Y NO SE LA RECUPERABA Mira la líneas que has comentado ahora si te fijas lo que hacían era añadir un valor determinado al password
+				y no recogían el valor del password que cogia el usuario
 				srand ((float) microtime() * 10000000); 
 //				$input = array ("A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z"); 
 				$input = array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"); 
@@ -192,8 +194,9 @@
 				$r1 = rand(0,9); 
 				$l2 = $input[$rand_keys[1]];
 				$l3 = $input[$rand_keys[2]]; 
-				$r2 = rand(0,9); 
-				$password = "gt".$l1.$r1.$l2.$l3.$r2; 
+				$r2 = rand(0,9); */
+				//$password = "gt".$l1.$r1.$l2.$l3.$r2; 
+				$password = tep_db_prepare_input($HTTP_POST_VARS['Password']);//RECUPERAR LA CONTRASENA DEL USUARIO 
 				//    End of Randomizing Script
 				$sql_data_array['customers_password'] = tep_encrypt_password($password);
 
@@ -211,7 +214,7 @@
                               'entry_country_id' => $entry_country_id);
 			}
 			else {
-//#CHAVEIRO6# Step order/customer end
+		//#CHAVEIRO6# Step order/customer end
 
 		tep_db_perform(TABLE_CUSTOMERS, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "'");
 

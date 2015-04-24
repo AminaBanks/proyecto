@@ -110,7 +110,7 @@
   </div>
 </nav><!-- 91 se termina la cabecera de nav la parte  de los idiomas y todo esto -->
   
-  <div id="bodyWrapper" class="<?php echo BOOTSTRAP_CONTAINER; ?>">
+  <div id="bodyWrapper" class="<?php echo BOOTSTRAP_CONTAINER;/*Aqui se llama al fichero bootstrap/css/bootstrap */ ?>">
     <div class="row">
 
 	<!--Llama al fichero header.php para ejecutar este fichero -->
