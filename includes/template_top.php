@@ -75,10 +75,10 @@
                 <li class="text-center text-muted bg-primary"><abbr title="Selected Language"><?PHP echo HEADER_L; ?></abbr> <?php  echo $language ;?>
                 <li class="divider"></li>
 								
-				<li><a href="http://localhost/proyecto/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
-				<li><a href="http://localhost/proyecto/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
-				<li><a href="http://localhost/proyecto/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
-				<li><a href="http://localhost/proyecto/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
+				<li><a href="http://localhost/osCommerce234/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
 			</ul>
 		</li> 
 		  
