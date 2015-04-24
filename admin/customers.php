@@ -2,7 +2,7 @@
 
 	/*INSERTAR EL FICHERO APPLICATION_TOP.PHP PARA PODER USAR SUS METODOS*/
   require('includes/application_top.php');
-
+  header("Content-type: text/html; charset=utf-8");
 //#CHAVEIRO6# Step order/customer begin
 ////
 // This function makes a new password from a plaintext password. /*esta funcion NO FUNCIONA POR ESO HE COMENTADO DE MOMENTO */
@@ -778,10 +778,10 @@ function check_form() {
             <td class="main"><?php echo ENTRY_FAX_NUMBER; ?></td>
             <td class="main">
 <?php
-  if ($processed == true) {
+  if ($processed == true) {//SI processed ES TRUE ENTONCES SE RECUPERA SU FAX DEL USUARIO
     echo $cInfo->customers_fax . tep_draw_hidden_field('customers_fax');
   } else {
-    echo tep_draw_input_field('customers_fax', $cInfo->customers_fax, 'maxlength="32"');
+    echo tep_draw_input_field('customers_fax', $cInfo->customers_fax, 'maxlength="32"');//SE LE ASIGNA EL FAX DEL USUARIO
   }
 ?></td>
           </tr>
@@ -790,7 +790,8 @@ function check_form() {
       <tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>
-	  <tr><!-- -DESDE AQUI LA LINEA 793 HASTA LA LINEA 808 AÑADIR EL CAMPO DE LA CONTRASENA DE LOS USUARIOS-->
+	  <tr><!-- -DESDE AQUI LA LINEA 793 HASTA LA LINEA 808 AÑADIR EL CAMPO DE LA CONTRASENA DE LOS USUARIOS PARA QUE SE PUEDE ENREGISTARSE DESDE LA PARTE
+	  ADMIN Y ENTRAR EL LA PARTDE DEL USUARIO CON EL NOMBRE Y LA CONTRASEÑA -->
         <td class="formArea">
   <table border="0" cellspacing="2" cellpadding="2">
           <tr>
@@ -804,7 +805,7 @@ function check_form() {
 		  echo $cInfo->customers_telephone . tep_draw_hidden_field('customers_telephone');
 		}
 	  } else {
-		echo tep_draw_input_field('Password', $cInfo->customers_password, 'maxlength="32"', true);
+		echo tep_draw_input_field('Password', $cInfo->customers_password, 'maxlength="32"', true);//VALIDACION DE LA CONTRASEÑA DEL USUARIO
 	  }
 	?></td>
       </tr>

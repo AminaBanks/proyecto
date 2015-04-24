@@ -517,8 +517,64 @@
       }
 
       if (EMAIL_TRANSPORT == 'smtp') {
-        return mail($to_addr, $subject, $this->output, 'From: ' . $from . $this->lf . 'To: ' . $to . $this->lf . implode($this->lf, $this->headers) . $this->lf . implode($this->lf, $xtra_headers));
-      } else {
+					/*PARTE DEL MAIL DESDE EL ADMIN */
+					//Load PHPMailer dependencies
+			require_once 'PHPMailerAutoload.php';/*fichero de la configuration de las version de php */
+			require_once 'class.phpmailer.php'; /*fichero de la configuration de las version de php */
+			require_once 'class.smtp.php'; /*fichero de la configuration de las version de php */			
+			/* CONFIGURATION */
+			$crendentials = array(
+				'email'     => $from_addr,    //Your GMail adress Or yahoo, or cat
+				'password'  => 'Aminazo86'               //Your GMail password
+				);
+
+			/* SPECIFIC TO GMAIL O YAHOO SMTP ES EL PROTOCOLO PARA ENVIAR LOS MAILS*/
+			$smtp = array(
+
+			'host' => 'smtp.mail.yahoo.com', 
+			'port' => 465,
+			'username' => $crendentials['email'],
+			'password' => $crendentials['password'],
+			'secure' => 'ssl' //SSL or TLS
+
+			);
+
+			/* TO, SUBJECT, CONTENT */
+			$to         = $to_addr; // to_addr la direccion EL MAIL DE LA PERSONA RESPONSABLE DE GESTIONAR LOS PEDIDOS
+			$subject    = $subject; //EL CONTENIDO DE LA INFORMACION 
+			$content    = $this->text; //EL CONTENIDO DEL MAIL 
+
+			$mailer = new PHPMailer();
+
+			//SMTP Configuration
+			$mailer->isSMTP();
+			$mailer->SMTPAuth   = true; //We need to authenticate
+			$mailer->Host       = $smtp['host']; //el host
+			$mailer->Port       = $smtp['port'];//la puerta
+			$mailer->Username   = $smtp['username']; //el username
+			$mailer->Password   = $smtp['password']; //recuperar la contraseña
+			$mailer->SMTPSecure = $smtp['secure']; //La seguridad
+
+			//Now, send mail :
+			//From - To :
+			$mailer->From       = $crendentials['email'];//RECUPERAR EL MAIL
+			$mailer->FromName   = $from_name; //Optional // nombre de la ong
+			$mailer->addAddress($to);  // Add a recipient /n del mail / direccio
+
+			//Subject - Body :
+			$mailer->Subject        = $subject;
+			$mailer->Body           = $content;
+			$mailer->isHTML(true); //Mail body contains HTML tags
+
+			//Essayer si le mail est envoyer :
+			if(!$mailer->send()) {
+				echo 'Error sending mail : ' . $mailer->ErrorInfo;
+			} else {
+				//echo 'Message sent !';
+			}		
+		return mail($to_addr, $subject, $this->output, 'From: ' . $from . $this->lf . 'To: ' . $to . $this->lf . implode($this->lf, $this->headers) . $this->lf . implode($this->lf, $xtra_headers));
+      
+	  } else {
         return mail($to, $subject, $this->output, 'From: '.$from.$this->lf.implode($this->lf, $this->headers).$this->lf.implode($this->lf, $xtra_headers));
       }
     }
@@ -575,4 +631,7 @@
       return $date . $this->lf . $from . $this->lf . $to . $this->lf . $subject . $this->lf . implode($this->lf, $headers) . $this->lf . $this->lf . $this->output;
     }
   }
+  
+  
+  
 ?>

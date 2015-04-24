@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-	header('Content-Type: text/html; charset=utf-8');
+  header('Content-Type: text/html; charset=utf-8');//ESTA PARTE ES PARA LA DECOFICACION DE CARACTERES RAROS
   $oscTemplate->buildBlocks();
 
   if (!$oscTemplate->hasBlocks('boxes_column_left')) {
@@ -20,29 +20,22 @@
     $oscTemplate->setGridContentWidth($oscTemplate->getGridContentWidth() + $oscTemplate->getGridColumnWidth());
   }
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html><!-- LA PARTE DE HTML  CON LA CABECERA ETC-- -->
 <html <?php echo HTML_PARAMS; ?>>
 <head>
 <meta charset="<?php echo CHARSET; ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1"/>
  <link href="./images/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-<title><?php echo "Fundació PROIDE -Comerç Solidari"/*tep_output_string_protected($oscTemplate->getTitle());*/ ?></title>
+<title><?php echo "Fundació PROIDE -Comerç Solidari"/*tep_output_string_protected($oscTemplate->getTitle());*/ ?></title><!--TITULO DE LA 
+PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN CATALAN ENTONCES SE PUEDE INSERTAR A MANO -->
 <base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
 
-<link href="ext/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--<link href="custom.css" rel="stylesheet">
-<link href="user.css" rel="stylesheet">
-
-<!--[if lt IE 9]>
-   <script src="ext/js/html5shiv.js"></script>
-   <script src="ext/js/respond.min.js"></script>
-   <script src="ext/js/excanvas.min.js"></script>
-<![endif]-->
+<link href="ext/bootstrap/css/bootstrap.min.css" rel="stylesheet"><!--INSERCION DEL FICHERO BOOSTRAPP-- -->
  
-<script src="ext/jquery/jquery-1.11.1.min.js"></script>
+<script src="ext/jquery/jquery-1.11.1.min.js"></script><!-- INSERCION DE LOS SCRIPT -->
 
-<!-- font awesome -->
+<!-- font awesome(impressionant) -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <?php echo $oscTemplate->getBlocks('header_tags'); ?>
@@ -102,7 +95,7 @@
      <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
     </div>
    </form>
- </li>      
+ </li>   
         
       </ul>        
       </div>

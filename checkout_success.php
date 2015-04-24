@@ -13,6 +13,7 @@
 	EJEMPLO DE HE VISTO EN INTERNET NO (que una vez realizado el pedido se envía un correo a PROYDE para informarle que hay un nuevo pedido).
 	AQUI SALE SI EL PEDIDO SE HA PODIDO REALIZAR CON EXITO 
 	*/
+  header("Content-type: text/html; charset=utf-8");
   require('includes/application_top.php');
 
 // if the customer is not logged on, redirect them to the shopping cart page

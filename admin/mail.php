@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-
+ header("Content-type: text/html; charset=utf-8"); /*EN ESTE FICHERO  */
   require('includes/application_top.php');
 
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');

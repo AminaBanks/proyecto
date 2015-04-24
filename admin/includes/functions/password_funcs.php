@@ -4,6 +4,7 @@
 ////
 // This function validates a plain text password with a
 // salted or phpass password
+header("Content-type: text/html; charset=utf-8");
   function tep_validate_password($plain, $encrypted) {
     if (tep_not_null($plain) && tep_not_null($encrypted)) {
       if (tep_password_type($encrypted) == 'salt') {
