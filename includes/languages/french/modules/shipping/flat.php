@@ -12,5 +12,5 @@
 
 define('MODULE_SHIPPING_FLAT_TEXT_TITLE', 'Frais forfaitaires');
 define('MODULE_SHIPPING_FLAT_TEXT_DESCRIPTION', 'Frais forfaitaires');
-define('MODULE_SHIPPING_FLAT_TEXT_WAY', 'Forfait');
+define('MODULE_SHIPPING_FLAT_TEXT_WAY', '');
 ?>

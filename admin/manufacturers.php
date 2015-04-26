@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id$
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2013 osCommerce
-
-  Released under the GNU General Public License
-*/
+header("Content-type: text/html; charset=utf-8");
 
   require('includes/application_top.php');
 
