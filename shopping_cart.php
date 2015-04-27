@@ -16,7 +16,7 @@
 ?>
 
 <div class="page-header">
-  <h1><?php echo HEADING_TITLE; ?></h1>
+  <h1><?php echo HEADING_TITLE; ?></h1><!--Esta linea sale cuando se elege productos para añadir a la cesta -->
 </div>
 
 <?php

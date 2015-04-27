@@ -9,9 +9,9 @@
 
   Released under the GNU General Public License
 */
-
+header('Content-Type: text/html; charset=utf-8');
 define('NAVBAR_TITLE', 'Contenu du panier');
-define('HEADING_TITLE', 'Le contenu de mon panier.');
+define('HEADING_TITLE', 'Le contenu de mon panier.');//HEADING_TITLE
 
 define('TABLE_HEADING_PRODUCTS', 'Produit(s)');
 

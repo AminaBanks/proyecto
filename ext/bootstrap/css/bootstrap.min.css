@@ -107,7 +107,7 @@ a {text-decoration: none;}
     border-top: 1px solid #FFC107;
 }
 
-/*La Partie des dispositif si c'est une tablette*/
+/*La Partie des dispositifs si c'est une tablette*/
 @media screen and (max-width: 768px) {
     .active {
         display: block;
@@ -147,10 +147,10 @@ añadir margin-top:-20px
  * */
  
  /* DO NOT CHANGE THIS FILE -------------------------------------------------- */
-/* TO OVER-RIDE ANY ASPECT OF THIS CSS, AMEND THE user.css FILE ------------- */
+/* TO OVER-RIDE ANY ASPECT OF THIS CSS, AMEND THE FILE ------------- */
 
 
-/* Historical osCommerce ---------------------------------------------------- */
+/* Historical ---------------------------------------------------- */
 /*Les styles des boutons*/
 .buttonSet {
   margin-top: 10px;
@@ -213,7 +213,7 @@ ul.shoppingCartList li.newItemInCart, ul.shoppingCartList li.newItemInCart A {
   font-size: 0.5em;
 }
 
-/* Pour lister les modules retravailler ------------------------------------------- */
+/* Pour lister les modules retravailler(LOS PRODUCTOS)------------------------------------------- */
 
 .productHolder {
   border: 1px solid #eee;
@@ -223,7 +223,7 @@ ul.shoppingCartList li.newItemInCart, ul.shoppingCartList li.newItemInCart A {
        -o-transition: border .5s ease-in-out;
           transition: border .5s ease-in-out;
 }
-
+/*COLOR DEL BORDER DE LOS PRODUCTOS EN AZUL SE PUEDE CAMBIAR SI QUIERO*/
 .productHolder:hover {
   border: 1px solid #428bca;
 }
@@ -232,10 +232,11 @@ ul.shoppingCartList li.newItemInCart, ul.shoppingCartList li.newItemInCart A {
   font-size: 1.3em;
 }
 
+/*BACKGROUND COLOR DE LOS PRODUCTOS LA PARTE DE FABRICANTES */
 .item.list-group-item {
     float: none;
     width: 100%;
-    background-color: #fff;
+    background-color:rgba(255, 255, 255, 0.6);
     border: none;
 }
 
@@ -384,6 +385,7 @@ p.lead del {
         text-align: justify;
     }
 }
+/*MODE TABLETE RESPONSIVE */
 @media (min-width: 992px) and (max-width: 1199px) {
     .text-left-not-md, .text-center-not-md, .text-right-not-md, .text-justify-not-md {
         text-align: inherit;

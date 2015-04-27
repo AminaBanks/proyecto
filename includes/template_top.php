@@ -77,7 +77,7 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
 	<a href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a>
  </li>
  <li class="nav navbar-text navbar-right">
-	<a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.png"/></a>
+	<a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.jpg"/></a>
  </li>
  <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
    <form  name="quick_find" <?php //echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  

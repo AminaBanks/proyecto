@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-
+ header('Content-Type: text/html; charset=utf-8');
   require('includes/application_top.php');
 
   if (!isset($HTTP_GET_VARS['products_id'])) {
@@ -28,12 +28,16 @@
 
 <div class="contentContainer">
   <div class="contentText">
-    <div class="alert alert-warning"><?php echo TEXT_PRODUCT_NOT_FOUND; ?></div>
+    <!--<div class="alert alert-warning">
+<?php echo TEXT_PRODUCT_NOT_FOUND; ?></div>-->
   </div>
 
-  <div class="pull-right">
-    <?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', tep_href_link(FILENAME_DEFAULT)); ?>
-  </div>
+	<div style="float: right;">
+		<?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'triangle-1-e', tep_href_link(FILENAME_DEFAULT)); ?>
+	</div>
+  <!-- <div class="pull-right"> C'EST DE QU'IL Y AVAIT AVANT
+    <?php //echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', tep_href_link(FILENAME_DEFAULT)); ?>
+  </div> -->
 </div>
 
 <?php
@@ -49,8 +53,9 @@
     if ($new_price = tep_get_products_special_price($product_info['products_id'])) {
       $products_price = '<del>' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</del> <span class="productSpecialPrice" itemprop="price">' . $currencies->display_price($new_price, tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span>';
     } else {
-      $products_price = '<span itemprop="price">' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span>';
-    }
+      // ANCIENNE LIGNE $products_price = '<span itemprop="price">' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span>';
+		$products_price = $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id']));//NUEVA LIGNE
+	}
 
     if ($product_info['products_date_available'] > date('Y-m-d H:i:s')) {
       $products_price .= '<link itemprop="availability" href="http://schema.org/PreOrder" />';
@@ -126,6 +131,15 @@
           echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"');
         }
 ?>
+<script type="text/javascript">
+$('#piGal ul').bxGallery({
+  maxwidth: 600,
+  maxheight: 400,
+  thumbwidth: <?php echo (($pi_counter > 1) ? '75' : '0'); ?>,
+  thumbcontainer: 300,
+  load_image: 'ext/jquery/bxGallery/spinner.gif'
+});
+</script>
 
     </div>
 
@@ -145,6 +159,11 @@
     }
 ?>
 
+<script type="text/javascript">
+$("#piGal a[rel^='fancybox']").fancybox({
+  cyclic: true
+});
+</script>
 <div itemprop="description">
   <?php echo stripslashes($product_info['products_description']); ?>
 </div>

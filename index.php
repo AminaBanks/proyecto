@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-
+ header('Content-Type: text/html; charset=utf-8');
   require('includes/application_top.php');
 
 // the following cPath references come from application_top.php
