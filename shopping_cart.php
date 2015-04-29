@@ -125,8 +125,13 @@
 
   </div>
 
-  <div class="buttonSet">
+  <!--<div class="buttonSet">
     <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CHECKOUT, 'glyphicon glyphicon-chevron-right', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
+  </div>-->
+  <!--	EN ESTA LINEA ES CREAR UN BUTTON PARA DECIR SIGUE COMPRANDO-->
+  <div class="buttonSet col-sm-12">
+    <div class="text-left col-sm-6"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-left', tep_href_link("index.php", '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
+    <div class="text-right col-sm-6"><?php echo tep_draw_button(IMAGE_BUTTON_CHECKOUT, 'glyphicon glyphicon-chevron-right', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
   </div>
 
 <?php

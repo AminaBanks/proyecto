@@ -31,7 +31,7 @@ body, nav, ul, li, a  {margin: 0; padding: 0;}
 /*font family changement des styles de texts avec l'informatique de la ONG*/
 @font-face { font-family: 'Calibri Light'; src: url('./calibri_light.eot'); src: url('./calibri_light.eot?#iefix') format('embedded-opentype'), url('./calibri_light.svg#Calibri Light') format('svg'), url('./calibri_light.woff')  format('woff'), url('./calibri_light.ttf') format('truetype'); font-weight: normal; font-style: normal;}
 /*Le contenu de la page avec sa taille des ecritures*/
-body {font-family: "Calibri light";font-size: 14px;}
+body {font-family: "Calibri light";font-size: 16px;}
 
 a {text-decoration: none;}
 .containermenu{
@@ -385,7 +385,7 @@ p.lead del {
         text-align: justify;
     }
 }
-/*MODE TABLETE RESPONSIVE */
+/*MODE TABLET RESPONSIVE */
 @media (min-width: 992px) and (max-width: 1199px) {
     .text-left-not-md, .text-center-not-md, .text-right-not-md, .text-justify-not-md {
         text-align: inherit;
@@ -421,7 +421,7 @@ p.lead del {
     }
 }
 
-/* Footer qu'il soit responsive------------------------------------------------------------------- */
+/* Footer responsive------------------------------------------------------------------- */
 .footer {
   background: #eee;
   border-top: 2px solid #ddd;
@@ -614,7 +614,7 @@ p.lead del {
 
 
 /* ************************************************* *************************
- * pour la compatibilité avec les smartphones avec toutes les tailles*/
+ * pour la compatibilité smartphones avec toutes les tailles*/
  
 @media (max-width: 767px)  {.slider{display:none!important} } 
  @media (max-width: 767px)  {.well{display:none!important} } 

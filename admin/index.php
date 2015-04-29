@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-
+	header('Content-Type: text/html; charset=utf-8');
   require('includes/application_top.php');
 
   $languages = tep_get_languages();
@@ -30,7 +30,7 @@
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="2" height="40">
           <tr>
-            <td class="pageHeading"><?php echo STORE_NAME; ?></td>
+            <td class="pageHeading"><?php echo STORE_NAME; ?></td> <!--echo STORE_NAME;QUITTER LE TITRE DE OSCOMMERCE-->.
 
 <?php
   if (sizeof($languages_array) > 1) {

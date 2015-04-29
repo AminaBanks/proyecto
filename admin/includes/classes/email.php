@@ -520,17 +520,17 @@ header("Content-type: text/html; charset=utf-8");
 			/* CONFIGURATION */
 			$crendentials = array(
 				'email'     => $from_addr,    //Your GMail adress Or yahoo, or cat
-				'password'  => 'Aminazo86'               //Your GMail password
+				'password'  => 'BoboSylla86'  //Your GMail password es
 				);
 
 			/* SPECIFIC TO GMAIL O YAHOO SMTP ES EL PROTOCOLO PARA ENVIAR LOS MAILS*/
 			$smtp = array(
 
-			'host' => 'smtp.mail.yahoo.com', 
-			'port' => 465,
+			'host' => 'smtp.office365.com',//'smtp.mail.yahoo.com', 
+			'port' => 587,
 			'username' => $crendentials['email'],
 			'password' => $crendentials['password'],
-			'secure' => 'ssl' //SSL or TLS
+			'secure' => 'tls' //SSL or TLS
 
 			);
 

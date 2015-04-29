@@ -1,5 +1,11 @@
 <?php
-/*MAIL LLAMA AL FICHERO EMAIL.PHP */
+/*MAIL LLAMA AL FICHERO EMAIL.PHP ME OLVIDO MUCHO.
+******************************************************
+************************************************************ 
+POUR FAIRE LA CONFIGURATION DES DONNÉES DU MAILS, IL FAUT ALLER A LA CLASSE .
+C:\xampp\htdocs\osCommerce234\admin\includes\classes\email.php.
+
+*/
  header("Content-type: text/html; charset=utf-8"); /*EN ESTE FICHERO  */
   require('includes/application_top.php');
 
@@ -156,7 +162,8 @@
               </tr>
               <tr>
                 <td class="main"><?php echo TEXT_FROM; ?></td>
-                <td><?php echo tep_draw_input_field('from', EMAIL_FROM); ?></td>
+                <td><?php echo tep_draw_input_field('from', ''/*EMAIL_FROM*/); ?></td> <!--/*EMAIL_FROM*/ SI QUIERO QUE ALGO SALE EN LA PARTE DEL MAIL POR EJEMPLO EL MAIL DE PROIDE COMO DE TIPO PLACEHOLDER PUEDO ACTIVAR LA FRASE ESTA QUE 
+							QUE ES EMAIL_FROM -->
               </tr>
               <tr>
                 <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>

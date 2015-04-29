@@ -1,31 +1,32 @@
 <?php
 
 //Load PHPMailer dependencies
+
 require_once 'PHPMailerAutoload.php';/*fichero de la configuration de las version de php */
 require_once 'class.phpmailer.php'; /*fichero de la configuration de las version de php */
 require_once 'class.smtp.php'; /*fichero de la configuration de las version de php */
 
-/* CONFIGURATION */
+/* CONFIGURATION NECESITARE LA PARTE DEL CLIENTE  QUE SEA EN POP O EN IPAM Y TAMBIEN EN SMTP */
 $crendentials = array(
-    'email'     => 'aminebangoura@yahoo.fr',    //Your GMail adress Or yahoo, or cat
-    'password'  => 'Aminazo86'               //Your GMail password
+    'email'     => 'secretaria@fundacioproide.org',//'aminata.bangoura@gracia.lasalle.cat',//'aminebangoura@yahoo.fr',//aminata.bangoura@gracia.lasalle.cat', //   //Your GMail adress Or yahoo, or cat
+    'password'  => '29072010'               //Your GMail password BoboSylla86
     );
 
 /* SPECIFIC TO GMAIL O YAHOO SMTP ES EL PROTOCOLO PARA ENVIAR LOS MAILS*/
 $smtp = array(
 
-'host' => 'smtp.mail.yahoo.com', 
-'port' => 465,
+'host' => 'smtp.office365.com', //, SI ES CON EL MAIL OUTLOUK PERO NO FUNCIONA smtp.mail.yahoo.com'', //HAY QUE CONFIGURAR EL SMTP PARA CADA PROTOCOLO DE MAIL SI ES GMAIL 
+'port' =>  587, //465, // 587 Y LA PUERTA ES ESTA.,
 'username' => $crendentials['email'],
 'password' => $crendentials['password'],
-'secure' => 'ssl' //SSL or TLS
+'secure' => 'tls'		//'' //SSL or TLS Y ES TLS PERO TAMPOCO FUNCIONA .
 
 );
 
 /* TO, SUBJECT, CONTENT */
-$to         = 'aminebangoura@yahoo.fr'; //EL MAIL DE LA PERSONA RESPONSABLE DE GESTIONAR LOS PEDIDOS
+$to         = 'secretaria@fundacioproide.org'; //EL MAIL DE LA PERSONA RESPONSABLE DE GESTIONAR LOS PEDIDOS
 $subject    = 'Mail informativo: Nova Compra de Soci !!!'; //EL CONTENIDO DE LA INFORMACION 
-$content    = 'Anar a l&#x02018;administrador per veure la nova compra.'; //CAMBIAR ESTAS LINEAS PARA EL CONTENIDO DEL MAIL 
+$content    = 'Anar a l\'administrador per veure la nova compra.'; //CAMBIAR ESTAS LINEAS PARA EL CONTENIDO DEL MAIL 
 
 
 

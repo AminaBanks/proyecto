@@ -9,8 +9,8 @@
 
   Released under the GNU General Public License
 */
-
-define('TEXT_MAIN', 'Et donem la benvinguda a la p&#x000E0;gina web de Comer&#x000E7; Solidari de PROIDE per ajudar-nos a fer posible la nostra tasca de cooperaci&#x000F3; al desenvolupament');
+header("Content-type: text/html; charset=utf-8");
+define('TEXT_MAIN', 'Et donem la benvinguda a la p&#x000E0;gina web de Comer&#x000E7; Solidari de PROIDE per ajudar-nos a fer possible la nostra tasca de cooperaci&#x000F3; al desenvolupament');
 define('TABLE_HEADING_NEW_PRODUCTS', 'Un exemple del que tenim!');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Properament');
 define('TABLE_HEADING_DATE_EXPECTED', 'Llan&ccedil;ament');
@@ -35,7 +35,7 @@ if ( ($category_depth == 'products') || (isset($HTTP_GET_VARS['manufacturers_id'
   define('TEXT_ALL_CATEGORIES', 'Totes');
   define('TEXT_ALL_MANUFACTURERS', 'Tots');
 } elseif ($category_depth == 'top') {
-  define('HEADING_TITLE', 'Benvingut/da !');
+  define('HEADING_TITLE', 'Benvingut/da!');
 } elseif ($category_depth == 'nested') {
   define('HEADING_TITLE', 'Categories');
 }

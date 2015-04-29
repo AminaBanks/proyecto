@@ -14,6 +14,8 @@
 // on RedHat6.0 I used 'en_US'
 // on FreeBSD 4.0 I use 'en_US.ISO_8859-1'
 // this may not work under win32 environments..
+
+
 if (strtolower(substr(PHP_OS, 0, 3)) === 'win') {
   @setlocale(LC_TIME, 'fra');
 }else{
