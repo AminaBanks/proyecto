@@ -23,11 +23,6 @@
     tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
   }
 
-// if no shipping method has been selected, redirect the customer to the shipping method selection page
-  if (!tep_session_is_registered('shipping') || !tep_session_is_registered('sendto')) {
-    tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
-  }
-
   if ( (tep_not_null(MODULE_PAYMENT_INSTALLED)) && (!tep_session_is_registered('payment')) ) {
     tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
  }
