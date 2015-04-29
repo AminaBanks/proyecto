@@ -15,7 +15,7 @@
   }
 
 // if no shipping destination address was selected, use the customers own address as default
-  if (!tep_session_is_registered('sendto')) {
+  /*if (!tep_session_is_registered('sendto')) {
     tep_session_register('sendto');
     $sendto = $customer_default_address_id;
   } else {
@@ -29,7 +29,7 @@
         if (tep_session_is_registered('shipping')) tep_session_unregister('shipping');
       }
     }
-  }
+  }*/
 
   require(DIR_WS_CLASSES . 'order.php');
   $order = new order;
@@ -196,56 +196,57 @@
   if (tep_count_shipping_modules() > 0) {
 ?>
 
-  <h2><?php echo TABLE_HEADING_SHIPPING_METHOD; ?></h2>
+  <!--<h2><?php //echo TABLE_HEADING_SHIPPING_METHOD; ?></h2>-->
 
 <?php
     if (sizeof($quotes) > 1 && sizeof($quotes[0]) > 1) {
 ?>
 
-  <div class="contentText">
+  <!--<div class="contentText">
     <div class="alert alert-warning">
       <div class="row">
         <div class="col-xs-8">
-          <?php echo TEXT_CHOOSE_SHIPPING_METHOD; ?>
+          <?php //echo TEXT_CHOOSE_SHIPPING_METHOD; ?>
         </div>
         <div class="col-xs-4 text-right">
-          <?php echo '<strong>' . TITLE_PLEASE_SELECT . '</strong>'; ?>
+          <?php //echo '<strong>' . TITLE_PLEASE_SELECT . '</strong>'; ?>
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 
 <?php
     } elseif ($free_shipping == false) {
 ?>
 
-  <div class="contentText">
-    <div class="alert alert-info"><?php echo TEXT_ENTER_SHIPPING_INFORMATION; ?></div>
-  </div>
+  <!--<div class="contentText">
+    <div class="alert alert-info"><?php //echo TEXT_ENTER_SHIPPING_INFORMATION; ?></div>
+  </div>-->
 
 <?php
     }
 ?>
 
-  <div class="contentText">
+  <!--<div class="contentText">
     <table class="table table-striped table-condensed table-hover">
-      <tbody>
+      <tbody>-->
 
 <?php
     if ($free_shipping == true) {
 ?>
 
-    <div class="contentText">
+    <!--<div class="contentText">
       <div class="panel panel-success">
-        <div class="panel-heading"><strong><?php echo FREE_SHIPPING_TITLE; ?></strong>&nbsp;<?php echo $quotes[$i]['icon']; ?></div>
+        <div class="panel-heading"><strong><?php //echo FREE_SHIPPING_TITLE; ?></strong>&nbsp;<?php //echo $quotes[$i]['icon']; ?></div>
         <div class="panel-body">
-          <?php echo sprintf(FREE_SHIPPING_DESCRIPTION, $currencies->format(MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING_OVER)) . tep_draw_hidden_field('shipping', 'free_free'); ?>
+          <?php //echo sprintf(FREE_SHIPPING_DESCRIPTION, $currencies->format(MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING_OVER)) . tep_draw_hidden_field('shipping', 'free_free'); ?>
         </div>
-      </div>
+      </div>-->
     </div>
 
 <?php
     } else {
+	/*
       for ($i=0, $n=sizeof($quotes); $i<$n; $i++) {
         for ($j=0, $n2=sizeof($quotes[$i]['methods']); $j<$n2; $j++) {
 // set the radio button to be checked if it is the method chosen
@@ -302,11 +303,11 @@
 
 <?php
         }
-      }
+      }*/
     }
 ?>
 
-      </tbody>
+      <!--</tbody>
     </table>
   </div>
 
@@ -314,22 +315,25 @@
   }
 ?>
 
-  <hr>
+  <hr>-->
 
   <!--div class="contentText">
     <div class="form-group">
-      <label for="inputComments" class="control-label col-xs-4"><?php echo TABLE_HEADING_COMMENTS; ?></label>
+      <label for="inputComments" class="control-label col-xs-4"><?php //echo TABLE_HEADING_COMMENTS; ?></label>
       <div class="col-xs-8">
         <?php
-        echo tep_draw_textarea_field('comments', 'soft', 60, 5, $comments, 'id="inputComments" placeholder="' . TABLE_HEADING_COMMENTS . '"');
+        //echo tep_draw_textarea_field('comments', 'soft', 60, 5, $comments, 'id="inputComments" placeholder="' . TABLE_HEADING_COMMENTS . '"');
         ?>
       </div>
     </div>
   </div-->
 
-  <div class="buttonSet">
-    <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
-  </div>
+  <div class="buttonSet">    
+	<div class="text-right"> <a href="checkout_payment.php" id="list" class="btn btn-default btn-sm"><?php echo(IMAGE_BUTTON_CHECKOUT);?><span class="glyphicon glyphicon-chevron-right"></span></a>
+	
+  
+    <!--<div class="text-right"><?php //echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
+  --></div>
   
   <div class="clearfix"></div>
 
