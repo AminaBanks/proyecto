@@ -76,7 +76,7 @@
           echo '            <td width="50%" valign="top">' . "\n";
         }
 
-        //echo $ad->getOutput();
+        //echo $ad->getOutput();//ESTA FUNCION PERMITE DE SABER TODAS LAS INFORMACIONE SOBRE LA PLATAFORMA
 
         if ($col <= 2) {
           echo '            </td>' . "\n";
