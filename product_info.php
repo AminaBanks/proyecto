@@ -128,8 +128,14 @@
             $pi_html[] = '<div id="piGalDiv_' . $pi_counter . '">' . $pi['htmlcontent'] . '</div>';
           }
 
-          echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"');
-        }
+          //echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"');
+?>		  
+			<a href="<?php echo ( tep_href_link(DIR_WS_IMAGES . $pi['image'], '', 'NONSSL', false));?> " data-lightbox="example-2">
+				<?php echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"'); ?>
+			</a>
+ 
+ <?php
+	}
 ?>
 <script type="text/javascript">
 $('#piGal ul').bxGallery({
@@ -151,8 +157,13 @@ $('#piGal ul').bxGallery({
 ?>
 
     <div id="piGal">
-      <?php echo tep_image(DIR_WS_IMAGES . $product_info['products_image'], addslashes($product_info['products_name'])); ?>
-    </div>
+      <!--<a href=" <?php //echo ( tep_href_link(DIR_WS_IMAGES . $product_info['products_image'], '', 'NONSSL', false));?> " data-lightbox="example-2"> <?php echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"'.' rel="lightbox"') . '</a>'?>
+	-->
+		<a href="<?php echo ( tep_href_link(DIR_WS_IMAGES . $pi['image'], '', 'NONSSL', false));?> " data-lightbox="example-2">
+			<?php echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"'); ?>
+		</a>
+	
+	</div>
 
 <?php
       }

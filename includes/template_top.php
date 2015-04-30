@@ -25,7 +25,11 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
 <link href="ext/bootstrap/css/bootstrap.min.css" rel="stylesheet"><!--INSERCION DEL FICHERO BOOSTRAPP-- -->
  
 <script src="ext/jquery/jquery-1.11.1.min.js"></script><!-- INSERCION DE LOS SCRIPT -->
-
+<!-- LIGHBOX FOR THE PICTURES IS SCRIPT THE PICTURES IN THE FILE product_info.php para poder desplegar las images -->
+<script src="ext/light/js/jquery-1.11.0.min.js"></script>
+<script src="ext/light/js/lightbox.min.js"></script>
+<link href="ext/light/css/lightbox.css" rel="stylesheet" />
+<!--FIN LITHGBOX-->
 <!-- font awesome(impressionant) -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 

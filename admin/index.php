@@ -76,7 +76,7 @@
           echo '            <td width="50%" valign="top">' . "\n";
         }
 
-        echo $ad->getOutput();
+        //echo $ad->getOutput();
 
         if ($col <= 2) {
           echo '            </td>' . "\n";
