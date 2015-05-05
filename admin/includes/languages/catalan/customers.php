@@ -10,11 +10,11 @@
   Released under the GNU General Public License
 */
 
-
+header('Content-Type: text/html; charset=utf-8');
 define ('HEADING_TITLE', 'Clients');
 define ('TEXT_DATE_ACCOUNT_LAST_MODIFIED','última data de modificació');
 define ('HEADING_TITLE_SEARCH', 'Cerca:');
-define ('ENTRY_DATE_OF_BIRTH','Data de naixement:');
+define ('ENTRY_DATE_OF_BIRTH','Data de creació:');
 define ('ENTRY_SUBURB','Suburbi:');
 define ('TABLE_HEADING_FIRSTNAME', 'Nom');
 define ('TABLE_HEADING_LASTNAME', 'cognom');
