@@ -31,5 +31,6 @@ define ('TEXT_DELETE_REVIEWS', 'Eliminar% s comentari (s)');
 define ('TEXT_INFO_HEADING ELIMINAR AL CLIENT ','Eliminar Client');
 define ('TYPE_BELOW', 'Tipus de baix');
 define ('PLEASE_SELECT', 'Select One');
+define ('HEADING_TITLE_ADD', 'Nou Soci');
 
 ?>

@@ -53,16 +53,10 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
     <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-		<?php //if the customer is not logged on, redirect them to the login page
-			if (tep_session_is_registered('customer_id')) {
-		?>
-          <li><a class="store-brand" <?php echo 'href="' . tep_href_link(FILENAME_DEFAULT) . '"'; ?>><i class="glyphicon glyphicon-home"></i><span class="hidden-sm"> &nbsp&nbsp<?php echo   HEADER_TITLE_HOME?></span></a></li> <!-- FALTA SABER EL NOMBRE DE HOME EN LA TABLA-->
+          <!--<li><a class="store-brand" <?php //echo 'href="' . tep_href_link(FILENAME_DEFAULT) . '"'; ?>><i class="glyphicon glyphicon-home"></i><span class="hidden-sm"> &nbsp&nbsp<?php echo   HEADER_TITLE_HOME?></span></a></li>  FALTA SABER EL NOMBRE DE HOME EN LA TABLA
           <li>
 			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_ACCOUNT, '', 'SSL').'"';?>><i class="glyphicon glyphicon-user"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo HEADER_TITLE_MY_ACCOUNT?></span></a></li>
-		</li> 
-		<?php
-			}
-		?>
+		</li>-->
           	<!--el codigo de los idiomas -->          
          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-flag"></i><span class="hidden-sm"> <?php echo HEADER_LANG?></span> <span class="caret"></span></a>
               <ul class="dropdown-menu">			   
@@ -70,47 +64,44 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
                 <li class="divider"></li>
 								
 				<li><a href="http://localhost/osCommerce234/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=s"><?PHP echo LANGUAGE_3;?></a></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=s2"><?PHP echo LANGUAGE_4;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=en"><?PHP echo LANGUAGE_3;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=fr"><?PHP echo LANGUAGE_4;?></a></li>
 				<li><a href="http://localhost/osCommerce234/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
 			</ul>			
 		</li> 
-		<?php //if the customer is not logged on, redirect them to the login page
-			if (tep_session_is_registered('customer_id')) {
-		?>  
-			<li>
-				<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL').'"';?>><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp<?php echo HEADER_TITLE_NAME_PRODUCTS?> </span></a> 
-			</li>	  
-			<li><a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_LOGOFF, '', 'SSL').'"';?>><i class="glyphicon glyphicon-log-out"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo ("Logoff");?></span></a>
-			 </ul>
-					 
-			<ul> 
-			 <li class="nav navbar-text navbar-right">
-				<a href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a>
-			 </li>
-			 <li class="nav navbar-text navbar-right">
-				<a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.jpg"/></a>
-			 </li>
-			 <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
-			   <form  name="quick_find" <?php //echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
-				<div class="input-group">
-				 <input name="keywords"   placeholder="buscar pel nom del producte" class="form-control" type="text"><span class="input-group-btn">
-				 <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
-				</div>
-			   </form>
-			 </li>   
-				
-			  </ul> 
-	<?php } ?>	  
+		  
+		<!--<li>
+			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL').'"';?>><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp<?php echo HEADER_TITLE_NAME_PRODUCTS?> </span></a> ESTAS LINEAS ANADIDAS AHORA
+		</li>	  
+		<li><a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_LOGOFF, '', 'SSL').'"';?>><i class="glyphicon glyphicon-log-out"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo ("Logoff");?></span></a>
+		 </ul>
+		 		 
+        <ul> 
+ <li class="nav navbar-text navbar-right">
+	<a href="http://www.facebook.com/fundacioproide"><img src="images/social_bookmarks/facebook.png"/></a>
+ </li>
+ <li class="nav navbar-text navbar-right">
+	<a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.jpg"/></a>
+ </li>
+ <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
+   <form  name="quick_find" <?php //echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
+    <div class="input-group">
+     <input name="keywords"   placeholder="buscar pel nom del producte" class="form-control" type="text"><span class="input-group-btn">
+     <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  
+    </div>
+   </form>
+ </li>   
+        
+      </ul> -->       
       </div>
-		</div>
-	  </div>
-	</nav><!-- 91 se termina la cabecera de nav la parte  de los idiomas y todo esto -->
-	  
-	  <div id="bodyWrapper" class="<?php echo BOOTSTRAP_CONTAINER;/*Aqui se llama al fichero bootstrap/css/bootstrap */ ?>">
-		<div class="row">
+    </div>
+  </div>
+</nav><!-- 91 se termina la cabecera de nav la parte  de los idiomas y todo esto -->
+  
+  <div id="bodyWrapper" class="<?php echo BOOTSTRAP_CONTAINER;/*Aqui se llama al archivo ubicacion bootstrap/css/bootstrap */ ?>">
+    <div class="row">
 
-		<!--Llama al fichero header.php para ejecutar este fichero -->
-      <?php require(DIR_WS_INCLUDES . 'header.php'); ?>
+	<!--Llama al fichero header.php para ejecutar este fichero -->
+      <?php require(DIR_WS_INCLUDES . 'header_logoff.php'); ?>
 
       <div id="bodyContent" class="col-md-<?php echo $oscTemplate->getGridContentWidth(); ?> <?php echo ($oscTemplate->hasBlocks('boxes_column_left') ? 'col-md-push-' . $oscTemplate->getGridColumnWidth() : ''); ?>">

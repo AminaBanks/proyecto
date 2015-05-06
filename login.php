@@ -62,7 +62,7 @@
 
   $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_LOGIN, '', 'SSL'));
 
-  require(DIR_WS_INCLUDES . 'template_top.php');
+  require(DIR_WS_INCLUDES . 'template_top_logoff.php');
 ?>
 
 <div class="page-header">

@@ -1,14 +1,4 @@
 <?php
-/*
-  $Id$
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2002 osCommerce
-
-  Released under the GNU General Public License
-*/
 
 define('HEADING_TITLE', 'Les clients');
 define('HEADING_TITLE_SEARCH', 'Rechercher :');
@@ -29,4 +19,5 @@ define('TEXT_DELETE_REVIEWS', 'Supprimer %s critique(s)');
 define('TEXT_INFO_HEADING_DELETE_CUSTOMER', 'Supprimer client');
 define('TYPE_BELOW', 'Genre ci-dessous');
 define('PLEASE_SELECT', 'Choisissez en un');
+define('HEADING_TITLE_ADD', 'Nouvel Partenaire');
 ?>

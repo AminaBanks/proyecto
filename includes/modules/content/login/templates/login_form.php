@@ -1,6 +1,6 @@
 <!--<div class="login-form <?php //echo (MODULE_CONTENT_LOGIN_FORM_CONTENT_WIDTH == 'Half') ? 'col-sm-6' : 'col-sm-12'; ?>">
 cette ligne permet quiter le nouveau client pour remplacer clo-sm-6 a col-sm-12-->
-<div class="login-form <?php echo (MODULE_CONTENT_LOGIN_FORM_CONTENT_WIDTH == 'Half') ? 'col-sm-6' : 'col-sm-12'; ?>">
+<div class="login-form <?php echo (MODULE_CONTENT_LOGIN_FORM_CONTENT_WIDTH == 'Half') ? 'col-sm-12' : 'col-sm-12'; ?>">
   <div class="panel panel-success">
     <div class="panel-body">
       <h2><?php echo MODULE_CONTENT_LOGIN_HEADING_RETURNING_CUSTOMER; ?></h2>

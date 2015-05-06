@@ -1,12 +1,9 @@
 <?php
 
- header('Content-Type: text/html; charset=utf-8');
+	require('login.php');
+ /*header('Content-Type: text/html; charset=utf-8');
   require('includes/application_top.php');
-// if the customer is not logged on, redirect them to the login page
-  if (!tep_session_is_registered('customer_id')) {
-    $navigation->set_snapshot();
-    tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
-  }
+
 // the following cPath references come from application_top.php
   $category_depth = 'top';
   if (isset($cPath) && tep_not_null($cPath)) {
@@ -237,7 +234,7 @@
       }
     }*/
 
-    include(DIR_WS_MODULES . FILENAME_PRODUCT_LISTING);
+    /*include(DIR_WS_MODULES . FILENAME_PRODUCT_LISTING);
 ?>
 
 </div>
@@ -276,36 +273,12 @@
    include(DIR_WS_MODULES . FILENAME_NEW_PRODUCTS);
    include(DIR_WS_MODULES . FILENAME_UPCOMING_PRODUCTS);
 ?>
-	<!--<div id="sliderB">
-		<img src="images/data1/images/bakikmitjana.jpg" alt="" title="" id="wows1_0"/>
-		<img src="images/data1/images/p1020010_1.jpg" alt="" title="" id="wows1_1"/>
-		<img src="images/data1/images/p1020348_1.jpg" alt="" title="" id="wows1_2"/>
-		<img src="images/data1/images/p1020439_1.jpg" alt="" title="" id="wows1_3"/>
-		<img src="images/data1/images/p1020447_1.jpg" alt="" title="" id="wows1_4"/>
-		<img src="images/data1/images/p1020451_1.jpg" alt="" title="" id="wows1_5"/>
-		<img src="images/data1/images/p1020457_1.jpg" alt="" title="" id="wows1_6"/>
-		<img src="images/data1/images/p1020462_1.jpg" alt="" title="" id="wows1_7"/>
-		<img src="images/data1/images/p1020465_1.jpg" alt="" title="" id="wows1_8"/>
-		<img src="images/data1/images/p1020489_1.jpg" alt="" title="" id="wows1_9"/>
-		<img src="images/data1/images/p1020599_1.jpg" alt="" title="" id="wows1_10"/>
-		<img src="images/data1/images/p1020602_1.jpg" alt="" title="" id="wows1_11"/>
-		<img src="images/data1/images/p1020612_1.jpg" alt="" title="" id="wows1_12"/>
-		<img src="images/data1/images/p1020628_1.jpg" alt="" title="" id="wows1_13"/>
-		<img src="images/data1/images/p1020658_1.jpg" alt="" title="" id="wows1_14"/>
-		<img src="images/data1/images/p1020680_1.jpg" alt="" title="" id="wows1_15"/>
-		<img src="images/data1/images/p1020717_1.jpg" alt="" title="" id="wows1_16"/>
-		<img src="images/data1/images/p1020718_1.jpg" alt="" title="" id="wows1_17"/>
-		<img src="images/data1/images/p1020727_1.jpg" alt="" title="" id="wows1_18"/>
-		<img src="images/data1/images/p1020728_1.jpg" alt="" title="" id="wows1_19"/>
-		<img src="images/data1/images/p1020747_1.jpg" alt="" title="" id="wows1_20"/>
-		<img src="data1/images/p1020750_1.jpg" alt="full screen slider"/>
-		<img src="images/data1/images/p1020791_1.jpg" alt="" title="" id="wows1_22"/>	
-	</div>-->
+	
 </div>
 
 <?php
   }
 
   require(DIR_WS_INCLUDES . 'template_bottom.php');
-  require(DIR_WS_INCLUDES . 'application_bottom.php');
+  require(DIR_WS_INCLUDES . 'application_bottom.php');*/
 ?>

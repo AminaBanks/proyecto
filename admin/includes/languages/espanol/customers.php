@@ -29,4 +29,5 @@ define('TEXT_DELETE_REVIEWS', 'Eliminar %s comentario(s)');
 define('TEXT_INFO_HEADING_DELETE_CUSTOMER', 'Eliminar Cliente');
 define('TYPE_BELOW', 'Escriba debajo');
 define('PLEASE_SELECT', 'Seleccionar uno');
+define('HEADING_TITLE_ADD', 'Nuevo Socio');
 ?>

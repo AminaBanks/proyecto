@@ -1,16 +1,8 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2012 osCommerce
-
-  Released under the GNU General Public License
-*/
 
 // define the filenames used in the project
+   
   define('FILENAME_ACCOUNT', 'account.php');
   define('FILENAME_ACCOUNT_EDIT', 'account_edit.php');
   define('FILENAME_ACCOUNT_HISTORY', 'account_history.php');
@@ -36,6 +28,7 @@
   define('FILENAME_CREATE_ACCOUNT', 'create_account.php');
   define('FILENAME_CREATE_ACCOUNT_SUCCESS', 'create_account_success.php');
   define('FILENAME_DEFAULT', 'index.php');
+  //define('FILENAME_DEFAULT', 'home.php');
   define('FILENAME_DOWNLOAD', 'download.php');
   define('FILENAME_INFO_SHOPPING_CART', 'info_shopping_cart.php');
   define('FILENAME_LOGIN', 'login.php');
