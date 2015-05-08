@@ -123,7 +123,7 @@ var adjustMenu = function() {
 </script>	
 
 	<!--HASTA AQUI-->
-	<?php //if the customer is not logged on, redirect them to the login page
+	<?php ///COMPROBOBAR QUE EL USUARIO ESTA LOGGEADO SI LO ESTA MUESTRA EL MENU
 			if (tep_session_is_registered('customer_id')) {
 	?>
 	<div class="col-sm-12"> 
@@ -161,7 +161,9 @@ var adjustMenu = function() {
 							</li>
 							<?php } ?>
 						</ul>
-					<?php } ?>	
+					<?php 
+						} // SE CIERRA LA CONDICION 
+					?>	
 					</li> 
 		
 					<?php } ?>	

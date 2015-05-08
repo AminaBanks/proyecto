@@ -53,15 +53,16 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
     <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-		<?php //if the customer is not logged on, redirect them to the login page
-			if (tep_session_is_registered('customer_id')) {
+		<?php //
+			//SI EL USUARIO NO ESTA CONECTA NO SE MUESTRA EL RESTO DE LA INFORMACION DE LA PAGINA  LINEA 58
+			if (tep_session_is_registered('customer_id')) { 
 		?>
           <li><a class="store-brand" <?php echo 'href="' . tep_href_link(FILENAME_DEFAULT) . '"'; ?>><i class="glyphicon glyphicon-home"></i><span class="hidden-sm"> &nbsp&nbsp<?php echo   HEADER_TITLE_HOME?></span></a></li> <!-- FALTA SABER EL NOMBRE DE HOME EN LA TABLA-->
           <li>
 			<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_ACCOUNT, '', 'SSL').'"';?>><i class="glyphicon glyphicon-user"></i> <span clas="hidden-sm">&nbsp&nbsp<?php echo HEADER_TITLE_MY_ACCOUNT?></span></a></li>
 		</li> 
 		<?php
-			}
+			} // SE CIERRA LA CONDICION 
 		?>
           	<!--el codigo de los idiomas -->          
          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-flag"></i><span class="hidden-sm"> <?php echo HEADER_LANG?></span> <span class="caret"></span></a>
@@ -75,8 +76,8 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
 				<li><a href="http://localhost/osCommerce234/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
 			</ul>			
 		</li> 
-		<?php //if the customer is not logged on, redirect them to the login page
-			if (tep_session_is_registered('customer_id')) {
+		<?php //SI EL USUARIO NO ESTA CONECTA NO SE MUESTRA EL RESTO DE LA INFORMACION DE LA PAGINA  LINEA 82
+			if (tep_session_is_registered('customer_id')) { // PARA NO MUESTRAR LOS EL SHOPPING_CART,EL BUSCADOR, EL LOGOFF TAMPOCO LAS REDES SOCIALES FCBK Y YOUTUBE 
 		?>  
 			<li>
 				<a class="store-brand" <?php echo 'href="'.tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL').'"';?>><i class="glyphicon glyphicon-shopping-cart"></i><span class="items">&nbsp&nbsp<?php echo $cart->count_contents() ?>&nbsp&nbsp<?php echo HEADER_TITLE_NAME_PRODUCTS?> </span></a> 
@@ -101,7 +102,9 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
 			 </li>   
 				
 			  </ul> 
-	<?php } ?>	  
+	<?php 
+		} // SE CIERRA LA CONDICION 
+	?>	  
       </div>
 		</div>
 	  </div>
