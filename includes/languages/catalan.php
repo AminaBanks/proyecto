@@ -202,7 +202,7 @@ define('ENTRY_COUNTRY_ERROR', '');
 define('ENTRY_COUNTRY_TEXT', '&nbsp;<small><font color="#5b4026">obligatori</font></small>');
 define('ENTRY_TELEPHONE_NUMBER', 'Tel&egrave;fon:');
 define('ENTRY_TELEPHONE_NUMBER_ERROR', '&nbsp;<small><font color="#FF0000">m&iacute;nim ' . ENTRY_TELEPHONE_MIN_LENGTH . ' lletres</font></small>');
-define('ENTRY_TELEPHONE_NUMBER_TEXT', '&nbsp;<small><font color="#5b4026">obligatori</font></small>');
+define('ENTRY_TELEPHONE_NUMBER_TEXT', '&nbsp;<small><font color="#5b4026"></font></small>');
 define('ENTRY_FAX_NUMBER', 'Fax:');
 define('ENTRY_FAX_NUMBER_ERROR', '');
 define('ENTRY_FAX_NUMBER_TEXT', '');
@@ -348,6 +348,6 @@ define ('PRODUCT_SUBSCRIBED', '% s ha estat afegit a la seva llista de notificac
 define ('PRODUCT_UNSUBSCRIBED', "% s s'ha eliminat de la seva llista de notificacions");
 define ('PRODUCT_ADDED', '% s ha estat afegit a la cistella');
 define ('PRODUCT_REMOVED', "% s s'ha eliminat del seu carro ");
-
+define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
 
 ?>

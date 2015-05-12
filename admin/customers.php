@@ -1,33 +1,33 @@
 <?php
+/*
+  $Id: customers.php,v 1.82 2003/06/30 13:54:14 dgw_ Exp $
 
-	/*INSERTAR EL FICHERO APPLICATION_TOP.PHP PARA PODER USAR SUS METODOS*/
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
+
+  Copyright (c) 2003 osCommerce
+
+  Released under the GNU General Public License
+*/
+
   require('includes/application_top.php');
-  header("Content-type: text/html; charset=utf-8");
+
 //#CHAVEIRO6# Step order/customer begin
 ////
-// This function makes a new password from a plaintext password. /*esta funcion NO FUNCIONA POR ESO HE COMENTADO DE MOMENTO */
+// This function makes a new password from a plaintext password. 
   function tep_encrypt_password($plain) {
-    /*$password = '';
+    $password = '';
 
     for ($i=0; $i<10; $i++) {
       $password .= tep_rand();
     }
+
     $salt = substr(md5($password), 0, 2);
+
     $password = md5($salt . $plain) . ':' . $salt;
-    return $password;*/
-	/*EN ESTA LINEA LO DIGAMOS QUE LA CLASSE PasswordHash EXISTE ENTONCES QUE ME INCLUDE SU FICHERO DENTRO ESTE FICHERO Y TAMBIEN */
-	if (!class_exists('PasswordHash')) {
-      include(DIR_WS_CLASSES . 'passwordhash.php');//ESTE FICHERO ESTA DENTRO DE CLASS osCommerce/admin/includes/classes/passwordhash.php es un fichero que 
-													//osCommerce utiliza para la incryptacion de las cuentas de los usuarios.
-    }
-	/*HACER UNA INSTANCIA DE LA CLASE ES DECIR INICIAR LA CLASE CON SUS 2 PARAMETROS UN BOOLEAN Y UN INTEGEGER*/
-    $hasher = new PasswordHash(10, true);
-	/*RETURNAMOS EL $hasher*/
-    return $hasher->HashPassword($plain);
- 
+
+    return $password;
   }
-	
-  
 //#CHAVEIRO6# Step order/customer end
 
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');
@@ -38,8 +38,10 @@
   if (tep_not_null($action)) {
     switch ($action) {
       case 'update':
+	 
       case 'insert':
-        $customers_id = tep_db_prepare_input($HTTP_GET_VARS['cID']);/*EN LA TABLA DE CUSTOMERS COGEMOS EL ID, NOMBRE, APPLEIDOS, ADDRESSS, TELEFONO, SU FAX ETC--- POUR LA INCRIPACION(SEGURIDAD)*/
+	    echo ("hola!");
+        $customers_id = tep_db_prepare_input($HTTP_GET_VARS['cID']);
         $customers_firstname = tep_db_prepare_input($HTTP_POST_VARS['customers_firstname']);
         $customers_lastname = tep_db_prepare_input($HTTP_POST_VARS['customers_lastname']);
         $customers_email_address = tep_db_prepare_input($HTTP_POST_VARS['customers_email_address']);
@@ -183,9 +185,7 @@
 //#CHAVEIRO6# Step order/customer begin
 			if ($action == 'insert') {
 				//      RAMDOMIZING SCRIPT BY PATRIC VEVERKA
-				/*$t1 = date("mdy"); /*****************************************************
-****************** COMENTO LA LINEA DE 186 HASTA 196 PORQUE SE ESCRIBIA LA CONTRASENA Y NO SE LA RECUPERABA Mira la líneas que has comentado ahora si te fijas lo que hacían era añadir un valor determinado al password
-				y no recogían el valor del password que cogia el usuario
+				$t1 = date("mdy"); 
 				srand ((float) microtime() * 10000000); 
 //				$input = array ("A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z"); 
 				$input = array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"); 
@@ -194,9 +194,8 @@
 				$r1 = rand(0,9); 
 				$l2 = $input[$rand_keys[1]];
 				$l3 = $input[$rand_keys[2]]; 
-				$r2 = rand(0,9); */
-				//$password = "gt".$l1.$r1.$l2.$l3.$r2; 
-				$password = tep_db_prepare_input($HTTP_POST_VARS['Password']);//RECUPERAR LA CONTRASENA DEL USUARIO 
+				$r2 = rand(0,9); 
+				$password = "gt".$l1.$r1.$l2.$l3.$r2; 
 				//    End of Randomizing Script
 				$sql_data_array['customers_password'] = tep_encrypt_password($password);
 
@@ -214,7 +213,7 @@
                               'entry_country_id' => $entry_country_id);
 			}
 			else {
-		//#CHAVEIRO6# Step order/customer end
+//#CHAVEIRO6# Step order/customer end
 
 		tep_db_perform(TABLE_CUSTOMERS, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "'");
 
@@ -758,14 +757,15 @@ function check_form() {
         <td class="formAreaTitle"><?php echo CATEGORY_CONTACT; ?></td>
       </tr>
       <tr>
-        <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
+        <td class="formArea">
+		<table border="0" cellspacing="2" cellpadding="2">
           <tr>
             <td class="main"><?php echo ENTRY_TELEPHONE_NUMBER; ?></td>
             <td class="main">
 <?php
   if ($error == true) {
     if ($entry_telephone_error == true) {
-      echo tep_draw_input_field('customers_telephone', $cInfo->customers_telephone, 'maxlength="32"') . '&nbsp;' . ENTRY_TELEPHONE_NUMBER_ERROR;
+     echo tep_draw_input_field('customers_telephone', $cInfo->customers_telephone, 'maxlength="32"') . '&nbsp;' . ENTRY_TELEPHONE_NUMBER_ERROR;
     } else {
       echo $cInfo->customers_telephone . tep_draw_hidden_field('customers_telephone');
     }
@@ -778,47 +778,53 @@ function check_form() {
             <td class="main"><?php echo ENTRY_FAX_NUMBER; ?></td>
             <td class="main">
 <?php
-  if ($processed == true) {//SI processed ES TRUE ENTONCES SE RECUPERA SU FAX DEL USUARIO
+  if ($processed == true) {
     echo $cInfo->customers_fax . tep_draw_hidden_field('customers_fax');
   } else {
-    echo tep_draw_input_field('customers_fax', $cInfo->customers_fax, 'maxlength="32"');//SE LE ASIGNA EL FAX DEL USUARIO
+    echo tep_draw_input_field('customers_fax', $cInfo->customers_fax, 'maxlength="32"');
   }
 ?></td>
           </tr>
         </table></td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
-      </tr>
-	  <tr><!-- -DESDE AQUI LA LINEA 793 HASTA LA LINEA 808 AÑADIR EL CAMPO DE LA CONTRASENA DE LOS USUARIOS PARA QUE SE PUEDE ENREGISTARSE DESDE LA PARTE
-	  ADMIN Y ENTRAR EL LA PARTDE DEL USUARIO CON EL NOMBRE Y LA CONTRASEÑA -->
+	  <!---- PASSWORD!-->
+	  <tr>
         <td class="formArea">
-  <table border="0" cellspacing="2" cellpadding="2">
+		<table border="0" cellspacing="2" cellpadding="2">
           <tr>
             <td class="main"><?php echo PASSWORD; ?></td>
             <td class="main">
-	<?php
-	  if ($error == true) {
-		if ($entry_telephone_error == true) {
-		 echo tep_draw_input_field('customers_telephone', $cInfo->customers_telephone, 'maxlength="32"') . '&nbsp;' . ENTRY_TELEPHONE_NUMBER_ERROR;
-		} else {
-		  echo $cInfo->customers_telephone . tep_draw_hidden_field('customers_telephone');
-		}
-	  } else {
-		echo tep_draw_input_field('Password', $cInfo->customers_password, 'maxlength="32"', true);//VALIDACION DE LA CONTRASEÑA DEL USUARIO
-	  }
-	?></td>
+<?php
+  if ($error == true) {
+    if ($entry_telephone_error == true) {
+     echo tep_draw_input_field('customers_telephone', $cInfo->customers_telephone, 'maxlength="32"') . '&nbsp;' . ENTRY_TELEPHONE_NUMBER_ERROR;
+    } else {
+      echo $cInfo->customers_telephone . tep_draw_hidden_field('customers_telephone');
+    }
+  } else {
+    echo tep_draw_input_field('Password', $cInfo->customers_telephone, 'maxlength="32"', true);
+  }
+?></td>
+          </tr>
+          
+        </table></td>
       </tr>
-      <!--<tr>	  DE MOMENTO LO DEJO PERO LO QUITARÉ NEWSLETTER PORQUE NO LO NECESITO; 
-        <td class="formAreaTitle"><?php //echo CATEGORY_OPTIONS; ?></td>
+	  <!--FIN PASWWORD-->
+	  
+	  
+      <tr>
+        <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+      </tr>
+      <tr>
+        <td class="formAreaTitle"><?php echo CATEGORY_OPTIONS; ?></td>
       </tr>
       <tr>
         <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
           <tr>
-            <td class="main"><?php //echo ENTRY_NEWSLETTER //DE MOMENTO LO DEJO PERO LO QUITARÉ NEWSLETTER PORQUE NO LO NECESITO; ?></td>
+            <td class="main"><?php echo ENTRY_NEWSLETTER; ?></td>
             <td class="main">
 <?php
-  /*if ($processed == true) {
+  if ($processed == true) {
     if ($cInfo->customers_newsletter == '1') {
       echo ENTRY_NEWSLETTER_YES;
     } else {
@@ -827,9 +833,9 @@ function check_form() {
     echo tep_draw_hidden_field('customers_newsletter');
   } else {
     echo tep_draw_pull_down_menu('customers_newsletter', $newsletter_array, (($cInfo->customers_newsletter == '1') ? '1' : '0'));
-  }*/
+  }
 ?></td>
-          </tr>-->
+          </tr>
         </table></td>
       </tr>
       <tr>
@@ -924,7 +930,8 @@ function check_form() {
     if (isset($HTTP_GET_VARS['search']) && tep_not_null($HTTP_GET_VARS['search'])) {
 ?>
                   <tr>
-                    <td align="right" colspan="2"><?php echo '<a href="' . tep_href_link(FILENAME_CUSTOMERS) . '">' . tep_image_button('button_reset.gif', IMAGE_RESET) . '</a>'; ?></td>
+				  
+                    <td align="right" colspan="2"><?php echo '<a href="' . tep_href_link(FILENAME_CUSTOMERS) . '">' . tep_image_button('button_reset.gif', IMAGE_RESET) . '</a>'; ?> </td>
                   </tr>
 <?php
     }
@@ -951,6 +958,7 @@ function check_form() {
 
 //#CHAVEIRO6# Step order/customer begin	
 //		$contents[] = array('align' => 'center', 'text' => '<a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . tep_image_button('button_edit.gif', IMAGE_EDIT) . '</a> <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=confirm') . '">' . tep_image_button('button_delete.gif', IMAGE_DELETE) . '</a> <a href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' . tep_image_button('button_orders.gif', IMAGE_ORDERS) . '</a> <a href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . tep_image_button('button_email.gif', IMAGE_EMAIL) . '</a>');
+
 		$contents[] = array('align' => 'center', 'text' => '<a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'action=new') . '">' . tep_image_button('button_insert.gif', IMAGE_INSERT) . '</a> <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . tep_image_button('button_edit.gif', IMAGE_EDIT) . '</a> <a href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=confirm') . '">' . tep_image_button('button_delete.gif', IMAGE_DELETE) . '</a> <a href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' . tep_image_button('button_orders.gif', IMAGE_ORDERS) . '</a> <a href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . tep_image_button('button_email.gif', IMAGE_EMAIL) . '</a>');
 //#CHAVEIRO6# Step order/customer end 
         $contents[] = array('text' => '<br>' . TEXT_DATE_ACCOUNT_CREATED . ' ' . tep_date_short($cInfo->date_account_created));

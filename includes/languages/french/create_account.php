@@ -29,4 +29,6 @@ define('EMAIL_TEXT', 'Vous pouvez maintenant utiliser les <strong>services rése
 . "\n\n");
 define('EMAIL_CONTACT', 'Pour plus d\'informations à propos de nos services en ligne, vous pouvez contacter le gestionnaire de la boutique par courrier électronique : ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n\n");
 define('EMAIL_WARNING', '<strong><u>REMARQUE IMPORTANTE :</u></strong>Vous recevez cet email car il fait suite à l\'inscription d\'un nouveau client dans notre boutique en ligne. Si vous ne vous êtes pas inscrit sur ' . STORE_NAME . ', merci de le signaler au gestionnaire de la boutique à cette adresse : ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n");
+
+define('IMAGE_BUTTON_EMAIL', 'Envoyer Email');
 ?>

@@ -15,7 +15,7 @@ define('HEADING_TITLE', 'Benvinguts, entreu la informaci&oacute; del vostre comp
 
 define('HEADING_NEW_CUSTOMER', 'Client nou');
 define('TEXT_NEW_CUSTOMER', 'Sóc un client nou.');
-define('TEXT_NEW_CUSTOMER_INTRODUCTION', 'Creant un nou compte a ' . STORE_NAME . ' podreu comprar m&eacute;s r&agrave;pidament, estar al dia de l\'estat de la vostra comanda, i veure les comandes antigues.');
+define('TEXT_NEW_CUSTOMER_INTRODUCTION', 'Si no tens claus d\'acces per entrar al Comerç Solidari de,' . STORE_NAME . 'pregunta-ho a la persona responsable de de la teva escola o bé contacta amb secretaria@fundacioproide.ord, o trucant al 932 377 180.');
 
 define('HEADING_RETURNING_CUSTOMER', 'Ja sóc client');
 define('TEXT_RETURNING_CUSTOMER', 'He comprat altres vegades.');

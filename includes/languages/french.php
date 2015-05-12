@@ -288,5 +288,5 @@ define ('PRODUCT_SUBSCRIBED', '% s a été ajouté à votre liste de notificatio
 define ('PRODUCT_UNSUBSCRIBED', '% s a été retiré de la liste des notifications');
 define ('PRODUCT_ADDED', '% s a été ajouté à votre panier');
 define ('PRODUCT_REMOVED', '% s a été retiré de votre panier');
-
+define('IMAGE_BUTTON_EMAIL', 'Envoyer Email');
 ?>
