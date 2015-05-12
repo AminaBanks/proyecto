@@ -31,7 +31,7 @@ define ('TEXT_PRODUCTS_QUANTITY_INFO', 'Quantitat:');
 define ('TEXT_DATE_ADDED', 'Data d&#39alta:');
 define ('TEXT_DATE_AVAILABLE', 'Data Disponible:');
 define ('TEXT_LAST_MODIFIED', 'Última modificació:');
-define ('TEXT_IMAGE_NONEXISTENT ',' IMATGE NO EXISTEIX');
+define('TEXT_IMAGE_NONEXISTENT', 'IMATGE NO EXISTEIX');
 define ('TEXT_NO_CHILD_CATEGORIES_OR_PRODUCTS', 'Si us plau, inseriu una nova categoria o producte en aquest nivell.');
 define ('TEXT_PRODUCT_MORE_INFORMATION', 'Per obtenir més informació, si us plau visiti aquest productes <a href="http://%s" target="blank"> <u> pàgina </ u> </a>.');
 define ('TEXT_PRODUCT_DATE_ADDED', 'Aquest producte és al nostre catàleg des de% s.');

@@ -21,7 +21,7 @@ define ('TEXT_MANUFACTURERS ',' Fabricants:');
 define ('TEXT_DATE_ADDED', 'Data d&#39;alta:');
 define ('TEXT_LAST_MODIFIED', 'Última modificació:');
 define ('TEXT_PRODUCTS', 'productes');
-define ('TEXT_IMAGE_NONEXISTENT ',' IMATGE NO EXISTEIX');
+define('TEXT_IMAGE_NONEXISTENT', 'IMATGE NO EXISTEIX');
 define ('TEXT_NEW_INTRO', 'Si us plau, completi la següent informació per al nou fabricant');
 define ('TEXT_EDIT_INTRO', 'Si us plau, feu els canvis necessaris');
 define ('TEXT_MANUFACTURERS_NAME', 'Nom del fabricant:');

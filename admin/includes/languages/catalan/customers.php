@@ -25,7 +25,7 @@ define ('TEXT_DATE_ACCOUNT LAST_MODIFIED', 'Última modificació:');
 define ('TEXT_INFO_DATE_LAST_LOGON', 'Últim inici de sessió:');
 define ('TEXT_INFO_NUMBER_OF_LOGONS', 'Nombre d&#39inicis de sessió:');
 define ('TEXT_INFO_COUNTRY', 'Country:');
-define ('TEXT_INFO_NUMBER_OF_REVIEWS ',' Quantitat de crítiques:');
+define('TEXT_INFO_NUMBER_OF_REVIEWS', 'Quantitat de crítiques:');
 define ('TEXT_DELETE_INTRO', 'Estàs segur que vols eliminar aquest client?');
 define ('TEXT_DELETE_REVIEWS', 'Eliminar% s comentari (s)');
 define ('TEXT_INFO_HEADING ELIMINAR AL CLIENT ','Eliminar Client');

@@ -1,38 +1,17 @@
 <?php
-/*
-  $Id$
+require('includes/application_top.php');
+require(DIR_WS_INCLUDES . 'template_top.php');
+$process = false;
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2013 osCommerce
-
-  Released under the GNU General Public License
-*/
-
-  require('includes/application_top.php');
-
-// needs to be included earlier to set the success message in the messageStack
-  require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CREATE_ACCOUNT);
-
-  $process = false;
-  if (isset($HTTP_POST_VARS['action']) && ($HTTP_POST_VARS['action'] == 'process') && isset($HTTP_POST_VARS['formid']) && ($HTTP_POST_VARS['formid'] == $sessiontoken)) {
-    $process = true;
-
-    if (ACCOUNT_GENDER == 'true') {
-      if (isset($HTTP_POST_VARS['gender'])) {
-        $gender = tep_db_prepare_input($HTTP_POST_VARS['gender']);
-      } else {
-        $gender = false;
-      }
-    }
-    $firstname = tep_db_prepare_input($HTTP_POST_VARS['firstname']);
+if (isset($HTTP_POST_VARS['action']) && ($HTTP_POST_VARS['action'] == 'process'))
+{
+ $process = true;
+ $firstname = tep_db_prepare_input($HTTP_POST_VARS['firstname']);
     $lastname = tep_db_prepare_input($HTTP_POST_VARS['lastname']);
-    if (ACCOUNT_DOB == 'true') $dob = tep_db_prepare_input($HTTP_POST_VARS['dob']);
+   /* if (ACCOUNT_DOB == 'true') $dob = tep_db_prepare_input($HTTP_POST_VARS['dob']);*/
     $email_address = tep_db_prepare_input($HTTP_POST_VARS['email_address']);
-    if (ACCOUNT_COMPANY == 'true') $company = tep_db_prepare_input($HTTP_POST_VARS['company']);
-    $street_address = tep_db_prepare_input($HTTP_POST_VARS['street_address']);
-    if (ACCOUNT_SUBURB == 'true') $suburb = tep_db_prepare_input($HTTP_POST_VARS['suburb']);
+    /*if (ACCOUNT_COMPANY == 'true') $company = tep_db_prepare_input($HTTP_POST_VARS['company']);*/
+    /*$street_address = tep_db_prepare_input($HTTP_POST_VARS['street_address']);
     $postcode = tep_db_prepare_input($HTTP_POST_VARS['postcode']);
     $city = tep_db_prepare_input($HTTP_POST_VARS['city']);
     if (ACCOUNT_STATE == 'true') {
@@ -43,28 +22,13 @@
         $zone_id = false;
       }
     }
-    $country = tep_db_prepare_input($HTTP_POST_VARS['country']);
+    $country = tep_db_prepare_input($HTTP_POST_VARS['country']);*/
     $telephone = tep_db_prepare_input($HTTP_POST_VARS['telephone']);
     $fax = tep_db_prepare_input($HTTP_POST_VARS['fax']);
-    if (isset($HTTP_POST_VARS['newsletter'])) {
-      $newsletter = tep_db_prepare_input($HTTP_POST_VARS['newsletter']);
-    } else {
-      $newsletter = false;
-    }
-    $password = tep_db_prepare_input($HTTP_POST_VARS['password']);
-    $confirmation = tep_db_prepare_input($HTTP_POST_VARS['confirmation']);
-
-    $error = false;
-
-    if (ACCOUNT_GENDER == 'true') {
-      if ( ($gender != 'm') && ($gender != 'f') ) {
-        $error = true;
-
-        $messageStack->add('create_account', ENTRY_GENDER_ERROR);
-      }
-    }
-
-    if (strlen($firstname) < ENTRY_FIRST_NAME_MIN_LENGTH) {
+  $error = false;
+  
+  // verficar datos
+   if (strlen($firstname) < ENTRY_FIRST_NAME_MIN_LENGTH) {
       $error = true;
 
       $messageStack->add('create_account', ENTRY_FIRST_NAME_ERROR);
@@ -76,13 +40,13 @@
       $messageStack->add('create_account', ENTRY_LAST_NAME_ERROR);
     }
 
-    if (ACCOUNT_DOB == 'true') {
+    /*if (ACCOUNT_DOB == 'true') {
       if ((strlen($dob) < ENTRY_DOB_MIN_LENGTH) || (!empty($dob) && (!is_numeric(tep_date_raw($dob)) || !@checkdate(substr(tep_date_raw($dob), 4, 2), substr(tep_date_raw($dob), 6, 2), substr(tep_date_raw($dob), 0, 4))))) {
         $error = true;
 
         $messageStack->add('create_account', ENTRY_DATE_OF_BIRTH_ERROR);
       }
-    }
+    }*/
 
     if (strlen($email_address) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
       $error = true;
@@ -101,7 +65,7 @@
         $messageStack->add('create_account', ENTRY_EMAIL_ADDRESS_ERROR_EXISTS);
       }
     }
-
+/*
     if (strlen($street_address) < ENTRY_STREET_ADDRESS_MIN_LENGTH) {
       $error = true;
 
@@ -148,156 +112,87 @@
           $messageStack->add('create_account', ENTRY_STATE_ERROR);
         }
       }
-    }
+    }*/
 
     if (strlen($telephone) < ENTRY_TELEPHONE_MIN_LENGTH) {
       $error = true;
 
       $messageStack->add('create_account', ENTRY_TELEPHONE_NUMBER_ERROR);
     }
+	
+
+	//Load PHPMailer dependencies
+require_once 'PHPMailerAutoload.php';
+require_once 'class.phpmailer.php';
+require_once 'class.smtp.php';
+
+/* CONFIGURATION */
+$crendentials = array(
+    'email'     => 'secretaria@fundacioproide.org',  //aminata.bangoura@gracia.lasalle.cat', //   //Your GMail adress Or yahoo, or cat
+    'password'  => '29072010' //contraseña de helena
+    );
+	 
+/* SPECIFIC TO GMAIL SMTP */
+$smtp = array(
+
+'host' => 'smtp.office365.com',   //POR gmail.com    //'smtp.gmail.com',
+'port' => 587, 
+'username' => $crendentials['email'],
+'password' => $crendentials['password'],
+'secure' => 'tls' //SSL or TLS
+
+);
+
+/* TO, SUBJECT, CONTENT */
+$to         = 'secretaria@fundacioproide.org'; //The 'To' field
+$subject    = 'NOU SOCI';
+$content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname."<br>"/*.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>"/*.ENTRY_STREET_ADDRESS.$street_address."<br>".ENTRY_COMPANY.$company."<br>".ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>".ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>"/*.ENTRY_FAX_NUMBER.$fax."<br>"*/;
 
 
-    if (strlen($password) < ENTRY_PASSWORD_MIN_LENGTH) {
-      $error = true;
+$mailer = new PHPMailer();
 
-      $messageStack->add('create_account', ENTRY_PASSWORD_ERROR);
-    } elseif ($password != $confirmation) {
-      $error = true;
+//SMTP Configuration
+$mailer->isSMTP();
+$mailer->SMTPAuth   = true; //We need to authenticate
+$mailer->Host       = $smtp['host'];
+$mailer->Port       = $smtp['port'];
+$mailer->Username   = $smtp['username'];
+$mailer->Password   = $smtp['password'];
+$mailer->SMTPSecure = $smtp['secure']; 
 
-      $messageStack->add('create_account', ENTRY_PASSWORD_ERROR_NOT_MATCHING);
-    }
+//Now, send mail :
+//From - To :
+$mailer->From       = $crendentials['email'];
+$mailer->FromName   = 'Your Name'; //Optional
+$mailer->addAddress($to);  // Add a recipient
 
-    if ($error == false) {
-      $sql_data_array = array('customers_firstname' => $firstname,
-                              'customers_lastname' => $lastname,
-                              'customers_email_address' => $email_address,
-                              'customers_telephone' => $telephone,
-                              'customers_fax' => $fax,
-                              'customers_newsletter' => $newsletter,
-                              'customers_password' => tep_encrypt_password($password));
+//Subject - Body :
+$mailer->Subject        = $subject;
+$mailer->Body           = $content;
+$mailer->isHTML(true); //Mail body contains HTML tags
 
-      if (ACCOUNT_GENDER == 'true') $sql_data_array['customers_gender'] = $gender;
-      if (ACCOUNT_DOB == 'true') $sql_data_array['customers_dob'] = tep_date_raw($dob);
+//Check if mail is sent :
+if(!$mailer->send()) {
+    echo 'Error sending mail : ' . $mailer->ErrorInfo;
+} else {
+    echo 'Message sent !';
+	
+	
+}
+//tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
+	
+}
 
-      tep_db_perform(TABLE_CUSTOMERS, $sql_data_array);
 
-      $customer_id = tep_db_insert_id();
 
-      $sql_data_array = array('customers_id' => $customer_id,
-                              'entry_firstname' => $firstname,
-                              'entry_lastname' => $lastname,
-                              'entry_street_address' => $street_address,
-                              'entry_postcode' => $postcode,
-                              'entry_city' => $city,
-                              'entry_country_id' => $country);
-
-      if (ACCOUNT_GENDER == 'true') $sql_data_array['entry_gender'] = $gender;
-      if (ACCOUNT_COMPANY == 'true') $sql_data_array['entry_company'] = $company;
-      if (ACCOUNT_SUBURB == 'true') $sql_data_array['entry_suburb'] = $suburb;
-      if (ACCOUNT_STATE == 'true') {
-        if ($zone_id > 0) {
-          $sql_data_array['entry_zone_id'] = $zone_id;
-          $sql_data_array['entry_state'] = '';
-        } else {
-          $sql_data_array['entry_zone_id'] = '0';
-          $sql_data_array['entry_state'] = $state;
-        }
-      }
-
-      tep_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array);
-
-      $address_id = tep_db_insert_id();
-
-      tep_db_query("update " . TABLE_CUSTOMERS . " set customers_default_address_id = '" . (int)$address_id . "' where customers_id = '" . (int)$customer_id . "'");
-
-      tep_db_query("insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id, customers_info_number_of_logons, customers_info_date_account_created) values ('" . (int)$customer_id . "', '0', now())");
-
-      if (SESSION_RECREATE == 'True') {
-        tep_session_recreate();
-      }
-
-      $customer_first_name = $firstname;
-      $customer_default_address_id = $address_id;
-      $customer_country_id = $country;
-      $customer_zone_id = $zone_id;
-      tep_session_register('customer_id');
-      tep_session_register('customer_first_name');
-      tep_session_register('customer_default_address_id');
-      tep_session_register('customer_country_id');
-      tep_session_register('customer_zone_id');
-
-// reset session token
-      $sessiontoken = md5(tep_rand() . tep_rand() . tep_rand() . tep_rand());
-
-// restore cart contents
-      $cart->restore_contents();
-
-// build the message content
-      $name = $firstname . ' ' . $lastname;
-
-      if (ACCOUNT_GENDER == 'true') {
-         if ($gender == 'm') {
-           $email_text = sprintf(EMAIL_GREET_MR, $lastname);
-         } else {
-           $email_text = sprintf(EMAIL_GREET_MS, $lastname);
-         }
-      } else {
-        $email_text = sprintf(EMAIL_GREET_NONE, $firstname);
-      }
-
-      $email_text .= EMAIL_WELCOME . EMAIL_TEXT . EMAIL_CONTACT . EMAIL_WARNING;
-      tep_mail($name, $email_address, EMAIL_SUBJECT, $email_text, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
-
-      tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
-    }
-  }
-
-  $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'));
-
-  require(DIR_WS_INCLUDES . 'template_top.php');
-  require('includes/form_check.js.php');
+echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '', 'SSL'), 'post', 'class="form-horizontal" onsubmit="return check_form(create_account);"', true) . tep_draw_hidden_field('action', 'process');
 ?>
-
-<div class="page-header">
-  <h1><?php echo HEADING_TITLE; ?></h1>
-</div>
-
-<?php
-  if ($messageStack->size('create_account') > 0) {
-    echo $messageStack->output('create_account');
-  }
-?>
-
-<div class="alert alert-warning">
-  <?php echo sprintf(TEXT_ORIGIN_LOGIN, tep_href_link(FILENAME_LOGIN, tep_get_all_get_params(), 'SSL')); ?><span class="inputRequirement pull-right text-right"><?php echo FORM_REQUIRED_INFORMATION; ?></span>
-</div>
-
-<?php echo tep_draw_form('create_account', tep_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'), 'post', 'class="form-horizontal" onsubmit="return check_form(create_account);"', true) . tep_draw_hidden_field('action', 'process'); ?>
-
 <div class="contentContainer">
 
   <h2><?php echo CATEGORY_PERSONAL; ?></h2>
   <div class="contentText">
 
-<?php
-  if (ACCOUNT_GENDER == 'true') {
-?>
-    <div class="form-group has-feedback">
-      <label class="control-label col-xs-3"><?php echo ENTRY_GENDER; ?></label>
-      <div class="col-xs-9">
-        <label class="radio-inline">
-          <?php echo tep_draw_radio_field('gender', 'm', NULL, 'required aria-required="true"') . ' ' . MALE; ?>
-        </label>
-        <label class="radio-inline">
-          <?php echo tep_draw_radio_field('gender', 'f') . ' ' . FEMALE; ?>
-        </label>
-        <?php echo FORM_REQUIRED_INPUT; ?>
-        <?php if (tep_not_null(ENTRY_GENDER_TEXT)) echo '<span class="help-block">' . ENTRY_GENDER_TEXT . '</span>'; ?>
-      </div>
-    </div>
-<?php
-  }
-?>
+
     <div class="form-group has-feedback">
       <label for="inputFirstName" class="control-label col-xs-3"><?php echo ENTRY_FIRST_NAME; ?></label>
       <div class="col-xs-9">
@@ -319,9 +214,9 @@
       </div>
     </div>
 <?php
-  if (ACCOUNT_DOB == 'true') {
+  //if (ACCOUNT_DOB == 'true') {
 ?>
-    <div class="form-group has-feedback">
+    <!--div class="form-group has-feedback">
       <label for="dob" class="control-label col-xs-3"><?php echo ENTRY_DATE_OF_BIRTH; ?></label>
       <div class="col-xs-9">
         <?php
@@ -330,9 +225,9 @@
         if (tep_not_null(ENTRY_DATE_OF_BIRTH_TEXT)) echo '<span class="help-block">' . ENTRY_DATE_OF_BIRTH_TEXT . '</span>';
         ?>
       </div>
-    </div>
+    </div-->
 <?php
-  }
+  //}
 ?>
     <div class="form-group has-feedback">
       <label for="inputEmail" class="control-label col-xs-3"><?php echo ENTRY_EMAIL_ADDRESS; ?></label>
@@ -346,9 +241,9 @@
     </div>
   </div>
 <?php
-  if (ACCOUNT_COMPANY == 'true') {
+  //if (ACCOUNT_COMPANY == 'true') {
 ?>
-
+<!--
   <h2><?php echo CATEGORY_COMPANY; ?></h2>
   
   <div class="contentText">
@@ -361,13 +256,13 @@
         ?>
       </div>
     </div>
-  </div>
+  </div-->
 
 <?php
-  }
+  //}
 ?>
 
-  <h2><?php echo CATEGORY_ADDRESS; ?></h2>
+  <!--h2><?php echo CATEGORY_ADDRESS; ?></h2>
   <div class="contentText">
     <div class="form-group has-feedback">
       <label for="inputStreet" class="control-label col-xs-3"><?php echo ENTRY_STREET_ADDRESS; ?></label>
@@ -380,21 +275,7 @@
       </div>
     </div>
 
-<?php
-  if (ACCOUNT_SUBURB == 'true') {
-?>
-    <div class="form-group">
-    <label for="inputSuburb" class="control-label col-xs-3"><?php echo ENTRY_SUBURB; ?></label>
-      <div class="col-xs-9">
-        <?php
-        echo tep_draw_input_field('suburb', NULL, 'id="inputSuburb" placeholder="' . ENTRY_SUBURB . '"');
-        if (tep_not_null(ENTRY_SUBURB_TEXT)) echo '<span class="help-block">' . ENTRY_SUBURB_TEXT . '</span>';
-        ?>
-      </div>
-    </div>
-<?php
-  }
-?>
+
     <div class="form-group has-feedback">
       <label for="inputCity" class="control-label col-xs-3"><?php echo ENTRY_CITY; ?></label>
       <div class="col-xs-9">
@@ -456,7 +337,7 @@
         ?>
       </div>
     </div>
-  </div>
+  </div-->
 
   <h2><?php echo CATEGORY_CONTACT; ?></h2>
   
@@ -471,7 +352,7 @@
         ?>
       </div>
     </div>
-    <div class="form-group">
+    <!--div class="form-group">
       <label for="inputFax" class="control-label col-xs-3"><?php echo ENTRY_FAX_NUMBER; ?></label>
       <div class="col-xs-9">
         <?php
@@ -479,48 +360,11 @@
         if (tep_not_null(ENTRY_FAX_NUMBER_TEXT)) echo '<span class="help-block">' . ENTRY_FAX_NUMBER_TEXT . '</span>';
         ?>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputNewsletter" class="control-label col-xs-3"><?php echo ENTRY_NEWSLETTER; ?></label>
-      <div class="col-xs-9">
-        <div class="checkbox">
-          <label>
-            <?php echo tep_draw_checkbox_field('newsletter', '1', NULL, 'id="inputNewsletter"'); ?>
-            <?php if (tep_not_null(ENTRY_NEWSLETTER_TEXT)) echo ENTRY_NEWSLETTER_TEXT; ?>
-          </label>
-        </div>
-      </div>
-    </div>
-  
-  </div>
-
-  <h2><?php echo CATEGORY_PASSWORD; ?></h2>
-  
-  <div class="contentText">
-    <div class="form-group has-feedback">
-      <label for="inputPassword" class="control-label col-xs-3"><?php echo ENTRY_PASSWORD; ?></label>
-      <div class="col-xs-9">
-        <?php
-        echo tep_draw_password_field('password', NULL, 'required aria-required="true" id="inputPassword" placeholder="' . ENTRY_PASSWORD . '"');
-        echo FORM_REQUIRED_INPUT;
-        if (tep_not_null(ENTRY_PASSWORD_TEXT)) echo '<span class="help-block">' . ENTRY_PASSWORD_TEXT . '</span>';
-        ?>
-      </div>
-    </div>
-    <div class="form-group has-feedback">
-      <label for="inputConfirmation" class="control-label col-xs-3"><?php echo ENTRY_PASSWORD_CONFIRMATION; ?></label>
-      <div class="col-xs-9">
-        <?php
-        echo tep_draw_password_field('confirmation', NULL, 'required aria-required="true" id="inputConfirmation" placeholder="' . ENTRY_PASSWORD_CONFIRMATION . '"');
-        echo FORM_REQUIRED_INPUT;
-        if (tep_not_null(ENTRY_PASSWORD_CONFIRMATION_TEXT)) echo '<span class="help-block">' . ENTRY_PASSWORD_CONFIRMATION_TEXT . '</span>';
-        ?>
-      </div>
-    </div>
-  </div>
-
-  <div class="buttonSet">
-    <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-user', null, 'primary', null, 'btn-success'); ?></div>
+    </div-->
+	 <div class="buttonSet col-sm-12">
+	 <div class=>
+	 <div class="text-left col-sm-6"><?php echo tep_draw_button(IMAGE_BUTTON_BACK, 'glyphicon glyphicon-user', FILENAME_DEFAULT, 'primary', null, 'btn-success'); ?></div>
+     <div class="text-right col-sm-6"><?php echo tep_draw_button(IMAGE_BUTTON_EMAIL, 'glyphicon glyphicon-user', null, 'primary', null, 'btn-success'); ?></div>
   </div>
 
 </div>
