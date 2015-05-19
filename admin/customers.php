@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id: customers.php,v 1.82 2003/06/30 13:54:14 dgw_ Exp $
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2003 osCommerce
-
-  Released under the GNU General Public License
-*/
 
   require('includes/application_top.php');
 
@@ -39,8 +30,7 @@
     switch ($action) {
       case 'update':
 	 
-      case 'insert':
-	    echo ("hola!");
+      case 'insert':	    
         $customers_id = tep_db_prepare_input($HTTP_GET_VARS['cID']);
         $customers_firstname = tep_db_prepare_input($HTTP_POST_VARS['customers_firstname']);
         $customers_lastname = tep_db_prepare_input($HTTP_POST_VARS['customers_lastname']);
@@ -77,7 +67,7 @@
           $entry_lastname_error = false;
         }
 
-        if (ACCOUNT_DOB == 'true') {
+        if (ACCOUNT_DOB == 'true') { // DATE OF BIRTH DOB(CUMPLEANOS)
           if (checkdate(substr(tep_date_raw($customers_dob), 4, 2), substr(tep_date_raw($customers_dob), 6, 2), substr(tep_date_raw($customers_dob), 0, 4))) {
             $entry_date_of_birth_error = false;
           } else {
@@ -214,13 +204,14 @@
 			}
 			else {
 //#CHAVEIRO6# Step order/customer end
-
+		$password = tep_db_prepare_input($HTTP_POST_VARS['Password']);
+		
 		tep_db_perform(TABLE_CUSTOMERS, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "'");
 
         tep_db_query("update " . TABLE_CUSTOMERS_INFO . " set customers_info_date_account_last_modified = now() where customers_info_id = '" . (int)$customers_id . "'");
 
-        if ($entry_zone_id > 0) $entry_state = '';
-
+        if ($entry_zone_id > 0) $entry_state = ''; // 
+		$sql_data_array['customers_password'] = tep_encrypt_password($password);
         $sql_data_array = array('entry_firstname' => $customers_firstname,
                                 'entry_lastname' => $customers_lastname,
                                 'entry_street_address' => $entry_street_address,
@@ -253,7 +244,7 @@
 			    tep_db_query("insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id, customers_info_number_of_logons, customers_info_date_account_created) values ('" . (int)$customer_id . "', '0', now())");
 
 				// build the message content
-				$name = $customers_firstname . " " . $customers_lastname;
+				/*$name = $customers_firstname . " " . $customers_lastname;
 				if (ACCOUNT_GENDER == 'true') {
 					 if ($HTTP_POST_VARS['customers_gender'] == 'm') {
 					   $email_text = sprintf(EMAIL_GREET_MR, $customers_lastname);
@@ -265,7 +256,7 @@
 				}
 				
 				$email_text .= EMAIL_WELCOME . sprintf(EMAIL_PASS, $password) . EMAIL_TEXT . EMAIL_CONTACT . EMAIL_WARNING;
-				tep_mail($name, $customers_email_address, EMAIL_SUBJECT, nl2br($email_text), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
+				tep_mail($name, $customers_email_address, EMAIL_SUBJECT, nl2br($email_text), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);*/
 		
 			  tep_redirect(tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $customer_id));			
 			}

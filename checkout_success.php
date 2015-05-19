@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id$
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2010 osCommerce
-
-  Released under the GNU General Public License
-*/
 	/*EN ESTE FICHERO VOY A INSERTAR LA PARTE DEL CORREO CUANDO LOS SOCIOS HACEN LOS PEDIDOS QUE SE LLEGA UN MAIL A PROIDE PARA DECIR QUE EL MAIL LOS SOCIOS HAN HECHO EL PEDIDO 
 	EJEMPLO DE HE VISTO EN INTERNET NO (que una vez realizado el pedido se envía un correo a PROYDE para informarle que hay un nuevo pedido).
 	AQUI SALE SI EL PEDIDO SE HA PODIDO REALIZAR CON EXITO 

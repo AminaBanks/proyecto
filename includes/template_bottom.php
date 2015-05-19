@@ -7,7 +7,7 @@
 <?php
   if ($oscTemplate->hasBlocks('boxes_column_left')) {
 ?>
-		/*Cette partie du code est a verifier car je n'ai pas complement fini*/
+		<!--Cette partie du code est a verifier car je n'ai pas complement fini-->
       <div id="columnLeft" class="col-md-<?php echo $oscTemplate->getGridColumnWidth(); ?>  col-md-pull-<?php echo $oscTemplate->getGridContentWidth(); ?>">
         <?php echo $oscTemplate->getBlocks('boxes_column_left'); ?>
       </div>
@@ -17,7 +17,7 @@
 
   if ($oscTemplate->hasBlocks('boxes_column_right')) {
 ?>
-	/*Cette partie du code est a verifier car je n'ai pas complement fini*/
+	<!--Cette partie du code est a verifier car je n'ai pas complement fini-->
       <div id="columnRight" class="col-md-<?php echo $oscTemplate->getGridColumnWidth(); ?>">
         <?php echo $oscTemplate->getBlocks('boxes_column_right'); ?>
       </div>

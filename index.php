@@ -13,12 +13,12 @@
     $categories_products_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS_TO_CATEGORIES . " where categories_id = '" . (int)$current_category_id . "'");
     $categories_products = tep_db_fetch_array($categories_products_query);
     if ($categories_products['total'] > 0) {
-      $category_depth = 'products'; // display products
+      $category_depth = 'products'; // muestra products
     } else {
       $category_parent_query = tep_db_query("select count(*) as total from " . TABLE_CATEGORIES . " where parent_id = '" . (int)$current_category_id . "'");
       $category_parent = tep_db_fetch_array($category_parent_query);
       if ($category_parent['total'] > 0) {
-        $category_depth = 'nested'; // navigate through the categories
+        $category_depth = 'nested'; // se puede navegar a travers las categorias.
       } else {
         $category_depth = 'products'; // category has no products, but display the 'no products' message
       }
@@ -70,7 +70,7 @@
     } else {
       $categories_query = tep_db_query("select c.categories_id, cd.categories_name, c.categories_image, c.parent_id from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where c.parent_id = '" . (int)$current_category_id . "' and c.categories_id = cd.categories_id and cd.language_id = '" . (int)$languages_id . "' order by sort_order, cd.categories_name");
     }
-
+	/*EN ESTA LINEA ES PARA SACAR POR PANTALLA */
     while ($categories = tep_db_fetch_array($categories_query)) {
       $cPath_new = tep_get_path($categories['categories_id']);
       echo '<div class="col-xs-6 col-sm-4">';
