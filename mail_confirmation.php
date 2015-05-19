@@ -8,8 +8,8 @@ require_once 'class.smtp.php'; /*fichero de la configuration de las version de p
 
 /* CONFIGURATION NECESITARE LA PARTE DEL CLIENTE  QUE SEA EN POP O EN IPAM Y TAMBIEN EN SMTP */
 $crendentials = array(
-    'email'     => 'secretaria@fundacioproide.org',  //aminata.bangoura@gracia.lasalle.cat', //   //Your GMail adress Or yahoo, or cat
-    'password'  => '29072010' //contraseña de helena              //Your
+    'email'     => 'aminata.bangoura@gracia.lasalle.cat',		//'secretaria@fundacioproide.org',  //aminata.bangoura@gracia.lasalle.cat', //   //Your GMail adress Or yahoo, or cat
+    'password'  => 'BoboSylla86'				//'29072010' //contraseña de helena              //Your
   );
 
 /* SPECIFIC TO GMAIL O YAHOO SMTP ES EL PROTOCOLO PARA ENVIAR LOS MAILS*/
@@ -24,7 +24,7 @@ $smtp = array(
 );
 
 /* TO, SUBJECT, CONTENT */
-$to         = 'secretaria@fundacioproide.org'; //EL MAIL DE LA PERSONA RESPONSABLE DE GESTIONAR LOS PEDIDOS
+$to         = 'aminata.bangoura@gracia.lasalle.cat';			//'secretaria@fundacioproide.org'; //EL MAIL DE LA PERSONA RESPONSABLE DE GESTIONAR LOS PEDIDOS
 $subject    = 'Mail informativo: Nova Compra de Soci !!!'; //EL CONTENIDO DE LA INFORMACION 
 $content    = 'Anar a l\'administrador per veure la nova compra.'; //CAMBIAR ESTAS LINEAS PARA EL CONTENIDO DEL MAIL 
 

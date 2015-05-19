@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-
+header();
 define('HEADING_TITLE', 'Contacteu-nos');
 define('NAVBAR_TITLE', 'Contacteu-nos');
 define('TEXT_SUCCESS', 'Tant aviat com puguem, respondrem la vostra consulta, gr&agrave;cies!');
@@ -17,4 +17,7 @@ define('EMAIL_SUBJECT', 'Consulta des de ' . STORE_NAME);
 
 define('ENTRY_NAME', 'Nom Complet:');
 define('ENTRY_EMAIL', 'Adre&ccedil;a E-Mail:');
-define('ENTRY_ENQUIRY', 'Consulta:');?>
+define('ENTRY_ENQUIRY', 'Consulta:');
+define('ERROR_ACTION_RECORDER', 'Error: Una investigació ja ha estat enviat. Torna a intentar-ho en% s minuts.');
+
+?>

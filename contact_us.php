@@ -14,8 +14,9 @@
 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CONTACT_US);
 
-  if (isset($HTTP_GET_VARS['action']) && ($HTTP_GET_VARS['action'] == 'send') && isset($HTTP_POST_VARS['formid']) && ($HTTP_POST_VARS['formid'] == $sessiontoken)) {
-    $error = false;
+  if (isset($HTTP_GET_VARS['action']) && ($HTTP_GET_VARS['action'] == 'send') /*&& isset($HTTP_POST_VARS['formid']) && ($HTTP_POST_VARS['formid'] == $sessiontoken)*/) {
+   
+   $error = false;
 
     $name = tep_db_prepare_input($HTTP_POST_VARS['name']);
     $email_address = tep_db_prepare_input($HTTP_POST_VARS['email']);
@@ -23,23 +24,86 @@
 
     if (!tep_validate_email($email_address)) {
       $error = true;
-
+		echo($error);
+		echo("tonto1");
       $messageStack->add('contact', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
     }
 
-    $actionRecorder = new actionRecorder('ar_contact_us', (tep_session_is_registered('customer_id') ? $customer_id : null), $name);
+   /* $actionRecorder = new actionRecorder('ar_contact_us', (tep_session_is_registered('customer_id') ? $customer_id : null), $name);
+	echo ($actionRecorder);
     if (!$actionRecorder->canPerform()) {
-      $error = true;
-
+      $error = true;	
+	echo($error);
+	echo("tonto2");
       $actionRecorder->record(false);
 
       $messageStack->add('contact', sprintf(ERROR_ACTION_RECORDER, (defined('MODULE_ACTION_RECORDER_CONTACT_US_EMAIL_MINUTES') ? (int)MODULE_ACTION_RECORDER_CONTACT_US_EMAIL_MINUTES : 15)));
-    }
+    }*/
 
     if ($error == false) {
-      tep_mail(STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, EMAIL_SUBJECT, $enquiry, $name, $email_address);
+     	//Load PHPMailer dependencies
+require_once 'PHPMailerAutoload.php';
+require_once 'class.phpmailer.php';
+require_once 'class.smtp.php';
 
-      $actionRecorder->record();
+/* CONFIGURATION */
+$crendentials = array(
+    'email'     => 'secretaria@fundacioproide.org',    //Your GMail adress
+    'password'  => '29072010'               //Your GMail password
+    );
+
+/* SPECIFIC TO GMAIL SMTP */
+$smtp = array(
+
+'host' => 'smtp.office365.com',			//'smtp.gmail.com', si c'est gmail.
+'port' => 587,
+'username' => $crendentials['email'],
+'password' => $crendentials['password'],
+'secure' => 'tls' //SSL or TLS
+
+);
+
+/* TO, SUBJECT, CONTENT */
+$to         = 'secretaria@fundacioproide.org'; //The 'To' field
+$subject    = $email_address;
+$content    =$enquiry;
+
+ 
+$mailer = new PHPMailer();
+
+//SMTP Configuration
+$mailer->isSMTP();
+$mailer->SMTPAuth   = true; //We need to authenticate
+$mailer->Host       = $smtp['host'];
+$mailer->Port       = $smtp['port'];
+$mailer->Username   = $smtp['username'];
+$mailer->Password   = $smtp['password'];
+$mailer->SMTPSecure = $smtp['secure']; 
+
+//Now, send mail :
+//From - To :
+$mailer->From       = $crendentials['email'];
+$mailer->FromName   = $name; //Optional
+$mailer->addAddress($to);  // Add a recipient
+
+//Subject - Body :
+$mailer->Subject        = $subject;
+$mailer->Body           = $content;
+$mailer->isHTML(true); //Mail body contains HTML tags
+
+//Check if mail is sent :
+if(!$mailer->send()) {
+    echo 'Error sending mail : ' . $mailer->ErrorInfo;
+} else {
+    echo 'Message sent !';
+	echo "<script language=’javascript’>
+alert(‘Mensaje enviado, muchas gracias.’);
+window.location.href = ‘http://TUSITIOWEB.COM';
+</script>";
+	
+}
+
+     // $actionRecorder->record();
 
       tep_redirect(tep_href_link(FILENAME_CONTACT_US, 'action=success'));
     }

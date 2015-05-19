@@ -226,7 +226,7 @@ define('ENTRY_PASSWORD_NEW_ERROR', 'La vostra contrasenya ha de tenir almenys ' 
 define('ENTRY_PASSWORD_NEW_ERROR_NOT_MATCHING', 'La confirmaci&oacute; de la contrasenya ha de ser igual que la contrasenya.');
 define('PASSWORD_HIDDEN', '--OCULT--');
 
-define('FORM_REQUIRED_INFORMATION', '* Camp Obligatori');
+define('FORM_REQUIRED_INFORMATION', '');
 
 // constants for use in tep_prev_next_display function
 define('TEXT_RESULT_PAGE', 'P&agrave;gines de resultats:');
