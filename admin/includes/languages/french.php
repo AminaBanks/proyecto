@@ -316,4 +316,8 @@ define('TEXT_RIGHT_COLUMN_CONFIG', 'Colonne de droite');
 define('TEXT_WEIGHT_CONFIG', 'Poids');
 define('TEXT_PRICE_CONFIG', 'Prix');
 define('NEW_CUSTOMER', 'Nouvel Partenaire');
+
+
+
+
 ?>

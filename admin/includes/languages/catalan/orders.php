@@ -81,5 +81,9 @@ define('TEXT_INFO_PAYMENT_METHOD','Mètode de pagament:');
 define ('WARNING_ORDER_NOT_UPDATED', 'Són els .. No hi ha res a canviar l&#39;ordre no es va actualitzar');
 define('TABLE_HEADING_ORDER_TOTAL','Comanda total');
 define('TABLE_HEADING_DATE_PURCHASED','Data de compra');
-define('IMAGE_ORDERS_PACKINGSLIP','Imatge')
+define('IMAGE_ORDERS_PACKINGSLIP','Imatge');
+define('ENTRY_CUSTOMER', 'Soci');
+define('ENTRY_SHIPPING_ADDRESS','Adreça de recollida');
+define('ENTRY_BILLING_ADDRESS','Adreça de facturació');
+define('ENTRY_PAYMENT_METHOD','Metode de Pagament');
 ?>

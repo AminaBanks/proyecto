@@ -467,3 +467,10 @@ define ('WARNING_NO_FILE_UPLOADED', 'Avís: No hi ha fitxer enviat.');
 // bootstrap helper
 define ('MODULE_CONTENT_BOOTSTRAP_ROW_DESCRIPTION', '<p> Ample contingut pot ser de 12 o menys per la columna per fila. </ p> <p> 12/12 = 100% d&#39;ample, ample 6.12 = 50%, 4/12 = 33 . width% </ p> <p> Total de totes les columnes en qualsevol fila ha de ser igual a 12 (per exemple: 3 caixes de 4 columnes cadascuna, 1 caixa de 12 columnes i així successivament). </ p> ');
 define('NEW_CUSTOMER', 'Nou Soci');
+
+
+/*Traduccion textos*/
+define('ENTRY_CUSTOMER', 'Socio');
+define('ENTRY_SHIPPING_ADDRESS','Adreça de recollida');
+define('ENTRY_BILLING_ADDRESS','Adreça de facturació');
+define('ENTRY_PAYMENT_METHOD','Metode de Pagament');

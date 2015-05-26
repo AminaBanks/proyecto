@@ -33,7 +33,7 @@ define('TABLE_HEADING_TOTAL_INCLUDING_TAX', 'Total (inc)');
 define('TABLE_HEADING_CUSTOMER_NOTIFIED', 'Cliente Notificado');
 define('TABLE_HEADING_DATE_ADDED', 'Añadido el');
 
-define('ENTRY_CUSTOMER', 'Cliente:');
+define('ENTRY_CUSTOMER', 'Socio:');
 define('ENTRY_SOLD_TO', 'VENDIDO A:');
 define('ENTRY_DELIVERY_TO', 'Para la entrega a:');
 define('ENTRY_SHIP_TO', 'ENVIAR A:');

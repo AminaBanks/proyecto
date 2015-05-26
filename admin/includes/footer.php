@@ -13,6 +13,8 @@
 <br />
 <table border="0" width="100%" cellspacing="0" cellpadding="2">
   <tr>
-    <td align="center" class="smallText">osCommerce Online Merchant Copyright &copy; 2000-<?php echo date('Y'); ?> <a href="http://www.oscommerce.com" target="_blank">osCommerce</a> (<a href="http://www.oscommerce.com/Us&amp;Legal" target="_blank">Copyright and Trademark Policy</a>)</td>
+    <!--<td align="center" class="smallText">osCommerce Online Merchant Copyright &copy; 2000-<?php echo date('Y'); ?> <a href="http://www.oscommerce.com" target="_blank">osCommerce</a> (<a href="http://www.oscommerce.com/Us&amp;Legal" target="_blank">Copyright and Trademark Policy</a>)</td>
+	-->
+	<td align="center" class="smallText">Fundació PROIDE. Sant Joan de La Salle, 42 08022 Barcelona. Telèfon 932.377.180. Fax 932.373.630. proide@fundacioproide.org </td>
   </tr>
 </table>
