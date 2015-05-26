@@ -210,7 +210,7 @@
 
         tep_db_query("update " . TABLE_CUSTOMERS_INFO . " set customers_info_date_account_last_modified = now() where customers_info_id = '" . (int)$customers_id . "'");
 
-        if ($entry_zone_id > 0) $entry_state = ''; // 
+        if ($entry_zone_id > 0) $entry_state = ''; // RECUPERED THE PASSWORD AND UPDATE TO EMAIL.
 		$sql_data_array['customers_password'] = tep_encrypt_password($password);
         $sql_data_array = array('entry_firstname' => $customers_firstname,
                                 'entry_lastname' => $customers_lastname,

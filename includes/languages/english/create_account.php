@@ -25,4 +25,6 @@ define('EMAIL_TEXT', 'You can now take part in the <strong>various services</str
 define('EMAIL_CONTACT', 'For help with any of our online services, please email the store-owner: ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n\n");
 define('EMAIL_WARNING', '<strong>Note:</strong> This email address was given to us by one of our customers. If you did not signup to be a member, please send an email to ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n");
 define('IMAGE_BUTTON_EMAIL', 'Send Email');
+define ('NEW_CUSTOMER', 'New Partner');
+define ('MESSAGE_CLIENT','Dear Partner, <br>Within 24 hours you will receive an email with your details to log in to artesaniafundacioproide.org<br> Thanks <br>PROIDE.');
 ?>

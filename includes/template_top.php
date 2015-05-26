@@ -70,10 +70,10 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
                 <li class="text-center text-muted bg-primary"><abbr title="Selected Language"><?PHP echo HEADER_L; ?></abbr> <?php  echo $language ;?>
                 <li class="divider"></li>
 								
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=s"><?PHP echo LANGUAGE_3;?></a></li>
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=s2"><?PHP echo LANGUAGE_4;?></a></li>
-				<li><a href="http://artesania.fundacioproide.org/index.php?language=es"><?PHP echo LANGUAGE_2;?></a></li>			
+				<li><a href="http://localhost/osCommerce234/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=s1"><?PHP echo LANGUAGE_3;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=s3"><?PHP echo LANGUAGE_4;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=s2"><?PHP echo LANGUAGE_2;?></a></li>			
 			</ul>			
 		</li> 
 		<?php //SI EL USUARIO NO ESTA CONECTA NO SE MUESTRA EL RESTO DE LA INFORMACION DE LA PAGINA  LINEA 82

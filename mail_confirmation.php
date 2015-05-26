@@ -8,7 +8,7 @@ require_once 'class.smtp.php'; /*fichero de la configuration de las version de p
 
 /* CONFIGURATION NECESITARE LA PARTE DEL CLIENTE  QUE SEA EN POP O EN IPAM Y TAMBIEN EN SMTP */
 $crendentials = array(
-    'email'     => 'aminata.bangoura@gracia.lasalle.cat',		//'secretaria@fundacioproide.org',  //aminata.bangoura@gracia.lasalle.cat', //   //Your GMail adress Or yahoo, or cat
+    'email'     => 'aminata.bangoura@gracia.lasalle.cat',		//'secretaria@fundacioproide.org',//Your GMail adress Or yahoo, or cat
     'password'  => 'BoboSylla86'				//'29072010' //contraseña de helena              //Your
   );
 
@@ -45,7 +45,7 @@ $mailer->SMTPSecure = $smtp['secure']; //La seguridad
 //From - To :
 $mailer->From       = $crendentials['email'];//RECUPERAR EL MAIL
 $mailer->FromName   = 'PROIDE'; //Optional // nombre de la ong
-$mailer->addAddress($to);  // Add a recipient /n del mail / direccio
+$mailer->addAddress($to);  // Add a recipient /n del mail / ADDRESS
 
 //Subject - Body :
 $mailer->Subject        = $subject;

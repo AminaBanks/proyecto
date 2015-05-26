@@ -31,4 +31,7 @@ define('EMAIL_CONTACT', 'Pour plus d\'informations à propos de nos services en 
 define('EMAIL_WARNING', '<strong><u>REMARQUE IMPORTANTE :</u></strong>Vous recevez cet email car il fait suite à l\'inscription d\'un nouveau client dans notre boutique en ligne. Si vous ne vous êtes pas inscrit sur ' . STORE_NAME . ', merci de le signaler au gestionnaire de la boutique à cette adresse : ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n");
 
 define('IMAGE_BUTTON_EMAIL', 'Envoyer Email');
+define ('NEW_CUSTOMER', 'Nouvel Partenaire');
+define ('MESSAGE_CLIENT','Cher Partenaire, <br>Dans les 24 heures, vous recevrez un email avec vos coordonnées pour vous connecter à artesaniafundacioproide.org<br>Merci.<br>PROIDE');
 ?>
+

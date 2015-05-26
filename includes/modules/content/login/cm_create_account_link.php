@@ -2,10 +2,10 @@
 
 
   class cm_create_account_link {
-    var $code;
-    var $group;
-    var $title;
-    var $description;
+    var $code; //Codigo postal
+    var $group;//group
+    var $title; //titulo
+    var $description; //description de la 
     var $sort_order;
     var $enabled = false;
 

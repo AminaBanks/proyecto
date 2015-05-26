@@ -1,14 +1,4 @@
 <?php
-/*
-  $Id: create_account.php 1739 2007-12-20 00:52:16Z hpdl $
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2002 osCommerce
-
-  Released under the GNU General Public License
-*/
 
 define('NAVBAR_TITLE_1', 'Crea un Compte');
 define('NAVBAR_TITLE_2', 'Proc&eacute;s');
@@ -25,4 +15,6 @@ define('EMAIL_TEXT', 'Ara podeu disfrutar dels <b>serveis</b> que us oferim. Alg
 define('EMAIL_CONTACT', 'Per qualsevol consulta sobre els nostres serveis, si us plau, escriviu-nos a: ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n\n");
 define('EMAIL_WARNING', '<b>Nota:</b> Aquesta adre&ccedil;a ha estat subministrada per un dels nostres clients. Si vost&eacute; no s\'ha subscrit com a client, si us plau, comuniquins-ho a ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n");
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
+define ('NEW_CUSTOMER', 'Nou Soci');
+define ('MESSAGE_CLIENT','Estimat Soci, <br>Dins de 24 hores, rebrà un correu electrònic amb les seves dades per iniciar sessió en artesaniafundacioproide.org<br> Gràcies <br>PROIDE');
 ?>

@@ -15,5 +15,6 @@
 
   define('MODULE_CONTENT_LOGIN_HEADING_NEW_CUSTOMER', 'Nou Soci ');
   define('MODULE_CONTENT_LOGIN_TEXT_NEW_CUSTOMER', 'Sóc un nou client');
-  define('MODULE_CONTENT_LOGIN_TEXT_NEW_CUSTOMER_INTRODUCTION', 'Creant un nou compte a Proide vostè podrà comprar més ràpidament, revisar l estat de les seves comandes, i realitzar un seguiment de les comandes que ha fet anteriorment');
-?>
+  define('MODULE_CONTENT_LOGIN_TEXT_NEW_CUSTOMER_INTRODUCTION', 'Si no tens claus d\'acces per entrar al Comerç Solidari de,' . STORE_NAME . 'pregunta-ho a la persona responsable de de la teva escola o bé contacta amb secretaria@fundacioproide.org, o trucant al 932 377 180.');
+	// Si no tens claus d'acc'es per entrar al Comerç Solidari de PROIDE, pregunta-ho a la persona responsable de PROIDE de la teva escola, o bé contacta am secretaria@fundacioproide.org o trucant al 932 377 180
+  ?>

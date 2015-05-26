@@ -510,7 +510,7 @@ header("Content-type: text/html; charset=utf-8");
       if (!isset($xtra_headers)) {
         $xtra_headers = array();
       }
-
+	 /* ESTA PARTE ES PARA QUE EL ADMINISTRADOR PUEDA ENVIAR EL MAIL A LOS COMPRADORES */
       if (EMAIL_TRANSPORT == 'smtp') {
 					/*PARTE DEL MAIL DESDE EL ADMIN */
 					//Load PHPMailer dependencies

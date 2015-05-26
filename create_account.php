@@ -128,8 +128,8 @@ require_once 'class.smtp.php';
 
 /* CONFIGURATION */
 $crendentials = array(
-    'email'     => 'secretaria@fundacioproide.org',  //aminata.bangoura@gracia.lasalle.cat', //   //Your GMail adress Or yahoo, or cat
-    'password'  => '29072010' //contraseña de helena
+    'email'     => 	'aminata.bangoura@gracia.lasalle.cat',											//'secretaria@fundacioproide.org',  //', //   //Your GMail adress Or yahoo, or cat
+    'password'  => 	'BoboSylla86'									//'29072010' //contraseña de helena
     );
 	 
 /* SPECIFIC TO GMAIL SMTP */
@@ -144,7 +144,7 @@ $smtp = array(
 );
 
 /* TO, SUBJECT, CONTENT */
-$to         = 'secretaria@fundacioproide.org'; //The 'To' field
+$to         = 'aminata.bangoura@gracia.lasalle.cat';								//'secretaria@fundacioproide.org'; //The 'To' field
 $subject    = 'NOU SOCI';
 $content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname."<br>"/*.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>"/*.ENTRY_STREET_ADDRESS.$street_address."<br>".ENTRY_COMPANY.$company."<br>".ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>".ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>"/*.ENTRY_FAX_NUMBER.$fax."<br>"*/;
 
@@ -176,9 +176,35 @@ if(!$mailer->send()) {
     echo 'Error sending mail : ' . $mailer->ErrorInfo;
 } else {
     echo 'Message sent !';
-	
-	
 }
+
+//MAIL AL USUARIO O AL NUEVO SOCIO DE PROIDE DE LA LIGNE 181 HASTA 209.
+$to         = $email_address; //The 'To' field
+$subject    = NEW_CUSTOMER;
+$content    = MESSAGE_CLIENT ;
+
+
+$mailer = new PHPMailer();
+
+//SMTP Configuration
+$mailer->isSMTP();
+$mailer->SMTPAuth   = true; //We need to authenticate
+$mailer->Host       = $smtp['host'];
+$mailer->Port       = $smtp['port'];
+$mailer->Username   = $smtp['username'];
+$mailer->Password   = $smtp['password'];
+$mailer->SMTPSecure = $smtp['secure']; 
+
+//Now, send mail :
+//From - To :
+$mailer->From       = $crendentials['email'];
+$mailer->FromName   = 'FundacioProide'; //Optional
+$mailer->addAddress($to);  // Add a recipient
+
+//Subject - Body :
+$mailer->Subject        = $subject;
+$mailer->Body           = $content;
+$mailer->isHTML(true); //Mail body contains HTML tags
 //tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
 	
 }

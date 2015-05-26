@@ -25,4 +25,7 @@ define('EMAIL_TEXT', 'Ahora puede tomar parte en los <strong>diferentes servicio
 define('EMAIL_CONTACT', 'Para obtener ayuda con cualquiera de nuestros servicios, por favor escriba al Administrador de la Tienda: ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n\n");
 define('EMAIL_WARNING', '<strong>Nota:</strong> Esta direcci&oacute;n de correo electr&oacute;nico nos fue proporcionada por uno de nuestros clientes. Si no se ha suscrito a ser miembro, por favor env&iacute;e un correo electr&oacute;nico a ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n");
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correo');
+
+define ('NEW_CUSTOMER', 'Nuevo Socio');
+define ('MESSAGE_CLIENT','Querido Socio, <br>Dentro de 24 horas, recibirá un correo electrónico con sus datos para iniciar sesión en artesaniafundacioproide.<br> Gracias <br>PROIDE');
 ?>
