@@ -30,4 +30,8 @@ define('TEXT_INFO_HEADING_DELETE_CUSTOMER', 'Eliminar Cliente');
 define('TYPE_BELOW', 'Escriba debajo');
 define('PLEASE_SELECT', 'Seleccionar uno');
 define('HEADING_TITLE_ADD', 'Nuevo Socio');
+define('NEW_CUSTOMER', 'Nuevo Socio');
+define('EMAIL_GREET_MR', 'Querido Sr.' . "\n\n");
+define('EMAIL_GREET_MS', 'Sra. ' . "\n\n");
+define ('EMAIL_LOGIN', 'tu usuario:');
 ?>

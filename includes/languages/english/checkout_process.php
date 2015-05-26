@@ -25,4 +25,7 @@ define('EMAIL_TEXT_PAYMENT_METHOD', 'Payment Method');
 
 define('EMAIL_SEPARATOR', '------------------------------------------------------');
 define('TEXT_EMAIL_VIA', 'via');
+define('MESSAGE_TEXT', 'Dear Partner <br> shall receive an order with the day and time in which podies to pickup your order to PROIDE, <br>,
+   you can do to monitor your account entering the part order to know the status of your order <br> Thanks <br> Proide <br>');
+
 ?>

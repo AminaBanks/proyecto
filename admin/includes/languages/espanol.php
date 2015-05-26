@@ -302,4 +302,6 @@ define('ERROR_FILE_NOT_SAVED', 'Error: Archivo subido no guardado.');
 define('ERROR_FILETYPE_NOT_ALLOWED', 'Error: Tipo de archivo subido no permitido.');
 define('SUCCESS_FILE_SAVED_SUCCESSFULLY', 'Exito: Archivo subido guardado exitosamente.');
 define('WARNING_NO_FILE_UPLOADED', 'Advertencia: Ning&uacute;n archivo subido.');
+
+define('NEW_CUSTOMER', 'Nuevo Socio');
 ?>

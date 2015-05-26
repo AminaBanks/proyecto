@@ -1,5 +1,14 @@
 <?php
+/*
+  $Id: customers.php,v 1.82 2003/06/30 13:54:14 dgw_ Exp $
 
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
+
+  Copyright (c) 2003 osCommerce
+
+  Released under the GNU General Public License
+*/
 
   require('includes/application_top.php');
 
@@ -7,7 +16,7 @@
 ////
 // This function makes a new password from a plaintext password. 
   function tep_encrypt_password($plain) {
-    $password = '';
+    /*$password = '';
 
     for ($i=0; $i<10; $i++) {
       $password .= tep_rand();
@@ -17,7 +26,15 @@
 
     $password = md5($salt . $plain) . ':' . $salt;
 
-    return $password;
+    return $password;*/
+	if (!class_exists('PasswordHash')) {
+      include(DIR_WS_CLASSES . 'passwordhash.php');
+    }
+
+    $hasher = new PasswordHash(10, true);
+
+    return $hasher->HashPassword($plain);
+	
   }
 //#CHAVEIRO6# Step order/customer end
 
@@ -29,8 +46,7 @@
   if (tep_not_null($action)) {
     switch ($action) {
       case 'update':
-	 
-      case 'insert':	    
+      case 'insert':
         $customers_id = tep_db_prepare_input($HTTP_GET_VARS['cID']);
         $customers_firstname = tep_db_prepare_input($HTTP_POST_VARS['customers_firstname']);
         $customers_lastname = tep_db_prepare_input($HTTP_POST_VARS['customers_lastname']);
@@ -51,6 +67,7 @@
 
         $entry_company = tep_db_prepare_input($HTTP_POST_VARS['entry_company']);
         $entry_state = tep_db_prepare_input($HTTP_POST_VARS['entry_state']);
+		echo($entry_state);
         if (isset($HTTP_POST_VARS['entry_zone_id'])) $entry_zone_id = tep_db_prepare_input($HTTP_POST_VARS['entry_zone_id']);
 
         if (strlen($customers_firstname) < ENTRY_FIRST_NAME_MIN_LENGTH) {
@@ -67,8 +84,8 @@
           $entry_lastname_error = false;
         }
 
-        if (ACCOUNT_DOB == 'true') { // DATE OF BIRTH DOB(CUMPLEANOS)
-          if (checkdate(substr(tep_date_raw($customers_dob), 4, 2), substr(tep_date_raw($customers_dob), 6, 2), substr(tep_date_raw($customers_dob), 0, 4))) {
+        if (ACCOUNT_DOB == 'true') {
+          if (checkdate(substr(tep_date_raw($customers_dob),4, 2), substr(tep_date_raw($customers_dob), 6, 2), substr(tep_date_raw($customers_dob), 0, 4))) {
             $entry_date_of_birth_error = false;
           } else {
             $error = true;
@@ -173,7 +190,8 @@
         if (ACCOUNT_DOB == 'true') $sql_data_array['customers_dob'] = tep_date_raw($customers_dob);
 
 //#CHAVEIRO6# Step order/customer begin
-			if ($action == 'insert') {
+			if ($action == 'insert' ) {
+			
 				//      RAMDOMIZING SCRIPT BY PATRIC VEVERKA
 				$t1 = date("mdy"); 
 				srand ((float) microtime() * 10000000); 
@@ -185,7 +203,9 @@
 				$l2 = $input[$rand_keys[1]];
 				$l3 = $input[$rand_keys[2]]; 
 				$r2 = rand(0,9); 
-				$password = "gt".$l1.$r1.$l2.$l3.$r2; 
+				$password = tep_db_prepare_input($HTTP_POST_VARS['Password']);
+				
+			
 				//    End of Randomizing Script
 				$sql_data_array['customers_password'] = tep_encrypt_password($password);
 
@@ -204,14 +224,18 @@
 			}
 			else {
 //#CHAVEIRO6# Step order/customer end
-		$password = tep_db_prepare_input($HTTP_POST_VARS['Password']);
-		
+			$password = tep_db_prepare_input($HTTP_POST_VARS['Password']);
+				
+				
+				//    End of Randomizing Script
+				$sql_data_array['customers_password'] = tep_encrypt_password($password);
 		tep_db_perform(TABLE_CUSTOMERS, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "'");
 
         tep_db_query("update " . TABLE_CUSTOMERS_INFO . " set customers_info_date_account_last_modified = now() where customers_info_id = '" . (int)$customers_id . "'");
 
-        if ($entry_zone_id > 0) $entry_state = ''; // RECUPERED THE PASSWORD AND UPDATE TO EMAIL.
-		$sql_data_array['customers_password'] = tep_encrypt_password($password);
+        if ($entry_zone_id > 0) $entry_state = '';
+		
+				
         $sql_data_array = array('entry_firstname' => $customers_firstname,
                                 'entry_lastname' => $customers_lastname,
                                 'entry_street_address' => $entry_street_address,
@@ -243,6 +267,64 @@
 			    tep_db_query("update " . TABLE_CUSTOMERS . " set customers_default_address_id = '" . (int)$address_id . "' where customers_id = '" . (int)$customer_id . "'");
 			    tep_db_query("insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id, customers_info_number_of_logons, customers_info_date_account_created) values ('" . (int)$customer_id . "', '0', now())");
 
+						//Load PHPMailer dependencies
+						require_once '\includes\classes\PHPMailerAutoload.php';
+						require_once '\includes\classes\class.phpmailer.php';
+						require_once '\includes\classes\class.smtp.php';
+
+						/* CONFIGURATION */
+						$crendentials = array(
+							'email'     => 'aminata.bangoura@gracia.lasalle.cat',    //Your GMail adress
+							'password'  => 'BoboSylla86'               //Your GMail password
+							);
+
+						/* SPECIFIC TO GMAIL SMTP */
+						$smtp = array(
+
+						'host' => 'smtp.office365.com', //'smtp.gmail.com',
+						'port' => 587,
+						'username' => $crendentials['email'],
+						'password' => $crendentials['password'],
+						'secure' => 'tls' //SSL or TLS
+
+						);
+
+						/* TO, SUBJECT, CONTENT */
+						$to         = $customers_email_address; //The 'To' field
+						$subject    = NEW_CUSTOMER;
+						//$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MR.$customers_lastname."<br>".EMAIL_WELCOME."<br>".ENTRY_EMAIL_ADDRESS. $customers_email_address."<br>".Password.$password."<br>Proide";
+						$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MS .$customers_lastname."<br>".EMAIL_LOGIN. $customers_email_address."<br>".EMAIL_PASS .$password."<br>PROIDE";
+
+						$mailer = new PHPMailer();
+
+						//SMTP Configuration
+						$mailer->isSMTP();
+						$mailer->SMTPAuth   = true; //We need to authenticate
+						$mailer->Host       = $smtp['host'];
+						$mailer->Port       = $smtp['port'];
+						$mailer->Username   = $smtp['username'];
+						$mailer->Password   = $smtp['password'];
+						$mailer->SMTPSecure = $smtp['secure']; 
+
+						//Now, send mail :
+						//From - To :
+						$mailer->From       = $crendentials['email'];
+						$mailer->FromName   = 'fundacioProide'; //Optional
+						$mailer->addAddress($to);  // Add a recipient
+
+						//Subject - Body :
+						$mailer->Subject        = $subject;
+						$mailer->Body           = $content;
+						$mailer->isHTML(true); //Mail body contains HTML tags
+
+						//Check if mail is sent :
+						if(!$mailer->send()) {
+							echo 'Error sending mail : ' . $mailer->ErrorInfo;
+						} else {
+							echo 'Message sent !';
+		
+}
+				
 				// build the message content
 				/*$name = $customers_firstname . " " . $customers_lastname;
 				if (ACCOUNT_GENDER == 'true') {
@@ -449,11 +531,12 @@ function check_form() {
   <tr>
     <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="1" cellpadding="1" class="columnLeft">
 <!-- left_navigation //-->
-<?php// require(DIR_WS_INCLUDES . 'column_left.php'); ?>
-<!-- left_navigation_eof //-->
+<?php// require(DIR_WS_INCLUDES . 'column_left.php'); 
+?>
+<!-- left_navigation_eof -->
     </table></td>
-<!-- body_text //-->
-    <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
+<!-- body_text -->
+    <td width="100%" valign="top"> <table border="0" width="100%" cellspacing="0" cellpadding="2">
 <?php
   if ($action == 'edit' || $action == 'update' 
 //#CHAVEIRO6# Step order/customer begin
@@ -466,7 +549,8 @@ function check_form() {
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="pageHeading"><?php 
+            <td class="pageHeading">
+			<?php 
 //#CHAVEIRO6# Step order/customer begin
 			 if ($action == 'new' || $action == 'insert') {
 				 echo HEADING_TITLE_ADD; } 
@@ -489,7 +573,7 @@ function check_form() {
 (($action == 'new' || $action == 'insert') ? 'action=insert' : 'action=update')
 //#CHAVEIRO6# Step order/customer end
 , 'post', 'onSubmit="return check_form();"') . tep_draw_hidden_field('default_address_id', $cInfo->customers_default_address_id); ?>
-        <td class="formAreaTitle"><?php echo CATEGORY_PERSONAL; ?></td>
+       <td class="formAreaTitle"><?php echo CATEGORY_PERSONAL; ?></td>
       </tr>
       <tr>
         <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
@@ -586,7 +670,7 @@ function check_form() {
   }
 ?></td>
         </table></td>
-      </tr>
+      </tr>>
 <?php
     if (ACCOUNT_COMPANY == 'true') {
 ?>
@@ -613,8 +697,9 @@ function check_form() {
     }
 ?></td>
           </tr>
-        </table></td>
+       </table> </td>
       </tr>
+	  
 <?php
     }
 ?>
@@ -788,12 +873,12 @@ function check_form() {
 <?php
   if ($error == true) {
     if ($entry_telephone_error == true) {
-     echo tep_draw_input_field('customers_telephone', $cInfo->customers_telephone, 'maxlength="32"') . '&nbsp;' . ENTRY_TELEPHONE_NUMBER_ERROR;
+     echo tep_draw_input_field('customers_password', $cInfo->customers_password, 'maxlength="32"') . '&nbsp;' . ENTRY_TELEPHONE_NUMBER_ERROR;
     } else {
-      echo $cInfo->customers_telephone . tep_draw_hidden_field('customers_telephone');
+      echo $cInfo->customers_password . tep_draw_hidden_field('customers_paswword');
     }
   } else {
-    echo tep_draw_input_field('Password', $cInfo->customers_telephone, 'maxlength="32"', true);
+    echo tep_draw_input_field('Password', $cInfo->customers_password, 'maxlength="32"', true);
   }
 ?></td>
           </tr>

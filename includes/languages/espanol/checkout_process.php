@@ -25,4 +25,7 @@ define('EMAIL_TEXT_PAYMENT_METHOD', 'Forma de Pago');
 
 define('EMAIL_SEPARATOR', '------------------------------------------------------');
 define('TEXT_EMAIL_VIA', 'vía');
+define('MESSAGE_TEXT', 'Querido Socio <br> recibira un pedido con el dia y la hora en el cual podies pasar a recoger vuestro pedido a PROIDE,<br>, 
+  podeis hacer hacer el seguimiento entrando en vuestra cuenta en la parte de pedidos para saber el estado de vuestro pedido<br> Gracias<br> Proide
+<br>');
 ?>

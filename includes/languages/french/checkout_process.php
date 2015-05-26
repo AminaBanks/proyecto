@@ -25,4 +25,6 @@ define('EMAIL_TEXT_PAYMENT_METHOD', 'Mode de paiement');
 
 define('EMAIL_SEPARATOR', '------------------------------------------------------');
 define('TEXT_EMAIL_VIA', 'par l\'intermédiaire de');
+define('MESSAGE_TEXT', 'Cher Partenaire <br> reçevrez une commande avec le jour et l\'heure où pouvez de ramassage de votre commande a PROIDE, <br>,
+   vous pouvez faire pour surveiller votre compte entrer dans l\'ordre de la pièce de connaître l\'état de votre commande <br> Merci <br> Proide <br>');
 ?>

@@ -225,11 +225,12 @@
   }
 
 // lets start with the email confirmation
-  $email_order = STORE_NAME . "\n" . 
+  $email_order = MESSAGE_TEXT;
+	/*STORE_NAME . "\n" . 
                  EMAIL_SEPARATOR . "\n" . 
                  EMAIL_TEXT_ORDER_NUMBER . ' ' . $insert_id . "\n" .
                  EMAIL_TEXT_INVOICE_URL . ' ' . tep_href_link(FILENAME_ACCOUNT_HISTORY_INFO, 'order_id=' . $insert_id, 'SSL', false) . "\n" .
-                 EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";
+                 EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";*/
   if ($order->info['comments']) {
     $email_order .= tep_db_output($order->info['comments']) . "\n\n";
   }
@@ -242,7 +243,7 @@
     $email_order .= strip_tags($order_totals[$i]['title']) . ' ' . strip_tags($order_totals[$i]['text']) . "\n";
   }
 
-  if ($order->content_type != 'virtual') {
+  /*if ($order->content_type != 'virtual') {
     $email_order .= "\n" . EMAIL_TEXT_DELIVERY_ADDRESS . "\n" . 
                     EMAIL_SEPARATOR . "\n" .
                     tep_address_label($customer_id, $sendto, 0, '', "\n") . "\n";
@@ -259,7 +260,64 @@
     if (isset($payment_class->email_footer)) {
       $email_order .= $payment_class->email_footer . "\n\n";
     }
-  }
+  }*/
+  //Load PHPMailer dependencies
+      require_once 'PHPMailerAutoload.php';
+      require_once 'class.phpmailer.php';
+      require_once 'class.smtp.php';
+
+      // CONFIGURATION /
+      $crendentials = array(
+       'email'     => 'aminata.bangoura@gracia.lasalle.cat',    //Your GMail adress
+       'password'  => 'BoboSylla86'               //Your GMail password
+       );
+
+      //SPECIFIC TO GMAIL SMTP /
+      $smtp = array(
+
+      'host' => 'smtp.office365.com',		//'smtp.gmail.com',
+      'port' => 587,
+      'username' => $crendentials['email'],
+      'password' => $crendentials['password'],
+      'secure' => 'tls' //SSL or TLS
+
+      );
+
+      // TO, SUBJECT, CONTENT
+      $to         = $order->customer['email_address']; //The 'To' field
+      $subject    = "NUEVA COMPRA";
+      $content    = $email_order;
+
+
+      $mailer = new PHPMailer();
+
+      //SMTP Configuration
+      $mailer->isSMTP();
+      $mailer->SMTPAuth   = true; //We need to authenticate
+      $mailer->Host       = $smtp['host'];
+      $mailer->Port       = $smtp['port'];
+      $mailer->Username   = $smtp['username'];
+      $mailer->Password   = $smtp['password'];
+      $mailer->SMTPSecure = $smtp['secure']; 
+
+      //Now, send mail :
+      //From - To :
+      $mailer->From       = $crendentials['email'];
+      $mailer->FromName   = 'fundacioProide'; //Optional
+      $mailer->addAddress($to);  // Add a recipient
+
+      //Subject - Body :
+      $mailer->Subject        = $subject;
+      $mailer->Body           = $content;
+      $mailer->isHTML(true); //Mail body contains HTML tags
+
+      //Check if mail is sent :
+      if(!$mailer->send()) {
+       echo 'Error sending mail : ' . $mailer->ErrorInfo;
+      } else {
+       echo 'Message sent !';
+  
+}
   tep_mail($order->customer['firstname'] . ' ' . $order->customer['lastname'], $order->customer['email_address'], EMAIL_TEXT_SUBJECT, $email_order, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
 
 // send emails to other people

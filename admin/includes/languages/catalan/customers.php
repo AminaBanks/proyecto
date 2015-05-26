@@ -32,5 +32,9 @@ define ('TEXT_INFO_HEADING ELIMINAR AL CLIENT ','Eliminar Client');
 define ('TYPE_BELOW', 'Tipus de baix');
 define ('PLEASE_SELECT', 'Select One');
 define ('HEADING_TITLE_ADD', 'Nou Soci');
-
+define('NEW_CUSTOMER', 'Nou Soci');
+define('EMAIL_GREET_MR', 'Estimat Sr.' . "\n\n");
+define('EMAIL_GREET_MS', 'Sra. ' . "\n\n");
+define ('EMAIL_LOGIN', 'tu usuari:');
+define('EMAIL_PASS', 'Tu password:');
 ?>

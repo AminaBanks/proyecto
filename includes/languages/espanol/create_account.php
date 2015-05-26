@@ -27,5 +27,5 @@ define('EMAIL_WARNING', '<strong>Nota:</strong> Esta direcci&oacute;n de correo 
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correo');
 
 define ('NEW_CUSTOMER', 'Nuevo Socio');
-define ('MESSAGE_CLIENT','Querido Socio, <br>Dentro de 24 horas, recibirá un correo electrónico con sus datos para iniciar sesión en artesaniafundacioproide.<br> Gracias <br>PROIDE');
+define ('MESSAGE_CLIENT','Querido Socio, <br>Dentro de 24 horas, recibirá un correo electrónico con sus datos para iniciar sesión en artesaniafundacioproide.org<br> Gracias <br>PROIDE');
 ?>
