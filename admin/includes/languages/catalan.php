@@ -474,3 +474,5 @@ define('ENTRY_CUSTOMER', 'Socio');
 define('ENTRY_SHIPPING_ADDRESS','Adreça de recollida');
 define('ENTRY_BILLING_ADDRESS','Adreça de facturació');
 define('ENTRY_PAYMENT_METHOD','Metode de Pagament');
+
+define ('BOX_REPORTS_STOCKVIEW', 'Stock minim');

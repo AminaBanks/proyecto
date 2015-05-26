@@ -53,4 +53,5 @@
   define('FILENAME_VERSION_CHECK', 'version_check.php');
   define('FILENAME_WHOS_ONLINE', 'whos_online.php');
   define('FILENAME_ZONES', 'zones.php');
+  define('FILENAME_STATS_STOCK_VIEW','stockview.php');
 ?>

@@ -304,4 +304,5 @@ define('SUCCESS_FILE_SAVED_SUCCESSFULLY', 'Exito: Archivo subido guardado exitos
 define('WARNING_NO_FILE_UPLOADED', 'Advertencia: Ning&uacute;n archivo subido.');
 
 define('NEW_CUSTOMER', 'Nuevo Socio');
+define ('BOX_REPORTS_STOCKVIEW', 'Stock minimo');
 ?>

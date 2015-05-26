@@ -318,6 +318,6 @@ define('TEXT_PRICE_CONFIG', 'Prix');
 define('NEW_CUSTOMER', 'Nouvel Partenaire');
 
 
-
+define ('BOX_REPORTS_STOCKVIEW', 'Stock minimum');
 
 ?>

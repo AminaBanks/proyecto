@@ -17,6 +17,10 @@
         'code' => FILENAME_STATS_PRODUCTS_VIEWED,
         'title' => BOX_REPORTS_PRODUCTS_VIEWED,
         'link' => tep_href_link(FILENAME_STATS_PRODUCTS_VIEWED)
+      ), array(
+        'code' => FILENAME_STATS_STOCK_VIEW,
+        'title' => BOX_REPORTS_STOCKVIEW,
+        'link' => tep_href_link(FILENAME_STATS_STOCK_VIEW)
       ),
       array(
         'code' => FILENAME_STATS_PRODUCTS_PURCHASED,

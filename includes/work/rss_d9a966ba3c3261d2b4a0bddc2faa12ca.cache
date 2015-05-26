@@ -1,42 +1,34 @@
-a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:8:"Wishlist";s:4:"link";s:38:"http://addons.oscommerce.com/info/8665";s:11:"description";s:368:"ADDITIONAL STEP ADDED TO UPGRADE MANUAL.<br />
+a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2015 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:25:"Optional Related Products";s:4:"link";s:38:"http://addons.oscommerce.com/info/8057";s:11:"description";s:236:"Optional Related Products 5.2 BS + standard<br />
 <br />
-Sorry, forgot an important step in the upgrade manual.<br />
-Old database fields in the configuration and configuration_group table need to be dropped before installing the new modules.<br />
-<br />
-FULL PACKAGE! <br />
-<br />
-Support Topic: http://forums.oscommerce.com/topic/400033-wish-list-for-osc-234-bs-gold/";s:7:"pubDate";s:31:"Wed, 29 Apr 2015 01:53:14 +0200";}i:1;a:4:{s:5:"title";s:34:"iOSC Mobile Version for OSC 2.3.3.";s:4:"link";s:38:"http://addons.oscommerce.com/info/8629";s:11:"description";s:476:"Mobile OSC 7.5.8r2. - mobile version for OSCommerce 2.3.0. to 2.3.4. and OSCommerce 2.2rc2a<br />
-<br />
-Changes:<br />
-- Fix redirect loop if main mobile switcher is set to false and auto redirect to classic site is set to true. Thanks to @phi148<br />
-- Fix for colorbox secure url. (OsC 2.3.4 only). Thanks to @phi148<br />
-- Update tep_draw_button function to tep_button_jquery if no product is found in product_info.php, Thanks to @oneill<br />
+Version 5.2:<br />
+	- Fix for not working page links in Admin =_ Catalog =_ Related Products. Thanks to @dculley<br />
 <br />
 <br />
-Full Package";s:7:"pubDate";s:31:"Mon, 27 Apr 2015 09:23:28 +0200";}i:2;a:4:{s:5:"title";s:31:"Encrypted Credit Card with CVV2";s:4:"link";s:38:"http://addons.oscommerce.com/info/8579";s:11:"description";s:2929:"The credit card module has been updated to give the customer a possible card hint if the credit card type is not recognized. A suggested cause for the error will be given as long as the card number entered begins with a 3, 4, 5 or 6. The module also has added its own configuration variables for checking the the length of the name on the card and the card number just in case they get removed from the osCommerce install since osCommerce no longer includes a credit card payment module like this one. The module configuration variable keys have been updated to reflect the actual name of the module.<br />
 <br />
-The credit card box module has been updated to enable caching of the box information and thereby reduce database access if caching is enabled in admin - configuration - cache. <br />
+Full Package (BS and Standard included)";s:7:"pubDate";s:31:"Tue, 26 May 2015 17:22:05 +0200";}i:1;a:4:{s:5:"title";s:31:"Newsletters Subscribers Manager";s:4:"link";s:38:"http://addons.oscommerce.com/info/8472";s:11:"description";s:63:"Updated for bootstrap osCommerce. This version is English only.";s:7:"pubDate";s:31:"Tue, 26 May 2015 01:36:25 +0200";}i:2;a:4:{s:5:"title";s:12:"View Counter";s:4:"link";s:38:"http://addons.oscommerce.com/info/8781";s:11:"description";s:1451:"- Added a setting so that the block country function can be turned off and on.<br />
+- Added a setting to control the length of the names of the categories, manufacturers and products displayed in the monitor and reports sections.<br />
+- Added a setting to control the date format. Two examples are given but any valid date format string will work.<br />
+- Added code to display the manufacturers name beside the url parameters.<br />
+- Added code to skip IPv6 IP's since they were causing errors in some cases.<br />
+- Added a note to the colors page to show it is not for normal use since many were confused about its purpose.<br />
+- Changed Path Tracker report so it now shows the name of the category or product.<br />
+- Changed help code so slashes are handled correctly in the popups.<br />
+- Changed popup code so it opens correctly in all shops.<br />
+- Changed the code in the block county module to try using curl before file_get-contents.<br />
+- Created a database updater that correctly remembers previous settings.<br />
+- Fixed a problem with the country blocking code that failed onsome shops.<br />
+- Renamed HEADING_TITLE in the admin language file. It is not used, other than display, and can cause conflicts with addons that use that name.<br />
+- Updated the IP2Location class file.<br />
 <br />
-Instructions have been added for an agree to terms of sale box on the checkout confirmation page.<br />
+This is a full package.<br />
 <br />
-Three defunct card types have been removed from the instructions SQL and their images deleted from the contribution. Updated images are provided for Visa, MasterCard and JCB. The card pattern definitions have also been updated with current information.<br />
+The support thread is located at:<br />
+http://forums.oscommerce.com/topic/392949-view-counter/";s:7:"pubDate";s:31:"Mon, 25 May 2015 16:31:51 +0200";}i:3;a:4:{s:5:"title";s:39:"Latest News Rotator Multilingual 1.0 BS";s:4:"link";s:38:"http://addons.oscommerce.com/info/9314";s:11:"description";s:431:"Problem fixed with the display, if the database is empty.<br />
+Problem fixed when editing news in the admin.<br />
+Thanks to @rubberfashion for his remarks.<br />
 <br />
-The entire contribution is enclosed. New installs should use the latest version of this contribution to be sure everything works correctly.<br />
+--------------------------------------------------------------<br />
 <br />
-If you have an older version of this module and wish to upgrade you should proceed as follows:<br />
-<br />
-1) Go into admin - modules -payment and REMOVE the credit card module. The configuration key names have been changed in this version so you need to get rid of the old ones by removing the older module before replacing it with this one.<br />
-<br />
-2) Replace the following changed PHP files:<br />
-catalog/includes/modules/payment/credit_card.php<br />
-catalog/includes/languages/english/modules/payment/credit_card.php<br />
-catalog/includes/modules/boxes/bm_credit_cards.php<br />
-catalog/admin/credit_cards.php<br />
-<br />
-3) Install instructions 22 and 24 have been updated with the new module configuration key names. Find where you have the original MODULE_PAYMENT_CC_ names in these two files and change them to the new MODULE_PAYMENT_CREDIT_CARD_ names as noted in these two instructions.<br />
-<br />
-4) If you want to add the agree to terms feature then follow install instructions 25 and onward which are new to this version of the contribution.<br />
-<br />
-5) Go to admin - modules - payment and reinstall the credit card module.<br />
-<br />
-6) The card patterns for Discover, Diners Club, JCB and Maestro have been updated. If your store accepts any of these cards you should go to admin -configuration - credit cards and edit these cards. Replace the existing patterns with the updated ones from this version of the install instructions. You can also delete the Laser, Switch and Solo cards originally included with this contribution as these cards are all now defunct.";s:7:"pubDate";s:31:"Sun, 26 Apr 2015 01:32:33 +0200";}i:3;a:4:{s:5:"title";s:26:"CardConnect Payment Module";s:4:"link";s:38:"http://addons.oscommerce.com/info/9200";s:11:"description";s:63:"- Updated to support eWallet functions for returning customers.";s:7:"pubDate";s:31:"Wed, 22 Apr 2015 20:30:37 +0200";}i:4;a:4:{s:5:"title";s:26:"Category Description v1.00";s:4:"link";s:38:"http://addons.oscommerce.com/info/2343";s:11:"description";s:79:"Changed index.php so that this now works with boot strap version of osCommerce.";s:7:"pubDate";s:31:"Sun, 19 Apr 2015 20:10:17 +0200";}}s:11:"items_count";i:5;}
+Fixed ein Problem mit der Darstellung, wenn die DB leer ist.<br />
+Fixed ein Problem bei der Bearbeitung von Nachrichten im Admin.<br />
+Dank an @rubberfashion f&uuml;r seine Hinweise.";s:7:"pubDate";s:31:"Wed, 20 May 2015 10:14:45 +0200";}i:4;a:4:{s:5:"title";s:42:"Subchat - Atendimento online (Chat Online)";s:4:"link";s:38:"http://addons.oscommerce.com/info/9315";s:11:"description";s:104:"Sistema de atendimento online (chat online) eficiente, gratuito e com v&aacute;rios recursos exclusivos.";s:7:"pubDate";s:31:"Tue, 19 May 2015 20:39:50 +0200";}}s:11:"items_count";i:5;}
