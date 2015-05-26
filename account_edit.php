@@ -15,7 +15,7 @@
     if (ACCOUNT_GENDER == 'true') $gender = tep_db_prepare_input($HTTP_POST_VARS['gender']);
     $firstname = tep_db_prepare_input($HTTP_POST_VARS['firstname']);
     $lastname = tep_db_prepare_input($HTTP_POST_VARS['lastname']);
-    if (ACCOUNT_DOB == 'true') $dob = tep_db_prepare_input($HTTP_POST_VARS['dob']);
+    //if (ACCOUNT_DOB == 'true') $dob = tep_db_prepare_input($HTTP_POST_VARS['dob']);
     $email_address = tep_db_prepare_input($HTTP_POST_VARS['email_address']);
     $telephone = tep_db_prepare_input($HTTP_POST_VARS['telephone']);
     $fax = tep_db_prepare_input($HTTP_POST_VARS['fax']);
@@ -42,13 +42,13 @@
       $messageStack->add('account_edit', ENTRY_LAST_NAME_ERROR);
     }
 
-    if (ACCOUNT_DOB == 'true') {
+    /*if (ACCOUNT_DOB == 'true') {
       if ((strlen($dob) < ENTRY_DOB_MIN_LENGTH) || (!empty($dob) && (!is_numeric(tep_date_raw($dob)) || !@checkdate(substr(tep_date_raw($dob), 4, 2), substr(tep_date_raw($dob), 6, 2), substr(tep_date_raw($dob), 0, 4))))) {
         $error = true;
 
         $messageStack->add('account_edit', ENTRY_DATE_OF_BIRTH_ERROR);
       }
-    }
+    }*/
 
     if (strlen($email_address) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
       $error = true;
@@ -170,18 +170,18 @@
   </div>
 
   <?php
-  if (ACCOUNT_DOB == 'true') {
+ // if (ACCOUNT_DOB == 'true') {
 ?>
-  <div class="form-group has-feedback">
+  <!--div class="form-group has-feedback">
     <label for="inputName" class="control-label col-xs-3"><?php echo ENTRY_DATE_OF_BIRTH; ?></label>
     <div class="col-xs-9">
       <?php echo tep_draw_input_field('dob', tep_date_short($account['customers_dob']), 'required aria-required="true" id="dob" placeholder="' . ENTRY_DATE_OF_BIRTH_TEXT . '"'); ?>
       <?php if (tep_not_null(ENTRY_DATE_OF_BIRTH_TEXT)) echo '<span class="help-block">' . ENTRY_DATE_OF_BIRTH_TEXT . '</span>'; ?>
       <?php echo FORM_REQUIRED_INPUT; ?>
     </div>
-  </div>
+  </div-->
 <?php
-  }
+  //}
 ?>
 
   <div class="form-group has-feedback">

@@ -158,7 +158,7 @@
       <?php
     }
     ?>
-    <div class="col-sm-4">
+    <!--<div class="col-sm-4">
       <div class="panel panel-warning">
         <div class="panel-heading"><?php echo '<strong>' . HEADING_BILLING_ADDRESS . '</strong>' /*. tep_draw_button(TEXT_EDIT, 'glyphicon glyphicon-edit', tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL'), NULL, NULL, 'pull-right btn-info btn-xs' ); */?></div>
         <div class="panel-body">
@@ -166,7 +166,7 @@
 		  tep_address_format($order->billing['format_id'], $order->billing, 1, ' ', '<br />'); ?>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="col-sm-4">
       <?php
       if ($order->info['shipping_method']) {
@@ -242,8 +242,9 @@
   }
 ?>
 
-  <div class="buttonSet">
-    <div class="text-right">
+  <div class="buttonSet col-xs-12">
+  <div class="text-left col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_EXIT, 'glyphicon glyphicon-chevron-left', FILENAME_DEFAULT, 'primary', null, 'btn-success'); ?></div>
+  <div class="text-right col-xs-6"> 
       <?php
       if (is_array($payment_modules->modules)) {
         echo $payment_modules->process_button();

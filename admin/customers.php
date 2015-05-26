@@ -56,11 +56,11 @@
         $customers_newsletter = tep_db_prepare_input($HTTP_POST_VARS['customers_newsletter']);
 
         $customers_gender = tep_db_prepare_input($HTTP_POST_VARS['customers_gender']);
-        $customers_dob = tep_db_prepare_input($HTTP_POST_VARS['customers_dob']);
+        //$customers_dob = tep_db_prepare_input($HTTP_POST_VARS['customers_dob']);
 
         $default_address_id = tep_db_prepare_input($HTTP_POST_VARS['default_address_id']);
         $entry_street_address = tep_db_prepare_input($HTTP_POST_VARS['entry_street_address']);
-        $entry_suburb = tep_db_prepare_input($HTTP_POST_VARS['entry_suburb']);
+       // $entry_suburb = tep_db_prepare_input($HTTP_POST_VARS['entry_suburb']);
         $entry_postcode = tep_db_prepare_input($HTTP_POST_VARS['entry_postcode']);
         $entry_city = tep_db_prepare_input($HTTP_POST_VARS['entry_city']);
         $entry_country_id = tep_db_prepare_input($HTTP_POST_VARS['entry_country_id']);
@@ -84,14 +84,14 @@
           $entry_lastname_error = false;
         }
 
-        if (ACCOUNT_DOB == 'true') {
+       /* if (ACCOUNT_DOB == 'true') {
           if (checkdate(substr(tep_date_raw($customers_dob),4, 2), substr(tep_date_raw($customers_dob), 6, 2), substr(tep_date_raw($customers_dob), 0, 4))) {
             $entry_date_of_birth_error = false;
           } else {
             $error = true;
             $entry_date_of_birth_error = true;
           }
-        }
+        }*/
 
         if (strlen($customers_email_address) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
           $error = true;
@@ -107,60 +107,60 @@
           $entry_email_address_check_error = false;
         }
 
-        if (strlen($entry_street_address) < ENTRY_STREET_ADDRESS_MIN_LENGTH) {
+        /*if (strlen($entry_street_address) < ENTRY_STREET_ADDRESS_MIN_LENGTH) {
           $error = true;
           $entry_street_address_error = true;
-        } else {
+        } else {*/
           $entry_street_address_error = false;
-        }
+       // }
 
-        if (strlen($entry_postcode) < ENTRY_POSTCODE_MIN_LENGTH) {
+       /* if (strlen($entry_postcode) < ENTRY_POSTCODE_MIN_LENGTH) {
           $error = true;
           $entry_post_code_error = true;
-        } else {
+        } else {*/
           $entry_post_code_error = false;
-        }
+        //}
 
-        if (strlen($entry_city) < ENTRY_CITY_MIN_LENGTH) {
+        /*if (strlen($entry_city) < ENTRY_CITY_MIN_LENGTH) {
           $error = true;
           $entry_city_error = true;
-        } else {
+        } else {*/
           $entry_city_error = false;
-        }
+        //}
 
-        if ($entry_country_id == false) {
+        /*if ($entry_country_id == false) {
           $error = true;
           $entry_country_error = true;
-        } else {
+        } else {*/
           $entry_country_error = false;
-        }
+        //}
 
-        if (ACCOUNT_STATE == 'true') {
+      /*  if (ACCOUNT_STATE == 'true') {
           if ($entry_country_error == true) {
             $entry_state_error = true;
-          } else {
+          } else {*/
             $zone_id = 0;
             $entry_state_error = false;
             $check_query = tep_db_query("select count(*) as total from " . TABLE_ZONES . " where zone_country_id = '" . (int)$entry_country_id . "'");
             $check_value = tep_db_fetch_array($check_query);
-            $entry_state_has_zones = ($check_value['total'] > 0);
+           $entry_state_has_zones = ($check_value['total'] > 0);
             if ($entry_state_has_zones == true) {
               $zone_query = tep_db_query("select zone_id from " . TABLE_ZONES . " where zone_country_id = '" . (int)$entry_country_id . "' and zone_name = '" . tep_db_input($entry_state) . "'");
               if (tep_db_num_rows($zone_query) == 1) {
                 $zone_values = tep_db_fetch_array($zone_query);
                 $entry_zone_id = $zone_values['zone_id'];
-              } else {
+              } /*else {
                 $error = true;
                 $entry_state_error = true;
-              }
-            } else {
+              }*/
+            } /*else {
               if ($entry_state == false) {
                 $error = true;
                 $entry_state_error = true;
               }
-            }
-         }
-      }
+            }*/
+        /* }
+      }*/
 
       if (strlen($customers_telephone) < ENTRY_TELEPHONE_MIN_LENGTH) {
         $error = true;
@@ -187,7 +187,7 @@
 								'customers_newsletter' => $customers_newsletter);
 
 		if (ACCOUNT_GENDER == 'true') $sql_data_array['customers_gender'] = $customers_gender;
-        if (ACCOUNT_DOB == 'true') $sql_data_array['customers_dob'] = tep_date_raw($customers_dob);
+       // if (ACCOUNT_DOB == 'true') $sql_data_array['customers_dob'] = tep_date_raw($customers_dob);
 
 //#CHAVEIRO6# Step order/customer begin
 			if ($action == 'insert' ) {
@@ -248,7 +248,7 @@
 //#CHAVEIRO6# Step order/customer end
 
         if (ACCOUNT_COMPANY == 'true') $sql_data_array['entry_company'] = $entry_company;
-        if (ACCOUNT_SUBURB == 'true') $sql_data_array['entry_suburb'] = $entry_suburb;
+        //if (ACCOUNT_SUBURB == 'true') $sql_data_array['entry_suburb'] = $entry_suburb;
 
         if (ACCOUNT_STATE == 'true') {
           if ($entry_zone_id > 0) {
@@ -281,7 +281,7 @@
 						/* SPECIFIC TO GMAIL SMTP */
 						$smtp = array(
 
-						'host' => 'smtp.office365.com', //'smtp.gmail.com',
+						'host' => 'smtp.office365.com',
 						'port' => 587,
 						'username' => $crendentials['email'],
 						'password' => $crendentials['password'],
@@ -292,8 +292,8 @@
 						/* TO, SUBJECT, CONTENT */
 						$to         = $customers_email_address; //The 'To' field
 						$subject    = NEW_CUSTOMER;
-						//$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MR.$customers_lastname."<br>".EMAIL_WELCOME."<br>".ENTRY_EMAIL_ADDRESS. $customers_email_address."<br>".Password.$password."<br>Proide";
 						$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MS .$customers_lastname."<br>".EMAIL_LOGIN. $customers_email_address."<br>".EMAIL_PASS .$password."<br>PROIDE";
+
 
 						$mailer = new PHPMailer();
 
@@ -422,7 +422,7 @@
 //#CHAVEIRO6# Step order/customer end
 ) {
 ?>
-<script language="javascript"><!--
+<script language="javascript">
 
 function check_form() {
   var error = 0;
@@ -431,7 +431,7 @@ function check_form() {
   var customers_firstname = document.customers.customers_firstname.value;
   var customers_lastname = document.customers.customers_lastname.value;
 <?php if (ACCOUNT_COMPANY == 'true') echo 'var entry_company = document.customers.entry_company.value;' . "\n"; ?>
-<?php if (ACCOUNT_DOB == 'true') echo 'var customers_dob = document.customers.customers_dob.value;' . "\n"; ?>
+<?php// if (ACCOUNT_DOB == 'true') echo 'var customers_dob = document.customers.customers_dob.value;' . "\n"; ?>
   var customers_email_address = document.customers.customers_email_address.value;
   var entry_street_address = document.customers.entry_street_address.value;
   var entry_postcode = document.customers.entry_postcode.value;
@@ -456,52 +456,52 @@ function check_form() {
     error = 1;
   }
 
-<?php if (ACCOUNT_DOB == 'true') { ?>
-  if (customers_dob == "" || customers_dob.length < <?php echo ENTRY_DOB_MIN_LENGTH; ?>) {
+<?php //if (ACCOUNT_DOB == 'true') { ?>
+  /*if (customers_dob == "" || customers_dob.length < <?php echo ENTRY_DOB_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_DOB; ?>";
     error = 1;
-  }
-<?php } ?>
+  }*/
+<?php //} ?>
 
   if (customers_email_address == "" || customers_email_address.length < <?php echo ENTRY_EMAIL_ADDRESS_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_EMAIL_ADDRESS; ?>";
     error = 1;
   }
 
-  if (entry_street_address == "" || entry_street_address.length < <?php echo ENTRY_STREET_ADDRESS_MIN_LENGTH; ?>) {
+  /*if (entry_street_address == "" || entry_street_address.length < <?php echo ENTRY_STREET_ADDRESS_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_ADDRESS; ?>";
     error = 1;
-  }
+  }*/
 
-  if (entry_postcode == "" || entry_postcode.length < <?php echo ENTRY_POSTCODE_MIN_LENGTH; ?>) {
+  /*if (entry_postcode == "" || entry_postcode.length < <?php echo ENTRY_POSTCODE_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_POST_CODE; ?>";
     error = 1;
-  }
+  }*/
 
-  if (entry_city == "" || entry_city.length < <?php echo ENTRY_CITY_MIN_LENGTH; ?>) {
+  /*if (entry_city == "" || entry_city.length < <?php echo ENTRY_CITY_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_CITY; ?>";
     error = 1;
-  }
+  }*/
 
 <?php
-  if (ACCOUNT_STATE == 'true') {
+  //if (ACCOUNT_STATE == 'true') {
 ?>
-  if (document.customers.elements['entry_state'].type != "hidden") {
+  /*if (document.customers.elements['entry_state'].type != "hidden") {
     if (document.customers.entry_state.value == '' || document.customers.entry_state.value.length < <?php echo ENTRY_STATE_MIN_LENGTH; ?> ) {
        error_message = error_message + "<?php echo JS_STATE; ?>";
        error = 1;
     }
-  }
+  }*/
 <?php
-  }
+  //}
 ?>
 
-  if (document.customers.elements['entry_country_id'].type != "hidden") {
+  /*if (document.customers.elements['entry_country_id'].type != "hidden") {
     if (document.customers.entry_country_id.value == 0) {
       error_message = error_message + "<?php echo JS_COUNTRY; ?>";
       error = 1;
     }
-  }
+  }*/
 
   if (customers_telephone == "" || customers_telephone.length < <?php echo ENTRY_TELEPHONE_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_TELEPHONE; ?>";
@@ -515,7 +515,7 @@ function check_form() {
     return true;
   }
 }
-//--></script>
+</script>
 <?php
   }
 ?>
@@ -630,9 +630,9 @@ function check_form() {
 ?></td>
           </tr>
 <?php
-    if (ACCOUNT_DOB == 'true') {
+   // if (ACCOUNT_DOB == 'true') {
 ?>
-          <tr>
+          <!--tr>
             <td class="main"><?php echo ENTRY_DATE_OF_BIRTH; ?></td>
             <td class="main">
 
@@ -647,9 +647,9 @@ function check_form() {
       echo tep_draw_input_field('customers_dob', tep_date_short($cInfo->customers_dob), 'maxlength="10"', true) . '&nbsp;' . ENTRY_DATE_OF_BIRTH_ERROR;
     }
 ?></td>
-          </tr>
+          </tr-->
 <?php
-    }
+   // }
 ?>
           <tr>
             <td class="main"><?php echo ENTRY_EMAIL_ADDRESS; ?></td>
@@ -717,25 +717,25 @@ function check_form() {
 <?php
   if ($error == true) {
     if ($entry_street_address_error == true) {
-      echo tep_draw_input_field('entry_street_address', $cInfo->entry_street_address, 'maxlength="64"') . '&nbsp;' . ENTRY_STREET_ADDRESS_ERROR;
+      echo tep_draw_input_field('entry_street_address', $cInfo->entry_street_address, 'maxlength="64"') . '&nbsp;' . Null;
     } else {
       echo $cInfo->entry_street_address . tep_draw_hidden_field('entry_street_address');
     }
   } else {
-    echo tep_draw_input_field('entry_street_address', $cInfo->entry_street_address, 'maxlength="64"', true);
+    echo tep_draw_input_field('entry_street_address', $cInfo->entry_street_address, 'maxlength="64"');
   }
 ?></td>
           </tr>
 <?php
-    if (ACCOUNT_SUBURB == 'true') {
+   // if (ACCOUNT_SUBURB == 'true') {
 ?>
-          <tr>
+          <!--tr>
             <td class="main"><?php echo ENTRY_SUBURB; ?></td>
             <td class="main">
 <?php
     if ($error == true) {
       if ($entry_suburb_error == true) {
-        echo tep_draw_input_field('suburb', $cInfo->entry_suburb, 'maxlength="32"') . '&nbsp;' . ENTRY_SUBURB_ERROR;
+        echo tep_draw_input_field('suburb', $cInfo->entry_suburb, 'maxlength="32"') . '&nbsp;' . null;
       } else {
         echo $cInfo->entry_suburb . tep_draw_hidden_field('entry_suburb');
       }
@@ -743,9 +743,9 @@ function check_form() {
       echo tep_draw_input_field('entry_suburb', $cInfo->entry_suburb, 'maxlength="32"');
     }
 ?></td>
-          </tr>
+          </tr-->
 <?php
-    }
+  //  }
 ?>
           <tr>
             <td class="main"><?php echo ENTRY_POST_CODE; ?></td>
@@ -753,12 +753,12 @@ function check_form() {
 <?php
   if ($error == true) {
     if ($entry_post_code_error == true) {
-      echo tep_draw_input_field('entry_postcode', $cInfo->entry_postcode, 'maxlength="8"') . '&nbsp;' . ENTRY_POST_CODE_ERROR;
+      echo tep_draw_input_field('entry_postcode', $cInfo->entry_postcode, 'maxlength="8"') . '&nbsp;' . null;
     } else {
       echo $cInfo->entry_postcode . tep_draw_hidden_field('entry_postcode');
     }
   } else {
-    echo tep_draw_input_field('entry_postcode', $cInfo->entry_postcode, 'maxlength="8"', true);
+    echo tep_draw_input_field('entry_postcode', $cInfo->entry_postcode, 'maxlength="8"');
   }
 ?></td>
           </tr>
@@ -768,12 +768,12 @@ function check_form() {
 <?php
   if ($error == true) {
     if ($entry_city_error == true) {
-      echo tep_draw_input_field('entry_city', $cInfo->entry_city, 'maxlength="32"') . '&nbsp;' . ENTRY_CITY_ERROR;
+      echo tep_draw_input_field('entry_city', $cInfo->entry_city, 'maxlength="32"') . '&nbsp;' . null;
     } else {
       echo $cInfo->entry_city . tep_draw_hidden_field('entry_city');
     }
   } else {
-    echo tep_draw_input_field('entry_city', $cInfo->entry_city, 'maxlength="32"', true);
+    echo tep_draw_input_field('entry_city', $cInfo->entry_city, 'maxlength="32"');
   }
 ?></td>
           </tr>
@@ -793,15 +793,15 @@ function check_form() {
           while ($zones_values = tep_db_fetch_array($zones_query)) {
             $zones_array[] = array('id' => $zones_values['zone_name'], 'text' => $zones_values['zone_name']);
           }
-          echo tep_draw_pull_down_menu('entry_state', $zones_array) . '&nbsp;' . ENTRY_STATE_ERROR;
+          echo tep_draw_pull_down_menu('entry_state', $zones_array) . '&nbsp;' . null;
         } else {
-          echo tep_draw_input_field('entry_state', tep_get_zone_name($cInfo->entry_country_id, $cInfo->entry_zone_id, $cInfo->entry_state)) . '&nbsp;' . ENTRY_STATE_ERROR;
+          echo tep_draw_input_field('entry_state', tep_get_zone_name($cInfo->entry_country_id, $cInfo->entry_zone_id, $cInfo->entry_state)) . '&nbsp;' . null;
         }
       } else {
         echo $entry_state . tep_draw_hidden_field('entry_zone_id') . tep_draw_hidden_field('entry_state');
       }
     } else {
-      echo tep_draw_input_field('entry_state', tep_get_zone_name($cInfo->entry_country_id, $cInfo->entry_zone_id, $cInfo->entry_state),"",true);
+      echo tep_draw_input_field('entry_state', tep_get_zone_name($cInfo->entry_country_id, $cInfo->entry_zone_id, $cInfo->entry_state),"");
     }
 
 ?></td>
@@ -888,19 +888,19 @@ function check_form() {
 	  <!--FIN PASWWORD-->
 	  
 	  
-      <tr>
+      <!--<tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
-      </tr>
-      <tr>
+      </tr>-->
+      <!--tr>
         <td class="formAreaTitle"><?php echo CATEGORY_OPTIONS; ?></td>
-      </tr>
-      <tr>
+      </tr-->
+      <!--t r>
         <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
           <tr>
             <td class="main"><?php echo ENTRY_NEWSLETTER; ?></td>
             <td class="main">
 <?php
-  if ($processed == true) {
+ /* if ($processed == true) {
     if ($cInfo->customers_newsletter == '1') {
       echo ENTRY_NEWSLETTER_YES;
     } else {
@@ -909,11 +909,11 @@ function check_form() {
     echo tep_draw_hidden_field('customers_newsletter');
   } else {
     echo tep_draw_pull_down_menu('customers_newsletter', $newsletter_array, (($cInfo->customers_newsletter == '1') ? '1' : '0'));
-  }
+  }*/
 ?></td>
           </tr>
         </table></td>
-      </tr>
+      </tr-->
       <tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>

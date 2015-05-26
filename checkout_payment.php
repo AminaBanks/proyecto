@@ -26,7 +26,7 @@
   }
 
 // if no billing destination address was selected, use the customers own address as default
-  if (!tep_session_is_registered('billto')) {
+  /*if (!tep_session_is_registered('billto')) {
     tep_session_register('billto');
     $billto = $customer_default_address_id;
   } else {
@@ -40,7 +40,7 @@
         if (tep_session_is_registered('payment')) tep_session_unregister('payment');
       }
     }
-  }
+  }*/
 /*Introduire la partie des commandes que je dois verifier et regler*/	
   require(DIR_WS_CLASSES . 'order.php');
   $order = new order; 
@@ -66,10 +66,10 @@
 ?>
 
 <?php echo $payment_modules->javascript_validation(); ?>
-
+<!--
 <div class="page-header">
-  <h1><?php echo HEADING_TITLE; ?></h1>
-</div>
+  <h1><?php //echo HEADING_TITLE; ?></h1>
+</div>-->
 
 <?php echo tep_draw_form('checkout_payment', tep_href_link(FILENAME_CHECKOUT_CONFIRMATION, '', 'SSL'), 'post', 'class="form-horizontal" onsubmit="return check_form();"', true); ?>
 
@@ -89,28 +89,28 @@
   }
 ?>
 
-  <h2><?php echo TABLE_HEADING_BILLING_ADDRESS; ?></h2>
+  <!--<h2><?php //echo TABLE_HEADING_BILLING_ADDRESS; ?></h2>
 
   <div class="contentText row">
-    <!--div class="col-sm-8">
+    div class="col-sm-8">
       <div class="alert alert-warning">
-        <?php echo TEXT_SELECTED_BILLING_DESTINATION; ?>
+        <?php //echo TEXT_SELECTED_BILLING_DESTINATION; ?>
         <div class="clearfix"></div>
         <div class="pull-right">
-          <?php echo tep_draw_button(IMAGE_BUTTON_CHANGE_ADDRESS, 'glyphicon glyphicon-home', tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL')); ?>
+          <?php //echo tep_draw_button(IMAGE_BUTTON_CHANGE_ADDRESS, 'glyphicon glyphicon-home', tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL')); ?>
         </div>
         <div class="clearfix"></div>
       </div>
-    </div--->
+    </div
     <div class="col-sm-12">
       <div class="panel panel-primary">
         <div class="panel-heading"><?php echo TITLE_BILLING_ADDRESS; ?></div>
         <div class="panel-body">
-          <?php echo tep_address_label($customer_id, $billto, true, ' ', '<br />'); ?>
+          <?php //echo tep_address_label($customer_id, $billto, true, ' ', '<br />'); ?>
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <div class="clearfix"></div>
 
@@ -231,8 +231,9 @@
     </div>
   </div-->
 
-  <div class="buttonSet">
-    <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
+  <div class="buttonSet col-xs-12">
+  <div class="text-left col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_EXIT, 'glyphicon glyphicon-chevron-left', FILENAME_DEFAULT, 'primary', null, 'btn-success'); ?></div>
+  <div class="text-right col-xs-6"> <?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
   </div>
 
   <div class="clearfix"></div>

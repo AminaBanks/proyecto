@@ -297,4 +297,7 @@ define('PRODUCT_REMOVED', '%s has been removed from your Cart');
 define('IMAGE_BUTTON_EMAIL', 'Send Email');
 define ('NEW_CUSTOMER', 'New Partner');
 define ('MESSAGE_CLIENT','Dear Partner, <br>Within 24 hours you will receive an email with your details to log in to artesaniafundacioproide.org<br> Thanks <br>PROIDE.');
+
+define('IMAGE_BUTTON_EXIT', 'exit');
+
 ?>

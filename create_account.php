@@ -11,10 +11,10 @@ if (isset($HTTP_POST_VARS['action']) && ($HTTP_POST_VARS['action'] == 'process')
    /* if (ACCOUNT_DOB == 'true') $dob = tep_db_prepare_input($HTTP_POST_VARS['dob']);*/
     $email_address = tep_db_prepare_input($HTTP_POST_VARS['email_address']);
     /*if (ACCOUNT_COMPANY == 'true') $company = tep_db_prepare_input($HTTP_POST_VARS['company']);*/
-    $street_address = tep_db_prepare_input($HTTP_POST_VARS['street_address']);
+    /*$street_address = tep_db_prepare_input($HTTP_POST_VARS['street_address']);
     $postcode = tep_db_prepare_input($HTTP_POST_VARS['postcode']);
     $city = tep_db_prepare_input($HTTP_POST_VARS['city']);
-    /*if (ACCOUNT_STATE == 'true') {
+    if (ACCOUNT_STATE == 'true') {
       $state = tep_db_prepare_input($HTTP_POST_VARS['state']);
       if (isset($HTTP_POST_VARS['zone_id'])) {
         $zone_id = tep_db_prepare_input($HTTP_POST_VARS['zone_id']);
@@ -119,7 +119,7 @@ if (isset($HTTP_POST_VARS['action']) && ($HTTP_POST_VARS['action'] == 'process')
 
       $messageStack->add('create_account', ENTRY_TELEPHONE_NUMBER_ERROR);
     }
-	
+	// correo al admin e la pagina
 
 	//Load PHPMailer dependencies
 require_once 'PHPMailerAutoload.php';
@@ -127,16 +127,17 @@ require_once 'class.phpmailer.php';
 require_once 'class.smtp.php';
 
 /* CONFIGURATION */
-$crendentials = array(
-    'email'     => 	'aminata.bangoura@gracia.lasalle.cat',											//'secretaria@fundacioproide.org',  //', //   //Your GMail adress Or yahoo, or cat
-    'password'  => 	'BoboSylla86'									//'29072010' //contraseÃ±a de helena
-    );
-	 
+		$crendentials = array(
+							'email'     => 'aminata.bangoura@gracia.lasalle.cat',    //Your GMail adress
+							'password'  => 'BoboSylla86'               //Your GMail password
+							);
+
+
 /* SPECIFIC TO GMAIL SMTP */
 $smtp = array(
 
-'host' => 'smtp.office365.com',   //POR gmail.com    //'smtp.gmail.com',
-'port' => 587, 
+'host' => 'smtp.office365.com',
+'port' => 587,
 'username' => $crendentials['email'],
 'password' => $crendentials['password'],
 'secure' => 'tls' //SSL or TLS
@@ -144,10 +145,10 @@ $smtp = array(
 );
 
 /* TO, SUBJECT, CONTENT */
-$to         = 'aminata.bangoura@gracia.lasalle.cat';								//'secretaria@fundacioproide.org'; //The 'To' field
-$subject    = 'NOU SOCI';
-//$content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname."<br>"/*.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>"/*.ENTRY_STREET_ADDRESS.$street_address."<br>".ENTRY_COMPANY.$company."<br>".ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>".ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>"/*.ENTRY_FAX_NUMBER.$fax."<br>"*/;
-$content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname/*.<br>.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>".ENTRY_STREET_ADDRESS.$street_address."<br>"/*.ENTRY_COMPANY.$company."<br>"*/.ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>"/*.ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>"/*.ENTRY_FAX_NUMBER.$fax."<br>"*/;
+$to         = 'aminata.bangoura@gracia.lasalle.cat'; //The 'To' field
+$subject    = NEW_CUSTOMER;
+$content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname."<br>"/*.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>"/*.ENTRY_STREET_ADDRESS.$street_address."<br>".ENTRY_COMPANY.$company."<br>".ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>".ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>"/*.ENTRY_FAX_NUMBER.$fax."<br>"*/;
+
 
 $mailer = new PHPMailer();
 
@@ -163,7 +164,7 @@ $mailer->SMTPSecure = $smtp['secure'];
 //Now, send mail :
 //From - To :
 $mailer->From       = $crendentials['email'];
-$mailer->FromName   = 'Your Name'; //Optional
+$mailer->FromName   = 'FundacioProide'; //Optional
 $mailer->addAddress($to);  // Add a recipient
 
 //Subject - Body :
@@ -175,15 +176,19 @@ $mailer->isHTML(true); //Mail body contains HTML tags
 if(!$mailer->send()) {
     echo 'Error sending mail : ' . $mailer->ErrorInfo;
 } else {
-    echo 'Message sent !';
+    echo '';
+		
 }
 
-//MAIL AL USUARIO O AL NUEVO SOCIO DE PROIDE DE LA LIGNE 181 HASTA 209.
+// correo al cliente que viene de hacer la petición
+/* TO, SUBJECT, CONTENT */
 $to         = $email_address; //The 'To' field
 $subject    = NEW_CUSTOMER;
 $content    = MESSAGE_CLIENT ;
 
+
 $mailer = new PHPMailer();
+
 //SMTP Configuration
 $mailer->isSMTP();
 $mailer->SMTPAuth   = true; //We need to authenticate
@@ -196,20 +201,16 @@ $mailer->SMTPSecure = $smtp['secure'];
 //Now, send mail :
 //From - To :
 $mailer->From       = $crendentials['email'];
-$mailer->FromName   = 'Fundacio Proide'; //Optional
+$mailer->FromName   = 'FundacioProide'; //Optional
 $mailer->addAddress($to);  // Add a recipient
 
 //Subject - Body :
 $mailer->Subject        = $subject;
 $mailer->Body           = $content;
 $mailer->isHTML(true); //Mail body contains HTML tags
-//tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
-if(!$mailer->send()) {
-    //echo 'Error sending mail : ' . $mailer->ErrorInfo;
-} else {
-    //echo 'Message sent !';
-  
-}	
+
+
+	
 }
 
 
@@ -291,7 +292,7 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
   //}
 ?>
 
-  <h2><?php echo CATEGORY_ADDRESS; ?></h2>
+  <!--h2><?php echo CATEGORY_ADDRESS; ?></h2>
   <div class="contentText">
     <div class="form-group has-feedback">
       <label for="inputStreet" class="control-label col-xs-3"><?php echo ENTRY_STREET_ADDRESS; ?></label>
@@ -326,13 +327,13 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
      </div>
     </div>
 <?php
-  //if (ACCOUNT_STATE == 'true') {
+  if (ACCOUNT_STATE == 'true') {
 ?>
-    <!--<div class="form-group has-feedback">
+    <div class="form-group has-feedback">
       <label for="inputState" class="control-label col-xs-3"><?php echo ENTRY_STATE; ?></label>
       <div class="col-xs-9">
         <?php
-        /*if ($process == true) {
+        if ($process == true) {
           if ($entry_state_has_zones == true) {
             $zones_array = array();
             $zones_query = tep_db_query("select zone_name from " . TABLE_ZONES . " where zone_country_id = '" . (int)$country . "' order by zone_name");
@@ -350,23 +351,23 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
           echo FORM_REQUIRED_INPUT;
         }
         if (tep_not_null(ENTRY_STATE_TEXT)) echo '<span class="help-block">' . ENTRY_STATE_TEXT . '</span>';
-        */?>
+        ?>
       </div>
     </div>
 <?php
-  //}
+  }
 ?>
     <div class="form-group has-feedback">
       <label for="inputCountry" class="control-label col-xs-3"><?php echo ENTRY_COUNTRY; ?></label>
       <div class="col-xs-9">
         <?php
-        /*echo tep_get_country_list('country', NULL, 'required aria-required="true" id="inputCountry"');
+        echo tep_get_country_list('country', NULL, 'required aria-required="true" id="inputCountry"');
         echo FORM_REQUIRED_INPUT;
         if (tep_not_null(ENTRY_COUNTRY_TEXT)) echo '<span class="help-block">' . ENTRY_COUNTRY_TEXT . '</span>';
-        */?>
+        ?>
       </div>
-    </div>-->
-  </div>
+    </div>
+  </div-->
 
   <h2><?php echo CATEGORY_CONTACT; ?></h2>
   

@@ -213,9 +213,9 @@
 
   
 
-  <div class="buttonSet">	
-    
- <div class="text-right"> <a href="checkout_payment.php" id="list" class="btn btn-default btn-sm"><?php echo(IMAGE_BUTTON_CHECKOUT);?><span class="glyphicon glyphicon-chevron-right"></span></a>
+ <div class="buttonSet col-xs-12">
+  <div class="text-left col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_EXIT, 'glyphicon glyphicon-chevron-left', FILENAME_DEFAULT, 'primary', null, 'btn-success'); ?></div>
+  <div class="text-right col-xs-6"> <a href="checkout_payment.php" id="list" class="btn btn-default btn-sm"><?php echo(IMAGE_BUTTON_CHECKOUT);?><span class="glyphicon glyphicon-chevron-right"></span></a>
 	
   
     <!--<div class="text-right"><?php //echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'glyphicon glyphicon-chevron-right', null, 'primary', null, 'btn-success'); ?></div>
