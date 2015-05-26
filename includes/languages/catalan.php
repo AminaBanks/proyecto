@@ -349,5 +349,8 @@ define ('PRODUCT_UNSUBSCRIBED', "% s s'ha eliminat de la seva llista de notifica
 define ('PRODUCT_ADDED', '% s ha estat afegit a la cistella');
 define ('PRODUCT_REMOVED', "% s s'ha eliminat del seu carro ");
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
+//NUEVA CREACION 
+define ('NEW_CUSTOMER', 'Nou Soci');
+define ('MESSAGE_CLIENT','Estimat Soci, <br>Dins de 24 hores, rebrà un correu electrònic amb les seves dades per iniciar sessió en artesaniafundacioproide.org<br> Gràcies <br>PROIDE');
 
 ?>

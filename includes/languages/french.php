@@ -289,4 +289,8 @@ define ('PRODUCT_UNSUBSCRIBED', '% s a été retiré de la liste des notificatio
 define ('PRODUCT_ADDED', '% s a été ajouté à votre panier');
 define ('PRODUCT_REMOVED', '% s a été retiré de votre panier');
 define('IMAGE_BUTTON_EMAIL', 'Envoyer Email');
+
+define ('NEW_CUSTOMER', 'Nouvel Partenaire');
+define ('MESSAGE_CLIENT','Cher Partenaire, <br>Dans les 24 heures, vous recevrez un email avec vos coordonnées pour vous connecter à artesaniafundacioproide.org<br>Merci.<br>PROIDE');
+?>
 ?>

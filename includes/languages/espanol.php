@@ -294,4 +294,6 @@ define ('PRODUCT_ADDED', '% s ha sido añadido a su carrito');
 define ('PRODUCT_REMOVED', '% s se ha eliminado de su carro');
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correo');
 
+define ('NEW_CUSTOMER', 'Nuevo Socio');
+define ('MESSAGE_CLIENT','Querido Socio, <br>Dentro de 24 horas, recibirá un correo electrónico con sus datos para iniciar sesión en artesaniafundacioproide.org<br> Gracias <br>PROIDE');
 ?>

@@ -183,9 +183,7 @@ $to         = $email_address; //The 'To' field
 $subject    = NEW_CUSTOMER;
 $content    = MESSAGE_CLIENT ;
 
-
 $mailer = new PHPMailer();
-
 //SMTP Configuration
 $mailer->isSMTP();
 $mailer->SMTPAuth   = true; //We need to authenticate
@@ -198,7 +196,7 @@ $mailer->SMTPSecure = $smtp['secure'];
 //Now, send mail :
 //From - To :
 $mailer->From       = $crendentials['email'];
-$mailer->FromName   = 'FundacioProide'; //Optional
+$mailer->FromName   = 'Fundacio Proide'; //Optional
 $mailer->addAddress($to);  // Add a recipient
 
 //Subject - Body :
@@ -206,7 +204,12 @@ $mailer->Subject        = $subject;
 $mailer->Body           = $content;
 $mailer->isHTML(true); //Mail body contains HTML tags
 //tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
-	
+if(!$mailer->send()) {
+    //echo 'Error sending mail : ' . $mailer->ErrorInfo;
+} else {
+    //echo 'Message sent !';
+  
+}	
 }
 
 
