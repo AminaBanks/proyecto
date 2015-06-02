@@ -1,6 +1,5 @@
 <?php
 require('includes/application_top.php');
-require(DIR_WS_INCLUDES . 'template_top.php');
 $process = false;
 
 if (isset($HTTP_POST_VARS['action']) && ($HTTP_POST_VARS['action'] == 'process'))
@@ -208,13 +207,18 @@ $mailer->addAddress($to);  // Add a recipient
 $mailer->Subject        = $subject;
 $mailer->Body           = $content;
 $mailer->isHTML(true); //Mail body contains HTML tags
-
-
-	
+if(!$mailer->send()) {
+    //echo 'Error sending mail : ' . $mailer->ErrorInfo;
+} else {
+    //echo 'Message sent !';
+	$checking=true;
+   tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
+  
+}
 }
 
 
-
+require(DIR_WS_INCLUDES . 'template_top.php');
 echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '', 'SSL'), 'post', 'class="form-horizontal" onsubmit="return check_form(create_account);"', true) . tep_draw_hidden_field('action', 'process');
 ?>
 <div class="contentContainer">

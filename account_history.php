@@ -46,7 +46,7 @@
 
   <div class="contentText">
     <div class="panel panel-info">
-      <div class="panel-heading"><strong><?php echo TEXT_ORDER_NUMBER . ' ' . $history['orders_id'] . ' <span class="contentText">(' . $history['orders_status_name'] . ')</span>'; ?></strong></div>
+      <div class="panel-heading"><strong><?php echo TEXT_ORDER_NUMBER . ' ' . $history['orders_id'] . ' <span class="contentText">(' . /*STATUS_OF_PRODUCTS_ORDER;*/$history['orders_status_name'] . ')</span>'; ?></strong></div>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-6"><?php echo '<strong>' . TEXT_ORDER_DATE . '</strong> ' . tep_date_long($history['date_purchased']) . '<br /><strong>' . $order_type . '</strong> ' . tep_output_string_protected($order_name); ?></div>

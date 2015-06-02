@@ -4,7 +4,7 @@
 define('NAVBAR_TITLE_1', 'Comanda');
 define('NAVBAR_TITLE_2', 'Realitzada amb &Egrave;xit');
 
-define('HEADING_TITLE', 'La teva comanda ha estat processada. Recorda que rebr&#x000E0;s un correu electr&#x000F2;nic per confirmar el lliurament. Gr&#x000E0;cies per adquirir Comer&#x000E7; Solidari!');
+define('HEADING_TITLE', 'La teva comanda ha estat processada. Recorda que rebr&#x000E0;s un correu electr&#x000F2;nic per confirmar el lliurament.<br> Gr&#x000E0;cies per adquirir Comer&#x000E7; Solidari!');
 
 define('TEXT_SUCCESS', 'La vostra comanda ha estat processada amb &egrave;xit! Els vostres productes seran fabricats en 10 dies laborables. Al moment d\'entregar-los al transportista, us farem arribar el n&uacute;mero d\'enviament que s\'adjudiqui al paquet');
 define('TEXT_NOTIFY_PRODUCTS', 'Si us plau, avisa\'m dels canvis realitzats als productes seleccionats:');
