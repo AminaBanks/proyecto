@@ -174,7 +174,7 @@
         <div class="panel panel-info">
           <div class="panel-heading"><?php echo '<strong>' . HEADING_SHIPPING_METHOD /*.. '</strong>' . tep_draw_button(TEXT_EDIT, 'glyphicon glyphicon-edit', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'), NULL, NULL, 'pull-right btn-info btn-xs' ); */?></div>
           <div class="panel-body">
-            <?php echo $order->info['shipping_method']; ?>
+            <?php echo MODE_SHOPPING_PRODUCTS;//$order->info['shipping_method']; ?>
           </div>
         </div>
         <?php
@@ -183,7 +183,7 @@
       <div class="panel panel-warning">
         <div class="panel-heading"><?php echo '<strong>' . HEADING_PAYMENT_METHOD . '</strong>' /*. tep_draw_button(TEXT_EDIT, 'glyphicon glyphicon-edit', tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'), NULL, NULL, 'pull-right btn-info btn-xs' ); */?></div>
         <div class="panel-body">
-          <?php echo $order->info['payment_method']; ?>
+          <?php echo MODE_SHOPPING_PRODUCTS;//$order->info['payment_method']; ?>
         </div>
       </div>
     </div>

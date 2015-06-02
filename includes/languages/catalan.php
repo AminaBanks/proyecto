@@ -133,7 +133,7 @@ define('BOX_HEADING_TELL_A_FRIEND', 'Digueu-li a un Amic');
 define('BOX_TELL_A_FRIEND_TEXT', 'Envieu aquesta p&agrave;gina a un amic amb un comentari.');
 
 // checkout procedure text
-define('CHECKOUT_BAR_DELIVERY', 'entrega');
+define('CHECKOUT_BAR_DELIVERY', 'lliurament');
 define('CHECKOUT_BAR_PAYMENT', 'pagament');
 define('CHECKOUT_BAR_CONFIRMATION', 'confirmaci&oacute;');
 define('CHECKOUT_BAR_FINISHED', 'finalitzat!');

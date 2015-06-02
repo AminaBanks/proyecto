@@ -11,7 +11,7 @@
 */
 
 define('NAVBAR_TITLE', 'Entra');
-define('HEADING_TITLE', 'Benvinguts, entreu la informaci&oacute; del vostre compte si us plau');
+define('HEADING_TITLE', 'Benvingut/da. Entra la informaci&oacute; del teu compte sisplau.');
 
 define('HEADING_NEW_CUSTOMER', 'Client nou');
 define('TEXT_NEW_CUSTOMER', 'Sóc un client nou.');

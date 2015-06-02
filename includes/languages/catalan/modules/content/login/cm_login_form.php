@@ -15,7 +15,7 @@
 
   define('MODULE_CONTENT_LOGIN_HEADING_RETURNING_CUSTOMER', 'Sóc Soci');
   //define('MODULE_CONTENT_LOGIN_TEXT_RETURNING_CUSTOMER', 'Isóc client qui torna.');
-  define('MODULE_CONTENT_LOGIN_TEXT_PASSWORD_FORGOTTEN', 'Ha oblidat la seva contrasenya ?Click aquí.');
+  define('MODULE_CONTENT_LOGIN_TEXT_PASSWORD_FORGOTTEN', 'Has oblidat la contrasenya? Clica aquí.');
 
   define('MODULE_CONTENT_LOGIN_TEXT_LOGIN_ERROR', 'Error: No hi ha resultats per a la direcció de correu electrònic i / o contrasenya.');
 ?>

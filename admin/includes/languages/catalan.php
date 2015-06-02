@@ -443,8 +443,8 @@ define ('TEXT_DISPLAY_NUMBER_OF_TAX_ZONES', 'Veient <strong>% d </ strong> <stro
 define ('TEXT_DISPLAY_NUMBER_OF_TAX_RATES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> les taxes d&#237;impostos)');
 define ('TEXT_DISPLAY_NUMBER_OF_ZONES', 'Veient <strong>% d </ strong> <strong>% d </ strong> (de <strong>% d </ strong> zones)');
 
-define ('PREVNEXT_BUTTON_PREV', '& lt; & lt;');
-define ('PREVNEXT_BUTTON_NEXT', '& gt; & gt;');
+define ('PREVNEXT_BUTTON_PREV', '>>');
+define ('PREVNEXT_BUTTON_NEXT', '>>');
 
 define ('TEXT_DEFAULT', 'default');
 define ('TEXT_SET_DEFAULT ',' Establir com a predeterminat ');

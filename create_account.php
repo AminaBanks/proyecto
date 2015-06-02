@@ -329,6 +329,7 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
 <?php
   if (ACCOUNT_STATE == 'true') {
 ?>
+/*****************INTRODUIRE LE NOM DE L'ECOLE QUI FAIT LA COMMANDE DES PRODUITS METTRE LES CONTACTS EN FIN DE LA PAGE ********************************************+++*/
     <div class="form-group has-feedback">
       <label for="inputState" class="control-label col-xs-3"><?php echo ENTRY_STATE; ?></label>
       <div class="col-xs-9">
