@@ -350,7 +350,7 @@ define ('PRODUCT_ADDED', '% s ha estat afegit a la cistella');
 define ('PRODUCT_REMOVED', "% s s'ha eliminat del seu carro ");
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
 //NUEVA CREACION 
-define ('NEW_CUSTOMER', 'Nou Soci');
+define ('NEW_CUSTOMER', 'NOVA SOL-LICITUD ARTESANIA.');
 define ('MESSAGE_CLIENT','Estimat Soci, <br>Dins de 24 hores, rebrà un correu electrònic amb les seves dades per iniciar sessió en artesaniafundacioproide.org<br> Gràcies <br>PROIDE');
 define('IMAGE_BUTTON_EXIT', 'sortir');
 ?>

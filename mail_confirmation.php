@@ -25,7 +25,7 @@ $smtp = array(
 
 /* TO, SUBJECT, CONTENT */
 $to         = 'aminata.bangoura@gracia.lasalle.cat';			//'secretaria@fundacioproide.org'; //EL MAIL DE LA PERSONA RESPONSABLE DE GESTIONAR LOS PEDIDOS
-$subject    = 'Mail informativo: Nova Compra de Soci !!!'; //EL CONTENIDO DE LA INFORMACION 
+$subject    = 'NOVA COMANDA ARTESANIA: !'; //EL CONTENIDO DE LA INFORMACION 
 $content    = 'Anar a l\'administrador per veure la nova compra.'; //CAMBIAR ESTAS LINEAS PARA EL CONTENIDO DEL MAIL 
 
 
