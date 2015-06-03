@@ -134,8 +134,8 @@ require_once 'class.smtp.php';
 
 /* CONFIGURATION */
 		$crendentials = array(
-							'email'     => 'secretaria@fundacioproide.org',    //Your GMail adress aminata.bangoura@gracia.lasalle.cat
-							'password'  => '29072010'								//********* HELENA MOT DE PASSE ''               //Your GMail password
+							'email'     => 'aminata.bangoura@gracia.lasalle.cat',    //Your GMail adress aminata.bangoura@gracia.lasalle.cat
+							'password'  => 'BoboSylla86'								//********* HELENA MOT DE PASSE ''               //Your GMail password
 							);
 
 
@@ -151,7 +151,7 @@ $smtp = array(
 );
 
 /* TO, SUBJECT, CONTENT */
-$to         = 'secretaria@fundacioproide.org'; //The 'To' field
+$to         = 'aminata.bangoura@gracia.lasalle.cat'; //The 'To' field
 $subject    = NEW_CUSTOMER;
 $content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname."<br>"/*.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>"/*.ENTRY_STREET_ADDRESS.$street_address."<br>".ENTRY_COMPANY.$company."<br>".ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>".ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>".ENTRY_COLLEGE.$school."<br>";
 

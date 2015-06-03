@@ -38,7 +38,8 @@ $total=1;
 	<tr class="dataTableRow">
 
    <?php
- $check_address_query = tep_db_query("SELECT p.products_quantity, pd.products_name from products p inner join products_description pd  where p.products_id=pd.products_id and p.products_quantity < 2 and pd.language_id=4");
+ $check_address_query = tep_db_query("SELECT p.products_quantity, pd.products_name from products p 
+ inner join products_description pd  where p.products_id=pd.products_id and p.products_quantity < 2 and pd.language_id=4 ORDER BY PD.PRODUCTS_NAME");
 	
     while ($categories = tep_db_fetch_array( $check_address_query)) {
     
