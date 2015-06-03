@@ -27,4 +27,5 @@ define('EMAIL_SEPARATOR', '-----------------------------------------------------
 define('TEXT_EMAIL_VIA', 'via');
 define('MESSAGE_TEXT', 'Estimat Soci <br> rebreu una comanda amb el dia i l\'hora en el qual podies passar a recollir la vostra comanda a PROIDE, per
    podeu fer el seguiment entrant al vostre compte a la part de comandes per saber l\'estat de la vostra comanda <br> Gràcies <br> Proide');
+ define('NEW_ORDER_PARTNER', 'NOU COMANDA SOCI ARTESANIA');  
 ?>

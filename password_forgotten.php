@@ -92,6 +92,7 @@ $mailer->isHTML(true); //Mail body contains HTML tags
 //Check if mail is sent :
 if(!$mailer->send()) {
     echo 'Error sending mail : ' . $mailer->ErrorInfo;
+	
 } else {
     echo 'Message sent !';	 
 }
@@ -122,9 +123,13 @@ $mailer->Subject        = $subject;
 $mailer->Body           = $content;
 $mailer->isHTML(true); //Mail body contains HTML tags
 if(!$mailer->send()) {
-    echo 'Error sending mail : ' . $mailer->ErrorInfo;
- 
+    //echo 'Error sending mail : ' . $mailer->ErrorInfo;
+ ?> <script> 
+    var error_message = "<?php echo MAIL_ERROR; ?>";
+	alert(error_message); 
+   </script>
   
+<?php
 } else {
     echo 'Message sent !'; 
 	tep_redirect(tep_href_link(FILENAME_DEFAULT, '', 'SSL'));

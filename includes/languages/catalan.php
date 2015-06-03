@@ -133,9 +133,9 @@ define('BOX_HEADING_TELL_A_FRIEND', 'Digueu-li a un Amic');
 define('BOX_TELL_A_FRIEND_TEXT', 'Envieu aquesta p&agrave;gina a un amic amb un comentari.');
 
 // checkout procedure text
-define('CHECKOUT_BAR_DELIVERY', 'lliurament');
-define('CHECKOUT_BAR_PAYMENT', 'pagament');
-define('CHECKOUT_BAR_CONFIRMATION', 'confirmaci&oacute;');
+define('CHECKOUT_BAR_DELIVERY', 'LLIURAMENT');
+define('CHECKOUT_BAR_PAYMENT', 'PAGAMENT');
+define('CHECKOUT_BAR_CONFIRMATION', 'CONFIRMACI&#x000D3;');
 define('CHECKOUT_BAR_FINISHED', 'finalitzat!');
 
 // pull down default text
@@ -345,6 +345,7 @@ define('FORM_REQUIRED_INPUT', '<span><span class="glyphicon glyphicon-asterisk f
 
 
 //BORRAR CESTA Y AÑADIR CESTA
+define('IMAGE_BUTTON_CONTINUE_1', 'Continua comprant');
 define ('PRODUCT_SUBSCRIBED', '% s ha estat afegit a la seva llista de notificacions');
 define ('PRODUCT_UNSUBSCRIBED', "% s s'ha eliminat de la seva llista de notificacions");
 define ('PRODUCT_ADDED', '% s ha estat afegit a la cistella');
@@ -352,7 +353,11 @@ define ('PRODUCT_REMOVED', "% s s'ha eliminat del seu carro ");
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
 //NUEVA CREACION 
 define ('NEW_CUSTOMER', 'NOVA SOL-LICITUD ARTESANIA.');
-define ('MESSAGE_CLIENT','Estimat Soci, <br>Dins de 24 hores, rebrà un correu electrònic amb les seves dades per iniciar sessió en artesaniafundacioproide.org<br> Gràcies <br>PROIDE');
+define ('MESSAGE_CLIENT','En menys de 24 hores rebràs un correu electrònic amb les claus d’accés al Comerç Solidari de PROIDE.<br>
+Gràcies.<br> 
+Fundació PROIDE
+');
+define('MESSAGE_SUBJECT_CREATE_ACOUNT', 'Sol·licitud Comerç Solidari PROIDE');
 define('IMAGE_BUTTON_EXIT', 'sortir');
-
+define('MAIL_ERROR', 'Adreça de correu incorrecte ');
 ?>

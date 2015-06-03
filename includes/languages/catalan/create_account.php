@@ -16,7 +16,11 @@ define('EMAIL_CONTACT', 'Per qualsevol consulta sobre els nostres serveis, si us
 define('EMAIL_WARNING', '<b>Nota:</b> Aquesta adre&ccedil;a ha estat subministrada per un dels nostres clients. Si vost&eacute; no s\'ha subscrit com a client, si us plau, comuniquins-ho a ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n");
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
 define ('NEW_CUSTOMER', 'NOVA SOL-LICITUD ARTESANIA.');//Nou Soci
-define ('MESSAGE_CLIENT','Estimat Soci, <br>Dins de 24 hores, rebrà un correu electrònic amb les seves dades per iniciar sessió en artesaniafundacioproide.org<br> Gràcies <br>PROIDE');
-define('ENTRY_COLLEGE', 'Nom d\'escola. ');
+define ('MESSAGE_CLIENT','En menys de 24 hores rebràs un correu electrònic amb les claus d’accés al Comer&#x000E7; Solidari de PROIDE<br>.Gr&#x000E0;cies<br>. 
+Fundaci&#x000F3; PROIDE<br>.
+');
+define('ENTRY_COLLEGE', 'Relaci&#x000F3; amb PROIDE.');
 define('CUSTOMER', 'SOL-LICITUD ARTESANIA.');
+define('MAIL_ERROR', 'Adre&#x000E7;a de correu incorrecte ');
+define('MESSAGE_SUBJECT_CREATE_ACOUNT', 'Sol·licitud Comer&#x000E7; Solidari PROIDE');
 ?>

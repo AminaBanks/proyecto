@@ -180,16 +180,21 @@ $mailer->isHTML(true); //Mail body contains HTML tags
 
 //Check if mail is sent :
 if(!$mailer->send()) {
-    echo 'Error sending mail : ' . $mailer->ErrorInfo;
-} else {
-    echo '';
+    echo 'Error sending mail : ' . $mailer->ErrorInfo;	
+?>
+ <script> 
+    var error_message = "<?php echo MAIL_ERROR; ?>";
+	alert(error_message); 
+   </script>
+<?php }else {
+    echo 'Ok';
 		
 }
 
 // correo al cliente que viene de hacer la petición
 /* TO, SUBJECT, CONTENT */
 $to         = $email_address; //The 'To' field
-$subject    = CUSTOMER;
+$subject    = MESSAGE_SUBJECT_CREATE_ACOUNT;
 $content    = MESSAGE_CLIENT ;
 
 
@@ -216,12 +221,17 @@ $mailer->Body           = $content;
 $mailer->isHTML(true); //Mail body contains HTML tags
 if(!$mailer->send()) {
     //echo 'Error sending mail : ' . $mailer->ErrorInfo;
+	?>
+	 <script> 
+    var error_message = "<?php echo MAIL_ERROR; ?>";
+	alert(error_message); 
+   </script>
+   <?php
 } else {
     //echo 'Message sent !';
 	$checking=true;
    tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
-  
-}
+  }
 }
 
 
@@ -274,10 +284,13 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
       <label for="inputCountry" class="control-label col-xs-3"><?php echo ENTRY_COLLEGE; ?></label>
       <div class="col-xs-9">
   <select name="school" required="" aria-required="true" id="school" class="form-control"> 
-	<option value="0"></option>
+	
+	<option value="Voluntariat">Voluntariat</option>
+	<option value="Col.laborador economic">Col&CenterDot;laborador econ&#x000F3;mic</option>
   <option value="La Salle Barceloneta">La Salle Barceloneta </option>
    <option value="La Salle Berga">La Salle Berga</option>
   <option value="La Salle Bonanova">La Salle Bonanova</option>
+   <option value="La Salle Campus Barcelona">La Salle Campus Barcelona</option>
    <option value="La Salle Cassa">La Salle Cass&#x000E0;</option>
    <option value="La Salle Comptal">La Salle Comtal</option>
    <option value="La Salle Congres">La Salle Congr&#x000E8;s</option>
@@ -287,8 +300,8 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
   <option value= "La Salle Gracia">La Salle Gr&#x000E0;cia</option>
    <option value="La Salle La Seu">La Salle La Seu</option>
   <option value="La Salle Manlleu">La Salle Manlleu</option>
-   <option value="La Salle Manressa">La Salle Manressa</option>
-   <option value="La Salle Mollerousa">La Salle Mollerusa</option>
+   <option value="La Salle Manresa">La Salle Manresa</option>
+   <option value="La Salle Mollerussa">La Salle Mollerussa</option>
    <option value="La Salle Montcada">La Salle Montcada</option>
    <option value="La Salle Palamos">La Salle Palam&#x000F3;s</option>
   <option value="La Salle Premia">La Salle Premi&#x000E0;</option>
@@ -297,7 +310,11 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
   <option value="La Salle Santa Coloma">La Salle Santa Coloma</option>
    <option value="La Salle Tarragona">La Salle Tarragona</option>
   <option value="La Salle Torreforta">La Salle Torreforta</option>
+  <option value="Fundacio Vidal i Barraquer Cambrils">Fundaci&#x000F3; Vidal i Barraquer Cambrils</option>
   </select>
+  <?php
+	echo FORM_REQUIRED_INPUT;
+  ?>
       </div>
     </div>
     <div class="form-group has-feedback">

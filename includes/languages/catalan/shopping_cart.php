@@ -21,6 +21,7 @@ define('TEXT_CART_EMPTY', 'La vostra cistella &eacute;s buida!');
 define('SUB_TITLE_SUB_TOTAL', 'Subtotal:');
 define('SUB_TITLE_TOTAL', 'Total:');
 
+
 define('OUT_OF_STOCK_CANT_CHECKOUT', 'Els productes marcats amb ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' no estan disponibles en la quantitat que demaneu.<br>Modifiqueu la quantitat de productes marcats amb ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ', Gr&agrave;cies');
 define('OUT_OF_STOCK_CAN_CHECKOUT', 'Els productes marcats amb ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' no estan disponibles en la quantitat que demaneu.<br>Per&ograve; tant se val, podeu comprar els que hi ha disponibles i la resta us els enviarem m&eacute;s tard, o esperar a que la quantitat requerida estigui disponible.');
 

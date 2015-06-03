@@ -25,6 +25,7 @@ define('DATE_TIME_FORMAT', DATE_FORMAT_SHORT . ' %H:%M:%S');
 define('JQUERY_DATEPICKER_I18N_CODE', ''); // leave empty for en_US; see http://jqueryui.com/demos/datepicker/#localization
 define('JQUERY_DATEPICKER_FORMAT', 'mm/dd/yy'); // see http://docs.jquery.com/UI/Datepicker/formatDate
 
+define('IMAGE_BUTTON_CONTINUE_1', 'Continue by');
 ////
 // Return date in raw format
 // $date should be in format mm/dd/yyyy
@@ -262,6 +263,7 @@ define('TEXT_CCVAL_ERROR_UNKNOWN_CARD', 'The first four digits of the number ent
 define('TEXT_VIEW', 'View: ');
 define('TEXT_VIEW_LIST', ' List');
 define('TEXT_VIEW_GRID', ' Grid');
+define('MAIL_ERROR', 'E-mail incorrect');
 
 // search placeholder
 define('TEXT_SEARCH_PLACEHOLDER','Search');

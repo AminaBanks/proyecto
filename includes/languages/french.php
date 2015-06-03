@@ -22,6 +22,8 @@ if (strtolower(substr(PHP_OS, 0, 3)) === 'win') {
   @setlocale(LC_TIME, 'fr_FR.ISO_8859-1');
 }
 
+define('IMAGE_BUTTON_CONTINUE_1', 'Continue acheter');
+
 define('DATE_FORMAT_SHORT', '%d/%m/%Y');  // this is used for strftime()
 define('DATE_FORMAT_LONG', '%A %d %B %Y'); // this is used for strftime()
 define('DATE_FORMAT', 'd/m/Y'); // this is used for date()
@@ -294,5 +296,6 @@ define ('NEW_CUSTOMER', 'Nouvel Partenaire');
 define ('MESSAGE_CLIENT','Cher Partenaire, <br>Dans les 24 heures, vous recevrez un email avec vos coordonnées pour vous connecter à artesaniafundacioproide.org<br>Merci.<br>PROIDE');
 define('IMAGE_BUTTON_EXIT', 'sortir');
 
+define('MAIL_ERROR', 'Mot de passe incorrecte');
 ?>
 

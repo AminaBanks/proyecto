@@ -26,6 +26,7 @@ define('DATE_TIME_FORMAT', DATE_FORMAT_SHORT . ' %H:%M:%S');
 define('JQUERY_DATEPICKER_I18N_CODE', ''); // leave empty for en_US; see http://jqueryui.com/demos/datepicker/#localization
 define('JQUERY_DATEPICKER_FORMAT', 'dd/mm/yy'); // see http://docs.jquery.com/UI/Datepicker/formatDate
 
+define('IMAGE_BUTTON_CONTINUE_1', 'Continua comprando');
 ////
 // Return date in raw format
 // $date should be in format mm/dd/yyyy
@@ -298,5 +299,5 @@ define ('NEW_CUSTOMER', 'Nuevo Socio');
 define ('MESSAGE_CLIENT','Querido Socio, <br>Dentro de 24 horas, recibirá un correo electrónico con sus datos para iniciar sesión en artesaniafundacioproide.org<br> Gracias <br>PROIDE');
 
 define('IMAGE_BUTTON_EXIT', 'salir');
-
+define('MAIL_ERROR', 'Correo electronico incorrecto');
 ?>

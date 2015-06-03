@@ -285,7 +285,7 @@
 
       // TO, SUBJECT, CONTENT
       $to         = $order->customer['email_address']; //The 'To' field
-      $subject    = "NUEVA COMPRA";
+      $subject    = NEW_ORDER_PARTNER;
       $content    = $email_order;
 
 
@@ -303,7 +303,7 @@
       //Now, send mail :
       //From - To :
       $mailer->From       = $crendentials['email'];
-      $mailer->FromName   = 'fundacioProide'; //Optional
+      $mailer->FromName   = 'FUNDACIO PROIDE ARTESANIA COL-LABORACIO <br> GR&#x000C0;CIES'; //Optional
       $mailer->addAddress($to);  // Add a recipient
 
       //Subject - Body :

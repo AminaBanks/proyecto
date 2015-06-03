@@ -44,7 +44,7 @@ $mailer->SMTPSecure = $smtp['secure']; //La seguridad
 //Now, send mail :
 //From - To :
 $mailer->From       = $crendentials['email'];//RECUPERAR EL MAIL
-$mailer->FromName   = 'PROIDE'; //Optional // nombre de la ong
+$mailer->FromName   = 'FUNDACIO PROIDE ARTESANIA <br> GR&#x000C0;CIES'; //Optional // nombre de la ong
 $mailer->addAddress($to);  // Add a recipient /n del mail / ADDRESS
 
 //Subject - Body :

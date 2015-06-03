@@ -15,8 +15,8 @@ define('HEADING_TITLE', 'Benvingut/da. Entra la informaci&oacute; del teu compte
 
 define('HEADING_NEW_CUSTOMER', 'Client nou');
 define('TEXT_NEW_CUSTOMER', 'Sóc un client nou.');
-define('TEXT_NEW_CUSTOMER_INTRODUCTION', 'Si no tens claus d\'acces per entrar al Comerç Solidari de,' . STORE_NAME . 'pregunta-ho a la persona responsable de de la teva escola o bé contacta amb secretaria@fundacioproide.ord, o trucant al 932.377.180.');
-
+//define('TEXT_NEW_CUSTOMER_INTRODUCTION', 'Si no tens claus d\'acces per entrar al Comerç Solidari de,' . STORE_NAME . 'pregunta-ho a la persona responsable de de la teva escola o bé contacta amb secretaria@fundacioproide.ord, o trucant al 932.377.180.');
+define('TEXT_NEW_CUSTOMER_INTRODUCTION','Per obtenir claus d’accés i entrar al Comerç Solidari de PROIDE, cal ser membre d’una escola de La Salle Catalunya, o col·laborador/a o voluntari/a de PROIDE.');
 define('HEADING_RETURNING_CUSTOMER', 'Ja sóc client');
 define('TEXT_RETURNING_CUSTOMER', 'He comprat altres vegades.');
 
