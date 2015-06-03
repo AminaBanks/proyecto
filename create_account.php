@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 require('includes/application_top.php');
 $process = false;
 
@@ -38,6 +41,10 @@ if (isset($HTTP_POST_VARS['action']) && ($HTTP_POST_VARS['action'] == 'process')
 
       $messageStack->add('create_account', ENTRY_LAST_NAME_ERROR);
     }
+	
+	$school = tep_db_prepare_input($HTTP_POST_VARS['school']);    
+	//echo $school;
+ 
 
     /*if (ACCOUNT_DOB == 'true') {
       if ((strlen($dob) < ENTRY_DOB_MIN_LENGTH) || (!empty($dob) && (!is_numeric(tep_date_raw($dob)) || !@checkdate(substr(tep_date_raw($dob), 4, 2), substr(tep_date_raw($dob), 6, 2), substr(tep_date_raw($dob), 0, 4))))) {
@@ -127,8 +134,8 @@ require_once 'class.smtp.php';
 
 /* CONFIGURATION */
 		$crendentials = array(
-							'email'     => 'aminata.bangoura@gracia.lasalle.cat',    //Your GMail adress
-							'password'  => 'BoboSylla86'               //Your GMail password
+							'email'     => 'secretaria@fundacioproide.org',    //Your GMail adress aminata.bangoura@gracia.lasalle.cat
+							'password'  => '29072010'								//********* HELENA MOT DE PASSE ''               //Your GMail password
 							);
 
 
@@ -144,9 +151,9 @@ $smtp = array(
 );
 
 /* TO, SUBJECT, CONTENT */
-$to         = 'aminata.bangoura@gracia.lasalle.cat'; //The 'To' field
+$to         = 'secretaria@fundacioproide.org'; //The 'To' field
 $subject    = NEW_CUSTOMER;
-$content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname."<br>"/*.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>"/*.ENTRY_STREET_ADDRESS.$street_address."<br>".ENTRY_COMPANY.$company."<br>".ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>".ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>"/*.ENTRY_FAX_NUMBER.$fax."<br>"*/;
+$content    = ENTRY_FIRST_NAME.$firstname."<br>".ENTRY_LAST_NAME.$lastname."<br>"/*.ENTRY_DATE_OF_BIRTH.$dob*/."<br>".ENTRY_EMAIL_ADDRESS.$email_address."<br>"/*.ENTRY_STREET_ADDRESS.$street_address."<br>".ENTRY_COMPANY.$company."<br>".ENTRY_CITY.$city."<br>".ENTRY_POST_CODE.$postcode."<br>".ENTRY_STATE.$state."<br>"*/.ENTRY_TELEPHONE_NUMBER.$telephone."<br>".ENTRY_COLLEGE.$school."<br>";
 
 
 $mailer = new PHPMailer();
@@ -182,7 +189,7 @@ if(!$mailer->send()) {
 // correo al cliente que viene de hacer la petición
 /* TO, SUBJECT, CONTENT */
 $to         = $email_address; //The 'To' field
-$subject    = NEW_CUSTOMER;
+$subject    = CUSTOMER;
 $content    = MESSAGE_CLIENT ;
 
 
@@ -261,8 +268,38 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
       </div>
     </div-->
 <?php
-  //}
-?>
+  //}  
+?>	
+	 <div class="form-group has-feedback">
+      <label for="inputCountry" class="control-label col-xs-3"><?php echo ENTRY_COLLEGE; ?></label>
+      <div class="col-xs-9">
+  <select name="school" required="" aria-required="true" id="school" class="form-control"> 
+	<option value="0"></option>
+  <option value="La Salle Barceloneta">La Salle Barceloneta </option>
+   <option value="La Salle Berga">La Salle Berga</option>
+  <option value="La Salle Bonanova">La Salle Bonanova</option>
+   <option value="La Salle Cassa">La Salle Cass&#x000E0;</option>
+   <option value="La Salle Comptal">La Salle Comtal</option>
+   <option value="La Salle Congres">La Salle Congr&#x000E8;s</option>
+   <option value= "La Salle Figueras">La Salle Figueres</option>
+  <option value= "La Salle Girona">La Salle Girona</option>
+   <option value= "La Salle Horta">La Salle Horta</option>
+  <option value= "La Salle Gracia">La Salle Gr&#x000E0;cia</option>
+   <option value="La Salle La Seu">La Salle La Seu</option>
+  <option value="La Salle Manlleu">La Salle Manlleu</option>
+   <option value="La Salle Manressa">La Salle Manressa</option>
+   <option value="La Salle Mollerousa">La Salle Mollerusa</option>
+   <option value="La Salle Montcada">La Salle Montcada</option>
+   <option value="La Salle Palamos">La Salle Palam&#x000F3;s</option>
+  <option value="La Salle Premia">La Salle Premi&#x000E0;</option>
+  <option value="La Salle Reus">La Salle Reus</option>
+   <option value="La Salle Sant Celoni">La Salle Sant Celoni</option>
+  <option value="La Salle Santa Coloma">La Salle Santa Coloma</option>
+   <option value="La Salle Tarragona">La Salle Tarragona</option>
+  <option value="La Salle Torreforta">La Salle Torreforta</option>
+  </select>
+      </div>
+    </div>
     <div class="form-group has-feedback">
       <label for="inputEmail" class="control-label col-xs-3"><?php echo ENTRY_EMAIL_ADDRESS; ?></label>
       <div class="col-xs-9">
@@ -374,7 +411,7 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
     </div>
   </div-->
 
-  <h2><?php echo CATEGORY_CONTACT; ?></h2>
+  <!--<h2><?php echo CATEGORY_CONTACT; ?></h2>-->
   
   <div class="contentText">
     <div class="form-group has-feedback">
@@ -396,10 +433,10 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
         ?>
       </div>
     </div-->
-	 <div class="buttonSet col-sm-12">
+	 <div class="buttonSet col-xs-12">
 	 <div class=>
-	 <div class="text-left col-sm-6"><?php echo tep_draw_button(IMAGE_BUTTON_BACK, 'glyphicon glyphicon-user', FILENAME_DEFAULT, 'primary', null, 'btn-success'); ?></div>
-     <div class="text-right col-sm-6"><?php echo tep_draw_button(IMAGE_BUTTON_EMAIL, 'glyphicon glyphicon-user', null, 'primary', null, 'btn-success'); ?></div>
+	 <div class="text-left col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_BACK, 'glyphicon glyphicon-user', FILENAME_DEFAULT, 'primary', null, 'btn-success'); ?></div>
+     <div class="text-right col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_EMAIL, 'glyphicon glyphicon-user', null, 'primary', null, 'btn-success'); ?></div>
   </div>
 
 </div>

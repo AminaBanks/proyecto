@@ -17,4 +17,6 @@ define('EMAIL_WARNING', '<b>Nota:</b> Aquesta adre&ccedil;a ha estat subministra
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
 define ('NEW_CUSTOMER', 'NOVA SOL-LICITUD ARTESANIA.');//Nou Soci
 define ('MESSAGE_CLIENT','Estimat Soci, <br>Dins de 24 hores, rebrà un correu electrònic amb les seves dades per iniciar sessió en artesaniafundacioproide.org<br> Gràcies <br>PROIDE');
+define('ENTRY_COLLEGE', 'Nom d\'escola. ');
+define('CUSTOMER', 'SOL-LICITUD ARTESANIA.');
 ?>

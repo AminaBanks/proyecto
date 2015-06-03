@@ -13,9 +13,9 @@
     tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
   }
 
-  if ( (tep_not_null(MODULE_PAYMENT_INSTALLED)) && (!tep_session_is_registered('payment')) ) {
+  /*if ( (tep_not_null(MODULE_PAYMENT_INSTALLED)) && (!tep_session_is_registered('payment')) ) {
     tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
- }
+ }*/
 
 // avoid hack attempts during the checkout procedure by checking the internal cartID
   if (isset($cart->cartID) && tep_session_is_registered('cartID')) {
@@ -27,8 +27,8 @@
   include(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_PROCESS);
 
 // load selected payment module
-  require(DIR_WS_CLASSES . 'payment.php');
-  $payment_modules = new payment($payment);
+  //require(DIR_WS_CLASSES . 'payment.php');
+  //$payment_modules = new payment($payment);
 
 // load the selected shipping module
   require(DIR_WS_CLASSES . 'shipping.php');
@@ -51,11 +51,11 @@
     }
   }
 
-  $payment_modules->update_status();
+  /*$payment_modules->update_status();
 
   if ( ($payment_modules->selected_module != $payment) || ( is_array($payment_modules->modules) && (sizeof($payment_modules->modules) > 1) && !is_object($$payment) ) || (is_object($$payment) && ($$payment->enabled == false)) ) {
     tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode(ERROR_NO_PAYMENT_MODULE_SELECTED), 'SSL'));
-  }
+  }*/
 
   require(DIR_WS_CLASSES . 'order_total.php');
   $order_total_modules = new order_total;
@@ -63,7 +63,7 @@
   $order_totals = $order_total_modules->process();
 
 // load the before_process function from the payment modules
-  $payment_modules->before_process();
+  //$payment_modules->before_process();
 
   $sql_data_array = array('customers_id' => $customer_id,
                           'customers_name' => $order->customer['firstname'] . ' ' . $order->customer['lastname'],
@@ -326,7 +326,7 @@
   }
 
 // load the after_process function from the payment modules
-  $payment_modules->after_process();
+  //$payment_modules->after_process();
 
   $cart->reset(true);
 

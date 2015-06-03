@@ -25,4 +25,8 @@ define('EMAIL_PASSWORD_RESET_SUBJECT', STORE_NAME . ' - Nueva Contraseña');
 define('EMAIL_PASSWORD_RESET_BODY', 'Una nueva contraseña ha sido solicitada de su cuenta en ' . STORE_NAME . '.' . "\n\n" . 'Por favor, siga este enlace personal para cambiar la contraseña de forma segura:' . "\n\n" . '%s' . "\n\n" . 'Este enlace se descartar&aacute; de forma automática después de 24 horas o después de que su contraseña haya sido cambiada.' . "\n\n" . 'Para obtener ayuda con cualquiera de nuestros servicios, por favor escriba al Administrador de la Tienda: ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n\n");
 
 define('ERROR_ACTION_RECORDER', 'Error: Un enlace de restablecimiento de contraseña ya ha sido enviado. Vuelva a intentarlo en %s minutos.');
+define('PASSWORD_FORGETTEN', 'Muy pronto gestionaremos tu contraseña.');
+define('PASSWORD_ADMIN', 'Contraseña olvidada');
+define('PASSWORD_RECEIVE', 'Contraseña olvidada');
+
 ?>

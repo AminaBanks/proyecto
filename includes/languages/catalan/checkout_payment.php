@@ -16,7 +16,7 @@ define('NAVBAR_TITLE_2', 'Forma de pagament');
 define('HEADING_TITLE', 'Dades de pagament');
 
 define('TABLE_HEADING_BILLING_ADDRESS', 'Adre&ccedil;a de Facturaci&oacute;');
-define('TEXT_SELECTED_BILLING_DESTINATION', 'Seleccioneu l\'adre&ccedil;a on voleu que s\'envi&iuml; la factura, si us plau.');
+define('TEXT_SELECTED_BILLING_DESTINATION', '');
 define('TITLE_BILLING_ADDRESS', 'Adre&ccedil;a de Facturaci&oacute;:');
 
 define('TABLE_HEADING_PAYMENT_METHOD', 'Forma de pagament');

@@ -26,6 +26,7 @@ define('HEADING_BILLING_ADDRESS', 'Billing Address');
 define('HEADING_PAYMENT_METHOD', 'Payment Method');
 define('HEADING_PAYMENT_INFORMATION', 'Payment Information');
 define('HEADING_ORDER_COMMENTS', 'Comments About Your Order');
+define('MODE_SHOPPING_PRODUCTS', 'Cash on delivery');
 
 define('TEXT_EDIT', 'Edit');
 ?>

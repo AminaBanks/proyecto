@@ -101,5 +101,6 @@ define ('ERROR_CANNOT_LINK_TO_SAME_CATEGORY', 'Error: No es pot vincular product
 define ('ERROR_CATALOG_IMAGE_DIRECTORY_NOT_WRITEABLE', 'Error: directori d&#39imatges del catàleg no es pot escriure:'. DIR_FS_CATALOG_IMAGES);
 define ('ERROR_CATALOG_IMAGE_DIRECTORY_DOES_NOT_EXIST', 'Error: directori d&#39imatges del catàleg no existeix:'. DIR_FS_CATALOG_IMAGES);
 define ('ERROR_CANNOT_MOVE_CATEGORY_TO_PARENT', 'Error :. La categoria no es pot moure dins de la categoria infantil ');
+//define('TEXT_PRODUCTS_LARGE_IMAGE',);
 
 ?>

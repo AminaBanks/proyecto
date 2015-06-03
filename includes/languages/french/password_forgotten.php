@@ -24,4 +24,7 @@ define('EMAIL_PASSWORD_RESET_SUBJECT', STORE_NAME . ' - Nouveau mot de passe');
 define('EMAIL_PASSWORD_RESET_BODY', 'Un nouveau mot de passe a été demandé pour votre compte client chez ' . STORE_NAME . '.' . "\n\n" . 'Merci de cliquer sur le lien suivant afin de modifier votre mot de passe en toute sécurité :' . "\n\n" . '%s' . "\n\n" . 'Ce lien sera automatiquement invalide après 24h si vous n\'avez pas modifié votre mot de passe.' . "\n\n" . 'Pour toute aide complémentaire, veuillez contacter le propriétaire de la boutique à l\'adresse suivante :' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n\n");
 
 define('ERROR_ACTION_RECORDER' ,'Erreur : une demande de modification de mot de passe contenant les instructions pour le faire vous a déjà été envoyée par email. Merci de renouveler votre demande dans %s minutes.');
+define('PASSWORD_FORGETTEN','Bientôt npus allons gérer votre mot de passe.');
+define('PASSWORD_ADMIN', 'Mot de passe oubliée');
+define('PASSWORD_RECEIVE', 'Mot de passe oubliée');
 ?>

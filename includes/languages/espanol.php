@@ -111,7 +111,7 @@ define('JS_ERROR_SUBMITTED', 'Ya se ha enviado el formulario. Pulse Aceptar y es
 define('ERROR_NO_PAYMENT_MODULE_SELECTED', 'Por favor seleccione un m&eacute;todo de pago para su pedido.');
 
 define('CATEGORY_COMPANY', 'Datos de la Empresa');
-define('CATEGORY_PERSONAL', 'Datos personales');
+define('CATEGORY_PERSONAL', '<br>Formulario de registro');
 define('CATEGORY_ADDRESS', 'Direcci&oacute;n');
 define('CATEGORY_CONTACT', 'Informaci&oacute;n de Contacto');
 define('CATEGORY_OPTIONS', 'Opciones');

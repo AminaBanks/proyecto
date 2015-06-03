@@ -33,5 +33,6 @@ define('EMAIL_WARNING', '<strong><u>REMARQUE IMPORTANTE :</u></strong>Vous recev
 define('IMAGE_BUTTON_EMAIL', 'Envoyer Email');
 define ('NEW_CUSTOMER', 'Nouvel Partenaire');
 define ('MESSAGE_CLIENT','Cher Partenaire, <br>Dans les 24 heures, vous recevrez un email avec vos coordonnées pour vous connecter à artesaniafundacioproide.org<br>Merci.<br>PROIDE');
+define('CUSTOMER', 'DEMANDÉE LE MOT DE PASSE');
 ?>
 

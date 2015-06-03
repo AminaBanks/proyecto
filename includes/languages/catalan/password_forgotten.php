@@ -14,4 +14,7 @@ define('EMAIL_PASSWORD_REMINDER_SUBJECT', STORE_NAME . ' - Contrasenya Nova');
 define('EMAIL_PASSWORD_REMINDER_BODY', 'S\'ha demanat una contrasenya nova des de ' . $REMOTE_ADDR . '.' . "\n\n" . 'La vostra contrasenya nova per \'' . STORE_NAME . '\' &eacute;s:' . "\n\n" . '   %s' . "\n\n");
 
 define('SUCCESS_PASSWORD_SENT', 'Hem enviat una contrasenya nova a la vostra adre&ccedil;a d\'e-mail');
+define('PASSWORD_FORGETTEN', 'Molt aviat gestionarem la teva contrasenya.');
+define('PASSWORD_ADMIN', 'CONTRASENYA OBLIDADA ');
+define('PASSWORD_RECEIVE', 'CONTRASENYA OBLIDADA ');
 ?>

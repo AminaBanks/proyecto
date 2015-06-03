@@ -155,7 +155,7 @@ define('JS_ERROR_SUBMITTED', 'Ja heu enviat el formulari. Premeu Accepta i esper
 define('ERROR_NO_PAYMENT_MODULE_SELECTED', 'Si us plau, seleccioneu un m&egrave;tode de pagament per la vostra comanda.');
 
 define('CATEGORY_COMPANY', 'Empresa');
-define('CATEGORY_PERSONAL', 'Personal');
+define('CATEGORY_PERSONAL', '<br> Formulari d\'inscripci&#x000F3;');
 define('CATEGORY_ADDRESS', 'Adre&ccedil;a');
 define('CATEGORY_CONTACT', 'Contacte');
 define('CATEGORY_OPTIONS', 'Opcions');
@@ -168,11 +168,12 @@ define('ENTRY_GENDER', 'Sexe:');
 define('ENTRY_GENDER_ERROR', 'Si us plau, seleccioneu una opci&oacute;.');
 define('ENTRY_GENDER_TEXT', '*');
 define('ENTRY_FIRST_NAME', 'Nom:');
+define('ENTRY_COLLEGE', 'Nom d\'escola:');
 define('ENTRY_FIRST_NAME_ERROR', 'El vostre nom ha de tenir almenys ' . ENTRY_FIRST_NAME_MIN_LENGTH . ' lletres.');
-define('ENTRY_FIRST_NAME_TEXT', '*');
+define('ENTRY_FIRST_NAME_TEXT', '');
 define('ENTRY_LAST_NAME', 'Cognoms:');
 define('ENTRY_LAST_NAME_ERROR', 'Els vostres cognoms han de tenir almenys ' . ENTRY_LAST_NAME_MIN_LENGTH . ' lletres.');
-define('ENTRY_LAST_NAME_TEXT', '*');
+define('ENTRY_LAST_NAME_TEXT', '');
 define('ENTRY_DATE_OF_BIRTH', 'Data de naixement:');
 define('ENTRY_DATE_OF_BIRTH_ERROR', 'La vostra data de naixement ha de ser en aquest format: DD/MM/AAAA (p.ex. 21/05/1970)');
 define('ENTRY_DATE_OF_BIRTH_TEXT', '* (p.ex. 21/05/1970)');
@@ -180,7 +181,7 @@ define('ENTRY_EMAIL_ADDRESS', 'E-Mail:');
 define('ENTRY_EMAIL_ADDRESS_ERROR', 'La vostra adre&ccedil;a d\'E-Mail ha de tenir almenys ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' lletres.');
 define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', 'La vostra adre&ccedil;a d\'E-Mail no sembla v&agrave;lida - si us plau, feu els canvis necessaris.');
 define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'La vostra adre&ccedil;a d\'E-Mail ja figura a la nostra base de dades de clients - podeu entrar a la vostra compta amb aquesta adre&ccedil; o crear un compte nou amb una adre&ccedil;a diferent.');
-define('ENTRY_EMAIL_ADDRESS_TEXT', '*');
+define('ENTRY_EMAIL_ADDRESS_TEXT', '');
 define('ENTRY_STREET_ADDRESS', 'Adre&ccedil;a:');
 define('ENTRY_STREET_ADDRESS_ERROR', 'La vostra adre&ccedil;a ha de tenir almenys ' . ENTRY_STREET_ADDRESS_MIN_LENGTH . ' lletres.');
 define('ENTRY_STREET_ADDRESS_TEXT', '*');
@@ -353,4 +354,5 @@ define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
 define ('NEW_CUSTOMER', 'NOVA SOL-LICITUD ARTESANIA.');
 define ('MESSAGE_CLIENT','Estimat Soci, <br>Dins de 24 hores, rebrà un correu electrònic amb les seves dades per iniciar sessió en artesaniafundacioproide.org<br> Gràcies <br>PROIDE');
 define('IMAGE_BUTTON_EXIT', 'sortir');
+
 ?>

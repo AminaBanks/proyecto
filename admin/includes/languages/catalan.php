@@ -60,6 +60,7 @@ define('HEADER_TITLE_ADMINISTRATION', 'Administraci&#243;');
 define('BOX_TOOLS_BACKUP','Backup');
 define('BOX_TOOLS_MAIL','Correu electronic');
 define('BOX_TOOLS_SERVER_INFO', 'Server');
+define ('TEXT_PRODUCTS_LARGE_IMAGE ',' Ampliació d&#39imatge');
 
 // text for gender
 define('MALE', 'Home');

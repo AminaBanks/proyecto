@@ -26,6 +26,7 @@ define('HEADING_BILLING_ADDRESS', 'Dirección de Facturación');
 define('HEADING_PAYMENT_METHOD', 'Forma de Pago');
 define('HEADING_PAYMENT_INFORMATION', 'Datos del Pago');
 define('HEADING_ORDER_COMMENTS', 'Comentarios sobre su pedido');
+define('MODE_SHOPPING_PRODUCTS', 'En efectivo');
 
 define('TEXT_EDIT', 'Editar');
 ?>

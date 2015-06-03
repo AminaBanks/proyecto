@@ -106,7 +106,7 @@ define('JS_ERROR_SUBMITTED', 'Ce formulaire a été déjà soumis. Veuillez appu
 define('ERROR_NO_PAYMENT_MODULE_SELECTED', 'Veuillez choisir un mode de paiement pour votre commande.');
 
 define('CATEGORY_COMPANY', 'Détails sociétés');
-define('CATEGORY_PERSONAL', 'Vos données personnels');
+define('CATEGORY_PERSONAL', '<br>Vos données personnels');
 define('CATEGORY_ADDRESS', 'Votre adresse');
 define('CATEGORY_CONTACT', 'Votre adresse');
 define('CATEGORY_OPTIONS', 'Options');
@@ -116,13 +116,13 @@ define('ENTRY_COMPANY', 'Nom de la société :');
 define('ENTRY_COMPANY_TEXT', '');
 define('ENTRY_GENDER', 'Genre :');
 define('ENTRY_GENDER_ERROR', 'Veuillez choisir votre genre.');
-define('ENTRY_GENDER_TEXT', '*');
+define('ENTRY_GENDER_TEXT', '');
 define('ENTRY_FIRST_NAME', 'Prénom :');
 define('ENTRY_FIRST_NAME_ERROR', 'Votre prénom doit contenir un minimum de ' . ENTRY_FIRST_NAME_MIN_LENGTH . ' caractères.');
-define('ENTRY_FIRST_NAME_TEXT', '*');
+define('ENTRY_FIRST_NAME_TEXT', '');
 define('ENTRY_LAST_NAME', 'Nom :');
 define('ENTRY_LAST_NAME_ERROR', 'Votre nom doit contenir un minimum de ' . ENTRY_LAST_NAME_MIN_LENGTH . ' caractères.');
-define('ENTRY_LAST_NAME_TEXT', '*');
+define('ENTRY_LAST_NAME_TEXT', '');
 define('ENTRY_DATE_OF_BIRTH', 'Date de naissance :');
 define('ENTRY_DATE_OF_BIRTH_ERROR', 'Votre date de naissance doit avoir ce format : JJ/MM/AAAA (ex. 18/02/1961).');
 define('ENTRY_DATE_OF_BIRTH_TEXT', '* (ex. 18/02/1961)');

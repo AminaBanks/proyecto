@@ -76,7 +76,7 @@
 <div class="contentContainer">
 
 <?php
-  if (isset($HTTP_GET_VARS['payment_error']) && is_object(${$HTTP_GET_VARS['payment_error']}) && ($error = ${$HTTP_GET_VARS['payment_error']}->get_error())) {
+  /*if (isset($HTTP_GET_VARS['payment_error']) && is_object(${$HTTP_GET_VARS['payment_error']}) && ($error = ${$HTTP_GET_VARS['payment_error']}->get_error())) {
 ?>
 
   <div class="contentText">
@@ -86,7 +86,7 @@
   </div>
 
 <?php
-  }
+  }*/
 ?>
 
   <!--<h2><?php //echo TABLE_HEADING_BILLING_ADDRESS; ?></h2>
@@ -148,7 +148,7 @@
     }
 ?>
 
-  <div class="contentText">
+  <!--<div class="contentText">
 
     <table class="table table-striped table-condensed table-hover">
       <tbody>
@@ -156,21 +156,21 @@
   $radio_buttons = 0;
   for ($i=0, $n=sizeof($selection); $i<$n; $i++) {
 ?>
-      <!--<tr>
-        <td><strong><?php //echo //$selection[$i]['module']; ?></strong></td>
+      <tr>
+        <td><strong><?php //echo $selection[$i]['module']; ?></strong></td>
         <td align="right">
 
 <?php
-    //if (sizeof($selection) > 1) {
-     // echo tep_draw_radio_field('payment', $selection[$i]['id'], ($selection[$i]['id'] == $payment), 'required aria-required="true"');
-    //} else {
-     // echo tep_draw_radio_field('payment', $selection[$i]['id'], ($selection[$i]['id'] == $payment), 'required aria-required="true"');
-	  //echo tep_draw_hidden_field('payment', $selection[$i]['id']);
-    //}
+    if (sizeof($selection) > 1) {
+		echo tep_draw_radio_field('payment', $selection[$i]['id'], ($selection[$i]['id'] == $payment), 'required aria-required="true"');
+    } else {
+		//echo tep_draw_radio_field('payment', $selection[$i]['id'], ($selection[$i]['id'] == $payment), 'required aria-required="true"');
+		//echo tep_draw_hidden_field('payment', $selection[$i]['id']);
+    }
 ?>
 
         </td>
-      </tr>-->
+      </tr>
 
 <?php
     if (isset($selection[$i]['error'])) {
@@ -200,7 +200,7 @@
       }
 ?>
 
-        </table></td>
+       </table></td>
       </tr>
 
 <?php
@@ -216,7 +216,7 @@
       </tbody>
     </table>
 
-  </div>
+  </div>-->
 
 
 

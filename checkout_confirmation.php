@@ -14,30 +14,30 @@
     tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
   }
 
-  if (!tep_session_is_registered('payment')) tep_session_register('payment');
+  /*if (!tep_session_is_registered('payment')) tep_session_register('payment');
   if (isset($HTTP_POST_VARS['payment'])) $payment = $HTTP_POST_VARS['payment'];
-
+*/
   if (!tep_session_is_registered('comments')) tep_session_register('comments');
   if (isset($HTTP_POST_VARS['comments']) && tep_not_null($HTTP_POST_VARS['comments'])) {
     $comments = tep_db_prepare_input($HTTP_POST_VARS['comments']);
   }
 
 // load the selected payment module
-  require(DIR_WS_CLASSES . 'payment.php');
-  $payment_modules = new payment($payment);
+  //require(DIR_WS_CLASSES . 'payment.php');
+  //$payment_modules = new payment($payment);
 
   require(DIR_WS_CLASSES . 'order.php');
   $order = new order;
 
-  $payment_modules->update_status();
+  //$payment_modules->update_status();
 
-  if ( ($payment_modules->selected_module != $payment) || ( is_array($payment_modules->modules) && (sizeof($payment_modules->modules) > 1) && !is_object($$payment) ) || (is_object($$payment) && ($$payment->enabled == false)) ) {
+  /*if ( ($payment_modules->selected_module != $payment) || ( is_array($payment_modules->modules) && (sizeof($payment_modules->modules) > 1) && !is_object($$payment) ) || (is_object($$payment) && ($$payment->enabled == false)) ) {
     tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode(ERROR_NO_PAYMENT_MODULE_SELECTED), 'SSL'));
   }
 
   if (is_array($payment_modules->modules)) {
     $payment_modules->pre_confirmation_check();
-  }
+  }*/
 
 // load the selected shipping module
   require(DIR_WS_CLASSES . 'shipping.php');
