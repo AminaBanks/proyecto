@@ -129,11 +129,11 @@
     <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CHECKOUT, 'glyphicon glyphicon-chevron-right', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
   </div>-->
   <!--	EN ESTA LINEA ES CREAR UN BUTTON PARA DECIR SIGUE continua-->
-  <div class="buttonSet col-xs-12">
-    <div class="text-left col-xs-6" style="font-size: 8px"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE_1, 'glyphicon glyphicon-chevron-left', tep_href_link(FILENAME_DEFAULT, '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
-    <div class="text-right col-xs-6" style="font-size: 8px"><?php echo tep_draw_button(IMAGE_BUTTON_CHECKOUT, 'glyphicon glyphicon-chevron-right', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
+  <div class="col-xs-12"> <div class="buttonSet row">  
+    <div class="text-left col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE_1, 'glyphicon glyphicon-chevron-left', tep_href_link(FILENAME_DEFAULT, '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
+    <div class="text-right col-xs-6"><?php echo tep_draw_button(IMAGE_BUTTON_CHECKOUT, 'glyphicon glyphicon-chevron-right', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'), 'primary', NULL, 'btn-success'); ?></div>
   </div>
-
+</div>
 <?php
     $initialize_checkout_methods = $payment_modules->checkout_initialization_method();
 
