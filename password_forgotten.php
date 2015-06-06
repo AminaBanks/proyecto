@@ -46,8 +46,8 @@ require_once 'class.smtp.php';
 
 /* CONFIGURATION */
 $crendentials = array(
-    'email'     => 'aminata.bangoura@gracia.lasalle.cat',					//			'secretaria@fundacioproide.org',    //Your GMail adress
-    'password'  => 'BoboSylla86'               //Your GMail password
+    'email'     => 'aminata.bangoura@gracia.lasalle.cat';					//'',    //Your GMail adress
+    'password'  => 'BoboSylla86'                //Your GMail password
     );
 
 /* SPECIFIC TO GMAIL SMTP */

@@ -55,7 +55,7 @@ define('TABLE_HEADING_DATE_EXPECTED', 'Data d\'espera');
 // header text in includes/header.php
 define('HEADER_TITLE_TOP', 'Administraci&#243;');
 define('HEADER_TITLE_SUPPORT_SITE', 'Suport web');
-define('HEADER_TITLE_ONLINE_CATALOG', 'Cat&#243;leg en L&#237;nia');
+define('HEADER_TITLE_ONLINE_CATALOG', 'Cat&#224;leg en L&#237;nia');
 define('HEADER_TITLE_ADMINISTRATION', 'Administraci&#243;');
 define('BOX_TOOLS_BACKUP','Backup');
 define('BOX_TOOLS_MAIL','Correu electronic');
@@ -400,11 +400,13 @@ define ('IMAGE_SAVE', 'Save');
 define ('IMAGE_SEARCH', 'Cerca');
 define ('IMAGE_SELECT', 'Selecciona');
 define ('IMAGE_SEND', 'Enviar');
-define ('IMAGE_SEND_EMAIL ',' enviar consulta ');
+define ('IMAGE_SEND_EMAIL',' enviar consulta ');
+define ('IMAGE_SEND_MAIL',' enviar consulta ');
 define ('IMAGE_UNLOCK', 'Desbloqueja');
 define ('IMAGE_UPDATE',  'l&#39;actualització');
 define ('IMAGE_UPDATE_CURRENCIES ','Actualització dels Tipus de Canvi');
 define ('IMAGE_UPLOAD', 'Pujar');
+define ('TEXT_INFO_HEADING_DELETE_CUSTOMER','Eliminar soci');
 
 define ('ICON_CROSS', 'False');
 define ('ICON_CURRENT_FOLDER ',' Carpeta actual');

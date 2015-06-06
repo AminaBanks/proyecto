@@ -26,6 +26,7 @@ define('JQUERY_DATEPICKER_I18N_CODE', ''); // leave empty for en_US; see http://
 define('JQUERY_DATEPICKER_FORMAT', 'mm/dd/yy'); // see http://docs.jquery.com/UI/Datepicker/formatDate
 
 define('IMAGE_BUTTON_CONTINUE_1', 'Continue by');
+define('IMAGE_BUTTON_CONTINUE_2', 'Continue by');
 ////
 // Return date in raw format
 // $date should be in format mm/dd/yyyy
@@ -202,6 +203,7 @@ define('IMAGE_BUTTON_BACK', 'Back');
 define('IMAGE_BUTTON_BUY_NOW', 'Buy Now');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Change Address');
 define('IMAGE_BUTTON_CHECKOUT', 'Checkout');
+define('IMAGE_BUTTON_CHECKOUT1', 'Checkout');
 define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirm Order');
 define('IMAGE_BUTTON_CONTINUE', 'Continue');
 define('IMAGE_BUTTON_CONTINUE_SHOPPING', 'Continue Shopping');
@@ -301,5 +303,6 @@ define ('NEW_CUSTOMER', 'New Partner');
 define ('MESSAGE_CLIENT','Dear Partner, <br>Within 24 hours you will receive an email with your details to log in to artesaniafundacioproide.org<br> Thanks <br>PROIDE.');
 
 define('IMAGE_BUTTON_EXIT', 'exit');
+define('ENTRY_COLLEGE', 'Relation at PROIDE:');
 
 ?>

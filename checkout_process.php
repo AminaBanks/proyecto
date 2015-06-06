@@ -221,7 +221,7 @@
       }
     }
 //------insert customer choosen option eof ----
-    $products_ordered .= $order->products[$i]['qty'] . ' x ' . $order->products[$i]['name'] . ' (' . $order->products[$i]['model'] . ') = ' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . $products_ordered_attributes . "\n";
+    $products_ordered .= $order->products[$i]['qty'] . ' x ' . $order->products[$i]['name'] . ' (' . $order->products[$i]['model'] . ') = ' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . $products_ordered_attributes . "\n<br>";
   }
 
 // lets start with the email confirmation
@@ -232,17 +232,15 @@
                  EMAIL_TEXT_INVOICE_URL . ' ' . tep_href_link(FILENAME_ACCOUNT_HISTORY_INFO, 'order_id=' . $insert_id, 'SSL', false) . "\n" .
                  EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";*/
   if ($order->info['comments']) {
-    $email_order .= tep_db_output($order->info['comments']) . "\n\n";
+    $email_order .= tep_db_output($order->info['comments']) . "\n\n<br>";
   }
-  $email_order .= EMAIL_TEXT_PRODUCTS . "\n" . 
-                  EMAIL_SEPARATOR . "\n" . 
-                  $products_ordered . 
-                  EMAIL_SEPARATOR . "\n";
+  $email_order .= $products_ordered . 
+                  EMAIL_SEPARATOR . "\n<br>";
 
   for ($i=0, $n=sizeof($order_totals); $i<$n; $i++) {
-    $email_order .= strip_tags($order_totals[$i]['title']) . ' ' . strip_tags($order_totals[$i]['text']) . "\n";
+    $email_order .= strip_tags($order_totals[$i]['title']) . ' ' . strip_tags($order_totals[$i]['text']) . "\n<br>";
   }
-
+   $email_order .= "<br>".FIN_MESSAGE;
   /*if ($order->content_type != 'virtual') {
     $email_order .= "\n" . EMAIL_TEXT_DELIVERY_ADDRESS . "\n" . 
                     EMAIL_SEPARATOR . "\n" .
@@ -268,8 +266,8 @@
 
       // CONFIGURATION /
       $crendentials = array(
-       'email'     => 'aminata.bangoura@gracia.lasalle.cat',    //Your GMail adress
-       'password'  => 'BoboSylla86'               //Your GMail password
+       'email'     => 'secretaria@fundacioproide.org',    //Your GMail adress
+       'password'  => '29072010'               //Your GMail password
        );
 
       //SPECIFIC TO GMAIL SMTP /
@@ -303,7 +301,7 @@
       //Now, send mail :
       //From - To :
       $mailer->From       = $crendentials['email'];
-      $mailer->FromName   = 'FUNDACIO PROIDE ARTESANIA COL-LABORACIO <br> GR&#x000C0;CIES'; //Optional
+      $mailer->FromName   = 'NOVA COMANDA ARTESANIA.'; //Optional
       $mailer->addAddress($to);  // Add a recipient
 
       //Subject - Body :

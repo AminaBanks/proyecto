@@ -520,7 +520,7 @@ header("Content-type: text/html; charset=utf-8");
 			/* CONFIGURATION */
 			$crendentials = array(
 				'email'     => $from_addr,    //Your GMail adress Or yahoo, or cat
-				'password'  => 'BoboSylla86'  //Your GMail password es
+				'password'  => '29072010'   //Your GMail password es
 				);
 
 			/* SPECIFIC TO GMAIL O YAHOO SMTP ES EL PROTOCOLO PARA ENVIAR LOS MAILS*/

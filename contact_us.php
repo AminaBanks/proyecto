@@ -25,7 +25,7 @@
     if (!tep_validate_email($email_address)) {
       $error = true;
 		echo($error);
-		echo("tonto1");
+		
       $messageStack->add('contact', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
     }
 

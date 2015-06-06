@@ -19,7 +19,7 @@ define('TABLE_HEADING_BILLING_ADDRESS', 'Dirección de Facturación');
 define('TEXT_SELECTED_BILLING_DESTINATION', 'Elija la dirección de su libreta donde quiera recibir la factura.');
 define('TITLE_BILLING_ADDRESS', 'Dirección de Facturación:');
 
-define('TABLE_HEADING_PAYMENT_METHOD', 'Forma de Pago');
+define('TABLE_HEADING_PAYMENT_METHOD', 'FORMA DE PAGO');
 define('TEXT_SELECT_PAYMENT_METHOD', 'Escoja la forma de pago preferida para este pedido.');
 define('TITLE_PLEASE_SELECT', 'Por favor seleccione');
 define('TEXT_ENTER_PAYMENT_INFORMATION', 'Esta es la única forma de pago disponible para este pedido.');

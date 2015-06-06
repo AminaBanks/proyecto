@@ -4,7 +4,7 @@
 define('NAVBAR_TITLE_1', 'Realitza la comanda');
 define('NAVBAR_TITLE_2', 'Confirmaci&oacute;');
 
-define('HEADING_TITLE', 'Confirma la comanda');
+define('HEADING_TITLE', 'Confirma');
 
 define('HEADING_DELIVERY_ADDRESS', 'Adre&ccedil;a de lliurament');
 define('HEADING_SHIPPING_METHOD', 'Forma d\'enviament');

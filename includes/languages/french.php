@@ -23,6 +23,7 @@ if (strtolower(substr(PHP_OS, 0, 3)) === 'win') {
 }
 
 define('IMAGE_BUTTON_CONTINUE_1', 'Continue acheter');
+define('IMAGE_BUTTON_CONTINUE_2', 'Continue <br> acheter');
 
 define('DATE_FORMAT_SHORT', '%d/%m/%Y');  // this is used for strftime()
 define('DATE_FORMAT_LONG', '%A %d %B %Y'); // this is used for strftime()
@@ -203,6 +204,7 @@ define('IMAGE_BUTTON_BACK', 'Retour');
 define('IMAGE_BUTTON_BUY_NOW', 'Acheter');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Changez l\'adresse');
 define('IMAGE_BUTTON_CHECKOUT', 'Commander');
+define('IMAGE_BUTTON_CHECKOUT1', 'Commander');
 define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirmer la commande');
 define('IMAGE_BUTTON_CONTINUE', 'Continuer');
 define('IMAGE_BUTTON_CONTINUE_SHOPPING', 'Continuer vos achats');
@@ -297,5 +299,6 @@ define ('MESSAGE_CLIENT','Cher Partenaire, <br>Dans les 24 heures, vous recevrez
 define('IMAGE_BUTTON_EXIT', 'sortir');
 
 define('MAIL_ERROR', 'Mot de passe incorrecte');
+define('ENTRY_COLLEGE', 'Lien avec PROIDE:');
 ?>
 

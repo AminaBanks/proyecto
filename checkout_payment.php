@@ -66,10 +66,10 @@
 ?>
 
 <?php echo $payment_modules->javascript_validation(); ?>
-<!--
+
 <div class="page-header">
-  <h1><?php //echo HEADING_TITLE; ?></h1>
-</div>-->
+  <h1><?php echo  TABLE_HEADING_PAYMENT_METHOD; ?></h1>
+</div>
 
 <?php echo tep_draw_form('checkout_payment', tep_href_link(FILENAME_CHECKOUT_CONFIRMATION, '', 'SSL'), 'post', 'class="form-horizontal" onsubmit="return check_form();"', true); ?>
 
@@ -114,7 +114,7 @@
 
   <div class="clearfix"></div>
 
-  <h2><?php echo TABLE_HEADING_PAYMENT_METHOD; ?></h2>
+  <!--h2><?php echo TABLE_HEADING_PAYMENT_METHOD; ?></h2-->
 
 <?php
   $selection = $payment_modules->selection();
@@ -139,9 +139,15 @@
 <?php
     } else {
 ?>
-
-  <div class="contentText">
-    <div class="alert alert-info"><?php echo TEXT_ENTER_PAYMENT_INFORMATION; ?></div>
+<div class="body-sans-header clearfix">
+  <div class="contentText row">
+	<div class="col-md-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><?php echo TABLE_HEADING_PAYMENT_METHOD;?></div>
+			<div class="panel-body"><?php echo TEXT_ENTER_PAYMENT_INFORMATION; ?></div>			
+		</div>
+	</div>
+  </div>
   </div>
 
 <?php

@@ -19,7 +19,7 @@ define('TABLE_HEADING_BILLING_ADDRESS', 'Adre&ccedil;a de Facturaci&oacute;');
 define('TEXT_SELECTED_BILLING_DESTINATION', '');
 define('TITLE_BILLING_ADDRESS', 'Adre&ccedil;a de Facturaci&oacute;:');
 
-define('TABLE_HEADING_PAYMENT_METHOD', 'Forma de pagament');
+define('TABLE_HEADING_PAYMENT_METHOD', 'FORMA DE PAGAMENT');
 define('TEXT_SELECT_PAYMENT_METHOD', 'Seleccioneu la forma de pagament d\'aquesta comanda, si us plau.');
 define('TITLE_PLEASE_SELECT', 'Seleccioneu');
 define('TEXT_ENTER_PAYMENT_INFORMATION', 'El pagament caldrà fer-lo en efectiu en el moment del lliurament.');

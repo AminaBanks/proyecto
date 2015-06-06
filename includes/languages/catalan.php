@@ -1,6 +1,7 @@
 <?php
 
 
+
 // look in your $PATH_LOCALE/locale directory for available locales
 // or type locale -a on the server.
 // Examples:
@@ -168,7 +169,7 @@ define('ENTRY_GENDER', 'Sexe:');
 define('ENTRY_GENDER_ERROR', 'Si us plau, seleccioneu una opci&oacute;.');
 define('ENTRY_GENDER_TEXT', '*');
 define('ENTRY_FIRST_NAME', 'Nom:');
-define('ENTRY_COLLEGE', 'Nom d\'escola:');
+define('ENTRY_COLLEGE', 'Relaci&oacute; amb PROIDE:');
 define('ENTRY_FIRST_NAME_ERROR', 'El vostre nom ha de tenir almenys ' . ENTRY_FIRST_NAME_MIN_LENGTH . ' lletres.');
 define('ENTRY_FIRST_NAME_TEXT', '');
 define('ENTRY_LAST_NAME', 'Cognoms:');
@@ -265,9 +266,11 @@ define('IMAGE_BUTTON_ADDRESS_BOOK', 'Adreces');
 define('IMAGE_BUTTON_BACK', 'Enrere');
 define('IMAGE_BUTTON_BUY_NOW', 'Compra');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Canvia l\'adre&ccedil;a');
-define('IMAGE_BUTTON_CHECKOUT', 'Realitza la comanda');
+define('IMAGE_BUTTON_CHECKOUT', 'Realitza  la comanda');
+define('IMAGE_BUTTON_CHECKOUT1', 'Realitza <br> la comanda');
+define('IMAGE_BUTTON_CHECKOUT2', 'Continua');
 define('REVIEWS_TEXT_AVERAGE', 'Mitjana de la classificaci&#x000F3;  <span itemprop="count">%s</span> opini&#x000F3; (s) %s');
-define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirma la comanda');
+define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirma');
 define('IMAGE_BUTTON_CONTINUE', 'Continua');
 define('IMAGE_BUTTON_CONTINUE_SHOPPING', 'Continua comprant');
 define('IMAGE_BUTTON_DELETE', 'Suprimeix');
@@ -346,6 +349,7 @@ define('FORM_REQUIRED_INPUT', '<span><span class="glyphicon glyphicon-asterisk f
 
 //BORRAR CESTA Y AÑADIR CESTA
 define('IMAGE_BUTTON_CONTINUE_1', 'Continua comprant');
+define('IMAGE_BUTTON_CONTINUE_2', 'Continua <br>comprant');
 define ('PRODUCT_SUBSCRIBED', '% s ha estat afegit a la seva llista de notificacions');
 define ('PRODUCT_UNSUBSCRIBED', "% s s'ha eliminat de la seva llista de notificacions");
 define ('PRODUCT_ADDED', '% s ha estat afegit a la cistella');
@@ -353,7 +357,7 @@ define ('PRODUCT_REMOVED', "% s s'ha eliminat del seu carro ");
 define('IMAGE_BUTTON_EMAIL', 'Enviar Correu');
 //NUEVA CREACION 
 define ('NEW_CUSTOMER', 'NOVA SOL-LICITUD ARTESANIA.');
-define ('MESSAGE_CLIENT','En menys de 24 hores rebràs un correu electrònic amb les claus d’accés al Comerç Solidari de PROIDE.<br>
+define ('MESSAGE_CLIENT','En menys de 24 hores rebràs un correu electrònic amb les claus d’accés  Comerç Solidari de PROIDE.<br>
 Gràcies.<br> 
 Fundació PROIDE
 ');

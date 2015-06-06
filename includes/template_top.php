@@ -72,11 +72,12 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
 								
 				<li><a href="http://localhost/osCommerce234/index.php?language=ca"><?PHP echo LANGUAGE_1;?></a></li>
 				<li><a href="http://localhost/osCommerce234/index.php?language=s1"><?PHP echo LANGUAGE_3;?></a></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=s3"><?PHP echo LANGUAGE_4;?></a></li>
-				<li><a href="http://localhost/osCommerce234/index.php?language=s2"><?PHP echo LANGUAGE_2;?></a></li>			
+				<li><a href="http://localhost/osCommerce234/index.php?language=s2"><?PHP echo LANGUAGE_4;?></a></li>
+				<li><a href="http://localhost/osCommerce234/index.php?language=s3"><?PHP echo LANGUAGE_2;?></a></li>			
 			</ul>			
 		</li> 
-		<?php //SI EL USUARIO NO ESTA CONECTA NO SE MUESTRA EL RESTO DE LA INFORMACION DE LA PAGINA  LINEA 82
+		<?php // http://localhost/osCommerce234/ 
+		//SI EL USUARIO NO ESTA CONECTA NO SE MUESTRA EL RESTO DE LA INFORMACION DE LA PAGINA  LINEA 82
 			if (tep_session_is_registered('customer_id')) { // PARA NO MUESTRAR LOS EL SHOPPING_CART,EL BUSCADOR, EL LOGOFF TAMPOCO LAS REDES SOCIALES FCBK Y YOUTUBE 
 		?>  
 			<li>

@@ -10,7 +10,7 @@
   Released under the GNU General Public License
 */
 header("Content-type: text/html; charset=utf-8");
-define('TEXT_MAIN', 'Et donem la benvinguda a la p&#x000E0;gina web de Comer&#x000E7; Solidari de PROIDE per ajudar-nos a fer possible la nostra tasca de cooperaci&#x000F3; al desenvolupament');
+define('TEXT_MAIN', 'Et donem la benvinguda a la p&#x000E0;gina web de Comer&#x000E7; Solidari de PROIDE per ajudar-nos a fer possible la nostra tasca de cooperaci&#x000F3; al desenvolupament.');
 define('TABLE_HEADING_NEW_PRODUCTS', 'Un exemple del que tenim!');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Properament');
 define('TABLE_HEADING_DATE_EXPECTED', 'Llan&ccedil;ament');

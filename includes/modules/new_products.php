@@ -41,9 +41,9 @@
       $new_prods_content .= '</div>';
     }
 ?>
-
-  <h3><?php echo sprintf(TABLE_HEADING_NEW_PRODUCTS, strftime('%B')); ?></h3>
-
+	<div class="changeLetter">
+  <?php echo sprintf(TABLE_HEADING_NEW_PRODUCTS, strftime('%B')); ?>
+	</div>
   <div class="row">
     <?php echo $new_prods_content; ?>
   </div>

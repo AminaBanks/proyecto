@@ -25,6 +25,8 @@ define('EMAIL_TEXT_PAYMENT_METHOD', 'Mode de paiement');
 
 define('EMAIL_SEPARATOR', '------------------------------------------------------');
 define('TEXT_EMAIL_VIA', 'par l\'intermédiaire de');
-define('MESSAGE_TEXT', 'Cher Partenaire <br> reçevrez une commande avec le jour et l\'heure où pouvez de ramassage de votre commande a PROIDE, <br>,
-   vous pouvez faire pour surveiller votre compte entrer dans l\'ordre de la pièce de connaître l\'état de votre commande <br> Merci <br> Proide <br>');
+ define('MESSAGE_TEXT', 'Nous vous remercions de l\'achat de produits PROIDE Solidarit&eacute; commerce. En moins de 24 heures, vous recevrez un e-mail qui vous informera de la journ&eacute;e; disponible la commande suivante:<br> ');
+ define('NEW_ORDER_PARTNER', ' Commanda de Comerce &eacute;quitable PROIDE ');  
+ define ('FIN_MESSAGE', 'Cordialement, et merci d\'avoir achet&eacute; notre commerce &eacute;quitable.<br>Fondation PROIDE');
+
 ?>

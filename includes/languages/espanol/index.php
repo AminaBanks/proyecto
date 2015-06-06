@@ -12,7 +12,7 @@
 /*Cambar la linea 13 a 15 despues de la reunion con el cliente*/
 //define('TEXT_MAIN', '<center> <h1> <b>NUEVA TIENDA ONLINE!</b></h1></center>
 //');
-define('TEXT_MAIN', 'Te damos la bienvenida a la página web de Comercio Solidario de PROIDE para ayudarnos a hacer posible nuestra labor de cooperación al desarrollo');
+define('TEXT_MAIN', 'Te damos la bienvenida a la página web de Comercio Solidario de PROIDE para ayudarnos a hacer posible nuestra labor de cooperación al desarrollo.');
 //define('TABLE_HEADING_NEW_PRODUCTS', 'Nuevos Productos para %s');
 define('TABLE_HEADING_NEW_PRODUCTS', 'Un ejemplo de lo que tenemos !');
 define('TABLE_HEADING_UPCOMING_PRODUCTS', 'Productos en espera');

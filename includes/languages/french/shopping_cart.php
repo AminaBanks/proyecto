@@ -22,8 +22,8 @@ define('SUB_TITLE_TOTAL', 'Total :');
 define('TEXT_OR', 'ou &nbsp;');
 define('TEXT_REMOVE', 'supprimer.');
 
-define('OUT_OF_STOCK_CANT_CHECKOUT', 'Les produits marqués ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' ne sont pas en stock dans la quantité désirée.<br />Merci de corriger la quantité des articles marqués (' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ')');
-define('OUT_OF_STOCK_CAN_CHECKOUT', 'Les produits marqués avec ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' ne sont pas en stock dans la quantité désirée.<br />Vous pouvez néanmoins les acheter, ils vous seront délivrés dès leur disponibilité.');
+define('OUT_OF_STOCK_CANT_CHECKOUT', 'Les produits marqués ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' ne sont pas en stock dans la quantité désirée.');
+define('OUT_OF_STOCK_CAN_CHECKOUT', 'Les produits marqués avec ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' ne sont pas en stock dans la quantité désirée.');
 define('TEXT_ALTERNATIVE_CHECKOUT_METHODS', '- OU -');
 
 ?>

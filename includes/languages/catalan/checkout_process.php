@@ -25,7 +25,8 @@ define('EMAIL_TEXT_PAYMENT_METHOD', 'Forma de pagament');
 
 define('EMAIL_SEPARATOR', '------------------------------------------------------');
 define('TEXT_EMAIL_VIA', 'via');
-define('MESSAGE_TEXT', 'Estimat Soci <br> rebreu una comanda amb el dia i l\'hora en el qual podies passar a recollir la vostra comanda a PROIDE, per
-   podeu fer el seguiment entrant al vostre compte a la part de comandes per saber l\'estat de la vostra comanda <br> Gràcies <br> Proide');
- define('NEW_ORDER_PARTNER', 'NOU COMANDA SOCI ARTESANIA');  
+define('MESSAGE_TEXT', 'Gr&agrave;cies per adquirir productes de Comer&ccedil; Solidari de PROIDE. En menys de 24 hores rebr&agrave;s un correu electr&ograve;nic on t\'informarem del dia que estar&agrave; disponible la comanda seg&uuml;ent:<br> ');
+ define('NEW_ORDER_PARTNER', 'Comanda Comerç Solidari PROIDE ');  
+ define ('FIN_MESSAGE', 'Rep una cordial salutaci&oacute; i moltes gr&agrave;cies per adquirir el nostre Comer&ccedil; Solidari.<br><br>Fundaci&oacute; PROIDE');
+
 ?>

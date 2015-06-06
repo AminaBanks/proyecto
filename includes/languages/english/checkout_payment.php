@@ -19,7 +19,7 @@ define('TABLE_HEADING_BILLING_ADDRESS', 'Billing Address');
 define('TEXT_SELECTED_BILLING_DESTINATION', 'Please choose from your address book where you would like the invoice to be sent to.');
 define('TITLE_BILLING_ADDRESS', 'Billing Address:');
 
-define('TABLE_HEADING_PAYMENT_METHOD', 'Payment Method');
+define('TABLE_HEADING_PAYMENT_METHOD', 'PAYMENT METHOD');
 define('TEXT_SELECT_PAYMENT_METHOD', 'Please select the preferred payment method to use on this order.');
 define('TITLE_PLEASE_SELECT', 'Please Select');
 define('TEXT_ENTER_PAYMENT_INFORMATION', 'This is currently the only payment method available to use on this order.');

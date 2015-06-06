@@ -115,7 +115,7 @@
         }
 ?>
 
-    <div id="piGal" data-imgcount="<?php echo $photoset_layout; ?>">
+    <div id="piGal" data-imgcount="<?php echo $photoset_layout; ?>" >
 
 	<?php
 			$pi_counter = 0;
@@ -155,13 +155,14 @@
 		  } else {
 	?>
 
-    <div id="piGal">
-      <!--<a href=" <?php //echo ( tep_href_link(DIR_WS_IMAGES . $product_info['products_image'], '', 'NONSSL', false));?> " data-lightbox="example-2"> <?php echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"'.' rel="lightbox"') . '</a>'?>
+    <div id="piGal" data-imgcount="<?php echo $photoset_layout; ?>">
+      <!--<a href=" <?php //echo ( tep_href_link(DIR_WS_IMAGES . $product_info['products_image'], '', 'NONSSL', false));?> " data-lightbox="example-2">
+	  <?php// echo tep_image(DIR_WS_IMAGES . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"'.' rel="lightbox"') . '</a>'?>
 	-->
-		<a href="<?php echo ( tep_href_link(DIR_WS_IMAGES . $product_info['product_image'], '', 'NONSSL', false));?> " data-lightbox="example-2">
-			<?php echo tep_image(DIR_WS_IMAGES . $product_info['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"'); ?>
-		</a>
 	
+	<a href="<?php echo ( tep_href_link(DIR_WS_IMAGES . $product_info['products_image'], '', 'NONSSL', false));?> " data-lightbox="example-2">
+			<?php echo tep_image(DIR_WS_IMAGES . $product_info['products_image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"'); ?>
+		</a>
 	</div>
 
 	<?php

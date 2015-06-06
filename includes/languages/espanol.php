@@ -27,6 +27,7 @@ define('JQUERY_DATEPICKER_I18N_CODE', ''); // leave empty for en_US; see http://
 define('JQUERY_DATEPICKER_FORMAT', 'dd/mm/yy'); // see http://docs.jquery.com/UI/Datepicker/formatDate
 
 define('IMAGE_BUTTON_CONTINUE_1', 'Continua comprando');
+define('IMAGE_BUTTON_CONTINUE_2', 'Continua <br> comprando');
 ////
 // Return date in raw format
 // $date should be in format mm/dd/yyyy
@@ -63,6 +64,7 @@ define('HEADER_TITLE_CREATE_ACCOUNT', 'Crear una Cuenta');
 define('HEADER_TITLE_MY_ACCOUNT', 'Mi Cuenta');
 define('HEADER_TITLE_CART_CONTENTS', 'Ver Cesta');
 define('HEADER_TITLE_CHECKOUT', 'Realizar Pedido');
+
 define('HEADER_TITLE_TOP', 'Inicio');
 define('HEADER_TITLE_CATALOG', 'Cat&aacute;logo');
 define('HEADER_TITLE_LOGOFF', 'Salir');
@@ -207,6 +209,7 @@ define('IMAGE_BUTTON_BACK', 'Atr&aacute;s');
 define('IMAGE_BUTTON_BUY_NOW', 'Comprar');
 define('IMAGE_BUTTON_CHANGE_ADDRESS', 'Cambiar Direcci&oacute;n');
 define('IMAGE_BUTTON_CHECKOUT', 'Realizar Pedido');
+define('IMAGE_BUTTON_CHECKOUT1', 'Realizar <BR> Pedido');
 define('IMAGE_BUTTON_CONFIRM_ORDER', 'Confirmar Pedido');
 define('IMAGE_BUTTON_CONTINUE', 'Continuar');
 define('IMAGE_BUTTON_CONTINUE_SHOPPING', 'Seguir Comprando');
@@ -300,4 +303,5 @@ define ('MESSAGE_CLIENT','Querido Socio, <br>Dentro de 24 horas, recibirá un co
 
 define('IMAGE_BUTTON_EXIT', 'salir');
 define('MAIL_ERROR', 'Correo electronico incorrecto');
+define('ENTRY_COLLEGE', 'Relaci&oacute;n con PROIDE:');
 ?>

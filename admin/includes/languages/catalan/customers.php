@@ -11,7 +11,7 @@
 */
 
 header('Content-Type: text/html; charset=utf-8');
-define ('HEADING_TITLE', 'Clients');
+define ('HEADING_TITLE', 'Socis');
 define ('TEXT_DATE_ACCOUNT_LAST_MODIFIED','última data de modificació');
 define ('HEADING_TITLE_SEARCH', 'Cerca:');
 define ('ENTRY_DATE_OF_BIRTH','Data de creació:');

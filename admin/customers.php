@@ -1,14 +1,4 @@
 <?php
-/*
-  $Id: customers.php,v 1.82 2003/06/30 13:54:14 dgw_ Exp $
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2003 osCommerce
-
-  Released under the GNU General Public License
-*/
 
   require('includes/application_top.php');
 
@@ -36,6 +26,7 @@
     return $hasher->HashPassword($plain);
 	
   }
+  
 //#CHAVEIRO6# Step order/customer end
 
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');
@@ -225,10 +216,7 @@
 			else {
 //#CHAVEIRO6# Step order/customer end
 			$password = tep_db_prepare_input($HTTP_POST_VARS['Password']);
-				
-				
-				//    End of Randomizing Script
-				$sql_data_array['customers_password'] = tep_encrypt_password($password);
+			if ($password!='')      $sql_data_array['customers_password'] = tep_encrypt_password($password);
 		tep_db_perform(TABLE_CUSTOMERS, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "'");
 
         tep_db_query("update " . TABLE_CUSTOMERS_INFO . " set customers_info_date_account_last_modified = now() where customers_info_id = '" . (int)$customers_id . "'");
@@ -267,15 +255,15 @@
 			    tep_db_query("update " . TABLE_CUSTOMERS . " set customers_default_address_id = '" . (int)$address_id . "' where customers_id = '" . (int)$customer_id . "'");
 			    tep_db_query("insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id, customers_info_number_of_logons, customers_info_date_account_created) values ('" . (int)$customer_id . "', '0', now())");
 
-						//Load PHPMailer dependencies
-						require_once '\includes\classes\PHPMailerAutoload.php';
-						require_once '\includes\classes\class.phpmailer.php';
-						require_once '\includes\classes\class.smtp.php';
+				//Load PHPMailer dependencies
+						require_once 'PHPMailerAutoload.php';
+						require_once 'class.phpmailer.php';
+						require_once 'class.smtp.php';
 
 						/* CONFIGURATION */
 						$crendentials = array(
-							'email'     => 'aminata.bangoura@gracia.lasalle.cat',    //Your GMail adress
-							'password'  => 'BoboSylla86'               //Your GMail password
+							'email'     => 	'aminata.bangoura@gracia.lasalle.cat',			//'secretaria@fundacioproide.org',    //Your GMail adress
+							'password'  =>  'BoboSylla86'					//'29072010'               //Your GMail password
 							);
 
 						/* SPECIFIC TO GMAIL SMTP */
@@ -292,7 +280,96 @@
 						/* TO, SUBJECT, CONTENT */
 						$to         = $customers_email_address; //The 'To' field
 						$subject    = NEW_CUSTOMER;
-						$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MS .$customers_lastname."<br>".EMAIL_LOGIN. $customers_email_address."<br>".EMAIL_PASS .$password."<br>PROIDE";
+						$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MS.$customers_lastname."<br>".EMAIL_LOGIN. $customers_email_address."<br>".EMAIL_PASS .$password."<br>Proide";
+
+
+						$mailer = new PHPMailer();
+
+						//SMTP Configuration
+						$mailer->isSMTP();
+						$mailer->SMTPAuth   = true; //We need to authenticate
+						$mailer->Host       = $smtp['host'];
+						$mailer->Port       = $smtp['port'];
+						$mailer->Username   = $smtp['username'];
+						$mailer->Password   = $smtp['password'];
+						$mailer->SMTPSecure = $smtp['secure']; 
+
+						//Now, send mail :
+						//From - To :
+						$mailer->From       = $crendentials['email'];
+						$mailer->FromName   = 'fundacioProide'; //Optional
+						$mailer->addAddress($to);  // Add a recipient
+
+						//Subject - Body :
+						$mailer->Subject        = $subject;
+						$mailer->Body           = $content;
+						$mailer->isHTML(true); //Mail body contains HTML tags
+
+						//Check if mail is sent :
+						if(!$mailer->send()) {
+							echo 'Error sending mail : ' . $mailer->ErrorInfo;
+						?>
+							<script> 
+								var error_message = "<?php echo MAIL_ERROR; ?>";
+								alert("NO SE HA ENVIADO !!!!!"); 
+							</script>
+						<?php
+						} else {
+							echo 'Message sent !';
+						?><script> 
+							var error_message = "<?php echo MAIL_ERROR; ?>";
+							alert("SE HA ENVIADO"); 
+						</script>
+						<?php
+						}
+
+				
+				
+				// build the message content
+				/*$name = $customers_firstname . " " . $customers_lastname;
+				if (ACCOUNT_GENDER == 'true') {
+					 if ($HTTP_POST_VARS['customers_gender'] == 'm') {
+					   $email_text = sprintf(EMAIL_GREET_MR, $customers_lastname);
+					 } else {
+					   $email_text = sprintf(EMAIL_GREET_MS, $customers_lastname);
+					 }
+				} else {
+					$email_text = sprintf(EMAIL_GREET_NONE, $customers_firstname);
+				}
+				
+				$email_text .= EMAIL_WELCOME . sprintf(EMAIL_PASS, $password) . EMAIL_TEXT . EMAIL_CONTACT . EMAIL_WARNING;
+				tep_mail($name, $customers_email_address, EMAIL_SUBJECT, nl2br($email_text), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);*/
+		
+			  tep_redirect(tep_href_link(FILENAME_CUSTOMERS));
+			  //tep_redirect(tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $customer_id));			
+			}
+			else {
+			       if($password!=''){
+			//Load PHPMailer dependencies
+						require_once 'PHPMailerAutoload.php';
+						require_once 'class.phpmailer.php';
+						require_once 'class.smtp.php';
+						/* CONFIGURATION */
+						$crendentials = array(
+							'email'     => 'aminata.bangoura@gracia.lasalle.cat',				//'secretaria@fundacioproide.org',    //Your GMail adress
+							'password'  => 'BoboSylla86'					//'29072010'               //Your GMail password
+							);
+
+						/* SPECIFIC TO GMAIL SMTP */
+						$smtp = array(
+
+						'host' => 'smtp.office365.com',
+						'port' => 587,
+						'username' => $crendentials['email'],
+						'password' => $crendentials['password'],
+						'secure' => 'tls' //SSL or TLS
+
+						);
+
+						/* TO, SUBJECT, CONTENT */
+						$to         = $customers_email_address; //The 'To' field
+						$subject    = NEW_CUSTOMER;
+						$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MS.$customers_lastname."<br>".EMAIL_LOGIN. $customers_email_address."<br>".EMAIL_PASS .$password."<br>Proide";
 
 
 						$mailer = new PHPMailer();
@@ -322,38 +399,20 @@
 							echo 'Error sending mail : ' . $mailer->ErrorInfo;
 						} else {
 							echo 'Message sent !';
-		
-}
-				
-				// build the message content
-				/*$name = $customers_firstname . " " . $customers_lastname;
-				if (ACCOUNT_GENDER == 'true') {
-					 if ($HTTP_POST_VARS['customers_gender'] == 'm') {
-					   $email_text = sprintf(EMAIL_GREET_MR, $customers_lastname);
-					 } else {
-					   $email_text = sprintf(EMAIL_GREET_MS, $customers_lastname);
-					 }
-				} else {
-					$email_text = sprintf(EMAIL_GREET_NONE, $customers_firstname);
-				}
-				
-				$email_text .= EMAIL_WELCOME . sprintf(EMAIL_PASS, $password) . EMAIL_TEXT . EMAIL_CONTACT . EMAIL_WARNING;
-				tep_mail($name, $customers_email_address, EMAIL_SUBJECT, nl2br($email_text), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);*/
-		
-			  tep_redirect(tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $customer_id));			
-			}
-			else {
+						}
+					}
 //#CHAVEIRO6# Step order/customer end
-
+       
 		tep_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "' and address_book_id = '" . (int)$default_address_id . "'");
-
+		
         tep_redirect(tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $customers_id));
 
 //#CHAVEIRO6# Step order/customer begin
 			}
 //#CHAVEIRO6# Step order/customer end
 
-        } else if ($error == true) {
+        } else if ($error == true) 
+		{
           $cInfo = new objectInfo($HTTP_POST_VARS);
           $processed = true;
         }
@@ -396,7 +455,7 @@
 //#CHAVEIRO6# Step order/customer end
 
 
-        $customers_query = tep_db_query("select c.customers_id, c.customers_gender, c.customers_firstname, c.customers_lastname, c.customers_dob, c.customers_email_address, a.entry_company, a.entry_street_address, a.entry_suburb, a.entry_postcode, a.entry_city, a.entry_state, a.entry_zone_id, a.entry_country_id, c.customers_telephone, c.customers_fax, c.customers_newsletter, c.customers_default_address_id from " . TABLE_CUSTOMERS . " c left join " . TABLE_ADDRESS_BOOK . " a on c.customers_default_address_id = a.address_book_id where a.customers_id = c.customers_id and c.customers_id = '" . (int)$HTTP_GET_VARS['cID'] . "'");
+        $customers_query = tep_db_query("select c.customers_id, c.customers_gender, c.customers_firstname, c.customers_lastname, c.customers_dob, c.customers_email_address, a.entry_company, a.entry_street_address, a.entry_suburb, a.entry_postcode, a.entry_city, a.entry_state, a.entry_zone_id, a.entry_country_id, c.customers_telephone, c.customers_fax, c.customers_newsletter, c.customers_default_address_id  from " . TABLE_CUSTOMERS . " c left join " . TABLE_ADDRESS_BOOK . " a on c.customers_default_address_id = a.address_book_id where a.customers_id = c.customers_id and c.customers_id = '" . (int)$HTTP_GET_VARS['cID'] . "'");
 
 
         $customers = tep_db_fetch_array($customers_query);
