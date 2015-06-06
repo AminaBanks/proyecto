@@ -94,7 +94,7 @@ PAGINA ESTA PARTE ESTA DENTRO DE LA BBDD PERO COMO POR DEFECTO LA PAGINA ESTA EN
 				<a href="https://www.youtube.com/user/CanalProide"><img src="images/social_bookmarks/youtube.jpg"/></a>
 			 </li>
 			 <li class="nav navbar-test nav navbar-right" style="width:30%; margin-top:1%;"> 
-			   <form  name="quick_find" <?php //echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
+			   <form  name="quick_find" <?php echo'action="'.tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false).'"';?> method="get" class="form-horizontal">  
 				<div class="input-group">
 				 <input name="keywords"   placeholder="buscar pel nom del producte" class="form-control" type="text"><span class="input-group-btn">
 				 <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button></span>  

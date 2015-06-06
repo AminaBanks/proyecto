@@ -364,4 +364,5 @@ Fundació PROIDE
 define('MESSAGE_SUBJECT_CREATE_ACOUNT', 'Sol·licitud Comerç Solidari PROIDE');
 define('IMAGE_BUTTON_EXIT', 'sortir');
 define('MAIL_ERROR', 'Adreça de correu incorrecte ');
+define('TEXT_SEARCH_PLACEHOLDER','busca un nom producte'); //el texto del placeholder 
 ?>

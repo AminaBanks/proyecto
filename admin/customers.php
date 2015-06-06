@@ -262,8 +262,8 @@
 
 						/* CONFIGURATION */
 						$crendentials = array(
-							'email'     => 	'aminata.bangoura@gracia.lasalle.cat',			//'secretaria@fundacioproide.org',    //Your GMail adress
-							'password'  =>  'BoboSylla86'					//'29072010'               //Your GMail password
+							'email'     => 	'aminata.bangoura@gracia.lasalle.cat',				//secretaria@fundacioproide.org,    //Your GMail adress
+							'password'  =>  'BoboSylla86'								//'29072010'               //Your GMail password
 							);
 
 						/* SPECIFIC TO GMAIL SMTP */
@@ -350,11 +350,10 @@
 						require_once 'class.phpmailer.php';
 						require_once 'class.smtp.php';
 						/* CONFIGURATION */
-						$crendentials = array(
-							'email'     => 'aminata.bangoura@gracia.lasalle.cat',				//'secretaria@fundacioproide.org',    //Your GMail adress
-							'password'  => 'BoboSylla86'					//'29072010'               //Your GMail password
-							);
-
+						$crendentials = array(						
+							'email'     => 	'aminata.bangoura@gracia.lasalle.cat',				//secretaria@fundacioproide.org,    //Your GMail adress
+							'password'  =>  'BoboSylla86'								//'29072010'               //Your GMail password
+							);		
 						/* SPECIFIC TO GMAIL SMTP */
 						$smtp = array(
 

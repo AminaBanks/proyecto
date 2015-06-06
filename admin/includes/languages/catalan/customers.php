@@ -35,6 +35,6 @@ define ('HEADING_TITLE_ADD', 'Nou Soci');
 define('NEW_CUSTOMER', 'Nou Soci');
 define('EMAIL_GREET_MR', 'Estimat Sr.' . "\n\n");
 define('EMAIL_GREET_MS', 'Sra. ' . "\n\n");
-define ('EMAIL_LOGIN', 'tu usuari:');
-define('EMAIL_PASS', 'Tu password:');
+define ('EMAIL_LOGIN', 'Usuari:');
+define('EMAIL_PASS', 'Contrasenya:');
 ?>
