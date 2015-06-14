@@ -21,8 +21,6 @@ define('TYPE_BELOW', 'Genre ci-dessous');
 define('PLEASE_SELECT', 'Choisissez en un');
 define('HEADING_TITLE_ADD', 'Nouvel Partenaire');
 define('NEW_CUSTOMER', 'Nouvel Partenaire');
-define('EMAIL_GREET_MR', 'Cher Mr.' . "\n\n");
-define('EMAIL_GREET_MS', 'Ms. ' . "\n\n");
-define ('EMAIL_LOGIN', 'ton Nom d\'utilisateur');
-define('EMAIL_PASS', 'Ton mot de passe:')
+
+
 ?>

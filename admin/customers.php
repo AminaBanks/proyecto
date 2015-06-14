@@ -280,8 +280,11 @@
 						/* TO, SUBJECT, CONTENT */
 						$to         = $customers_email_address; //The 'To' field
 						$subject    = NEW_CUSTOMER;
+						$content    = EMAIL_GREET_MR. " ".$customers_firstname.":<br>". TEXT_MAIL_CUSTOMER_EMAIL_LOGIN.".<br>".EMAIL_LOGIN.$customers_email_address.".<br>".EMAIL_PASS .$password.".<br>".TEXT_MAIL_CUSTOMER_EMAIL_LOGIN_2."<br>".FIRMA.".";
+						/* ***********************************************
 						$content    = EMAIL_GREET_MR."/" .EMAIL_GREET_MS.$customers_lastname."<br>".EMAIL_LOGIN. $customers_email_address."<br>".EMAIL_PASS .$password."<br>Proide";
-
+						REMPLAZAR CESTA LINEA 
+						*/
 
 						$mailer = new PHPMailer();
 

@@ -33,8 +33,12 @@ define ('TYPE_BELOW', 'Tipus de baix');
 define ('PLEASE_SELECT', 'Select One');
 define ('HEADING_TITLE_ADD', 'Nou Soci');
 define('NEW_CUSTOMER', 'Nou Soci');
-define('EMAIL_GREET_MR', 'Estimat Sr.' . "\n\n");
-define('EMAIL_GREET_MS', 'Sra. ' . "\n\n");
-define ('EMAIL_LOGIN', 'Usuari:');
-define('EMAIL_PASS', 'Contrasenya:');
+define('EMAIL_GREET_MR', 'Hola' );
+define('EMAIL_GREET_MS', 'Hola');
+define ('EMAIL_LOGIN', '<strong>El teu login d\'acc&eacute;s &eacute;s el teu correu electr&ograve;nic: </strong>');
+define('EMAIL_PASS', '<strong>Tu La teva contrasenya &eacute;s: </strong>');
+define('TEXT_MAIL_CUSTOMER_EMAIL_LOGIN','T\'hem registrat com a persona usu&agrave;ria del Comer&ccedil; Solidari de PROIDE.<br>
+A partir d\'ara a l\'adre&ccedil;a http://artesania.fundacioproide.org/, o a la pestanya PROMOCI&Oacute; / COMER&Ccedil; SOLIDARI de la nostra web, podr&agrave;s accedir a consultar i adquirir els nostres productes procedents dels pa&iuml;sos on treballem. &Eacute;s molt f&agrave;cil, i en un temps molt breu la comanda ja &eacute;s teva');
+define('TEXT_MAIL_CUSTOMER_EMAIL_LOGIN_2','Per a qualsevol dubte o aclariment, pots escriure a secretaria@fundacioproide.org (Helena) o trucant al 93 237 71 80.');
+define('FIRMA','Fundaci&oacute; PROIDE');
 ?>
