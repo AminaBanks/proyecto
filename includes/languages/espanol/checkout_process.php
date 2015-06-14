@@ -28,5 +28,5 @@ define('TEXT_EMAIL_VIA', 'vía');
 define('MESSAGE_TEXT', 'Gracias por adquirir los productos de Comercio Solidario de PROIDE. En menos de 24 horas recibas un correo electronico del dia que estara  disponible tu pedido :<br> ');
  define('NEW_ORDER_PARTNER', 'Pedido de Comercio Solidario PROIDE ');  
  define ('FIN_MESSAGE', 'Recibe una coordial saludo y muchas gracias por adquirir productos del comercio Solidario.<br> Fundación PROIDE');
-
+define('TITLE_SHOPPING_PROCESS', 'NUEVO PEDIDO DE ARTESANIA');
 ?>

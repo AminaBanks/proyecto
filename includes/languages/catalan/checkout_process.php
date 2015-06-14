@@ -1,14 +1,5 @@
 <?php
-/*
-  $Id: checkout_process.php 1739 2007-12-20 00:52:16Z hpdl $
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2002 osCommerce
-
-  Released under the GNU General Public License
-*/
 
 define('EMAIL_TEXT_SUBJECT', 'Processant la comanda');
 define('EMAIL_TEXT_ORDER_NUMBER', 'N&uacute;mero de comanda:');
@@ -26,7 +17,9 @@ define('EMAIL_TEXT_PAYMENT_METHOD', 'Forma de pagament');
 define('EMAIL_SEPARATOR', '------------------------------------------------------');
 define('TEXT_EMAIL_VIA', 'via');
 define('MESSAGE_TEXT', 'Gr&agrave;cies per adquirir productes de Comer&ccedil; Solidari de PROIDE. En menys de 24 hores rebr&agrave;s un correu electr&ograve;nic on t\'informarem del dia que estar&agrave; disponible la comanda seg&uuml;ent:<br> ');
- define('NEW_ORDER_PARTNER', 'Comanda Comerç Solidari PROIDE ');  
+ define('NEW_ORDER_PARTNER', 'Comanda Comer$ccedil; Solidari PROIDE ');  
  define ('FIN_MESSAGE', 'Rep una cordial salutaci&oacute; i moltes gr&agrave;cies per adquirir el nostre Comer&ccedil; Solidari.<br><br>Fundaci&oacute; PROIDE');
 
+define('TITLE_SHOPPING_PROCESS', 'NOVA COMANDA D\'ARTESANIA');
+ 
 ?>

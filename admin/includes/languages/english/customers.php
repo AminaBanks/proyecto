@@ -31,13 +31,21 @@ define('TYPE_BELOW', 'Type below');
 define('PLEASE_SELECT', 'Select One');
 define('NEW_CUSTOMER', 'New Partner');
 
-define('EMAIL_GREET_MR', 'Dear Mr.' . "\n\n");
-define('EMAIL_GREET_MS', 'Ms. ' . "\n\n");
+
 define('EMAIL_GREET_NONE', 'Dear %s' . "\n\n");
 define('EMAIL_WELCOME', 'We welcome you to <b>' . STORE_NAME . '</b>.' . "\n\n");
-define('EMAIL_LOGIN', 'Your login:');
-define('EMAIL_PASS', 'Your password for this account is: %s' . "\n" . "Keep it in a safe place, your password is case sensitive.\n\n" . "You can login now at " . HTTP_CATALOG_SERVER . DIR_WS_CATALOG . "login.php \n\n");
 define('EMAIL_TEXT', 'You can now take part in the <b>various services</b> we have to offer you. Some of these services include:' . "\n\n" . '<li><b>Permanent Cart</b> - Any products added to your online cart remain there until you remove them, or check them out.' . "\n" . '<li><b>Address Book</b> - We can now deliver your products to another address other than yours! This is perfect to send birthday gifts direct to the birthday-person themselves.' . "\n" . '<li><b>Order History</b> - View your history of purchases that you have made with us.' . "\n" . '<li><b>Products Reviews</b> - Share your opinions on products with our other customers.' . "\n\n");
 define('EMAIL_CONTACT', 'For help with any of our online services, please email the store-owner: ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n\n");
 define('EMAIL_WARNING', '<b>Note:</b> This email address was given to us by one of our customers. If you did not signup to be a member, please send an email to ' . STORE_OWNER_EMAIL_ADDRESS . '.' . "\n");
+
+/*ESTA PARTE ES EL MAIL QUE EL NUEVO SOCIO DEBE RECIBIR CUANDO SE LE DA DE ALTA A PARTIR DE ADMIN EN EL FICHERO customers.php *********************************************/
+define('EMAIL_GREET_MR', 'Hi' );
+define('EMAIL_GREET_MS', 'Hi');
+define ('EMAIL_LOGIN', '<strong>Access Your login is your e-mail: </strong>');
+define('EMAIL_PASS', '<strong>Your password is:  </strong>');
+
+define('TEXT_MAIL_CUSTOMER_EMAIL_LOGIN','We have registered as users of the Solidarity Trade PROIDE.
+From now on the address http://artesania.fundacioproide.org/, or tab PROMOTION / fair trade on our website, you will be able to view and purchase our products from the countries where we work. It is easy, and within a very short time the order is already yours.');
+define('TEXT_MAIL_CUSTOMER_EMAIL_LOGIN_2','For any question, write to secretaria@fundacioproide.org (Helena) or by calling 93 237 71 80.');
+define('FIRMA','Fondation; PROIDE');
 ?>

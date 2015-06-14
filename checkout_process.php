@@ -301,7 +301,7 @@
       //Now, send mail :
       //From - To :
       $mailer->From       = $crendentials['email'];
-      $mailer->FromName   = 'NOVA COMANDA ARTESANIA.'; //Optional
+      $mailer->FromName   = TITLE_SHOPPING_PROCESS; //Optional
       $mailer->addAddress($to);  // Add a recipient
 
       //Subject - Body :

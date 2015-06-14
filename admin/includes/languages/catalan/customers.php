@@ -32,6 +32,9 @@ define ('TEXT_INFO_HEADING ELIMINAR AL CLIENT ','Eliminar Client');
 define ('TYPE_BELOW', 'Tipus de baix');
 define ('PLEASE_SELECT', 'Select One');
 define ('HEADING_TITLE_ADD', 'Nou Soci');
+
+/*ESTA PARTE ES EL MAIL QUE EL NUEVO SOCIO DEBE RECIBIR CUANDO SE LE DA DE ALTA A PARTIR DE ADMIN EN EL FICHERO customers.php *********************************************/
+
 define('NEW_CUSTOMER', 'Nou Soci');
 define('EMAIL_GREET_MR', 'Hola' );
 define('EMAIL_GREET_MS', 'Hola');

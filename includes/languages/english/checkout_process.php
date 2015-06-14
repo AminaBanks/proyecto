@@ -28,5 +28,6 @@ define('TEXT_EMAIL_VIA', 'via');
 define('MESSAGE_TEXT', 'Thank you for purchasing PROIDE Solidarity Trade products. In less than 24 hours you will receive an email that will inform you of the day; available the following command:<br>');
  define('NEW_ORDER_PARTNER', 'Solidarity Trade Order PROIDE ');  
  define ('FIN_MESSAGE', 'Yours sincerely, and thank you for purchasing our fair trade.<br>Foundation PROIDE');
+ define('TITLE_SHOPPING_PROCESS', 'NEW ORDER CRAFTS');
 
 ?>

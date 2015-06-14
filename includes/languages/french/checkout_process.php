@@ -28,5 +28,5 @@ define('TEXT_EMAIL_VIA', 'par l\'intermédiaire de');
  define('MESSAGE_TEXT', 'Nous vous remercions de l\'achat de produits PROIDE Solidarit&eacute; commerce. En moins de 24 heures, vous recevrez un e-mail qui vous informera de la journ&eacute;e; disponible la commande suivante:<br> ');
  define('NEW_ORDER_PARTNER', ' Commanda de Comerce &eacute;quitable PROIDE ');  
  define ('FIN_MESSAGE', 'Cordialement, et merci d\'avoir achet&eacute; notre commerce &eacute;quitable.<br>Fondation PROIDE');
-
+define('TITLE_SHOPPING_PROCESS', 'NOUVELLE COMMANDE D\'ARTISANAT');
 ?>
