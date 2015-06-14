@@ -221,7 +221,7 @@
       }
     }
 //------insert customer choosen option eof ----
-    $products_ordered .= $order->products[$i]['qty'] . ' x ' . $order->products[$i]['name'] . ' (' . $order->products[$i]['model'] . ') = ' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . $products_ordered_attributes . "\n<br>";
+    $products_ordered .= $order->products[$i]['qty'] . ' x ' . $order->products[$i]['name'] . '=' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty'])  . "\n<br>";
   }
 
 // lets start with the email confirmation
@@ -266,18 +266,18 @@
 
       // CONFIGURATION /
       $crendentials = array(
-       'email'     => 'secretaria@fundacioproide.org',    //Your GMail adress
-       'password'  => '29072010'               //Your GMail password
+       'email'     => 'aminata.bangoura@gracia.lasalle.cat', 	//'secretaria@fundacioproide.org',    //Your GMail adress
+       'password'  => 'BoboSylla86'		//'29072010'               //Your GMail password
        );
 
       //SPECIFIC TO GMAIL SMTP /
       $smtp = array(
 
-      'host' => 'smtp.office365.com',		//'smtp.gmail.com',
+      'host' => 'smtp.office365.com',			//'smtp.gmail.com',//,	
       'port' => 587,
       'username' => $crendentials['email'],
       'password' => $crendentials['password'],
-      'secure' => 'tls' //SSL or TLS
+      'secure' => 'tls' 			//SSL or TLS
 
       );
 
@@ -287,8 +287,8 @@
       $content    = $email_order;
 
 
-      $mailer = new PHPMailer();
-
+      $mailer = new PHPMailer();  
+	  
       //SMTP Configuration
       $mailer->isSMTP();
       $mailer->SMTPAuth   = true; //We need to authenticate
@@ -308,6 +308,7 @@
       $mailer->Subject        = $subject;
       $mailer->Body           = $content;
       $mailer->isHTML(true); //Mail body contains HTML tags
+	  $mailer->CharSet='UTF-8';
 
       //Check if mail is sent :
       if(!$mailer->send()) {

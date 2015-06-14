@@ -345,7 +345,7 @@ define ('MODULE_BOXES_INFORMATION_BOX_PRIVACY', 'Privacitat');
 
 define('FORM_REQUIRED_INFORMATION', '<span class="glyphicon glyphicon-asterisk inputRequirement"></span> Required information');
 define('FORM_REQUIRED_INPUT', '<span><span class="glyphicon glyphicon-asterisk form-control-feedback inputRequirement"></span></span>');
-
+define('FORM_REQUIRED_INPUT_1', '<span class="glyphicon glyphicon-asterisk form-control-feedback inputRequirement"></span>');
 
 //BORRAR CESTA Y AÑADIR CESTA
 define('IMAGE_BUTTON_CONTINUE_1', 'Continua comprant');

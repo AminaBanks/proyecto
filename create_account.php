@@ -286,7 +286,7 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
   <select name="school" required="" aria-required="true" id="school" class="form-control"> 
 	
 	<option value="Voluntariat">Voluntariat</option>
-	<option value="Col.laborador economic">Col&CenterDot;laborador econ&#x000F3;mic</option>
+	<option value="Col.laborador economic">Col&CenterDot;laborador econ&ograve;mic</option>
   <option value="La Salle Barceloneta">La Salle Barceloneta </option>
    <option value="La Salle Berga">La Salle Berga</option>
   <option value="La Salle Bonanova">La Salle Bonanova</option>
@@ -313,7 +313,7 @@ echo tep_draw_form('create_account.php', tep_href_link('create_account.php', '',
   <option value="Fundacio Vidal i Barraquer Cambrils">Fundaci&#x000F3; Vidal i Barraquer Cambrils</option>
   </select>
   <?php
-	echo FORM_REQUIRED_INPUT;
+	echo "&nbsp&nbsp&nbsp".FORM_REQUIRED_INPUT_1;
   ?>
       </div>
     </div>
